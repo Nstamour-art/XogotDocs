@@ -39,11 +39,9 @@ jobs:
             --experimental-enable-custom-templates \
             --hosting-base-path / \
             --output-path /tmp/docs Documentation.docc;
-          sed -i '' 's/href="\/favicon.svg" color="#333333">/href="\/favicon.svg" color="#A93232">/' /tmp/docs/index.html;
           find docs -name "*.json" -type f -print0 | xargs -0 sed -i '' -e 's/"title":"XogotDocs"/"title":"Xogot Documentation"/g';
           find docs -name index.html -exec cp /tmp/docs/index.html {} \;
           mv Documentation.docc/Resources/favicon.* docs;
-          echo "<script>window.location.href += \"/documentation/XogotDocs\"</script>" > docs/index.html;
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
         with:
