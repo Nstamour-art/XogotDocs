@@ -1,4 +1,4 @@
-# Differences between Xogot and Desktop Godot
+# Differences between Xogot and Godot
 
 ## Only gdscript
 
