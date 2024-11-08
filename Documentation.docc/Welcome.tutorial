@@ -4,7 +4,7 @@
         
     }
     
-    @Chapter(name: "Step by Step") {
+    @Chapter(name: "Intro") {
         Learn the fundamentals of Xogot.
         
         @TutorialReference(tutorial: "doc:Step-by-Step")
