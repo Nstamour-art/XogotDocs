@@ -7,6 +7,9 @@
     @Chapter(name: "Introduction") {
         Learn the fundamentals of Xogot.
         
+        @Image(source: "3DPlatformer.png",
+               alt: "A screenshot of the the step-by-step example.")
+        
         @TutorialReference(tutorial: "doc:Step-by-Step")
         @TutorialReference(tutorial: "doc:Your-First-2D-Game")
         @TutorialReference(tutorial: "doc:Your-First-3D-Game")
