@@ -1,4 +1,4 @@
-# Tutorials
+# Test
 
 Game development with Xogot: Powered by Godot
 
