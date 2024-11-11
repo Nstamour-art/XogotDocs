@@ -1,4 +1,4 @@
-# Xogot: Godot on iPad
+# Xogot on iPad: TestFlight
 
 Thank you for your interest in testing Godot for iPad. This small guide will 
 explain how to get the most of out this TestFlight release.
