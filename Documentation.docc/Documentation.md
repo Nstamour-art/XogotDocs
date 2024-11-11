@@ -4,8 +4,9 @@ To get started building games with Xogot, check out our <doc:Getting-Started> gu
 
 ## Topics
 
-### Articles
+### Welcome
 - <doc:Testflight>
+- <doc:Getting-Started>
 
 ### Release Notes
 - <doc:Preview-1>
