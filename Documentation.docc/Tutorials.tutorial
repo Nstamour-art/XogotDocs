@@ -4,7 +4,7 @@
         
     }
     
-    @Chapter(name: "Introduction") {
+    @Chapter(name: "Tutorials") {
         Learn the fundamentals of Xogot.
         
         @Image(source: "3DPlatformer.png",
