@@ -22,6 +22,7 @@ If you alrady have an existing Godot project you'd like to try out in Xogot, ope
   - If your project is stored in GitHub, you can download your project as a zip directly from GitHub, or
   - Check out <doc:Working-with-Source-Control> for more detailed instructions on using 
 [Working Copy](https://workingcopyapp.com) with projects stored in Git.
+
 2. **Open the Files App** on your iPad.
 3. Navigate to the location of your existing Godot project folder.  
   - If you downloaded the project as a zip file, look for the Downloads folder under Favorites or "iCloud Drive" under Locations.  You'll need to tap the zip file to decompress the project files before you can open them in Xogot. 
@@ -43,11 +44,9 @@ While Xogot is heavily based on the Godot engine, there are some notable differe
 
 ## 4. Known Issues in This Preview Release
 
-As Xogot is currently in its preview release, there are a few known issues that you should be aware of:
-
-- **Limited Plugins**: Certain Godot plugins may not yet be compatible with Xogot due to platform-specific constraints.
-- **Keyboard Shortcuts**: Many keyboard shortcuts available in Godot on the desktop are not currently surfaced in Xogot.
-- **TBD**: Other P1 issues go here
+As Xogot is currently in its preview release, there are a few known issues that
+you should be aware of.  Check our <doc:Preview-1> document for a list of known
+limitations in this release.
 
 We are actively working to resolve these issues and appreciate your patience and feedback.
 
