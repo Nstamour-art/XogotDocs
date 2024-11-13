@@ -1,14 +1,19 @@
-# Working with Source Control in Xogot
+# Working with Git in Xogot
 
 Using Working Copy to manage your project in Git
 
 ## Working Copy
 
-To work with Godot projects stored in Git, Xogot recommends using [Working Copy](https://workingcopyapp.com), a native iOS Git client that integrates seamlessly with the Files App, making it an excellent tool for managing source control on your iPad.
+To work with Godot projects stored in Git, Xogot recommends using [Working
+Copy](https://workingcopyapp.com), a native iOS Git client that integrates
+seamlessly with the Files App, making it an excellent tool for managing source
+control on your iPad.
 
 ## Cloning an Existing Project
 
-Working Copy can clone a repository directly into Xogot’s projects area, enabling you to use Git to manage your game source code on your iPad. Here’s how to do it:
+Working Copy can clone a repository directly into Xogot’s projects area,
+enabling you to use Git to manage your game source code on your iPad. Here’s how
+to do it: 
 
 1. **Open Working Copy** on your iPad.
 2. Tap the **“+” button** to add a new repository.
@@ -25,7 +30,9 @@ Working Copy can clone a repository directly into Xogot’s projects area, enabl
 
 ## Setting Up a New Project in Git
 
-If you’ve created a new project in Xogot and want to manage it with Git, or you’ve copied a project into Xogot that was already versioned with Git, you can add the project to Working Copy as a Linked Repository:
+If you’ve created a new project in Xogot and want to manage it with Git, or
+you’ve copied a project into Xogot that was already versioned with Git, you can
+add the project to Working Copy as a Linked Repository:
 
 ### Linking a Project in Xogot to Working Copy
 
