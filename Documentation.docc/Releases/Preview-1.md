@@ -69,10 +69,14 @@ and Xogot not responding.   This fix will be coming soon.
 
 # Releases
 
-## Build TBD
+## Build 1245
 
 * Adds 3D editor, "Align Transform with View" and "Align Rotation with View" are
   now available on the viewport menu.
+
+* Reliability: many scenarios that crashed where going back to the "Project
+  List" are fixed, this is the result of a long-term effort, and the proper
+  solution just landed.
 
 ## Build 1237
 
