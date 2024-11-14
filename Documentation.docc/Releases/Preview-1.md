@@ -72,6 +72,21 @@ and Xogot not responding.   This fix will be coming soon.
 
 # Releases
 
+## Build 1253
+
+* Toolbar Animation icons are now displayed.
+
+* Double-tapping on an item on the the Quick Open Dialog will open the item.
+
+* Recent files were being saved with an incorrect filename, polluting the space.
+
+* Fixed a crash in the CodeEditor triggering while reporting IO errors.
+
+* Prominent Import files button in the toolbar.
+
+* Clear option in a Resource should now clear the value.
+
+
 ## Build 1245
 
 * Adds 3D editor, "Align Transform with View" and "Align Rotation with View" are
