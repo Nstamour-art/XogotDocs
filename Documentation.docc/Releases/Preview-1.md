@@ -72,6 +72,13 @@ and Xogot not responding.   This fix will be coming soon.
 
 # Releases
 
+## Build 1256
+
+* Numeric popups no longer move as the values change.
+
+* Additional improvements at Project Shutdown to prevent it from crashing, an
+orderly shutdown has been implemented now.
+
 ## Build 1253
 
 * Toolbar Animation icons are now displayed.
