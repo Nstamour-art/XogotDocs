@@ -7,7 +7,8 @@ Using Onscreen Controls to quickly touch-enable projects
 Onscreen controls are crucial for testing and playing games directly on your
 iPad. For projects that are not designed for touch, Xogot offers two main ways
 to add onscreen controls to your project: using the **Project Setting**
-(available only on iOS) or adding the **Virtual Joystick Addon**. This guide
+(available only on iOS) or by adding touchscreen controls to your game,
+such as those provided by the **Virtual Joystick Addon**. This guide
 will help you understand the differences between these methods and how to set
 each up.
 
@@ -21,6 +22,12 @@ cons:
 
 #### Project Setting Option (iOS-only)
 
+@Image(source: "VirtualControllerFPS.png",
+       alt: "A screenshot of Kenney's FPS Starter Kit with Onscreen Controls project setting enabled")
+
+This setting is enabled in the 3D Platformer Starter, FPS Starter, Candy Wrapper,
+Twin-Sticke Shooter, and other projects in the Learning Center.
+
 **Pros**:
 - Directly integrated into Xogot, offering a native experience.
 - Requires minimal setup and configuration.
@@ -32,7 +39,13 @@ cons:
 - Customization options are more restricted compared to the Virtual Joystick
   Addon.
 
-#### Virtual Joystick Addon
+#### In-scene Touchscreen Controls
+
+@Image(source: "TouchscreenControlsRPG.png",
+       alt: "A screenshot of Top-down Action RPG with touchscreen controls")
+
+Sample projects which use custom touchscreen controls include Pocket Godot
+and Top-down Action RPG.
 
 **Pros**:
 - Works across all platforms where your project can run.
@@ -44,6 +57,9 @@ cons:
 - More effort to configure button mapping and visual elements.
 
 ## How to Enable Project Setting for Onscreen Controls
+
+@Image(source: "ConfigureVirtualController.png",
+       alt: "A screenshot showing enabling and configuring the Virtual Controller in Xogot")
 
 To use the **Project Setting Option** for onscreen controls:
 
@@ -65,6 +81,9 @@ when you run your project on an iPad.  The controls will automatically hide when
 your project is run on devices that have a physical controller connected.
 
 ### Configure Game Controller Input Map
+
+@Image(source: "ConfigureInputMap.png",
+       alt: "A screenshot showing configuring an input map for a joypad positive x-axis to move_right")
 
 The **Virtual Controller Project Setting** works by emulating hardware gamepad
 actions.  If your project has **Input Map** actions configured for joypad

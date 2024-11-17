@@ -10,6 +10,9 @@ Welcome to **Xogot**, a complete game development environment that runs on your 
 
 Xogot comes preloaded with sample projects to help you explore and learn its features quickly. To access and run these samples:
 
+@Image(source: "StarterProjects.png",
+       alt: "A screenshot of Xogot's Learning Center project gallery")
+
 1. **Open Xogot and tap on the "Learning Center" tab**.
 2. Browse through the list of curated sample projects. Each project includes a brief 
 description to help you select the one that matches your interest.
@@ -20,19 +23,24 @@ new copy of the project ready for you to open and edit.
 
 ## 2. Importing Existing Projects
 
-If you alrady have an existing Godot project you'd like to try out in Xogot, opening your own projects is simple with the Files App integration:
+If you already have an existing Godot project you'd like to try out in Xogot, opening your own projects is simple with the Files App integration:
 
 1. Save your project files to your iCloud Drive, or download your project to your iPad.  
   - If your project is stored in GitHub, you can download your project as a zip directly from GitHub, or
-  - Check out <doc:Working-with-Source-Control> for more detailed instructions on using 
+  - Check out the <doc:Working-with-Source-Control> doc for more detailed instructions on using 
 [Working Copy](https://workingcopyapp.com) with projects stored in Git.
 
 2. **Open the Files App** on your iPad.
+@Image(source: "FilesAppIcon.png",
+       alt: "The Files App icon image")
+
 3. Navigate to the location of your existing Godot project folder.  
   - If you downloaded the project as a zip file, look for the Downloads folder under Favorites or "iCloud Drive" under Locations.  You'll need to tap the zip file to decompress the project files before you can open them in Xogot. 
 4. Tap and hold the project folder, then select **"Copy"**.
 5. While still in Files App, tap on **On My iPad** in the Files sidebar, and then navigate into the
 **Xogot** folder.
+@Image(source: "OnMyiPadXogot.png",
+       alt: "A screenshot of the Xogot folder in location in the Files App")
 6. Tap and hold in the empty area in the Xogot files folder and choose **"Paste"**.
 7. Once imported, your project will be available in the **Project Manager** within Xogot.  
   - If Xogot was open when you imported the project, you may need to restart Xogot for the project 

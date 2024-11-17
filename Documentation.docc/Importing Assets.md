@@ -15,6 +15,10 @@ The first step to importing files into a Xogot project is saving the asset to th
 
 1. **Open the app** that contains your asset (e.g., Procreate, Safari, Uniform).
 2. Tap the **“Share” icon** and choose **“Save to Files”**.
+
+@Image(source: "ProcreateShare.png",
+       alt: "A screenshot of sharing from Procreate")
+
 3. You can either save the asset **directly to your Xogot project folder** or save it to another well-known location, such as **“Downloads”**, for importing later.
 
 ## Importing Files from Within Xogot
@@ -53,7 +57,7 @@ Xogot supports **drag and drop** for importing assets, allowing for an intuitive
 2. Tap the **three dots (“...”)** at the top of the Xogot app.
 3. Select **“Split View”** from the options that appear.
 4. Choose the **Files App** (or another app containing the asset) from the list of available apps to open it side-by-side with Xogot.
-5. To ensure you have a target for dragging, tap the **Sow sidebar button in the upper left** of the Xogot interface and ensure that the **Files Pad** is visible.
+5. To ensure you have a target for dragging, tap the **Show sidebar button in the upper left** of the Xogot interface and ensure that the **Files Pad** is visible.
 
 ## Importing 3D Models
 
