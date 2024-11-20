@@ -72,7 +72,7 @@ and Xogot not responding.   This fix will be coming soon.
 
 # Releases
 
-## Build 1294
+## Build 1296
 
 * Native SpriteSheetImporter implemented.
 
@@ -81,8 +81,7 @@ and Xogot not responding.   This fix will be coming soon.
 
 * Fixes running not picking up saved changes.
 
-* Project Manager now offers long-press options to rename projects (and soon
-  play from the launch screen).
+* Project Manager now offers long-press options to rename projects and launch projects.
 
 * Fixed some ranges in the 3D toolbar light properties that were out of range
   and one property that could not be changed.
