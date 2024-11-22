@@ -74,7 +74,26 @@ and Xogot not responding.   This fix will be coming soon.
 
 # Releases
 
-## Build 1309
+## Build 1320
+
+* Allows cinematic preview to be disabled.
+
+* Fixes physical keyboard input for special keys.
+
+## Build 1317
+
+* When selecting a file from a property in the UI, it will now use the
+  configured filters by default, rather than the system default.
+
+* Tapping "Select" on a file selector property without having picked a file will
+  now reset the value to empty.
+
+* Made the debugging control line at least 44 points tall so it is easier to tap
+  the buttons there.
+
+* Made the completion entries larger so they are easier to tap.
+
+* Use debug builds to help us isolate a couple of crashes.
 
 * Fixes the debugger window positioning when there is no target running.
 
