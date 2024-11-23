@@ -74,6 +74,24 @@ and Xogot not responding.   This fix will be coming soon.
 
 # Releases
 
+## Build 1328
+
+* Fixes the Skeleton3D plugin editor that would lead to a crash, but this
+  surfaced a series of issues related to toolbars for plugins and inspector
+  plugins - all those issues have now been fixed.
+
+* Fixes crashes stemming from partial deinitializations of the editor.
+
+* Surfaces incomplete project properties into the Project Settings (like
+  General/Wind, but will work for other properties that are only 2-levels rather
+  than the standard 3-levels)
+
+* Map Layer editor now supports Pinch and Pan.
+
+* Enabled the Mac-command like shortcuts in Godot, rather than the default
+  Windows-based ones (visible in things like "Select All" in a Godot Text
+  editor, now it is Command-A rather than Control-A).
+
 ## Build 1320
 
 * Allows cinematic preview to be disabled.
