@@ -32,7 +32,7 @@ steps below:
 @Image(source: "ConfigureRenderer.png",
        alt: "A screenshot of Xogot with Renderer Project Settings displayed")
 
-1. Tap on the switch button in the top-right corner of the app and select "Settings".  
+1. Tap on the switch button in the top-right corner of the app and select "Settings"  
 2. Scroll to the Rendering section on the left-hand column and tap "Renderer" 
 3. Make sure that Rendering Method.mobile is not set to OpenGL
 4. Once you have selected a compatible mobile renderer, close and re-open the project
@@ -49,3 +49,27 @@ the first time the game is run.  To work around this, disconnect your
 paired controller, launch your game, and then reconnect the controller.
 It is not necessary to reconnect the controller every time you launch
 the game, but it is necessary to do it every time Xogot is restarted.
+
+## Why does my game show more of the canvas than it’s supposed to when running?
+
+This issue might be caused by incorrect stretch settings. To resolve it:
+
+1. Tap on the switch button in the top-right corner of the app and select "Settings"
+2. Scroll to the Display section on the left-hand column and tap "Window"
+3. Scroll to the Stretch section and select a Mode of either "viewport" or "canvas_items."  
+
+These modes will clip overflow and ensure that the game view is scaled correctly 
+for the available screen space.
+
+
+## Why is my TestFlight invite is expired, invalid, or having other issues?
+The most likely issue is that you used a different email address than your 
+Apple ID to sign up for the beta, or a new preview build was published after
+your invite was sent.  
+
+For any issues related to accessing builds on TestFlight, please 
+[Contact Us](https://xogot.com/contact-us) and provide the email
+address associated with your Apple account.
+
+
+
