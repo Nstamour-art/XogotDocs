@@ -74,6 +74,43 @@ and Xogot not responding.   This fix will be coming soon.
 
 # Releases
 
+## Build
+
+## Build 1340
+
+* Resource pickers will now have the proper filters for the data type being
+  edited, instead of defaulting to a useles default that did not show the right
+  files.
+
+## Build 1338
+
+* Additional breadcrumbs for catching crashes.
+
+## Build 1334
+
+* Documentation should be rendered again
+
+* Fixed the tab colors in the text editor, the ghost text is gone
+
+* Help page now has proper rounded corners
+
+## Build 1333
+
+* Fixes crashes caused by background messages being posted to the output log
+
+* Additional debug information for some crashes we are tracking
+
+* Fixes double-tapping on FilePad, ScenePad and CreateDialog, once you tapped
+a row, the second tap was always considered a double-tap.
+
+* Double tap on directories toggles the directory expansion state, rather that
+  opening the inspector.
+
+* Prevents a crash on when the collision gizmo is enabled (this looks like a
+  potential Godot upstream bug: c8424cfce77ca9536c7fdb0c03345a2fbcc39bba)
+
+* List selection mode in the 3D editor is now working.
+
 ## Build 1328
 
 * Fixes the Skeleton3D plugin editor that would lead to a crash, but this
@@ -91,6 +128,8 @@ and Xogot not responding.   This fix will be coming soon.
 * Enabled the Mac-command like shortcuts in Godot, rather than the default
   Windows-based ones (visible in things like "Select All" in a Godot Text
   editor, now it is Command-A rather than Control-A).
+
+* Property editors for dictionaries
 
 ## Build 1320
 
