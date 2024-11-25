@@ -74,7 +74,7 @@ and Xogot not responding.   This fix will be coming soon.
 
 # Releases
 
-## Build TBD
+## Build 1352
 
 * Inspector now also capitalizes properties that use camel case, so things like
   "playerSpeed" are rendered as "Player Speed".  #10
