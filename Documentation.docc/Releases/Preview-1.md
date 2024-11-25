@@ -76,7 +76,23 @@ and Xogot not responding.   This fix will be coming soon.
 
 ## Build
 
-## Build 1340
+## Build 1347
+
+* Additional analytics to try to track down a crash that is happening with a
+  popup, but none of the crashes have any feedback associated with it.
+
+* Improve the numeric data input, the small arrow keys will now at least
+  increment values in 0.1, instead of the hardcoded values in Godot, as
+  sometimes those would be as small as 0.001 which were barelly noticeable
+
+* Numeric Input changes: for users with keyboards using a modifier with the up
+  and down arrow keys now change the value like this:
+
+  ** Option: 0.1 units
+  ** Shift: 10 units
+  ** Control: 100 units
+  
+## Build 1342
 
 * Resource pickers will now have the proper filters for the data type being
   edited, instead of defaulting to a useles default that did not show the right
