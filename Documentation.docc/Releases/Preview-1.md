@@ -25,7 +25,8 @@ and Xogot not responding.   This fix will be coming soon.
 - Godot-native is not using the system fonts (#176)
 - You must name a new scene before “Save All” will save it (#519)
 - IO Errors are reported with the old UI (#544)
-- Dragging entire directory hierarchies from Files.app into Xogot does not preserve the top-level directory (#570)
+- Dragging entire directory hierarchies from Files.app into Xogot does not
+  preserve the top-level directory (#570)
 
 ### Text Editor
 - The breakpoint indicator foreground color is too hard to see (#288)
@@ -67,12 +68,33 @@ and Xogot not responding.   This fix will be coming soon.
 - It is currently not possible to edit values of sampler2D/sampler3D values
   (#147)
 
-### Bluetooth Controllers
-- A bluetooth controller will not work if it was connected before running (#283)
-  You can work around this by waiting to connect your controller until after the game
-  is up and running.  
-
 # Releases
+
+## Build 1379
+
+* Fixes the scenario where directories removed from the filepad would not be
+  removed from the file listing.
+
+* Start to roll out a system to track objects that Godot releases but that the
+  UI still holds, this will help me track down the places where this is
+  happening (SwiftGodot Resilience).
+
+## Build 1375
+
+* Fixes the issue where the controller would not work if it was paired before
+  your game started.   This was finally removed as an issue from these very
+  release notes! (#283)
+
+* Restoration will no longer start with a blank screen, that turned out to be an
+  attempt to restore your game - but this should not even be allowed
+
+## Build 1372
+
+* Completes the audio setup for the game, so audio for your game will follow the
+  settings you had configured when it plays.
+
+* Should fix the "Crashes when you close a scene" (Testflight crash/feedback)
+
 
 ## Build 1370
 
