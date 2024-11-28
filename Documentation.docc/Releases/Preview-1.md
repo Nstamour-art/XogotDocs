@@ -70,6 +70,26 @@ and Xogot not responding.   This fix will be coming soon.
 
 # Releases
 
+## Build 1384
+
+* Fix a crash on the audio interruption handler (Testflight feedback)
+
+* Additional telemetry to track down the MoltenVK issue that crashes on certain
+  projects at startup.
+
+* Disable Developer mode, there are lots of crashes coming from users that have
+  done something behind Xogot's back, and I want to rule the reasons out.
+
+* Launch screen: if you were in select mode, but switch to another tab,
+  the select mode will be reset.
+
+* Launch screen: long-press on a project now has a "Delete" option.
+
+* FilePad: dragging a file into itself, or in the same directory no longer
+  triggers an error.
+
+* Bumped version to 1.0.3 to make it easier to diagnose.
+
 ## Build 1379
 
 * Fixes the scenario where directories removed from the filepad would not be
