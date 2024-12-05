@@ -70,6 +70,17 @@ and Xogot not responding.   This fix will be coming soon.
 
 # Releases
 
+## Build 1430
+
+* Backported another Tile Editor fix
+
+* Swipe actions on inspector properties now exposes "copy path" operation, as
+  well as copy value and paste value.
+
+* Swipe actions on ScenePad now allow selection/deleting.
+
+* Swipe actions on FilePad now allow selection.
+
 ## Build 1425
 
 * Groups Editor now support Global groups in addition to scene groups.
