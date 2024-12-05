@@ -70,6 +70,21 @@ and Xogot not responding.   This fix will be coming soon.
 
 # Releases
 
+## Build 1449
+
+* Fixes a crash when an object is removed via undo, while the inspector was
+  still editing it.
+
+* Fixes the issue that crashed Xogot when a game was launched, a regression
+  introduced for the fix in Build 1439 for animations.
+
+## Build 1444
+
+* Bring back the scrolling input editors.   Sadly, this interferes with the
+  swipe gestures.   So I disabled the swipe gestures on the inspector, and will
+  have to figure out a good UI for it.
+
+* Fixes the Setting crasher 
 ## Build 1439
 
 * Fixes another class of crashes, this time triggered by the animation editor,
@@ -77,7 +92,6 @@ and Xogot not responding.   This fix will be coming soon.
   #825)
 
 * 2D Editor: Disable rotation line, when pinch or pan event occurred.
-
 
 * Sets the minimum hardware requirements required by Godot, as older iPads (7th
   generation and older) do not have the GPU support that the Godot editor
