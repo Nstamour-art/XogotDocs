@@ -70,6 +70,38 @@ and Xogot not responding.   This fix will be coming soon.
 
 # Releases
 
+## Build 1459
+
+* Prevents a crash that happened after a game was stopped.
+
+* Makes the swipe action on the ScenePad and FilePad less sensitive.
+
+* Code completion for GDScript code is back.
+
+
+## Build 1457
+
+* Project Manager: it is now possible to select many projects and delete them in
+  one go.
+
+* Clears memory used after a game terminates, this also fixes crashes that
+  happen when restarting a game (AppStore crashes)..
+
+* Fixes an imbalance of objects, that prevents another crash from happening   
+  (#833)
+
+## Build 1452
+
+* Due to popular demand, we now support saving your projects on a location of
+  your choice, so that you are not limited to saving files into your iPad, you
+  can now choose an external USB drive, iCloud drive or any other external
+  locations.
+
+* Deleting a project will now require confirmation - this is not a sign of
+  weakness, but an acknowledgement that certain actions in life are
+  irreversible, so we leverage the best technologies in SwiftUI to ensure that
+  you have a second chance.
+
 ## Build 1449
 
 * Fixes a crash when an object is removed via undo, while the inspector was
