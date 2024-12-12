@@ -1,6 +1,6 @@
-# First Preview Release Notes
+# TestFlight Release Notes
 
-Release notes for our first preview release of Xogot.
+Release notes for our preview release of Xogot to TestFlight.
 
 ## Known Limitations
 
@@ -23,17 +23,9 @@ and Xogot not responding.   This fix will be coming soon.
 - QuickOpen is missing a “Recents” tab (#87)
 - Godot-native UI is not tracking the dark/light mode (#627)
 - Godot-native is not using the system fonts (#176)
-- You must name a new scene before “Save All” will save it (#519)
 - IO Errors are reported with the old UI (#544)
-- Dragging entire directory hierarchies from Files.app into Xogot does not
-  preserve the top-level directory (#570)
-
-### Text Editor
-- The breakpoint indicator foreground color is too hard to see (#288)
 
 ### Inspector
-- Does not show signals in attached scripts (#608)
-- Missing signals for nodes with attached scripts (#630)
 - No computed expression support for numeric values (#369)
 - Some buttons on embedded controls are too small (#445)
 - Some warnings for controls are not shown inline (#337)
@@ -45,17 +37,16 @@ and Xogot not responding.   This fix will be coming soon.
 ### Output Panel
 - The output panel does not display RichText output, it will render as plain text (#574)
 
-### Sprite Animation Editor
-- We are aware that this is a high-traffic area, and we have an implementation in the works, but will come in a future release (#633)
-
 ### Exporting Projects
-- Godot has a notion of Exporting projects for publishing your games.   This functionality is currently not exposed, but is coming up (#637)
+- Godot has a notion of Exporting projects for publishing your games.   This
+  functionality is currently not exposed, but is coming up (#637).
 
 ### Features
 - Motion Manager APIs are currently off, waiting on a fix  (#9)
 
 ### Running
-- There is currently no support for Feature Tags when running your game (these are like “ifdefs”)  (#614)
+- There is currently no support for Feature Tags when running your game (these
+  are like “ifdefs”)  (#614).
 
 ### UI
 - Various confirmation dialogs that will be ported over to SwiftUI remain
@@ -69,6 +60,54 @@ and Xogot not responding.   This fix will be coming soon.
   (#147)
 
 # Releases
+
+## Build 1508
+
+* When downloading samples, if the remote server does not include a
+  Content-length, display a generic progress view.
+
+* Fixes double-tapping to select on various places.
+
+* Add support for the soft-keyboard return key accepting a completion option
+  (prevously, it only worked for the physical keyboard).
+
+* Fixed a crash spotted on Crashlytics related to Godot embedded views
+
+* Implemented recursive "Make Resource Unique" feature for resources, it was
+  missing (Crashlytics)
+
+* Make sure that the snap value editor can be displayed, regardless of the
+  toolbar position.
+
+* Snap value editor now uses scrolling input for degrees (Internal #260, #864)
+
+* When using the "Show Node in Tree" option in the inspector, we now use a
+  different color than the selection to highlight those nodes (#817)
+
+* SpriteFramEditor: the new editor now goes through the Godot undo/redo system,
+  fixing a plethora of bugs identified.
+
+* We now show a quick tooltip for items in the toolbar to guide users on what
+  the features are (#661)
+
+## Build 1479
+
+* Pan and zoom events can now be used across the application together.
+
+* Styled the editor so that breakpoints lines are more clearly visible, it used
+  to be dark enough that it was unpleasant to look at.
+
+* Code Editor: "Replace" functionality is now working (Testflight feedback)
+
+* Prevent iOS 18.0 users from going back to the main screen, as this triggers an
+  iOS 18.0 bug.
+
+* SceneImporter: fixes the inspector in the UI, so navigation now works properly
+  on that window.
+
+* Undo operations are now reflected on the Inspector.
+
+* Multi-touch input is now sent to Godot scripts.   Partial fix for  https://github.com/xibbon/XogotIssues/issues/24.
 
 ## Build 1465
 
