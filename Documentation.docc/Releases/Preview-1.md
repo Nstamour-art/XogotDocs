@@ -61,7 +61,36 @@ and Xogot not responding.   This fix will be coming soon.
 
 # Releases
 
-## Build
+## Build 1534
+
+* Godot-native popups would sometimes show up and not get the focus, and users
+  had to tap around to force the focus to enter, without this, it would give the
+  feeling that the app was "stuck".   Fixes #843, a bug initially reported on
+  Discord when it was not possible to rename an animation.
+
+* Rename dialog on the FilePad sometimes would not show up.
+
+* Option to show the available memory.
+
+* Fixes signals not showing up for nodes that had scripts attached.
+
+* Re-enables the MotionManager, so your app can now get those events (we
+  disabled it very early on in the project).
+
+* Editing Node names on the scene pad in landscape mode will no longer dismiss
+  the keyboard (#872).
+
+* Numeric Input for the sprite editor and sprite sheet importer: hardcoded
+  proper locations for the numeric input, as we were creating views that would
+  not allow data input (#708 and user reports on Discord).
+
+* Project launcher will now show the last date used for the projects (#382).
+
+* Fixes debugger breakpoints on built-in scripts (partial fix for #877).
+
+* Fixes an issue with array elements crashing the editor (Crashlytics).
+  
+## Build 1516
 
 * Improvements to the signal connection dialog:
 
