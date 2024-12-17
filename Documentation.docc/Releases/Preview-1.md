@@ -61,7 +61,7 @@ and Xogot not responding.   This fix will be coming soon.
 
 # Releases
 
-## Build 1534
+## Build 1541
 
 * Godot-native popups would sometimes show up and not get the focus, and users
   had to tap around to force the focus to enter, without this, it would give the
