@@ -32,7 +32,8 @@ and Xogot not responding.   This fix will be coming soon.
 - AudioStream property inspector is missing some features (#634)
 
 ### Debugger Panel
-- The debugger does not currently surface any of the performance profiling capabilities (#636)
+- The debugger does not currently surface any of the performance profiling
+  capabilities (#636).
 
 ### Output Panel
 - The output panel does not display RichText output, it will render as plain text (#574)
@@ -40,9 +41,6 @@ and Xogot not responding.   This fix will be coming soon.
 ### Exporting Projects
 - Godot has a notion of Exporting projects for publishing your games.   This
   functionality is currently not exposed, but is coming up (#637).
-
-### Features
-- Motion Manager APIs are currently off, waiting on a fix  (#9)
 
 ### Running
 - There is currently no support for Feature Tags when running your game (these
@@ -60,6 +58,20 @@ and Xogot not responding.   This fix will be coming soon.
   (#147)
 
 # Releases
+
+
+## Build 1572
+
+* Create Shader and Create Script dialogs will now select the part of the
+  filename so that it becomes easier to rename those fields at creation time.
+
+* New shaders now get a unique name by default.
+
+* You can now import photos from your library straight into the FilePad (#625).
+
+* Magic trackpad support for panning (Part of #17).
+
+* Fix an infinite loop in the bottombar update.
 
 ## Build 1567
 
