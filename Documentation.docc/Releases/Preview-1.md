@@ -59,6 +59,25 @@ and Xogot not responding.   This fix will be coming soon.
 
 # Releases
 
+## Build 1582
+
+* Surface "Create Shader" in the FilePad "+" menu (#894)
+
+* 3D Editor: the viewport menu now offers commands to focus on the origin, or
+  focus on the selection, these have also been bound to the keyboard shortcuts
+  "o" and "f" respectively, similar to Godot on Desktop (#762 + survey
+  feedback).
+
+* Fixes 3D Viewport commands "Align Transform with View" and "Align Rotation
+  with View".
+
+* Will not request to upgrade projects that had
+  rendering_method="gl_compatibility" (#905).
+
+* Visual Shaders are now available on the new Shader Editor tab.
+
+* When you create shaders, we will open the shader editor right away.
+
 
 ## Build 1572
 
@@ -100,7 +119,7 @@ and Xogot not responding.   This fix will be coming soon.
 
 * New SwiftUI-based Shader Editor, it is currently missing the
   VisualShaderEditor, but will allow us to tune the UI and experience for the
-  shader editor (Discord feedback).
+  shader editor (Discord feedback, #703).
 
 * Improved the heuristics for positioning the code completion window, it should
   not jump anymore (Discord feedback).
@@ -125,6 +144,17 @@ and Xogot not responding.   This fix will be coming soon.
 
 * Various Autoload features were completed (#883): Autoload renaming, allow
   enable/disable of autoloads, expose as global.
+
+* Multiple files can now be dragged from the FilePad into the editor surface
+  (#867).
+
+* Fixes the "Tile Set" tab bar not showing when a new TileSet resource was
+  created.  This is a proper fix for #14, which we had not quite fixed, and we
+  had just grown used to
+  select-another-node-and-come-back-and-select-the-tilemap.   The issue was that
+  we were tracking items being hidden from the bottom bar, but not items being
+  shown.  So this would have impacted other plugins as well that were not
+  activated on demand.
 
 ## Build 1546
 
