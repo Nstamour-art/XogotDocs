@@ -86,9 +86,6 @@ and Xogot not responding.   This fix will be coming soon.
 * SpriteAnimationEditor: inputing a value on the FPS display on the sprite frame
   editor will auto-dismiss.
 
-* When stopping a game that had audio playing, we will now stop the audio fully
-  and not keep it lingering in the background (#968).
-
 ## Build 1648
 
 * Tapping on the Script icon when you are already on script mode, will bring up
