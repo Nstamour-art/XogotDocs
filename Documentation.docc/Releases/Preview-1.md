@@ -57,6 +57,32 @@ and Xogot not responding.   This fix will be coming soon.
 
 # Releases
 
+
+## Build 1678
+
+* Stops audio playback when you stop a game (#968)
+
+* Multi-touch events now responds to multiple-finger inputs, and does not ignore
+  the second touch (#909, follow up from #854 and the improvements in build
+  1567).
+  
+* Fixes a crash when going back to the homescreen that was introduced in the
+  last release.
+
+* Short-term fix for Skeleton/Bones editor crash (Xcode Crash reports), with 
+  telemetry to try to find the root cause.
+
+* Shift+two finger move on the trackpad will now pan, rather than rotate (#913).
+
+* Pinch gestures on the trackpad no longer zoom too much (#904).
+
+* Renaming on the Scene Pad and the Sprite Editor now requires a long-press and
+  selecting "Rename", rather than being a "Rename on tapping a selected element"
+  #988.   We are hoping that this will be a slightly better experience.
+
+* Fixes icons not showing up for projects that are created in an external
+  location (#997 and public bug #57).
+
 ## Build 1660
 
 * IO Errors are now reported on a native UI, rather than the Godot native UI
