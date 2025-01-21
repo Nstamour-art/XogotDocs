@@ -57,6 +57,20 @@ and Xogot not responding.   This fix will be coming soon.
 
 # Releases
 
+## Build 1702
+
+* When popping up the numeric input, resign the input from other input boxes, so
+  that there is no confusion as to where the input is going both in practice and
+  visually (#982).
+
+* Fixes the regression reported on Discord for the editor panning not working
+  because it assumed that you were trying to zoom and it overrides the pan.
+  The trigger was too sensitive.
+
+* Shell updates, we are redoing a few things, we dropped the "Export" tab, which
+  is not ready to be used.  Added a new on-demand "Games" tab that will contain
+  games that have been shared with you.
+
 
 ## Build 1678
 
@@ -221,6 +235,7 @@ and Xogot not responding.   This fix will be coming soon.
 
 * Look and Feel: Create New Dialog does not have uneven row sizes (#952).
 
+* 
 ## Build 1594 - a Christmas Miracle!
 
 * The Godot Embedded content will now track the system color scheme.  While
