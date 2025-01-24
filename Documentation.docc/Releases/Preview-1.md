@@ -57,6 +57,14 @@ and Xogot not responding.   This fix will be coming soon.
 
 # Releases 
 
+## Build
+
+* Fixes for multiple editor windows being opened.
+
+* Updated profile page.
+
+* Fixes the "jumpy" behavior while dragging public bug report #25.
+
 ## Build 1717
 
 * Opening the property inspector should now be snappy, at the cost of a cute
