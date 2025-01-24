@@ -55,9 +55,22 @@ and Xogot not responding.   This fix will be coming soon.
 - It is currently not possible to edit values of sampler2D/sampler3D values
   (#147)
 
-# Releases
+# Releases 
 
-## Build 1702
+## Build 1717
+
+* Opening the property inspector should now be snappy, at the cost of a cute
+  animation (#669, public bug #4, and multiple Testflight feedbacks).
+
+* Crash fix reported via Testflight crash reporting in the 2D editor(#957), this
+  happened a lot, but we never had good instructions on how to reproduce it.  
+
+* Prevent a scenario where we would display the game controllers on the Game
+  Editor window (#987, Discord feedback).
+
+* Fixes node renaming on the scenepad not working on landscape mode (#1017).
+
+* Fixes the multiple-editor check at startup.
 
 * When popping up the numeric input, resign the input from other input boxes, so
   that there is no confusion as to where the input is going both in practice and
@@ -70,6 +83,9 @@ and Xogot not responding.   This fix will be coming soon.
 * Shell updates, we are redoing a few things, we dropped the "Export" tab, which
   is not ready to be used.  Added a new on-demand "Games" tab that will contain
   games that have been shared with you.
+
+* Not enabled: work in progress on the new Animation Editor and the TileMap
+  Editor. 
 
 
 ## Build 1678
