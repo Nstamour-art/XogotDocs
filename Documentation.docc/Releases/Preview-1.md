@@ -57,6 +57,66 @@ and Xogot not responding.   This fix will be coming soon.
 
 # Releases 
 
+## Build 1774
+
+* We now display the menu with options for animations in the 2D Editor that were
+  previously not shown (#1030).
+
+* Improved onboarding to animation: opening the animation tab will now offer to
+  open an existing animation or create one.  And when an AnimationPlayer lacks
+  animations, the option to create one is more prominent.
+
+* The new AnimationEditor is now sticky, just like the original godot one, so
+  you can explore all sorts of properties - including the animation themselves
+  and property keys, solving one of the previously documented limitations.
+
+* Fixes various corner cases in the new animation editor (#1045)
+
+Major update from the last release, copying and adjusting here, as we would love
+testing on it:
+
+
+### New native Animation Editor for Xogot.
+
+We just landed the new animation editor, it will appear now whenever you select
+an animation and you activate the the "Animation" bottom panel.   When you do,
+you still have an option to go back to the old UI.
+
+This new editor has been adapted to be a good iPad citizen, and being a complete
+SwiftUI rewrite, gives us opportunities to improve the editor over time with
+more native features.
+
+We are particularly interestd in feedback on how the experience feels to touch -
+and make sure that everything that you need to do is present, but also that it
+is an enjoyable experience - so feel free to send us feedback on Discord or via
+TestFlight on any issues you might have - no matter how small.
+
+There are some features missing in the current editor, we are actively working
+on them, and they will be coming in the next few releases:
+
+* Snapping has not been surfaced in the UI
+
+* No help is displayed when selecting a node property or a method from the Add
+  Track selector.
+
+* Confirmation for adding multiple tracks to the RESET track is not required.
+
+* Can not currently add sub-animation tracks.
+
+* Volume tracks merely render as data points, does not show volume levels.
+
+* The Animation Library Editor is missing Save-as functionality.
+
+* The timeline rendering currentl only displays the timeline in seconds, but not
+  in frames.
+
+* Various advanced commands are not implemented: Bake Animation, Optimize
+  Animation, Cleanup Animation, Make Easing Keys. 
+
+* Missing Onion Support.
+
+* Missing Bezier Editor.
+
 ## Build 1761
 
 ### Features
