@@ -32,7 +32,28 @@ and Xogot not responding.   This fix will be coming soon.
 
 # Releases 
 
-## Build
+## Build 
+
+### SpriteFrame Editor
+
+Usability improvements:
+
+* Control buttons have been adjusted to have a larger tappable region as well as
+  adding additional space between the controls.
+  
+* Playback will now provide visual feedback.
+  
+* When selecting the sprite frame editor the first animation will be   
+  auto-selected, rather than forcing you to select one first.
+
+* When adding a new "SpriteFrames" to a resource, the SpriteFrame tabs will
+  automatically show up, you no longer need to switch nodes to activate (#1085)
+
+* Additionally, fixes a crash/hang if you had "inspected" the SpriteFrames and
+  navigated out (#1087)
+
+
+## Build 1822
 
 We are done with all the core features to sharing games (build a game and send a
 link to another Xogot user to test) as well completing the new iPad native
@@ -62,6 +83,8 @@ and to help us improve it.
 
 * When adding a new Animation track, we auto-select it.
 
+* Most of our confirmation dialogs moved to use the style of iOS's alert.
+
 ### Fixes
 
 * Steppers for the Snap Grid parameter are now 1, not 0.1 (#1073)
@@ -69,6 +92,15 @@ and to help us improve it.
 * Fixes accidental creation of points when using two-finger pan (#1059).
 
 * Animation Key editing for setting animations (#1072)
+
+* When selecting projects on the main screen, we no longer auto-launch one of
+  them - oops (#1067), 
+
+* Moving files over themselves on the file manager is a no-op, rather than
+  corruption (#1081)
+
+* Moving files over others that might get overwritten now has a SwiftUI native
+  dialog (#989)
 
 ### Foundational Work
 
