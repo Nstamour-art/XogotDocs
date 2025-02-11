@@ -1,0 +1,217 @@
+@Tutorial(time: 10) {
+    @Intro(title: "Creating the Player scene") {
+            
+            With the project settings configured and assets in place, we can start working on the
+            player-controlled character.
+            
+        @Image(source: player_scene.png)
+    }
+    @Section(title: "Node structure") {
+        @ContentAndMedia {
+            The first scene will define the `Player` object. One of the benefits of
+            creating a separate Player scene is that we can test it separately, even before
+            we've created other parts of the game.
+            
+        }
+        
+        @Steps {
+            @Step {
+                To begin, we need to choose a root node for the player object. 
+                
+                Tap **Create Other Node**.
+                
+                @Image(source: add_node.png)
+            }
+            @Step {
+                As a general rule, a scene's root node should reflect the object's 
+                desired functionality - what the object *is*.  With `Area2D` node, 
+                we can detect objects that overlap or run into the player.
+                
+                In the Create New Node dialog, search for `Area2D` and tap **Add**
+                
+                @Image(source: add_area2d.png)
+            }
+            @Step {
+                When you add the `Area2D` node, Godot will display a **warning icon** 
+                (1) next to it in the Scene Tree.
+                
+                This warning tells us that the `Area2D` node requires a shape to detect collisions or overlaps.
+                We can **ignore the warning temporarily** because we will first set up the player's visuals
+                (using an animated sprite). Once the visuals are ready, we will add a collision shape as a child
+                node. This will allow us to accurately size and position the shape based on the sprite’s appearance.
+                
+                @Image(source: no_shape_warning.png)
+            }
+            @Step {
+                Let's change the node's name to `Player`.
+                
+                When you create a new node, the node's name will be editable so that you can give it a
+                new name immediately it; however, you can always rename it again by long-pressing the 
+                node name in the Scene Tree and selecting **Rename**. 
+                
+                @Image(source: rename_player.png)
+            }
+            @Step {                
+                Now that we've configured the scene's root node, we can add additional nodes to give 
+                it more functionality.  Before we add any children to the `Player` node, let's group them
+                to make sure we don't accidentally move or resize them by tapping on them. 
+                
+                With the `Player` node selected (1), tap the Group Nodes icon to the right of the lock on 
+                the Viewport's toolbar (2). Whenever one of these toolbar buttons is tapped, a momentary tip 
+                will apper - in this case, "Groups selected nodes". Grouping nodes causes the parent to be 
+                selected when any child node is tapped in the 2D or 3D view.
+                
+                @Image(source: lock_children.png)
+            }
+            @Step {                
+               Let's save the scene.  Tap the dropdown arrow next to "[unsaved] ..." at the
+               top of the app (1) and select **Save Scene** (2).  Alternatively, you can press 
+               `Cmd + S` on an external keyboard.
+                
+               For this project, we will be following 
+               [Godot's GDScript naming conventions](https://docs.godotengine.org/en/stable/tutorials/scripting/gdscript/gdscript_styleguide.html). 
+               Classes (nodes) use PascalCase, variables and functions use snake_case, and constants 
+               use ALL_CAPS.  You can tap **Save** to accept the default proposed file name: `player.tscn`.
+               
+               @Image(source: save_scene.png)
+               
+            }
+        }
+    }
+    @Section(title: "Sprite animation") {
+        @ContentAndMedia {
+            We are now ready to add graphics and animation to our `Player`. 
+        }
+        @Steps {
+            @Step {  
+                Tap on the **+** at the top of the Scene Tree (the upper-left side of the app)
+                
+                @Image(source: new_node.png)
+            }
+            @Step {  
+                An `AnimatedSprite2D` will handle the appearance and animations for our player.
+                
+                Search for `AnimatedSprite2D` node and tap **Add**.
+                
+                @Image(source: animated_sprite_2d.png)
+            }
+            @Step {  
+                Notice that there is a **warning icon** next to the new node. An `AnimatedSprite2D` 
+                requires a `SpriteFrames` resource, which is a list of the animations it can
+                display. To create one, we'll need to open the `Inspector`.  
+                
+                Tap the "scope" icon (1) in the upper-right corner of the app to show the Inspector.
+                
+                @Image(source: inspector.png)
+            }
+            @Step {   
+                The Inspector shows various properties and settings for the currently selected
+                node, with related settings grouped into sections.  
+                
+                Tap **Animation** in the inspector to navigate into the new `AnimatedSprite2D` node's
+                Animation settings.
+                
+                @Image(source: inspector_animation.png)
+            }
+            @Step {   
+                Find the **Sprite Frames** property under **Animation** and tap **Pick Resource**.
+                
+                Select **New SpriteFrames** from the popup menu.
+                
+                @Image(source: new_spriteframes.png)
+            }
+            @Step {  
+                The **warning icon** has been removed, and there is a new **SpriteFrames** tab button
+                visible at the bottom of the screen.  We're done with the Inspector for now, so feel free
+                to hide it by tapping the `scope` toolbar button.
+                
+                Expand the `SpriteFrames` panel by tapping **SpriteFrames** at the bottom of the app.
+                
+                @Image(source: spriteframes_button.png)
+            }
+            @Step {  
+                On the left is a list of animations. 
+                
+                Long-press the **default** animation and rename it to "walk". 
+                
+                @Image(source: spriteframes_panel.png)
+            }
+            @Step {
+                Now find the player images in the File Pad - they're in the `art` folder you imported 
+                earlier. 
+                
+                Drag each image for the `walk` animation (named `playerGrey_walk1.png` and 
+                `playerGrey_walk2.png`) from the File Pad (1) into the **Animation Frames** side of 
+                the **SpriteFrames** panel for the `walk` animation.
+                
+                @Image(source: spriteframes_walk.png)
+            }
+            @Step {  
+                Then Tap the **New Animation** toolbar button (1) to create a second animation.
+                
+                Rename the **new_animation** (2) to "up". 
+                
+                @Image(source: new_animation.png)
+            }
+            @Step {
+                With the new **up** animation selected, you can now drag the `up` animation 
+                images (named `playerGrey_up1.png` and `playerGrey_up2.png`) into **SpriteFrames** 
+                panel for the 'up' animation.
+                
+                Your **SpriteFrames** should now look like this
+                
+                @Image(source: spriteframes_complete.png)
+            }
+            @Step {
+                The player images are a bit too large for the game window, so we need to scale
+                them down. 
+                
+                Tap on the `AnimatedSprite2D` node and set the **Scale** **X** and **Y** properties 
+                to `(0.5, 0.5)`. You can find `Scale` by navigating into the **Transform** section 
+                in the Inspector under the `Node2D` heading.
+                
+                @Image(source: player_scale.png)
+                
+             }
+         }
+     }
+     @Section(title: "Collision detection") {
+         @ContentAndMedia {
+             Finally, for this scene, let's' set `Player` up for collision detection.
+         }
+         @Steps {
+            @Step {
+                With the `Player` node selected, tap the **+** button in the Scene Tree (1)
+                to add a `CollisionShape2D` as a child of `Player`. 
+                
+                This will determine the player's "hitbox", or the bounds of its
+                collision area. 
+                
+                @Image(source: collision_shape_2d.png)
+            }
+            @Step {
+                For this character, a `CapsuleShape2D` node gives the best fit.  Open the 
+                Inspector and ensure that `CollisionShape2D` is selected in the Scene Tree.
+                
+                Next to **Shape** in the Inspector, tap **Pick Resource** -> **New** -> **New
+                CapsuleShape2D**.                 
+                
+                @Image(source: player_new_capsule.png)
+            }
+            @Step {            
+                Using the two size handles, resize the shape to cover the
+                sprite.
+                
+                @Image(source: player_coll_shape.png)
+            }
+            @Step {            
+                Once this is done, the warning on the `Area2D` node will disappear, as it now has
+                a shape assigned and can interact with other objects.
+                
+                When you're finished, your `Player` scene should look like this.
+                
+                @Image(source: player_scene_complete.png)
+            }
+        }
+    }
+}

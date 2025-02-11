@@ -1,0 +1,146 @@
+@Tutorial(time: 15) {
+    @Intro(title: "Creating the enemy") {
+            With the player working, it's time to make the enemies our player will have to dodge. 
+            
+            Their behavior will not be very complex: mobs will spawn randomly at the edges of the screen,
+            choose a random direction, and move in a straight line.
+            
+        @Image(source: mob_walk.png)
+    }
+    @Section(title: "Node setup") {
+        @ContentAndMedia {
+            We'll create a `Mob` scene, which we can then *instance* to create any number
+            of independent mobs in the game.
+        }     
+        @Steps {
+            @Step {
+                Tap the Scene dropdown (1) at the top of the app.  It should currently say **Player - Dodge the Creeps**.
+                
+                Tap **New Scene** (2). 
+                
+                @Image(source: mob_new_scene.png)
+            }
+            @Step {
+                Set the Scene Name to "mob" (1) and select **Empty** (2)
+                
+                Tap **Create** to create the new empty scene.
+                
+                @Image(source: mob_empty_scene.png)
+            }
+            @Step {
+                Tap **Create Other Node** in the Scene Tree and choose `RigidBody2D` as the root node type.  
+                
+                Long-press `RigidBody2D` (1) and rename (2) it to **Mob**.   
+                Don't forget to *Group Selected Nodes* (3) so that children can't be selected, like you did 
+                with the Player scene.
+                
+                @Image(source: mob_rename.png)
+            }
+            @Step {
+                Add `AnimatedSprite2D` and `CollisionShape2D` nodes, and a new node
+                type - `VisibleOnScreenNotifier2D` - as children of the **Mob**.  
+                
+                Your scene tree for the new Scene should look like this. 
+                
+                @Image(source: mob_scene_tree.png)
+            }
+            @Step {
+                Select the `Mob` node and set its `Gravity Scale`
+                property in the `RigidBody2D`
+                section of the inspector to `0`.
+                This will prevent the mob from falling downwards.
+                
+                @Image(source: mob_gravity_scale.png)
+            }
+            @Step {
+                In addition, scroll to the **CollisionObject2D**
+                section just beneath the **RigidBody2D** section,
+                navigate into the **Collision** group. 
+                
+                Uncheck the `1` inside the `Mask` property.
+                This will ensure the mobs do not collide with each other.
+                
+                @Image(source: mob_collision_mask.png)
+            }
+            @Step {
+                Create and set up `SpriteFrames` on the `AnimatedSprite2D` like you did for the
+                `Player`. This time, we have 3 animations: "fly", "swim", and "walk". There
+                are two images for each animation in the art folder.
+                
+                The `Animation Speed` property has to be set for each individual animation. 
+                Adjust it to `3` for all 3 animations.
+                
+                @Image(source: mob_animation_speed.png)
+            }
+            @Step {
+                You can use the "Play Animation" buttons (1) on the right of the `Animation Speed` 
+                input field to preview your animations.  You can use two-finger gestures to pan 
+                and zoom the 2D viewport to get a better view of your mob animating.                
+                
+                We'll select one of these animations randomly in code so that the mobs will have some
+                variety.
+                
+                @Image(source: mob_animations.png)
+            }
+            @Step {
+                Like the `Player` images, these `Mob` images need to be scaled down. Select the 
+                `AnimatedSprite2D` and navigate into the **Transform** section.  Set the `Scale` 
+                property to `(0.75, 0.75)`.
+                
+                As in the `Player` scene, add a `CapsuleShape2D` for the collision. To align
+                the shape with the image, you'll need to set the `Rotation` property
+                to `90` (under "Transform" in the Inspector).
+                
+                @Image(source: mob_capsule.png)
+            }
+            }
+        }
+    }
+    @Section(title: "Enemy script") {
+        @ContentAndMedia {
+            Now let's add code to control the `Mob`'s animations and movement.
+        }
+        @Steps {
+            @Step {
+                Select the `Mobe` and attach a new script like we did with the `Player`.
+                
+                @Code(name: "mob.gd", file: mob-00.gd, reset: true)
+            }
+            @Step {
+                Now let's look at the rest of the script. In `_ready()` we play the animation
+                and randomly choose one of the three animation types.
+                
+                First, we get the list of animation names from the AnimatedSprite2D's `sprite_frames`
+                property. This returns an Array containing all three animation names: `["walk",
+                "swim", "fly"]`.
+                
+                @Code(name: "mob.gd", file: mob-01.gd)
+            }
+            @Step {
+                We then need to pick a random number between `0` and `2` to select one of
+                these names from the list (array indices start at `0`). 
+                
+                `randi() % n` selects a random integer between `0` and `n-1`.
+                
+                @Code(name: "mob.gd", file: mob-02.gd)
+            }
+            @Step {
+                The last piece is to make the mobs delete themselves when they leave the screen.
+                
+                Select the `VisibleOnScreenNotifier2D` and open the Inspector to the Signals tab.  
+                Tap `screen_exited()`.   In the **Connect a Signal** dialog, select `Mob` so that
+                our new *Receiver Method* will be created in the `mob` script.
+                
+                @Image(source: mob_connect_signal.png)
+            }
+            @Step {
+                Replace the method body of `_on_visible_on_screen_notifier_2d_screen_exited`
+                with `queue_free()` to delete the mob
+                
+                This completes the `Mob` scene.
+                
+                @Code(name: "mob.gd", file: mob-02.gd, reset: true)
+            }
+        }
+    }
+}

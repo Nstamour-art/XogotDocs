@@ -1,0 +1,211 @@
+@Tutorial(time: 30) {
+    @Intro(title: "The main game scene") {
+            With the player and enemies ready, it's now time 'll bring everything together into a new playable game scene.
+            
+            @Image(source: main_running_cropped.png)
+        }
+    @Section(title: "Creating the Main game scene") {
+        @ContentAndMedia {
+            We will use a `Node` as the root of our **Main** scene instead of `Node2D`.
+            This is because this node will be a container for handling game logic. 
+            The **Main** scene will not require 2D functionality itself.
+            
+        }
+        @Steps {
+            @Step {
+                Create a new empty scene named "main" and tap **Create Other Node** to add a 
+                new `Node` named "Main".
+                
+                Tap the **Instantiate Child Scene** button at the top of the Scene Tree 
+                (represented by a chain link icon) and select your saved `player.tscn`.
+                
+                @Image(source: instance_scene.png)
+            }
+            @Step {
+                Now, add three `Timer`s as children of **Main** and name them "MobTimer",
+                "ScoreTimer", and "StartTimer". These will be used to control how often mobs
+                 spawn, to increment the score every second, and to give a delay before starting,
+                 respectively.
+                 
+                Additionally, add a `Marker2D` named "StartPosition" to indicate the player's 
+                start position.
+                
+                @Image(source: main_scene_tree.png)
+            }
+            @Step {
+                Open the Inspector and set the `Wait Time` property of each `Timer` node.  
+                Set **MobTimer** to `0.5` seconds, **ScoreTimer** to `1.0` second, and 
+                **StartTimer** to `2.0` seconds.
+                
+                In addition, on **StartTimer** set the `One Shot` property to "On" and set
+                `Position` of the `StartPosition` node to `(240, 450)`.
+                
+                @Image(source: main_timers.png)
+            }
+        }
+    }
+    @Section(title: "Spawning mobs") {
+        @ContentAndMedia {
+                            
+            The Main node will spawn new mobs which we want to appear at a random location 
+            along the edge of the screen. 
+            
+        }
+        @Steps {
+            @Step {
+                Add a `Path2D` node named `MobPath` as a child of `Main`.  When the `Path2D` node is selected, 
+                you will see a new **Path2D** toolbar at the top of the editor.
+                
+                Select the "Add a point" toolbar button in the **Path2D** toolbar - it's the circle button with 
+                the **+** badge (1) in the middle of the toolbar.   
+                
+                @Image(source: path2d_buttons.png)
+            }
+            @Step {
+                To have points snap to the grid, make sure "Snow Snap Grid" (1) and "Use Smart 
+                Snap" (2) are both selected. 
+                
+                These toolbar buttons can be found to the left of the "Lock" button, appearing as a 
+                tic-tac-toe board and a waffle with square filled, respectively.
+                
+                @Image(source: grid_snap_button.png)
+            }
+            @Step {
+                Draw a path by tapping to add points at the corners of the viewport. 
+                Important: Draw the path in *clockwise* order, or your mobs will spawn pointing 
+                *outwards* instead of *inwards*!
+                
+                After placing point (4) in the image, tap **Close Curve** (5) under the *...* 
+                **Path2D** menu and your curve will be complete.  If you're not happy with where
+                some of your points ended up, you can tap the first button in the Path2D toolbar
+                to switch to "Select Points" mode and adjust the postion of your points.
+                
+                @Image(source: draw_path2d.png)
+            }
+            @Step {
+                Now that the path is defined, add a `PathFollow2D` node as a child of `MobPath` 
+                and name it `MobSpawnLocation`. This node will automatically rotate and follow 
+                the path as it moves, so we can use it to select a random position and direction 
+                along the path.
+                
+                Your scene should look like this.
+                
+                @Image(source: main_scene.png)
+            }
+        }
+    }
+    @Section(title: "Main script") {
+        @ContentAndMedia {
+            Now we will write the code to spawn enemies.
+        }
+        @Steps {
+            @Step {
+                Add a script to `Main`. At the top of the script, we use
+                `@export var mob_scene: PackedScene` to allow us to choose the Mob scene we want
+                to instance.
+                
+                We also define a `score` variable to track the player's score.
+                
+                @Code(name: "main.gd", file: main-01.gd, previousFile: main-00.gd)
+            }
+            @Step {
+                Select the `Main` node and you will see the **Mob Scene** property in the Inspector
+                under **Main.gd**.  Tap **Pick Resource** next to the **Mob Scene** property and 
+                select **Quick Load** to assign `mob.tscn`
+                
+                Alternatively, you could assign this property by dragging `mob.tscn` from the 
+                File Pad and dropping it on the **Mob Scene** property.
+                
+                @Image(source: main_quick_load.png)
+            }
+            @Step {
+                Next, select the instance of the `Player` scene under `Main` node in the Scene Tree.
+                Open the Inspector and switch to the Signals tab. You should see a list of the signals 
+                for the `Player` node. Find and tap the `hit()` signal in the list. This will open the 
+                "Connect a Signal to a Method" dialog. 
+                
+                We want to make a new function in `main.gd` named "game_over" which will handle what 
+                needs to happen when a game ends.  Select the **Main** node (1) at the top of the list
+                of nodes in the dialog, and type "game_over" in the "Receiver Method" box (2) at the 
+                bottom of the dialog.  Tap **Connect**. This will have the `hit` signal emitted from 
+                `Player` and handled in the `Main` script. 
+                
+                @Image(source: main_connect_hit.png)
+            }
+            @Step {
+                Add the following code  to the `game_over` function that was just created.
+                
+                Also, add this `new_game` function that will set everything up for a new game.
+                
+                @Code(name: "main.gd", file: main-03.gd, previousFile: main-02.gd)
+            }
+            @Step {
+                Now connect the `timeout()` signal of each of the Timer nodes (`StartTimer`,
+                `ScoreTimer`, and `MobTimer`) to the main script. 
+                
+                `ScoreTimer` will increment the score by 1 as the game progresses. 
+                `StartTimer` will start `ScoreTimer` and `MobTimer`.
+                
+                @Code(name: "main.gd", file: main-05.gd, previousFile: main-04.gd)
+            }
+            @Step {
+                In `_on_mob_timer_timeout()`, we will create a mob instance, pick a random
+                starting location along the `Path2D`, and set the mob in motion. The
+                `PathFollow2D` node will automatically rotate as it follows the path, so we
+                will use that to select the mob's direction as well as its position.
+                
+                
+                @Code(name: "main.gd", file: main-06.gd)
+            }
+            @Step {
+                When we spawn a mob, we'll pick a random value between `150.0` and
+                `250.0` for how fast each mob will move (it would be boring if they were
+                all moving at the same speed).  Note that a new instance must be added 
+                to the scene using `add_child()`.
+                
+                Important: Why `PI`? In functions requiring angles, Godot uses *radians*,
+                not degrees. Pi represents a half turn in radians, about
+                `3.1415` (there is also `TAU` which is equal to `2 * PI`).
+                If you're more comfortable working with degrees, you'll need to
+                use the `deg_to_rad()` and `rad_to_deg()` functions to
+                convert between the two.
+                
+                @Code(name: "main.gd", file: main-07.gd)
+            }
+        }
+    }
+    @Section(title: "Testing the scene") {
+        @ContentAndMedia {
+            Let's test the scene to make sure everything is working.
+        }
+        @Steps {
+            @Step {
+                Add this `new_game` call to `_ready()`:
+                
+                @Code(name: "main.gd", file: main-08.gd, previousFile: main-07.gd)
+            }
+            @Step {
+                Let's also assign `Main` as our "Main Scene" - the one that runs automatically
+                when the game launches. Press the "Play" button (1) in the upper right-hand 
+                corner of the app and select `main.tscn` when prompted.
+                
+                Tip: If you had already set another scene as the "Main Scene", you can long-press
+                `main.tscn` in the FileSystem dock and select "Set As Main Scene".
+                
+                @Image(source: main_scene_select.png)
+            }
+            @Step {
+                You should be able to move the player around, see mobs spawning, and see the
+                player disappear when hit by a mob.
+                
+                @Image(source: main_running.png)
+            }
+            @Step {
+                When you're sure everything is working, remove the call to `new_game()` from
+                `_ready()` and replace it with `pass`.
+                
+                @Code(name: "main.gd", file: main-09.gd) 
+            }
+        }
+    }
+}

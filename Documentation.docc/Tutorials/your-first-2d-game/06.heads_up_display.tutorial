@@ -1,0 +1,296 @@
+@Tutorial(time: 30) {
+    @Intro(title: "Heads up display") {
+        The final piece our game needs is a User Interface (UI) to display things like
+        score, a "game over" message, and a restart button.  
+                
+        @Image(source: hud_play_hero.png)
+    }
+    @Section(title: "Creating the HUD ") {
+        @ContentAndMedia {
+            "HUD" stands for "heads-up display", an informational display that
+            appears as an overlay on top of the game view.
+        }
+        @Steps {
+            @Step {
+                Create a new empty scene named "hud" and tap **Create Other Node** to add a 
+                new `CanvasLayer` named "**HUD**".
+                
+                The `CanvasLayer` node lets us draw our UI elements on a layer above the rest of the game, 
+                so that the information it displays isn't covered up by any game elements like the player 
+                or mobs.
+                
+                @Image(source: hud_canvas.png)
+            }
+            @Step {
+                The basic node for UI elements is `Control`. To create our UI, we'll use two types 
+                of `Control` nodes: `Label` and `Button`.  
+                
+                First, let's add two `Label` nodes: 
+                **Score** will be changed by `ScoreTimer`, and **Message** will display messages 
+                such as "Game Over" or "Get Ready!"
+                
+                @Image(source: hud_labels.png)
+            }
+            @Step {
+                Let's also add a `Button` named **StartButton** that can be tapped to begin the game
+                and a `Timer` named **MessageTimer** to control how long messages are
+                displayed.  
+                
+                Your HUD scene should now look like this:
+                
+                @Image(source: hud_scene.png)
+            }
+            @Step {
+                Tap on the `Score` label and type a number into the `Text` field in the
+                Inspector. 
+                
+                The default font for `Control` nodes is small and doesn't scale
+                well. 
+                
+                @Image(source: hud_font_orig.png)
+            }
+            @Step {
+                There is a font file included in the game assets called
+                *Xolonium-Regular.ttf*. To use this font, do the following:
+                
+                Scroll the Inspector down to the **Control** section and tap **Theme Overrides**.
+                Tap **Pick Resource** (1) next to **Font** and choose **Load** (2).  Browse into the 
+                **fonts** folder and Select the *Xolonium-Regular.ttf* file.
+                
+                @Image(source: custom_font_load_font.png)
+            }
+            @Step {
+                The font size is too small. Increase it to `64` under "Theme Overrides > Font Size".
+                
+                Once you've set the `Font` and `Font Size` with the `Score` label, repeat the changes for the `Message` and `StartButton` nodes.
+                
+                @Image(source: custom_font_size.png)
+            }
+            @Step {
+                We will now arrange the UI nodes. 
+                You can drag the nodes to place them manually, but for more precise placement,
+                use "Anchor Presets".
+                
+                **Anchors:** `Control` nodes have a position and size,
+                but they also have anchors. Anchors define the origin -
+                the reference point for the edges of the node.
+                
+                @Image(source: ui_anchor.png)
+            }
+        }
+    }
+    @Section(title: "Score") {
+        @ContentAndMedia {
+            Use the following settings to configure and position the Score label:
+            
+            |   |  |
+            | - | ------- |
+            | 1 | Set the `text` to **0**.|
+            | 2 | Set the `Horizontal Alignment` and `Vertical Alignment` to **Center**.|
+            | 3 | Set `Anchor Preset` **Center Top**.|
+            
+            @Image(source: hud_score.png)
+        }
+        @Steps {
+        }
+    }
+    @Section(title: "Message") {
+        @ContentAndMedia {
+            Use the following settings to configure and position the Message label:
+            
+            |   |  |
+            | - | ------- |
+            |   | Set the `text` to "**Dodge the Creeps**". | 
+            |   | Set the "Horizontal Alignment" and "Vertical Alignment" to **Center**. |
+            |   | Set "Autowrap Mode" to `Word`, otherwise the label will stay on one line. |
+            | 1 | Under "Control - Transform" set "Size X"  to **480** to use the entire width of the screen. |
+            | 2 | Set "Anchor Preset" **Center**. |
+            
+            @Image(source: hud_message.png)
+        }
+        @Steps {
+        }
+    }
+    @Section(title: "StartButton") {
+        @ContentAndMedia {
+            
+            |    |  |
+            | - | ----------- |
+            |   | Set the `text` to **Start**. |
+            | 1 | Under "Control - Transform", set "Size X" to **200** and "Size Y" to **100** to add a little bit more padding between the border and text. |
+            | 2 | Set "Anchor Preset" **Center Bottom**. |
+            | 3 | Under "Control - Transform", set "Position Y" to **580**. |
+            
+            @Image(source: hud_button.png)
+        }
+        @Steps {
+        }
+    }
+    @Section(title: "MessageTimer") {
+        @ContentAndMedia {
+            
+            |    |  |
+            | - | ----------- |
+            |   | Set the "Wait Time" to **2**. |
+            | 1 | Set the "One Shot" property to "On" |
+            
+            @Image(source: hud_timer.png)
+        }
+        @Steps {
+        }
+    }
+    @Section(title: "Coding the UI") {
+        @ContentAndMedia {
+            Now let's write some code to script the UI.
+        }
+        @Steps {
+            @Step {
+                Add a script to `HUD`.  This script will not include `_ready` or `_process`
+                methods, so we can toggle off the **Use Template** option.
+                
+                Near the top of the script, define a new `signal` named `start_game`
+                to notify the `Main` node when the button has been pressed.
+                
+                @Code(name: "hud.gd", file: hud-01.gd, previousFile: hud-00.gd)
+            }
+            @Step {
+                We now want to display a message temporarily,
+                such as "Get Ready", so we add the following code
+                @Code(name: "hud.gd", file: hud-02.gd)
+            }
+            @Step {
+                This function is called when the player loses. It will show "Game Over" for 2
+                seconds, then return to the title screen and, after a brief pause, show the
+                "Start" button.
+                
+                Note: When you need to pause for a brief time, an alternative to using a
+                Timer node is to use the SceneTree's `create_timer()` function. This
+                can be very useful to add delays such as in the above code, where we
+                want to wait some time before showing the "Start" button.
+                
+                @Code(name: "hud.gd", file: hud-03.gd)
+            }
+            @Step {
+                Add an `update_score` method to `HUD` that can be called to update the score.
+                
+                @Code(name: "hud.gd", file: hud-04.gd)
+            }
+            @Step {
+                Connect the `pressed()` signal of `StartButton` and the `timeout()`
+                signal of `MessageTimer` to new Receiver Methods in the `HUD` node.
+                
+                Add this code to the new functions.
+                @Code(name: "hud.gd", file: hud-06.gd, previousFile: hud-05.gd)
+            }
+        }
+    }
+    @Section(title: "Connecting HUD to Main") {
+        @ContentAndMedia {
+            Now that we're done creating the `HUD` scene, we need to connect the `HUD` functionality 
+            to our `Main` script. 
+            
+            This requires a few additions to the `Main` scene.
+        }
+        @Steps {
+            @Step {
+                Switch back to the `Main` scene by tapping the Scene dropdown (1) 
+                at the top of the app, tapping **Select Scene** (2) and choosing **main** (3).
+                
+                If you have closed the `Main` scene, you can reopen it by double-tapping 
+                `main.tscn` in the File Pad. 
+                
+                @Image(source: hud_main.png)
+            }
+            @Step {
+                Select the root node, `Main`, and Instantiate `HUD` as a child scene (1) like you did the `Player` scene. 
+                
+                When you have added the HUD, the scene tree should look like this. So,  make sure you didn't miss anything.
+                
+                @Image(source: hud_main_child.png)
+            }
+            @Step {
+                With the `HUD` selected, open the Inspector to the Signals tab and tap `start_game`.
+                
+                @Image(source: hud_start_signal.png)
+            }
+            @Step {
+                In the "Connect a Signal" dialog, tap the `Main` node to select it, then tap **Pick** 
+                in the "Receiver Method" field and select the `new_game()` method.  Tap **Pick Method**
+                and then tap **Connect** to finish wiring up the signal.  
+                
+                The connected method name will now appear as `→..::new_game()` below the `start_game` 
+                signal in the Signals pad.
+                
+                @Coment {
+                    Verify that the signal connection icon now appears next to `func new_game()` in the script.   
+                }
+                
+                @Image(source: hud_start_connected.png)
+            }
+            @Step {
+                In `new_game()`, update the score display and show the "Get Ready" message:
+                
+                @Code(name: "main.gd", file: main-10.gd, previousFile: main-09.gd)
+            }
+            @Step {
+                In `game_over()` we need to call the corresponding `HUD` function:
+                
+                @Code(name: "main.gd", file: main-11.gd)
+            }
+            @Step {
+                Finally, add this to `_on_score_timer_timeout()` to keep the display in sync
+                with the changing score:
+                
+                @Code(name: "main.gd", file: main-12.gd)
+            }
+            @Step {
+                Remember to remove the call to `new_game()` from
+                `_ready()` if you haven't already, otherwise
+                your game will start automatically.
+                
+                Now you're ready to play! Tap the "Play" button at the top of the app.
+                
+                @Image(source: hud_play.png)
+            }
+        }
+    }
+    @Section(title: "Removing old creeps") {
+        @ContentAndMedia {
+            If you play until "Game Over" and then start a new game right away, the creeps
+            from the previous game may still be on the screen. It would be better if they
+            all disappeared at the start of a new game. We just need a way to tell *all* the
+            mobs to remove themselves. 
+            
+            We can do this with the "group" feature.
+        }
+        @Steps {
+            @Step {
+                Switch to the `mob` scene and select the root `Mob` node.  Open the Inspector and 
+                switch to the Groups tab (1) - the third tab with the three boxes, next to the Signals tab. 
+                
+                Tap **Add Group** (2) to open the "Create New Group" dialog.
+                
+                @Image(source: hud_group_tab.png)
+            }
+            @Step {
+                Name the group `mobs` and tap "Ok" to add a new scene group.
+                
+                @Image(source: hud_group_dialog.png)
+            }
+            @Step {
+                
+                Now all mobs will be in the "mobs" group.
+                
+                @Image(source: hud_mobs_group.png)
+            }
+            @Step {
+                We can then add this line to the `new_game()` function in `Main`.
+                
+                The `call_group()` function calls the named function on every node in a
+                group - in this case we are telling every mob to delete itself.
+                
+                @Code(name: "main.gd", file: main-13.gd, previousFile: main-12.gd)
+            }
+        }
+    }
+}

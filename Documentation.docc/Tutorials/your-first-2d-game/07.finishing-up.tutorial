@@ -1,0 +1,207 @@
+@Tutorial(time: 30) {
+    @Intro(title: "Finishing up") {
+            
+            We have now completed all the functionality for our game. This lesson will
+            cover some remaining steps to add a bit more "juice" to improve the game experience.
+            
+            Feel free to expand the gameplay with your own ideas.
+        @Image(source: dodge_preview.gif)
+    }
+    @Section(title: "Background") {
+        @ContentAndMedia {
+            The default gray background is not very appealing, so let's change its color.
+            
+        }
+        @Steps {
+            @Step {
+                One way to change the background color is to use a `ColorRect` node. 
+                
+                Make it the first node under `Main` so that it will be drawn behind the other nodes.
+                
+                @Image(source: fin_colorrect.png)
+            }
+            @Step {
+                `ColorRect` only has one property: **Color**. Choose a color you like (1).
+                
+                @Image(source: fin_background.png)
+            }
+            @Step {
+                Next, to make it cover the screen,  select **Full Rect** (2) from **Anchors Preset** 
+                under either the `Anchors` toolbar at the top of the viewport or in the inspector 
+                under `Layout` so that it covers the screen.
+                
+                You could also add a background image, if you have one, by using a
+                `TextureRect` node instead.
+                
+                @Image(source: fin_background.png)
+            }
+        }
+    }
+    @Section(title: "Sound effects") {
+        @ContentAndMedia {
+            Sound and music can be the single most effective way to add appeal to the game
+            experience. 
+            
+            In your game's **art** folder, you have two sound files: "House In a
+            Forest Loop.ogg" for background music, and "gameover.wav" for when the player
+            loses.
+        }
+        @Steps {
+            @Step {
+                Add two `AudioStreamPlayer` nodes as children of `Main`. 
+                
+                Name one of them `Music` and the other `DeathSound`. On each one, tap on 
+                the `Stream` property, select "Load", and choose the corresponding audio file.
+                
+                @Image(source: fin_audio.png)
+            }
+            @Step {
+                All audio is automatically imported with the `Loop` setting disabled.
+                
+                If you want the music to loop seamlessly, tap the **...** next to the 
+                Stream file name and select **Make Unique** (1). Then, select **Inspect** (2) 
+                in the **...** menu and enable **Loop**.
+                
+                @Image(source: fin_music_loop.png)
+            }
+            @Step {
+                To play the music, add `$Music.play()` in the `new_game()`
+                function and `$Music.stop()` in the `game_over()` function.
+                
+                @Code(name: "main.gd", file: main-14.gd, previousFile: main-13.gd)
+            }
+            @Step {
+                Finally, add `$DeathSound.play()` in the `game_over()` function.
+                
+                @Code(name: "main.gd", file: main-15.gd)
+            }
+        }
+    }
+    @Section(title: "Joypad Buttons and Keybaord Shortcuts") {
+        @ContentAndMedia {
+            Since the game is played with a joypad, it would be convenient if we
+            could also start the game by pressing a button on the joypad. We can do this with
+            the "Shortcut" property of the `Button` node.
+            
+            In a previous lesson, we created four input actions to move the character. We
+            will create a similar input action to map to the start button.
+        }
+        @Steps {
+            @Step {
+                First, tap on the **Switch** toolbar button in the upper-right corner
+                of Xogot and tap **Settings** to open the *Project Settings* dialog.
+                In *Project Settings*, tap the dropdown arrow next to **General** and 
+                select **Input Map**. 
+                
+                In the same way you created the movement input actions previously, create 
+                a new input action (1) named `start_game` (2) and add a **Joypad Buttons**  
+                mapping (3) for the `Bottom Action` button (4) (or whatever joypad button you 
+                prefer to use to start the game).
+                
+                @Image(source: fin_start_mapping.png)
+            }
+            @Step {
+                Optional:  To support desktop gamers with only a keyboard, now would be 
+                a good time to add **Keyboard Keys** mappings, if you haven't already.
+                
+                For each `move` input action, you can add additional mappings for 
+                **W**, **A**, **S**, **D** and/or 
+                **Left**, **Right**, **Up**, **Down** arrow keys.  **Enter** and/or **Space**
+                can be mapped to `start_game`.
+                
+                @Image(source: fin_start_keyboard.png)
+            }
+            @Step {
+                In the `HUD` scene, select the `StartButton` and tap **Shortcut** at the 
+                bottom of the `BaseButton` section in the Inspector.  
+                
+                Tap **Pick Resource** next to the **Shortcut** property and tap **New Shortcut** 
+                to create a new `Shortcut` resource.  
+                
+                @Image(source: start_button_shortcut.png)
+            }
+            @Step {
+                Tap the newly created **Shortcut** to navigate into the Shortcut resource
+                and then tap the **InputEvent Array [0]** to edit the array.
+                
+                @Image(source: start_shortcut_resource.png)
+            }
+            @Step {
+                In the Array Editor dialog, tap **Add** (1) to add a new element to the array.
+                
+                On the new empty row [0], tap the **...** (2) and create a **New InputEventAction**.
+                
+                @Image(source: start_array.png)
+            }
+            @Step {
+                Tap **InputEventAction** in row [0] to edit the new `InputEventAction`.  
+                
+                Set its action to "**start_game**".  Tap **Back** to return to the array and then
+                tap **Save**.
+                
+                @Image(source: start_action.png)
+            }
+            @Step {
+                Now when the start button appears, you can either tap it or press the 
+                `Enter` key or joypad bottom action button to start the game.
+                
+                And with that, you have completed your first 2D game in Godot.
+                
+                @Image(source: start_action_done.png)
+            }
+        }
+    }
+    @Section(title: "Sharing your game with others") {
+        @ContentAndMedia {
+            If you want people to try out your game, it's as easy as tapping `share`.
+        }
+        @Steps {
+            @Step {
+                Tap the **Share** button in the upper-right corner of Xogot.  
+                
+                It's the box with the arrow pointing out.
+                
+                @Image(source: fin_share_button.png)
+            }
+            @Step {
+                To share your game, you'll need to login.  You can tap the big 
+                "Sign in with Apple" button to create an account or sign back in.
+            
+                @Image(source: fin_share_signin.png)
+            }
+            @Step {
+                On the **Share Game** screen, you can provide a name that will
+                be shown to players that you share your game with.
+                
+                The default name will come from your project settings.
+            
+                @Image(source: fin_share_screen.png)
+            } 
+            @Step {
+                Tap **Build and Upload** to build your game and upload it.
+            
+                @Image(source: fin_upload.png)
+            } 
+            @Step {
+                Congratulations!  Your game has been uploaded!
+                
+                Tap the URL to play your game in Safari.  Or, tap the share button 
+                to share your game through Messages, AirDrop, etc.  Shared games can
+                be played directly in the browser on any platform running an
+                up-to-date browser.  
+            
+                @Image(source: fin_share_site.png)
+            } 
+            @Step {
+                You're done!  You got to make a player-controlled character, enemies 
+                that spawn randomly around the game board, count the score, implement
+                a game over and replay, user interface, sounds, and more. Congratulations!
+                
+                There's still much to learn, but you can take a moment to appreciate what you
+                achieved.
+                
+                @Image(source: dodge_preview.gif)
+            }
+        }
+    }
+}

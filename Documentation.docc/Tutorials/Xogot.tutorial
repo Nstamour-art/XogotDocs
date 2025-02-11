@@ -1,0 +1,28 @@
+@Tutorials(name: "Xogot") {
+    @Intro(title: "Xogot Tutorials") {
+        This series will introduce you to Godot and give you an overview of its features.
+
+        In the following pages, you will get answers to questions such as "Is Godot for me?" 
+        or "What can I do with Godot?". We will then introduce the engine's most essential 
+        concepts, run you through the editor's interface, and give you tips to make the most 
+        of your time learning it.
+        
+        @Image(source: dodge_preview.gif)
+    }
+    
+    @Chapter(name: "Your First 2D Game") {
+        @Image(source: dodge_preview.gif)
+        
+        In this step-by-step tutorial series, you will create your first complete 2D game 
+        with Godot. By the end of the series, you will have a simple yet finished project 
+        of your own like this animation.
+        
+        @TutorialReference(tutorial: "doc:01.project_setup")
+        @TutorialReference(tutorial: "doc:02.player_scene")
+        @TutorialReference(tutorial: "doc:03.coding_the_player")
+        @TutorialReference(tutorial: "doc:04.creating_the_enemy")
+        @TutorialReference(tutorial: "doc:05.the_main_game_scene")
+        @TutorialReference(tutorial: "doc:06.heads_up_display")
+        @TutorialReference(tutorial: "doc:07.finishing-up")
+    }
+}
