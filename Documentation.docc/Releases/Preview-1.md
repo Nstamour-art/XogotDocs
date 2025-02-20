@@ -32,7 +32,123 @@ and Xogot not responding.   This fix will be coming soon.
 
 # Releases 
 
-## Build 
+## Build 1841
+
+### Improvements
+
+- Quick Open and Open Shader now have a "Recent" tab, fixing #87.
+
+- You can now adjust the sizes for the ScenePad and FilePads, and updated the
+  color of the divider bar, so it is easier to spot (both for these, as well as
+  for the bottom plugin pads).
+
+- Breakpoint line numbers are now white making them easy to read, completes the
+  work for #288.
+
+- Find Pad improvements: when using a keyboard shortcut, the "Find" field will
+  be auto-selected;   New command "Find Next in Project" to navigate your find
+  matches in the project;   It now highlights the line you tap on the Find
+  Results.
+  
+- 2D Toolbar now hosts the Zoom control, and we added a new convenience method
+  "Zoom to Fit" technicall not in Godot, but present in Apple's Freeform, it
+  seemed like a good match.   Both the Godot custom center-selection and zoom
+  controls are now removed from the UI.
+
+- SpriteFrame pad is now sticky: if you open this pad, it will no longer vanish
+  if you select another object.  Fixes #1109.
+
+- Adds support for various kinds of samples (2d, 3d, 2d arrays) in the Shader
+  Globals, this completes the support.   Fixes #147.
+
+### Bug fixes
+
+- The inspector now honors the read-only mode for the editor, fixes #939.
+
+- Fixes support for closing a scene or project, when you had certain plugins
+  activated (most noticeably, the Skeleton3D Editor triggered this), fixes
+  #1107.
+
+- Fixes project deletion not working for projects that were loaded externally,
+  bug #1110.
+
+- Fixes the "Create New Node" dialog not collapsing nodes when requested, 
+  bug #1099.
+
+- Fixes Input map list overlaps toggle, bug #981.
+
+- Create New Node no longer reselects the first match if a windowing event
+  happens (#1116).
+
+- Dragging of files from the FilePad behavior matches Files.app behavior.
+
+### Infrastructure
+
+- Various internal refactorings from SwiftGodot class registration fixes, to
+  cleaning up the interface between the file pad and Xogot.
+
+- Ongoing work for the iOS native TileSet editor.
+
+## Build 1835
+
+- Game Sharing will now publish WebAssembly players, in addition to Xogot
+  players.
+
+- New shortcut handling: for users with a keyboard, rather than exposing all the
+  keyboard shortcuts as a big "Xogot Shortcuts", they are now classified and
+  organized in groups.   This was an important change, as I did not want to keep
+  adding ad-hoc shortcuts because they ended up polluting the list, now we can
+  add more shortcuts and keep them organized.
+
+- Bring the SpriteFrame UI improvements to the Animation Player as well.
+
+- Skeleton3D mode now works well with the Animation Editor.
+
+- Makes Buttons in various Godot plugins easier to tap, following the changes in
+  the general toolbars (#1093).
+
+- Improved icons for the CollisionPolygon2D, and now they properly track their
+  state (#1094), but this change also will improve any other Godot toolbar
+  items.
+  
+- When renaming a node in the ScenePad, tapping anywhere else will complete the
+  renaming operation.
+
+- Various bugs that appeared when you opened a second project have been fixed
+  (we noticed that signals could not be hooked up, but the core problem would
+  manifest in other ways).   Fixes #1090, #770.
+
+- Renamed the 'Recents' tab to 'Projects', and will no longer purely list recent
+  files, but any projects you have opened.
+
+- Debugger: when the program stops due to an error, you can get additional
+  details by tapping on the error.
+
+- Favorite nodes and recent nodes will always be saved, even if you dismiss the
+  dialog.
+
+- Panning on the 3D editor should not trigger auto-selection by accident (#907).
+
+- Completed the array editing support, so it should be possible on the inspector
+  to add certain kinds of objects (most noticeable, "Streams" into playlists,
+  but would also happen in a few other places).  Completes the work on #787 and
+  #634.
+  
+- SpriteFramesEditor: images were not updating right away, required switching
+  tabs to update (#1092, #1086).
+
+- The 2D editor no longer includes the "Center View" button as part of the 2D
+  improvement efforts, the option is already available in the toolbar in the
+  commands as "Center Selection"
+
+- The old animation player UI is gone, giving us back some UI space.
+
+## Build 1828
+
+We are done with all the core features to sharing games (build a game and send a
+link to another Xogot user to test) as well completing the new iPad native
+interface for the Animation Editor - we would love to get your feedback on these
+and to help us improve it.
 
 ### SpriteFrame Editor
 
@@ -51,6 +167,26 @@ Usability improvements:
 
 * Additionally, fixes a crash/hang if you had "inspected" the SpriteFrames and
   navigated out (#1087)
+
+### General
+
+* Various confirmation dialogs now use the standard system style as well.
+
+* In Godot, while some data is stored outside of the range of values, their UI
+  auto-clamps, so added support for auto-clamping these.  This was visible in
+  particular in the "Theme Overrides" (#1083).
+
+* Fonts for touch numeric input will match the font for other properties across
+  the board (#1077)
+
+* Tapping favorites or recents on the "Create New Node" will no longer match
+  using a fuzzy match, but be precise up until the user types again (#1049).
+
+* Placement of the popup for numeric input should now be automatic, rather than
+  hardcoded (which was sometimes wrong, #1082)
+
+* Adding a script with no template should instead use the "Empty" template
+  (#1084), before this, it was ignoring the request.
 
 
 ## Build 1822
