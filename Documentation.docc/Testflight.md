@@ -33,7 +33,7 @@ ways:
   [github.com/xibbon/XogotIssues](https://github.com/xibbon/XogotIssues).
 
 ### Join the Community
-We've set up a [Xogot Discord server](https://discord.gg/TDEcyfHZAh).  Please join us there!
+We've set up a [Xogot Discord server](https://discord.gg/Px2zfPKP).  Please join us there!
 
 ### Bugs in Xogot
 We are interested in finding bugs, crashes or unexpected
