@@ -41,7 +41,16 @@ and Xogot not responding.   This fix will be coming soon.
 
 * Upgraded from Godot 4.4 Release Candiate 1 to Godot 4.4 official release.
 
-* Even more improvements to the TileSet editor.
+### TileSet editor
+
+* Improving performance for big tile sets (for example 2000 x 1500) and making
+  it initialize in normal time also added indicator for creating tiles progress
+
+* Added terrain sets and implemented terrain paint that lets you apply terrain and peering bits
+
+* Fixed some edge cases for Polygon editor and made whole process smoother
+
+* Finished tile merge tool and added save of merged tile to atlas tiles
 
 ### Bug fixes
 
