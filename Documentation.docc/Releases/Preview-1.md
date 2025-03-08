@@ -4,18 +4,17 @@ Release notes for our preview release of Xogot to TestFlight.
 
 ## Known Limitations
 
-The most visible limitation currently is that the progress indicators in the UI
-are not shown, which can be a little jarring when importing a large new project
-and Xogot not responding.   This fix will be coming soon.
-
 ### Running
+
 - There is currently no support for Feature Tags when running your game (these
   are like “ifdefs”)  (#614).
 
 ### UI
-- Various confirmation dialogs that will be ported over to SwiftUI remain
+
+- A handful of confirmation dialogs that will be ported over to SwiftUI remain
   written in Godot, let us know of any common ones, so we can prioritize them
   (#540) 
+
 - Currently only the English locale is supported (#440)
 
 # Releases 
