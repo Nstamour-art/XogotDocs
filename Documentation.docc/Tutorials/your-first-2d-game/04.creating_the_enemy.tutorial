@@ -89,6 +89,9 @@
                 `AnimatedSprite2D` and navigate into the **Transform** section.  Set the `Scale` 
                 property to `(0.75, 0.75)`.
                 
+                @Image(source: mob_transform.png)
+            }
+            @Step {
                 As in the `Player` scene, add a `CapsuleShape2D` for the collision. To align
                 the shape with the image, you'll need to set the `Rotation` property
                 to `90` (under "Transform" in the Inspector).

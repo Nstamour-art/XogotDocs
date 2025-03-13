@@ -173,9 +173,8 @@
         }
         @Steps {
             @Step {
-                Tap the **Share** button in the upper-right corner of Xogot.  
-                
-                It's the box with the arrow pointing out.
+                Tap on the **...** toolbar button in the upper-right corner
+                of Xogot and tap **Export Game** (2) to open the *Project Settings* dialog.
                 
                 @Image(source: fin_share_button.png)
             }

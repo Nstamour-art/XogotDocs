@@ -18,7 +18,7 @@
         }
         @Steps {
             @Step {
-                First, tap on the **Switch** toolbar button in the upper-right corner
+                First, tap on the **...** toolbar button in the upper-right corner
                 of Xogot and tap **Settings** (2) to open the *Project Settings* dialog.
                 
                 @Image(source: project-settings.png)  
