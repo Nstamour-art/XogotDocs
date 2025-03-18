@@ -49,7 +49,7 @@ editor while the File Pad helps you manage the files in your project.
 6. Toggle Visibility
 7. Open Attached Script
 8. Create New File (Scene/Script/Resource/Import/etc)
-9. Sort order
+9. File Sort order / Show Search / Refresh
 10. Find/Replace Tool
 11. Show/Hide Scene Tree
 12. Show/Hide File Pad
@@ -95,19 +95,15 @@ of the 2D workspace.
 
 1. Select Mode
 2. Move Mode
-3. Rotate Mode
+3. Rotate Mode / Change Rotation Pivot
 4. Scale Mode
-5. List mode
-Show list of selectable nodes at position clicked.
-6. Lock/Unlock Select Node(s)
-7. Group/Ungroup Selected Node(s)
-8. Use Local Space
-9. Use Snap
-10. Snap Menu
-11. Lock/Unlock Select Node(s)
-12. Group/Ungroup Selected Node(s)
-13. Bones Menu / Selection Options
-14. View Menu
+5. Use Snap
+6. Snap Menu
+7. Lock/Unlock Select Node(s)
+8. Group/Ungroup Selected Node(s)
+9. Bones Menu / Selection Options
+10. Zoom
+11. View Menu
 
 Refer to the screenshot above to better understand the numbered elements of
 these 2D Editor Toolbar.
