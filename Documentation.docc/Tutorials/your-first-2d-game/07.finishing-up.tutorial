@@ -104,7 +104,7 @@
         }
         @Steps {
             @Step {
-                First, tap on the **Switch** toolbar button in the upper-right corner
+                First, tap on the **...** toolbar button in the upper-right corner
                 of Xogot and tap **Settings** to open the *Project Settings* dialog.
                 In *Project Settings*, tap the dropdown arrow next to **General** and 
                 select **Input Map**. 

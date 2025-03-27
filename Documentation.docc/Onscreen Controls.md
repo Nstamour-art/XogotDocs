@@ -64,7 +64,7 @@ and Top-down Action RPG.
 To use the **Project Setting Option** for onscreen controls:
 
 1. **Open Your Project** in Xogot.
-2. Tap the Switch button in the upper-righthand corner and choose
+2. Tap the **...** button in the upper-righthand corner and choose
    **“Settings”**.
 3. On the lefthand navigation, Find the **Input Devices** section and tap
    **“Virtual Controller”**.
@@ -91,7 +91,7 @@ hardware, the virtual controls should just work.  If you have an Input Map but
 have not yet configured joypad actions yet, you can follow these steps:
 
 1. **Open Your Project** in Xogot.
-2. Tap the Switch button in the upper-righthand corner and choose
+2. Tap the **...** button in the upper-righthand corner and choose
    **“Settings”**.
 3. Tap **General** in the drop down at the top of the dialog and select **Input
    Map**.
@@ -128,7 +128,7 @@ To add the **Virtual Joystick Addon** to your project:
    - Copy the addon folder into your project’s **“addons”** directory inside the
      Xogot folder.
 3. **Enable the Addon**:
-   - In Xogot, tap the Switch button in the upper-righthand corner and choose
+   - In Xogot, tap the **...** button in the upper-righthand corner and choose
    **“Settings”**
    - Tap **General** in the drop down at the top of the dialog and select **"Plugins"**
    - Locate the **Virtual Joystick Addon** and toggle it to **“Enabled”**.

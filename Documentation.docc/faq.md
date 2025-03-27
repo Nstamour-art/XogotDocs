@@ -12,39 +12,37 @@ project and Xogot not responding.
 It may take an unexpectedly long time for the project to load.  A fix will be
 coming soon.
 
-## Why can I not see my game when my project loads?
+## Why will my scene not open?
+If you are unable to open scenes in your project, check if the output tab has errors like the following:
 
-If you open your project Xogot and your viewport is missing (as in the image
-below), you might need to adjust your settings for your game to fully work on
-iPad.   
+```
+Texture (binding: 0, index 0) is not a valid texture.
+Failed to create uniform set for batch.
+Texture (binding: 0, index 0) is not a valid texture.
+Failed to create uniform set for batch.
+```
 
-@Image(source: "RendererOpenGL.png",
-       alt: "A screenshot of Xogot with an entirely white viewport")
-
-
-Xogot is based on Godot 4.3, which imposes a few limitations when it
-comes to the renderers running on mobile devices (Forward+ and Mobile work,
-but OpenGL does not).   
-
+These indicate that you need to enable importing S3TC BPTC and ETC2 ASTC.  
+       
 To configure a compatible renderer, refer to this screenshot and follow the 
 steps below:
 
-@Image(source: "ConfigureRenderer.png",
-       alt: "A screenshot of Xogot with Renderer Project Settings displayed")
+@Image(source: "enable_imports.png"
 
-1. Tap on the switch button in the top-right corner of the app and select "Settings"  
-2. Scroll to the Rendering section on the left-hand column and tap "Renderer" 
-3. Make sure that Rendering Method.mobile is not set to OpenGL
-4. Once you have selected a compatible mobile renderer, close and re-open the project
+1. Open settings by tapping the **...** in the upper-right corner and selecting **Settings**
+2. Tap **Show Advanced** at the bottom of the *Project Settings* dialog
+3. Type "*import*" in the search box
+4. Enable **Import S3TC BPTC** **Import ETC2 ASTC**
+5. Close the dialog
 
-For the final release, we will be switching to a Godot-4.4-based system which
-will support all three renderers.
+Then close and reopen the project so that these imports will run and the project should work as expected. 
+
 
 ## Why does my game show more of the canvas than it’s supposed to when running?
 
 This issue might be caused by incorrect stretch settings. To resolve it:
 
-1. Tap on the switch button in the top-right corner of the app and select "Settings"
+1. Tap on the **...** button in the top-right corner of the app and select "Settings"
 2. Scroll to the Display section on the left-hand column and tap "Window"
 3. Scroll to the Stretch section and select a Mode of either "viewport" or "canvas_items."  
 
