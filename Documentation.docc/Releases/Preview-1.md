@@ -19,6 +19,50 @@ Release notes for our preview release of Xogot to TestFlight.
 
 # Releases 
 
+## Build
+
+### Features
+
+* New tab: "Game View", it can be used to start the game embedded in that pad,
+  and surfaces a few options to freeze the scene, single-step the scene, as well
+  as providing ways of selecting elements in the 2D and 3D scenes.   Similar to
+  the same features available in Godot 4.4
+
+* Asset Library: we think the new asset library is complete and ready to use,
+  completes all the tasks in #1206
+
+* It is now possible to login with an email address, not just iCloud (children
+  could not login with Apple-ID, so we provide a fallback).
+
+* The editor mode (2D, 3D, Script, Game) now has a subtle hint of which tab is
+  selected.
+
+* The sidebar now starts open for all projects, to make it clearer to newcomers
+  (#1205).
+
+* 
+### Fixes
+
+* Increased the stack in background threads, as some samples died due to limited
+  stack space (#1198).
+
+* Internally, we did plenty of changes that will assist in a fully featured
+  iPhone UI - in this release, none of those changes have an effect on the
+  iPhone UI.
+
+* Fixes the conversion of scene groups to global groups and back (#1200,
+  Testflight).
+
+* It is now possible to change the visibility status of all gizmos, not just one
+  (#1196). 
+
+* It is possible to drag the ScenePad/FilePad divider from any portion of the
+  divider, not just the center (#1208)
+
+* Regression fix: it is possible again to choose the starting scene and pick a
+  new scene (#1194, #1183).
+
+
 ## Build 1960
 
 ### Features
