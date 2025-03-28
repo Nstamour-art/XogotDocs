@@ -21,6 +21,35 @@ Release notes for our preview release of Xogot to TestFlight.
 
 ## Build
 
+* Upgraded Godot to 4.4.1stable
+
+### Fixes
+
+* Addons can once again be selected from the toplevel set of menus.
+
+* Addons now work, a new puzzle icon is shown in the toolbar if you have addons
+  that contribute a menu item (#806, #1215).
+
+* Fixes the scenario where only the first sprite from a sheet could be removed
+  (#1212).
+
+* ScenePad: fixes the logic to make nodes unique and revoke uniqueness (#1218)
+
+* Debugger will now poll again for inspected objects, allowing changes to live
+  properties.
+
+* 2D icons on the ScenePad were not visible before, as they were blue, and the
+  selection was blue - so make the icons white in those cases (#1226)
+
+* Fixes a spurious warnings triggered when renaming a node that had a unique
+  name (#1217)
+
+* Drops the style for the toolbar introduced the previous release, as it
+  triggers a SwiftUI bug that hides those buttons after the first time you
+  launch a game.
+
+## Build 1980
+
 ### Features
 
 * New tab: "Game View", it can be used to start the game embedded in that pad,
@@ -40,7 +69,6 @@ Release notes for our preview release of Xogot to TestFlight.
 * The sidebar now starts open for all projects, to make it clearer to newcomers
   (#1205).
 
-* 
 ### Fixes
 
 * Increased the stack in background threads, as some samples died due to limited
