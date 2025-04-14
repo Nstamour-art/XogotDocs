@@ -19,6 +19,36 @@ Release notes for our preview release of Xogot to TestFlight.
 
 # Releases 
 
+## Build
+
+* More work towards the native TileMap editor, now supports terrains and
+  patterns.
+
+* Change the way that we show tooltips for commands, and offer a mechanism to
+  turn them off.
+
+* Added shortcuts for "Add Node" and "Instantiate Child Scene" (A and
+  Command-Shift-A)
+
+
+### Fixes
+
+* A major leak on theme switching that we thought had been fixed has actually
+  been fixed now.  The previous fix was based on the wrong assumption that the
+  leak only happened on the context switch, but it happens whenever the theme
+  changes (#1259).
+
+* Proper fix for the inspector when navigating from one object to another, this
+  regressed and it was not possible to drill down into Group elements of a
+  different object, for example materials in a mesh or theme settings (#1248,
+  #1252).   Additionally, also handles groups that have conflicting names across
+  categories (#1245).
+
+* Fixes the Inspector Array for multi dimensional arrays.
+
+* Fixes the editing of the rendering method/rendering driver, which regressed
+  some time ago.   First half of the fix, we still have #1256 to fix.
+
 ## Build 2060
 
 * Added support for deleting your account.
