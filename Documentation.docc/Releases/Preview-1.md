@@ -32,11 +32,6 @@ Release notes for our preview release of Xogot to TestFlight.
 
 * Easier to spot the app unlock (#1311).
 
-### Fixes
-
-* Sometimes the virtual controllers would remain on the screen, instead of being
-  dismissed (#1291).
-
 * You can now also use swipe-to-delete on the File Pad (#1334).
 
 * The animation editor will automatically track the timeline when playing back an animation (#1299).
