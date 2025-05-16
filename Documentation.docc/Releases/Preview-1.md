@@ -19,9 +19,71 @@ Release notes for our preview release of Xogot to TestFlight.
 
 # Releases 
 
-## Build 
+## Build
+
+This release introduces a free tier, and we are starting to experiment where the line should be.   We would appreciate if you could test different scenarios where the weekly, yearly or full time unlock, as well as not using any of the fake unlocks - it should let you use the application and show the paywall upsells in different conditions.
 
 ### Improvements
+
+* Animation editor tab: when a new animation has been created, but contains no tracks, provide guidance in the form of an "Add Track" button.
+
+* Changing the text editor size will update all the open editors, rather than only affecting editors that are opened after the change (Discord).
+
+* Added keyboard shortcuts for a few more operations:
+    * Show/hide sidebar (option-control-s)
+    * Show/hide inspector (option-control-i)
+    * Show/hide console (option-control-c)
+    * Clear console output (command-K)
+
+* Option to sign up for a weekly, and yearly subscriptions.
+
+* Improved batch Tile deletion (previous one was very slow and triggered un-needed updates)
+
+* Added Tile Selection grow indicator red and empty circles, in case Tile "can grow" in certain direction there will be red indicator otherwise empty, this is only visible when single Tile is selected (like in Godot). Also there is now gesture that can easily make tile "grow" when pulled in direction where growth is possible with indicator for it.
+
+* Added drag to draw terrain bits on TileSet in paint mode. Tapping on each bit was burdening in real world cases.
+
+* TileMap Editor: Remove selection indicator in paint mode.
+
+* Users can now choose to use Godot icons instead of our built-in icons (#1350), the feature is available in the Editor Settings.
+
+* Consistency: the file picker now treats a double-tap as a selection action (#1331).
+
+* Anchor Presets on the inspector now show a highlight to identify the current selection (#1365, Discord).
+
+### Fixes
+
+* Fixed an off-by-one error that displayed an "Internal Error" when picking the Display Type on a 3D Viewport (Discord).
+
+* Fixed an error that would incorrectly report "Game View Already Exists" (#1342).
+
+* Animation Editor: fixes bezier track creation.
+
+* TileMap Editor: Fixed bugs related to tile resize happening in TileMap where it shouldn’t.
+
+* TileSet Editor: Fixed TileSet Setup inspector not updating on value change.
+
+* TileSet: Fixed Auto-center and auto-scale making difficult to edit TileSet.
+
+* Fix memory leak that occurred with TileSet AtlasSourceModel, it was happening each time when navigating to different TileMapLayer nodes and changing atlas sources, it wasn’t getting released when navigating away.
+
+* Signal Connection method allowed nodes to be dragged and dropped, but it served no purpose (#1336)
+
+* Animation Player: keyed insertion of keyframes now reflects the values in your objects (#1372, discord).
+
+* Animation Player: fixes a bug that would prevent continuous updates to values on the key values from updating the UI (#1358).
+
+* Fixes the array editing problem in the inspector, was reported as Tab Stop values not saving across edits (#1359, Discord).
+
+* Fixes linked properties in the Inspector not updating in concert (#1360, Discord).
+
+* Fixes window embedding from Godot - generally this enabled the Visual Shader Editor, as the "Add Node" button is now operational (#1346)
+
+## Build 2224/2234
+
+### Improvements
+
+* You can now run Editor scripts (#1324) with Command-Shift-X (Discord).
 
 * Made the input accessory work on the iPhone by merging some cells, fixing
   the spacing and the popup windows now have fixed-size buttons, rather than
@@ -45,6 +107,8 @@ Release notes for our preview release of Xogot to TestFlight.
 * iPhone: the keyboard accessory view for the iphone is no longer cramped, and reorganized the buttons for iPhones (#1272).
 
 * When the editormode switches and there is no room to show the sidebar and the editor, auto-hide the sidebar (#1307).
+
+* When you select the filepad entry, the + and gear icons dissapear to give more space to the text input (#1333)
 
 ### Fixes
 

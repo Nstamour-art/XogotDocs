@@ -1,4 +1,4 @@
-# Release Notes
+# AppStore Release Notes
 
 Release notes for public releases of Xogot to the App Store.
 

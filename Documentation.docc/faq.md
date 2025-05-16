@@ -13,7 +13,6 @@ Xogot only supports GDScript-based plugins.
 
 Plugins written in C# or C++ are not available on Xogot/iPad.
 
-
 ## Why does Xogot seem to lock up when opening my project?
 
 It can take a while to re-import assets for your project to the iPad, and one of
