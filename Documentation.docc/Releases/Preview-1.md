@@ -19,9 +19,9 @@ Release notes for our preview release of Xogot to TestFlight.
 
 # Releases 
 
-## Build
+## Build 2274
 
-This release introduces a free tier, and we are starting to experiment where the line should be.   We would appreciate if you could test different scenarios where the weekly, yearly or full time unlock, as well as not using any of the fake unlocks - it should let you use the application and show the paywall upsells in different conditions.
+This release introduces new subscription tier, and we are starting to experiment where the line should be.   We would appreciate if you could test different scenarios where the weekly, yearly or full time unlock.  
 
 ### Improvements
 
