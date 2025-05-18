@@ -79,6 +79,8 @@ This release introduces new subscription tier, and we are starting to experiment
 
 * Fixes window embedding from Godot - generally this enabled the Visual Shader Editor, as the "Add Node" button is now operational (#1346)
 
+* Code Editor: Fix Option+Delete and Option+Left Arrow only working to skip a single word  (#1353, Discord)
+
 ## Build 2224/2234
 
 ### Improvements
