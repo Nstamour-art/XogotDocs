@@ -19,6 +19,86 @@ Release notes for our preview release of Xogot to TestFlight.
 
 # Releases 
 
+## Build 
+
+### Improvements
+
+* iPhone: File menu is now available for the project.
+
+* Added custom data to TileSet, option to attach arbitrary data (any type) to Tile using Paint.
+
+* TileMap Editor: Add missing toggle for Highlight Selected TileMapLayer (#1406).
+
+* When you have a hardware keyboard, the shift, control, alt and meta keyboard modifiers are now passed to Godot, which is useful to modify certain operations in the 2D and 3D editors like uniform resizing (#592, #908).
+
+* Switching views is no longer bound to command-control-NUMBER, instead it is just command-NUMBER (#1405, Discord).
+
+* Inspector: the SizeFlag editor will now inline the "Expand" button, so it requires one less tap, similar to Desktop Godot (#1404, Discord), and rounded the edges of the selection, to prevent folks from accidentally cutting themselves with the sharp edges.
+
+* We now surface the gyroscope/accelerometer information to games (#1348)
+
+* In the 2D Editor, users can now choose the scaling mode from the toolbar and select "Freeform" or "Uniform", when scaling 2D objects (#1403).
+
+### Fixes
+
+* Remove Inputmap autocapitalization (#1393, Discord).
+
+* Fixes the removal of polygons in the TileSet editor (#1392, Discord).
+
+* Brings back the EditorProgress display when importing a project (#1309).
+
+* TileSet Editor: Fixed paint options not updating after TileSet change in top level inspector (Discord).
+
+* TileMap Editor: Fixed random tiles showing up  after changing TileMapLayers selection and doing some action (#1407, Discord).
+
+* TileMap Editor: Fix bug related to Paint options not being accurate if first there is empty space on coordinate (0, 0), (Discord).
+
+* Prevents a crash if you close the first script tab being edited (#1399, Discord).
+
+* You can use the arrow keys when renaming a node in the ScenePad, without accidentally leaving it (#1409, Discord).
+
+## Build 2309
+
+### Improvements
+
+* The Node Information popup should no longer crop the text containing warning information (Discord, user testing).
+
+* Editing an InputEvent from the Inspector using the 'configure' button will now use our custom XogotUI that we already had for InputMap definitions (#1386).
+
+* We are trying a different approach at dragging to prevent the jump on first use (#1374), a follow up to #889 which is preventing the original jump, but falls short of triggering the drag with a single pixel motion detection, which we are still cautious about
+
+* You can now delete your shared games from the Project Manager (#1385).
+
+* Added custom data to TileSet, option to attach arbitrary data (any type) to Tile using Paint (#1387).
+
+### Fixes
+
+* Remove virtual controllers if you close the editor before you close the game (another instance of #1303).
+
+* Fixed paint options not updating after TileSet change in top level inspector (#1388).
+
+## Build 2298
+
+### Improvements
+
+* Added Command-L shortcut to jump to a line in the text editor.
+
+* Easier to spot that we have more than one subscription plan, fixes the savings button, 
+
+* Highlights the main scene in the FilePad to easily spot it, using the accent color, public bug #66.
+
+### Fixes
+
+* When creating a new animation in the animation editor, notify the Godot 2D editor, so that it activates the keying toolbar (#1317).
+
+* Fixes tracking of the system theme color, before it was not able to transition back to light mode (#1368).
+
+* Bezier data can now be edited for bezier tracks (#1381 among others).
+
+* Tapping on documetnation items in the "Signal Info" will now open the documentation for it (#1335).
+
+* Fixes icons being out of sync between the Add-Node operation and the ScenePad (#1383 and #1369).
+
 ## Build 2274
 
 This release introduces new subscription tier, and we are starting to experiment where the line should be.   We would appreciate if you could test different scenarios where the weekly, yearly or full time unlock.  
@@ -37,7 +117,7 @@ This release introduces new subscription tier, and we are starting to experiment
 
 * Option to sign up for a weekly, and yearly subscriptions.
 
-* Improved batch Tile deletion (previous one was very slow and triggered un-needed updates)
+* Improved batch Tile deletion (previous one was very slow and triggered un-needed updates).
 
 * Added Tile Selection grow indicator red and empty circles, in case Tile "can grow" in certain direction there will be red indicator otherwise empty, this is only visible when single Tile is selected (like in Godot). Also there is now gesture that can easily make tile "grow" when pulled in direction where growth is possible with indicator for it.
 
@@ -67,7 +147,7 @@ This release introduces new subscription tier, and we are starting to experiment
 
 * Fix memory leak that occurred with TileSet AtlasSourceModel, it was happening each time when navigating to different TileMapLayer nodes and changing atlas sources, it wasn’t getting released when navigating away.
 
-* Signal Connection method allowed nodes to be dragged and dropped, but it served no purpose (#1336)
+* Signal Connection method allowed nodes to be dragged and dropped, but it served no purpose (#1336).
 
 * Animation Player: keyed insertion of keyframes now reflects the values in your objects (#1372, discord).
 
@@ -77,9 +157,9 @@ This release introduces new subscription tier, and we are starting to experiment
 
 * Fixes linked properties in the Inspector not updating in concert (#1360, Discord).
 
-* Fixes window embedding from Godot - generally this enabled the Visual Shader Editor, as the "Add Node" button is now operational (#1346)
+* Fixes window embedding from Godot - generally this enabled the Visual Shader Editor, as the "Add Node" button is now operational (#1346).
 
-* Code Editor: Fix Option+Delete and Option+Left Arrow only working to skip a single word  (#1353, Discord)
+* Code Editor: Fix Option+Delete and Option+Left Arrow only working to skip a single word  (#1353, Discord).
 
 ## Build 2224/2234
 
@@ -89,7 +169,7 @@ This release introduces new subscription tier, and we are starting to experiment
 
 * Made the input accessory work on the iPhone by merging some cells, fixing
   the spacing and the popup windows now have fixed-size buttons, rather than
-  being relative to the display size (#1272)
+  being relative to the display size (#1272).
 
 * If you tap on the `script` icon on the Filepad and you are in compact mode,
   the sidebar will collapse to show the text editor (#1307).
@@ -110,13 +190,13 @@ This release introduces new subscription tier, and we are starting to experiment
 
 * When the editormode switches and there is no room to show the sidebar and the editor, auto-hide the sidebar (#1307).
 
-* When you select the filepad entry, the + and gear icons dissapear to give more space to the text input (#1333)
+* When you select the filepad entry, the + and gear icons dissapear to give more space to the text input (#1333).
 
 ### Fixes
 
 * Selecting the next/previous key frame will automatically scroll the animation editor view (#1295).
 
-* Virtual controllers that were sticky after a game ended now get properly removed from the screen (#1291)
+* Virtual controllers that were sticky after a game ended now get properly removed from the screen (#1291).
 
 ## Build 2217
 
