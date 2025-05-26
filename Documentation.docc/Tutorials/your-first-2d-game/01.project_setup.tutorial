@@ -30,8 +30,8 @@
                 This game is designed for portrait mode, so we need to adjust the size of the
                 game window. 
                 
-                Tap on the **Switch** toolbar button (1) in the upper-right corner
-                of Xogot and tap **Settings** (2) to open the *P*roject Settings* dialog.
+                Tap on the **...** toolbar button (1) in the upper-right corner
+                of Xogot and tap **Settings** (2) to open the *Project Settings* dialog.
                 
                 @Image(source: project-settings.png)  
             }

@@ -23,6 +23,17 @@ project and Xogot not responding.
 It may take an unexpectedly long time for the project to load.  A fix will be
 coming soon.
 
+## Why is my game zoomed in or stretched when running on Xogot?
+
+Recent Xogot updates introduce a new default Scale Mode called Auto, which selects 
+a scaling behavior based on the device. In some projects, especially older ones or 
+those not designed with high-DPI in mind, this can cause the game to appear zoomed 
+in or stretched.
+
+To restore the expected appearance, open Project Settings and set 
+Display > Window > Scale Mode to Fractional. This matches the behavior of previous 
+Xogot versions and the default in Godot 4.4.
+
 ## Why will my scene not open?
 If you are unable to open scenes in your project, check if the output tab has errors like the following:
 
