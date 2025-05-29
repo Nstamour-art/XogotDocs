@@ -36,6 +36,10 @@ Release notes for our preview release of Xogot to TestFlight.
 * The position in the documentation stays where you leave it, it no longer resets when you switch tabs (#1347)
 
 * Numeric input values now update immediately upon changes (Better fix for #1296 and #1304)
+
+
+Reverted the default scaling size from “auto” to “fractional”
+
 ## Build 2354
 
 ### Improvements
