@@ -19,7 +19,23 @@ Release notes for our preview release of Xogot to TestFlight.
 
 # Releases 
 
+## Build 2397
+
+### Improvements
+
 ## Build 2374
+
+* Remote Debugging: we are starting to test support for running games on a companion device, you can now develop on your iPad and run the game in a companion iPad or iPhone.   To do this, you must be logged in on both devices (this is how we do the zero-password configuration).   The target device needs to stay on the main screen, while the editor device is used to scan and find your other device.  Both devices must be on the same network.
+
+* You can now drag and drop files to create a TileSet (#1229).
+
+### Fixes
+
+* Fixes support for deleting array elements for some properties (#1424, Discord).
+
+* Fixes the iPhone support
+
+* We now wrap around text to make the first error in the error list show up completely (#1423, TestFlight)
 
 ### Improvements
 
@@ -37,8 +53,11 @@ Release notes for our preview release of Xogot to TestFlight.
 
 * Numeric input values now update immediately upon changes (Better fix for #1296 and #1304)
 
+* When you favorite folders, then tapping on them scrolls to the folder (#1330)
 
-Reverted the default scaling size from “auto” to “fractional”
+* Fixes slow down when selecting a remote debugging node that contained an image (#1420, Discord).
+
+* Reverted the default scaling size from “auto” to “fractional”
 
 ## Build 2354
 
