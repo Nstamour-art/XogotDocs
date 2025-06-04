@@ -34,6 +34,20 @@ To restore the expected appearance, open Project Settings and set
 Display > Window > Scale Mode to Fractional. This matches the behavior of previous 
 Xogot versions and the default in Godot 4.4.
 
+## Why does my project close when I swipe up to close a running game?
+
+When iPad Multitasking is disabled (Settings → Multitasking & Gestures → Multitasking → Off), 
+Xogot cannot keep the editor and running game open as separate processes. In this 
+configuration, swiping up to close the running game fully terminates the app, 
+returning you to the project selection screen.
+
+Because iPadOS does not provide a way for apps to detect whether Multitasking is disabled, 
+Xogot cannot automatically adjust its behavior.
+
+To work around this, we recommend re-enabling Multitasking in Settings. Alternatively, 
+you can use the in-editor Stop button to end the game, or run the game in Xogot’s 
+embedded game view tab.
+
 ## Why will my scene not open?
 If you are unable to open scenes in your project, check if the output tab has errors like the following:
 
