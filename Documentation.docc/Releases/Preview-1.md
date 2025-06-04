@@ -19,7 +19,39 @@ Release notes for our preview release of Xogot to TestFlight.
 
 # Releases 
 
-## Build 
+## Build 2418
+
+### Improvements
+
+* Remote Debugging: we are starting to test support for running games on a companion device, you can now develop on your iPad and run the game in a companion iPad or iPhone.   To do this, you must be logged in on both devices (this is how we do the zero-password configuration).   The target device needs to stay on the main screen, while the editor device is used to scan and find your other device.  Both devices must be on the same network.
+
+* Added a drag handle to the top toolbars, as not every element in the toolbar is draggable - will probably iterate on this, and remove draggability from any other place other than the handlebar.
+
+* Improved the UI in the "Input Map" project settings, using the same idiom of guiding the user to their next step, and moving the common operations from the toolbar closer to where they belong. 
+
+### Experimenting
+
+* Experimenting with less friction to start a drag gesture for numeric inputs as well as the ranged sliders.
+
+* Going to start using "Release" builds of the Godot engine, instead of the "Debug" build, we are goig to see if the results still produce good crash logs.   This reduces the download size by 193 megabytes, and will likely improve the performance of Godot.
+
+### Fixes
+
+* Fixes a crash when closing a project and you were editing an animation, as we were destroying the animation after we had completed the Xogot shutdown.
+
+## Build 2411
+
+## Improvements
+
+* InputMap: new filter option by letters and numbers to simplify finding your keybinding (#1118)
+
+* On iPhone, if you did not have a main scene selected, you would not get a prompt asking for one, this made it so that running the game would not complete its work (#1416)
+
+## Build 2405
+
+## Fixes
+
+* Addresses a crash when navigating AnimationPlayerEditor keys
 
 ### Improvements
 
@@ -27,16 +59,11 @@ Release notes for our preview release of Xogot to TestFlight.
 
 ### Fixes
 
-* On iPhone, if you did not have a main scene selected, you would not get a prompt asking for one, this made it so that running the game would not complete its work (#1416)
-
 * When selecting a new sprite on the Canvas editor, sometimes the handles for the item would remain on the screen (#1118).
 
 ## Build 2397
 
 ### Improvements
-
-
-* Remote Debugging: we are starting to test support for running games on a companion device, you can now develop on your iPad and run the game in a companion iPad or iPhone.   To do this, you must be logged in on both devices (this is how we do the zero-password configuration).   The target device needs to stay on the main screen, while the editor device is used to scan and find your other device.  Both devices must be on the same network.
 
 * You can now drag and drop files to create a TileSet (#1229).
 
