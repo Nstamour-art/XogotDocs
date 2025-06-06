@@ -173,8 +173,8 @@
         }
         @Steps {
             @Step {
-                Tap on the **...** toolbar button in the upper-right corner
-                of Xogot and tap **Export Game** (2) to open the *Project Settings* dialog.
+                Tap on the **...** (1) toolbar button in the upper-right corner
+                of Xogot and tap **Export Game** (2) to open the *Share Game* dialog.
                 
                 @Image(source: fin_share_button.png)
             }
@@ -182,7 +182,7 @@
                 To share your game, you'll need to login.  You can tap the big 
                 "Sign in with Apple" button to create an account or sign back in.
             
-                @Image(source: fin_share_signin.png)
+                @Image(source: fin_export_web.png)
             }
             @Step {
                 On the **Share Game** screen, you can provide a name that will
