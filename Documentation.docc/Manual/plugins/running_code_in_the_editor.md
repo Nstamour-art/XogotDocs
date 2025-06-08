@@ -135,7 +135,7 @@ By default, the warning only updates when closing and reopening the scene.
 Sometimes, you need to run code just one time to automate a certain task that is
 not available in the editor out of the box. Some examples might be:
 
-- Use as a playground for GDScript or C# scripting without having to run a project.
+- Use as a playground for GDScript without having to run a project.
 print() output is displayed in the editor Output panel.
 
 - Scale all light nodes in the currently edited scene, as you noticed your level
@@ -148,12 +148,11 @@ This is available in Godot by extending [EditorScript](https://docs.godotengine.
 This provides a way to run individual scripts in the editor without having to
 create an editor plugin.
 
-To create an EditorScript, right-click a folder or empty space in the FileSystem
-dock then choose **New > Script...**. In the script creation dialog, click the
-tree icon to choose an object to extend from (or enter EditorScript directly
-in the field on the left, though note this is case-sensitive):
+To create an EditorScript, tap on the '+' sign on the FileSystem pad
+then choose **Create Script**. In the script creation dialog, and set the
+"Inherits" field to "EditorScript":
 
-@Image(source: "running_code_in_the_editor_creating_editor_script.png", alt: "Creating an editor script in the script editor creation dialog") {Creating an editor script in the script editor creation dialog}
+@Image(source: "xogot-running_code_in_the_editor_creating_editor_script.png", alt: "Creating an editor script in the script editor creation dialog") {Creating an editor script in the script editor creation dialog}
 
 This will automatically select a script template that is suited for
 EditorScripts, with a _run() method already inserted:
@@ -168,11 +167,11 @@ func _run():
 ```
 
 This _run() method is executed when you use **File > Run** or the keyboard
-shortcut `Ctrl + Shift + X` while the EditorScript is the currently open
+shortcut `Command + Shift + X` while the EditorScript is the currently open
 script in the script editor. This keyboard shortcut is only effective when
 currently focused on the script editor.
 
-Scripts that extend EditorScript must be @tool scripts to function.
+Scripts that extend EditorScript must be @tool scripts to function, so make sure it is present.
 
 > Note:
 >
