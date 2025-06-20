@@ -43,17 +43,19 @@ Release notes for our preview release of Xogot to TestFlight.
 
 ## Build 2434
 
-### Improvements
+* When you enable audio input recording on the Godot settings, Xogot will ask for permission to use the Microphone (Fixes #1456)
 
-* The inspector should no longer vanish on small screens after running a game (#736).
+* "Create Script" from the FilePad will default to "Object" as the base class, as opposed to "Node", which allows various "Editor" nodes to be browser for subclassing, and makes it easier to create editor scripts ( #1458)
 
-* We now offer new script options from the File tab to sublass Object, not just Node (#1458).
+* Create Script now lists the templates as you change the type inherited, which was previously only done on first use, negating the purpose of the feature (#1459).
 
-* The templates on the "New Script" dialog are now updated when the base type changes (#1459).
+### Fixes
 
-* You can now record Audio on Xogot (#1456)
+* Editor no longer inserts an additional quote when completing file names (#1450, Discord)
 
-* Avoid double quotes when completing file names (#1450)
+* Workaround for a bug in iPadOS: when you run a game and you have the inspector open, and finish the game on small screen scenarios (iPad Mini, or if your editor was changed to use a very compact mode) it should now prevent a floating properties pad to show, and will make the inspector work afterwards (Fixes #736, Discord)
+
+* Fixed a Godot upstream bug that prevented the microphone from recording (#1457, Godot bug #33885, Discord).
 
 ## Build 2418
 
