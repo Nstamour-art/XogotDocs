@@ -19,6 +19,42 @@ Release notes for our preview release of Xogot to TestFlight.
 
 # Releases 
 
+## Build 2458
+
+### Improvements
+
+* Remote debugging now takes place on a dedicated tab on the launch screen.
+
+* Started refactoring the UI for settings for the iPhone, so now settings should continue to work the same way they did on iPad, but start to work on iPhone.
+
+* Additional details on connection errors to help users diagnose problems
+
+* Started support for bringing a curated list of native extensions to Xogot.
+
+### iPhone
+
+* Improve the launch page on iPhone (#1447)
+
+* It is now possible to dismiss importers on the iPhone when triggered (#1441)
+
+### Fixes
+
+* Fixes a race condition that prevented the discovery of the remote device
+
+## Build 2434
+
+### Improvements
+
+* The inspector should no longer vanish on small screens after running a game (#736).
+
+* We now offer new script options from the File tab to sublass Object, not just Node (#1458).
+
+* The templates on the "New Script" dialog are now updated when the base type changes (#1459).
+
+* You can now record Audio on Xogot (#1456)
+
+* Avoid double quotes when completing file names (#1450)
+
 ## Build 2418
 
 ### Improvements
