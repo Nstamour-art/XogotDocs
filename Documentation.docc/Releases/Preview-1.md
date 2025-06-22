@@ -19,6 +19,28 @@ Release notes for our preview release of Xogot to TestFlight.
 
 # Releases 
 
+## Build 2474
+
+* Network scan prompt will not trigger until you press "Discover".
+
+### Fixes
+
+* Add support for navigation links on iOS 2026
+
+* Fixes a long-standing crash in the text editor related to the undo stack that would go on an infinite loop and crash Xogot.  (#1475,  crashlytics).
+
+* Fixes a crash that happened in the Sprite Sheet Importer if you chose the size zero (#1469, crashlytics)
+
+* Unlock message was showing up too often (#1467, #1468 - fixed)
+
+* Fixes "New Input Map" actions were not appearing until list is refreshed (#1470, Testflight feedback)
+
+* Fixes a crash that would happen sometimes when the selection was updated (#1474, Crashlytics).
+
+* Prevents a crash on the text editor - we do not understand the conditions, only that a forced unwrapped crashed - we now avoid the crash and we can track via feedback if something goes wrong (Crashlytics).
+
+* Fixes "paint after undo adds tiles that was removed in undo" (#1478, Discord).
+
 ## Build 2458
 
 ### Improvements
