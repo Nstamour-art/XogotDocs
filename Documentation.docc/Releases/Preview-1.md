@@ -19,6 +19,33 @@ Release notes for our preview release of Xogot to TestFlight.
 
 # Releases 
 
+## Build 2528
+
+### Improvements
+
+* Rectangle Editor: shortens the labels, so it is possible to edit the values.
+
+* Rectangle Editor: in a few places, the rectangle editor will now display
+  'Edity Rectangle' and when pressed, it will show up an
+  interactive view to select a region from the image (Discord, #1465).
+
+* SpriteSheetImport: will now remember the settings that you had when importing
+  a new texture if the size of the texture matches the previous size (Discord
+  request).
+  
+* Grouped numeric input: we will now auto-select in the popup the entry that you
+  tapped on (Discord).
+
+### Fixes
+
+* Fixes dragging and dropping of Nodes into the text editor, it was showing up
+  in the wrong location (Discord, #1511).
+
+* Fix TileMap issue where random tiles popup during paint bug (Discord, #1510)
+
+* Now remembers the configured set of output lines (Discord, #1514)
+
+
 ## Build 2514
 
 ### Improvements
