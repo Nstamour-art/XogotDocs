@@ -19,6 +19,88 @@ Release notes for our preview release of Xogot to TestFlight.
 
 # Releases 
 
+## Build 2570
+
+This release starts the testing process for making Xogot a free app that will
+put some features behind a paywall, but will allow the core of the editor to be
+used. 
+
+### iOS 2026 adjustements
+
+Generally, adopted various idioms from iOS 26, the current branch that we
+are going to publish is still based on the public Xcode, so Liquid Glass will
+not show up just yet, but the idioms should start tracking the new idioms.
+
+We have completed the Liquid Glass work, with the exception of some bugs in the
+betas that we have not been able to address yet.   While we have done this, the
+release that is going into Testflight is built with the stable Xcode, so the UI
+will not change just yet.
+
+* Add support for menus on iOS 26: Follows some of the guidance for iPad apps
+  on iOS 25, by not making menu entries appear/dissapear, instead they are
+  enabled/disabled.   Added a few icons to the menus.
+    
+  This moves the "Navigation" items to "View" as suggested by the iPad talk for navi6ation.
+    
+  The most important and ugly change is that with the new menu system on iOS
+  26, the system is defining an "Open" menu with the same shortcut we had
+  that is permanently greyed-out and can not be implemented at all.  
+
+* On iOS 26, our interaction dialogs will follow the system style.
+
+* Focus on ScenePad/FilePad: it is now possible to focus these and use the
+  keyboard to navigate them (#1479).
+
+* Some sheets were being compressed on iOS 26, fixed this.
+
+* Adjusted some UI as the default styling in iOS 26 changed.
+
+* Fixed a glitchy UI on the login window on iOS 26.
+
+
+### Improvements
+
+* Rename Dialog: made a little wider, it was bothering me.
+
+* UI consistency: in places where we guide our users to the next step, rather
+  than rolling our own UI, we now use the system ContentUnavailableView idiom
+  for more consistency.
+
+* FilePad: removed some unnecessary padding, so now the filename display has
+  more space.
+
+* Preparation for doing remote debugging from Desktop Godot to Xogot.
+
+* Work in progress: if you have a Claude key, we now bundle an integrated window
+  that can use Claude and exposes an MCP endpoint to talk to your project.
+  Please be careful with this, as there is no undo/backup for changes done via
+  Claude at this point.
+
+* Combine inputMap keys back into single group but reorder to match requirements
+  bug #1118
+
+* Improve IP handling and status display in RemoteSyncClient: Display the local
+  IP address in the advertising status message. Update argument IP replacement
+  logic to only substitute 127.0.0.1 or 0.0.0.0 with the fastest IP, preserving
+  other IPs. Enhance the client view to allow multiline and right-aligned status
+  text.
+
+### Fixes
+
+* Fix SpriteImport sheet and TileMap cropping when zooming out (Discord, #1519).
+
+* TileSet: When creating big Atlas it doesn't resize properly on first load
+  (#1520). 
+
+* Fix in Settings - Visible Collision Shapes not persisting (Discord, #1527)
+
+* Fixes remote debugging only working the first time.
+
+* Fix Code Editor - Cut should clear current selection #1525
+
+* Prevent popover from bouncing around this is problem for Godot embedded
+  content (Discord, #1531)
+
 ## Build 2528
 
 ### Improvements
