@@ -19,6 +19,39 @@ Release notes for our preview release of Xogot to TestFlight.
 
 # Releases 
 
+## Build
+
+## Build 2591
+
+### Improvements
+
+* The virtual controllers that are displayed when you start a game automatically
+  hide if you switch out of the "Game" mode (#1282)
+
+* Chat conversations are now relative to the game project, rather than being
+  global. 
+
+* It is now possible to start a new chat from the Chat window.
+
+* Add ability to extract TileMapLayer from TileMap #1509
+
+### Fixes
+
+* On iOS 26, nested toolbars in dialogs would not show up sometimes (Settings,
+  or Atlas importer), we have implemented a workaround that keeps the
+  functionality but does not need a fix from Apple.
+
+* For free edition users, the soft paywall will now show up after the editor is
+  launched, not before.
+
+* Fixes a family of crashes that happened when you had some animations and you
+  were closing a project (TestFlight crash 1292)
+
+* Chat Window: it should no longer hang when trying to launch it for the first
+  time.
+
+* Fix snap to grid problem for Polygons editor #1536.
+
 ## Build 2570
 
 This release starts the testing process for making Xogot a free app that will
