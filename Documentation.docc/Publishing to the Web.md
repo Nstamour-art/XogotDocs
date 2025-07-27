@@ -1,5 +1,9 @@
 # Publishing to the Web
 
+Export a web build of your project to share online
+
+## Sharing your game online
+
 Once you've finished developing your game in Xogot, sharing it with others 
 is simple. Xogot makes it easy to create a web build that you can share 
 directly or upload to popular game distribution platforms 
