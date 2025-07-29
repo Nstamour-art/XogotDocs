@@ -38,6 +38,10 @@ The Scene Tree and File Pad help you organize your game’s structure and manage
 resources. The Scene Tree allows you to add, manage and select nodes in the
 editor while the File Pad helps you manage the files in your project. 
 
+The Scene Tree and File Pad can be opened individually by tapping the tree or 
+file toolbar buttons in the lower-left corner of Xogot, and can be shown/hidden
+by tapping the Sidebar toolbar button in the upper-right corner of Xogot.
+
 @Image(source: "XogotSceneFile.png", 
        alt: "A screenshot of Xogot with numbered scene tree and file pad elements.")
 
@@ -56,6 +60,78 @@ editor while the File Pad helps you manage the files in your project.
 
 Refer to the screenshot above to better understand the numbered elements of
 the Scene Tree and File Pad UI components.
+
+## Inspector
+
+The Inspector panel allows you to view and edit the properties, signals, and groups
+of the currently selected node. It plays a central role in configuring the behavior 
+and appearance of nodes in your scene.
+
+### Accessing the Inspector
+
+To show or hide the Inspector, tap the **scope icon** (second-from-the-right) in the 
+upper-right corner of the Xogot interface.
+
+### Inspector Tabs
+
+The Inspector is divided into four tabs, each providing a different view or 
+editing capability for the selected node.
+
+@Image(source: "InterfaceInspectorTabs.png", 
+       alt: "A screenshot of Xogot with numbered Inspector elements.")
+
+1. Properties
+2. Signals
+3. Groups
+4. History
+
+#### Properties
+
+The **Properties** tab displays all configurable attributes for the selected node. 
+Properties are organized hierarchically, beginning with those specific to the node’s 
+class, followed by those inherited from its base classes.
+
+You can modify most properties directly from this panel. Some highlights:
+
+5. **Angle Input**:  Angle values are rendered in a horizontal gauge. 
+  * Tap and drag left or right on the gauge to adjust the angle.
+  * Tap-and-hold before dragging to enable fine-tuned adjustments.
+6. **Grouped Properties**: Nested property groups are indicated by a `>` symbol. 
+Tap to navigate into the group. 
+7. **Pinning**: When inside a property group, tap the **thumbtack icon** to pin it, 
+keeping its contents visible even after navigating away. 
+
+  Tap the thumbtack on any pinned group to unpin it. 
+
+@Image(source: "InterfaceInspectorNumberPad.png", 
+       alt: "A screenshot of Xogot with number pad input.")
+
+**Numeric Input**: Tapping a number field opens a numeric input panel.
+* **Touch Adjustment**: Tap and drag left or right on any number field to quickly 
+increase or decrease its value using touch input.
+* **Keyboard Adjustment**: Use the arrow keys to quickly increase or decrease values 
+in number fields. Combine with modifier keys for finer or coarser adjustments:
+    * `Control + ↑/↓`: Adjust by the default increment
+    * `Option + ↑/↓`: Adjust by 0.1 units
+    * `Shift + ↑/↓`: Adjust by 10 units
+    * `Command + ↑/↓`: Adjust by 100 units
+
+#### Signals
+
+The **Signals** tab lists all signals the selected node can emit, along with any methods
+currently connected to respond to those signals. Use this tab to manage signal connections
+directly from the interface.
+
+#### Groups
+
+The **Groups** tab allows you to assign the node to one or more **Scene Groups** or **Global
+Groups**, which can be used to organize nodes and apply logic to multiple nodes at once.
+
+#### History
+
+The **History** tab provides a list of recent changes made to properties in the Inspector. 
+This allows you to review or revert recent modifications quickly during scene editing.
+
 
 ## 3D Editor Toolbar
 
