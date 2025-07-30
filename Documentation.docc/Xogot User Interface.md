@@ -77,13 +77,13 @@ upper-right corner of the Xogot interface.
 The Inspector is divided into four tabs, each providing a different view or 
 editing capability for the selected node.
 
-@Image(source: "InterfaceInspectorTabs.png", 
-       alt: "A screenshot of Xogot with numbered Inspector elements.")
-
 1. Properties
 2. Signals
 3. Groups
 4. History
+
+@Image(source: "InterfaceInspector.png", 
+       alt: "A screenshot of Xogot with numbered Inspector elements.")
 
 #### Properties
 
