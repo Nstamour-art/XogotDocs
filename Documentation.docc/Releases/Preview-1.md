@@ -19,7 +19,60 @@ Release notes for our preview release of Xogot to TestFlight.
 
 # Releases 
 
-## Build
+## Build 2638
+
+
+### Improvements
+
+* The TileMap and TileSet plugins can now be docked on the left or right sides,
+  to assist in your editing needs (#1529, Discord)
+
+* Added keyboard shortcuts for various operations (Cut, Copy, Delete, Duplicate
+  Nodes and Select All).   Some of these shortcuts might only be visible on iOS
+  26, as they are exposed via the built-in system commands (#1549, Discord).
+
+* Animation editor tab: significant performance improvements when switching
+  animations and when playing back animations (#1562, Discord).
+
+### Fixes
+
+* Fix crash in advanced scene import when turning on physics (#1554, Discord).
+
+* Fix adding plugin doesn't update filesystem (#1555, Discord)
+
+* Removes a stray debugging value from the UI (#1556, Discord).
+
+* Fix File Import causes duplicate files (#1558, Discord)
+
+## Build 2620
+
+### Improvements
+
+* Happier colors for the launch screen, it was making me sad, and additionally
+  Axolotl Rex will greet you on your gaming journey.
+
+* You can now change the font for the code editor and consume system fonts, my
+  previous attempt merely allowed you to pick a different fixed font, now you
+  can pick any user-installed fonts (#1539, Discord).
+
+* For our free edition users, we will show a status bar after launching.
+
+## Build 2604
+
+### Improvements
+
+* You can now configure in Xogot Settings your default execution target, either
+  the embedded window, or a separate window.   
+
+* You can now copy the error message when there is a runtime error (#1122)
+
+### Fixes
+
+* Virtual controllers will not be shown if the user chose to disable them
+  (#1538).
+
+* Fixes a crash we observed in the wild when users were closing a project
+  (#1533).
 
 ## Build 2591
 
