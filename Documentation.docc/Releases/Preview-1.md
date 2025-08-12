@@ -19,8 +19,19 @@ Release notes for our preview release of Xogot to TestFlight.
 
 # Releases 
 
-## Build 2638
+## Build 2645
 
+### Improvements
+
+* Going to allow any fonts to be picked by the editor for now, will see if this
+  is a major problem in practice.
+
+* TextureRegionEditor will now auto-size to a convenient size, and the handles
+  will be scaled accordingly.   Plus various small improvements to it (#1557)
+
+* When switching an animation, stop a playing animation (#1561)
+
+## Build 2638
 
 ### Improvements
 
