@@ -19,6 +19,51 @@ Release notes for our preview release of Xogot to TestFlight.
 
 # Releases 
 
+## Build 2673
+
+### Improvements
+
+* Expression Evaluator: The Godot REPL is now available in Xogot (#1412), there
+  is a new option that you can toggle on the bottom of the screen when the
+  debugger is selected to switch to the REPL window.
+
+* Inspector: reviewed the padding of some elements and discovered a handful of
+  pixels here and there that were needlessly consuming space that was needed.   
+
+* Reparenting of nodes will now report an error if you are editing a foreign
+  scene, and the operation is not allowed (Discord).  My preference would have
+  been to remove the menu, but new Apple guidance on menus is to not make menus
+  conditional, so we are going to start moving into that direction.
+
+* On an empty scene, the "Other Node" or tapping the "+" sign will bring up the
+  new node selection dialog, rather than defaulting to the limited tree-view
+  one (#1501)
+
+* The reference guide now has an index to search by words in the documetnation
+  (#1379, Discord).
+
+### Fixes
+
+* Fixes the lingering and highlighted line in the editor (Discord).
+
+* Caught a crash on Testlight crash logs and applied a fix.
+
+* Fixes the crash when downloading the project template (#1569, Discord).
+
+* Only stop an animation if we are playing an animation, fixes a crash
+  (Discord).
+
+* AnimationPlayer: reduce calls to Godot when they are not needed, they were
+  generating unnecessary warnings.
+
+* Fixes a regression introduced by the model importer fix that would produce
+  unecessary warnings on the console (#1574, Discord).
+
+* Gamesharing: Remove a stray numeric prefix from game ID in URL (Discord).
+
+* Fixes a potential hang when there is no networking available and you have
+  previously opened a project on the network.
+
 ## Build 2645
 
 ### Improvements
