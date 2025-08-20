@@ -19,6 +19,50 @@ Release notes for our preview release of Xogot to TestFlight.
 
 # Releases 
 
+## Build 2718
+
+### Changes
+
+* To buy us some space on the busy toolbar, the Undo/Redo buttons now float on
+  the editor scenes.   Useful on iPad, very useful on iPhone.
+
+### iPhone improvements
+
+We are getting very close to feature completion now on the iPhone-side of
+things, as we are running out of well known gaps for the phone.
+
+* Axololt Rex is now visible on the iPhone as well, it is not limited to the
+  iPad anymore.
+
+* Bottom pads now take a little more screen space, to match the iPhone's Sheet
+  presentation sizes.
+
+* All pending menus from the iPad are now available on the iPhone (Settings,
+  Export Game, Reference Guide, Asset Library).
+
+* On the iPhone the project title will just show the scene, not the project
+  name. 
+
+* Work around for run menus on iOS 26.
+
+* Fixed the "Add Animation" to the Animation player on iPhone.
+
+* File/Scene pads can now be hidden/shown or resized, like the iPad.
+
+* Text search feature is now available on the iPhone.
+
+* SpriteFrameEditor is now available on the iPhone.
+
+* Various popovers on the iPhone now are properly sized.
+
+### Fixes
+
+* Another fix for updating the remote node list, which did not work when a whole
+  new node was added to the scene (Discord, #1582).
+
+* Reverted our Floating window for popovers, will have to bring this back in the
+  future - this was the feature part of #1531 below.
+
 ## Build 2705
 
 ### Improvements
