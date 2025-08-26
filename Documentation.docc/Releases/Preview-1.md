@@ -21,6 +21,86 @@ Release notes for our preview release of Xogot to TestFlight.
 
 ## Build
 
+Starting to test publicly the iOS26 changes.  
+
+This version has been built with Xcode 26 in preparation for iOS 26 and includes
+a few updates to track the new iOS 2026 look.
+
+### Improvements
+
+* Editor surface: we prevent toolbars overlapping the undo/redo buttons
+
+* iPhone: We relocate the undo/redo buttons to the top when a sheet covers it
+  (#1616).
+
+* iPhone: adds a "Stop Game" button on the Debugger pane for convenience when
+  the game is running.
+
+* Audio Bus effects: when browsing effects, we now include the documentation
+  blurb describing the effect (#1608).
+
+* Audio Bus buttons for effects and options are slightly larger to make them
+  easier to tap.
+
+* iPhone: the inspector button now acts like a toggle, rather than requiring a
+  swiping out action (#1611).
+
+* Command-S hot key will now route it to the shader editor if you are editing a
+  shader. 
+
+* Mac Catalyst: major changes internally to support various scenarios that were
+  broken due to how this system works (crashes when triggering sheets should now
+  be gone).
+  
+### Fixes
+
+* iPhone: learning center no longer clips the label for "GET" (#1612), and
+  adjusts the layout for iPhone.
+
+* iPhone: the bottom bar management was getting out of sync with the menus, this
+  has now been fixed (#1617)
+
+## Build 2758
+
+### Fixes
+
+* iPhone: The sidebar was vanishing as soon as the keyboard was activated
+  (#1607, Discord).
+
+* FilePad: the delete swipe action was not collapsing after use (#1609, Discord)
+
+* iPhone: some sheets triggered from the inspector were not working on the
+  iPhone (#1610, Discord)
+
+## Build 2750
+
+### Fixes
+
+* iPhone: make sure that we use all space in landscape mode on the iPhone Max.
+
+## Build 2746
+
+### Fixes
+
+* iPhone: make sure we do not show 'Output' as selected on startup.
+
+## Build 2737
+
+* Brings new artwork to the paywall.
+
+## Build 2734
+
+### Fixes
+
+* Brings a long-standing bug fix for "CVS" files not showing up on the Importer
+  tab, they should now show up.  Bug #1253 (Discord).
+
+* The Rename Dialog did not look right on the iPad (#1603, Discord), we suspect
+  this might also fix a hang when dismissing the keyboard when renaming from the
+  FilePad, but we would love to confirm.
+
+## Build 2730
+
 ### iPhone
 
 Another major push, thanks for all the feedback on the iPhone challenges.

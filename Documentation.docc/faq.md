@@ -85,6 +85,15 @@ This issue might be caused by incorrect stretch settings. To resolve it:
 These modes will clip overflow and ensure that the game view is scaled correctly 
 for the available screen space.
 
+## Does Xogot work offline?
+
+Yes, Xogot works without an internet or network connection.
+
+The following is a list of optional features that require a network connection:
+
+* Downloading the sample projects from the Learning Center.
+* Downloading extensions from the Asset Library.
+* Sharing a Game on the Web.
 
 ## Why is my TestFlight invite is expired, invalid, or having other issues?
 The most likely issue is that you used a different email address than your 
