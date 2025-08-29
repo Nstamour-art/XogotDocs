@@ -23,6 +23,41 @@ Release notes for our preview release of Xogot to TestFlight.
 
 ### Improvements
 
+* AnimationEditor UX improvements: no longer resets the current editing object
+  if you tap on the timeline or you select a track.   We will only change the
+  currentlys selected item if you tap on an actual key element on a track.
+
+* Spanish translation: uniformized the text to match Apple idioms.
+
+* Added Japanese localization.
+
+* iPhone mostly, but also iPad: after you hit "stop" in the embedded view, it
+  will take you back to the editor you were in (if you started from the
+  toolbar. - #1626, Discord).
+  
+* Project settings are internationalized.   Which completes all known pending
+  localization tasks.
+
+### Fixes 
+
+* AnimationEditor: some icons that were previously not being shown for certain
+  properties are now being shown (Discord, #1627, the icon was missing so it
+  showed up empty).
+
+* Long standing bug fixed: "Convert" Resource previously was performing the
+  conversion, but not updating the result on the property editor.  This has now
+  been fixed (email bug report).
+
+* 
+### Changes
+
+* Mac update: changes on the way that we handle some internals - a work in
+  progress.
+
+## Build 2780
+
+### Improvements
+
 * Based on feedback from Discord, This release contains updates to the
   TileMap/TileSet to steer users that are getting started with these plugins.
   On Discord we got feedback that some tools were difficult to use for those
