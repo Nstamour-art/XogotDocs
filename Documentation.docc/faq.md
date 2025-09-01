@@ -104,5 +104,12 @@ For any issues related to accessing builds on TestFlight, please
 [Contact Us](https://xogot.com/contact-us) and provide the email
 address associated with your Apple account.
 
+## Localization
 
+Xogot is localized to a handful of languages, and it will default to running on
+the language that your phone is configured to use.   You can change this setting
+to use English or any of the other supported languages by going to your device
+Settings > Apps > Xogot > Language and changing the language there.
 
+If you find problems with the localization, please reach out to
+support@xibbon.com 
