@@ -19,7 +19,7 @@ Release notes for our preview release of Xogot to TestFlight.
 
 # Releases 
 
-## Build
+## Build 2858
 
 ### Improvements
 
@@ -35,9 +35,16 @@ Release notes for our preview release of Xogot to TestFlight.
   two systems (Godot and our Rsync-over-websockets one, we now just support the
   Godot one) so our binary is slightly smaller.
 
+* Numeric editors should surface sliders in more places now (those that did nto
+  have set boundaries).  Fixes long-standing #426, #984.
+
 ### Fixes
 
 * iPhone: Layout for the learning tab has been adjusted (#1646)
+
+* iPhone: InputMap was not showing up (#1649, Discord).
+
+* iPhone: Fix SpriteFrame editor (#1650, Discord).
 
 ## Build 2825
 
