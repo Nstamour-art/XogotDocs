@@ -21,6 +21,27 @@ Release notes for our preview release of Xogot to TestFlight.
 
 ## Build
 
+### Improvement
+
+* For iOS 26, we now have an icon that works as expected by the new OS.
+
+### Fixes
+
+* The settings for the code editor were not being loaded, and the shader editor
+  was not getting these settings - this has been fixed (Discord).
+
+* InputMap: the game controller actions were not being localized (Discord).
+
+* iPhone, shell: the new convenience inspector button would close it, rather
+  than open it if it was already opened (Discord).
+
+* Workaround the "Scroll" button not triggering sometimes on the iOS 26 - we had
+  to move the functionality that used to be available in the long-press option
+  here to the alert that is presented when this is tapped on a node that has a
+  script attached.
+
+## Build 2875
+
 ### Improvements
 
 * Adjusted our slider-input to only be used when the values are intended to have
