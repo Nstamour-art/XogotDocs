@@ -19,7 +19,23 @@ Release notes for our preview release of Xogot to TestFlight.
 
 # Releases 
 
-## Build
+## Build 2888
+
+### Improvements
+
+* CodeEditor: indentation after else: and elif: clauses (Discord, #1679)
+
+* Project Style settings for strings no longer place the strings in a box, they
+  looked very odd.
+
+### Fixes
+
+* iPhone: renaming of nodes in the scene pad has been fixed (#1678, Discord)
+
+* Lond standing: some coloring in the editor might have been off for some
+  keywords (Updated highlights.scm for tree-sitter).
+
+## Build 2882
 
 ### Improvement
 
