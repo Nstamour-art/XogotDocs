@@ -11,45 +11,57 @@ like [itch.io](https://itch.io).
 
 ## Exporting a Web Build in Xogot
 
-1. Tap on the **...** (1) toolbar button in the upper-right corner of Xogot 
-and tap **Export Game** (2) to open the *Share Game* dialog.
+1. Tap on the **&or;** (1) document toolbar button in the upper-left corner of Xogot.
+
+@Image(source: fin_document_menu.png)
+2. Select **Export Game** to open the *Share Game* dialog.
     
 @Image(source: fin_export_web.png)
-2. To share your game, you'll need to login.  You can tap the big 
-"Sign in with Apple" button to create an account or sign back in.
+3. To share your game, you'll need to login.  You can tap the big 
+"**Sign in with Apple**" button to create an account or sign back in.
 
 @Image(source: fin_share_signin.png)
+4. On the **Share Game** screen, you can provide a name that will
+be shown to players that you share your game with.
+    
+The default name will come from your project settings.
+
+@Image(source: fin_share_screen.png)
+5. Tap **Build and Upload** to build your game and upload it.
+
+@Image(source: fin_congratulations.png) 
+6. Congratulations!  Your game has been uploaded!
+Tap the URL to play your game in Safari.  Or, tap the share button 
+to share your game through Messages, AirDrop, etc.  
+
+@Image(source: fin_share_site.png) { Shared games can be played directly in the browser on any platform running an up-to-date browser.  }
+
+## Downloading a Zip File for Distribution
+After you’ve exported your game to Xogot’s hosting, you can download a 
+standalone zip file suitable for distribution elsewhere.  
+
+1. Tap on the **&or;** (1) document toolbar button in the upper-left corner of Xogot.
+
+@Image(source: fin_document_menu.png)
+2. Select **Export Game** to open the *Share Game* dialog.
+    
+@Image(source: fin_export_web.png)
+
 3. On the **Share Game** screen, you can provide a name that will
 be shown to players that you share your game with.
     
 The default name will come from your project settings.
 
 @Image(source: fin_share_screen.png)
-4. Tap **Build and Upload** to build your game and upload it.
 
-@Image(source: fin_upload.png)
-5. Congratulations!  Your game has been uploaded!
-Tap the URL to play your game in Safari.  Or, tap the share button 
-to share your game through Messages, AirDrop, etc.  Shared games can
-be played directly in the browser on any platform running an
-up-to-date browser.  
+4. Tap **Local Export** located just below the 
+**Build and Upload** button.
 
-@Image(source: fin_share_site.png)
+5.  Xogot will prepare a zip file that contains everything needed to run your game in 
+a web browser and can be uploaded directly to platforms like itch.io.  The file will be saved to the Exports directory located inside Xogot.
 
-## Downloading a Zip File for Distribution
-After you’ve exported your game to Xogot’s hosting, you can download a 
-standalone zip file suitable for distribution elsewhere.  
+@Image(source: fin_saved_zip.png)
 
-1. If you haven't already, export your game following the steps above.
-2. Return to your game's landing page on Xogot.
- * If you need the URL, open the **Export Game** dialog again and tap 
-the **Share URL** to visit your game's page.
-2. On the landing page, tap **Download game** located just below the 
-**Play now** button.
-@Image(source: download_game.png)
-
-The downloaded zip file contains everything needed to run your game in 
-a web browser and can be uploaded directly to platforms like itch.io.
 
 ## Uploading Your Game to itch.io
 

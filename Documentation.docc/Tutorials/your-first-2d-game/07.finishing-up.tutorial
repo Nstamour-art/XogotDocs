@@ -173,16 +173,21 @@
         }
         @Steps {
             @Step {
-                Tap on the **...** (1) toolbar button in the upper-right corner
-                of Xogot and tap **Export Game** (2) to open the *Share Game* dialog.
-                
-                @Image(source: fin_share_button.png)
+                Tap on the **&or;** (1) document toolbar button in the upper-left 
+                corner of Xogot.
+
+                @Image(source: fin_document_menu.png)
+            }
+            @Step {
+                Select **Export Game** to open the *Share Game* dialog.
+                    
+                @Image(source: fin_export_web.png)
             }
             @Step {
                 To share your game, you'll need to login.  You can tap the big 
                 "Sign in with Apple" button to create an account or sign back in.
             
-                @Image(source: fin_export_web.png)
+                @Image(source: fin_share_signin.png)
             }
             @Step {
                 On the **Share Game** screen, you can provide a name that will
@@ -205,7 +210,7 @@
                 be played directly in the browser on any platform running an
                 up-to-date browser.  
             
-                @Image(source: fin_share_site.png)
+                @Image(source: fin_congratulations.png)
             } 
             @Step {
                 You're done!  You got to make a player-controlled character, enemies 
