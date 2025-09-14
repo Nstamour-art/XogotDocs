@@ -19,6 +19,59 @@ Release notes for our preview release of Xogot to TestFlight.
 
 # Releases 
 
+## Build 2919 (1.4.1)
+
+### Improvements
+
+* Hitting a breakpoint will no longer resize the bottom part of the screen if
+  you have the debugger pad open (#1686).
+
+* Code Editor tabs can now be rearranged (user testing, #1667, but goes back to
+  the GodotCon conference).
+
+### Fixes
+
+* Fix Inspector button missing on portrait mode on iPad (#1685, Discord)
+
+* Fix GodotApp being stuck if stopped immediately after start.
+
+* We notices a crash in the wild and the crash logs make us think that this is
+  caused by users stopping a game right after it was started.  We believe this
+  contains a fix for it (#1662).
+
+* Fixes the onscreen controller for local export.
+
+* Foundational work to enable Terrain3D - Fix instance encoding in
+  validated_calls and ptrcalls (#1344).
+
+* We found two heavy crashes happening in the wild, and we managed to reproduce
+  them after a lot of trial and error and we have a fix for them (#1681,
+  #1682). They would typcially happen when resuming a program.
+
+* Fixes to remote program restarting and uploading of projects.
+
+* ScenePad: Fixes the rename node on iOS 26 (#1689)
+
+* Fixes a crash in the wild that we have not been able to reproduce, but added a
+  defensive check to prevent the crash (Testflight)
+
+* Command-. and Command-Control-y will now also work when the game is focused.
+
+## Build 2894
+
+### Improvements
+
+* Running the game will now focus the window in embedded game view, and will get
+the input immediately - a long requested feature, and will also automatically
+switch back and forth if your program stops in the code from the game to the
+code editor and back.   Fixes #1503, Discord, direct feedback.
+
+### Fixes
+
+* Fixes "Import from Image Playground"
+
+* Various fixes for remote debugging (#1674, #1672)
+
 ## Build 2888
 
 ### Improvements
@@ -64,7 +117,7 @@ Release notes for our preview release of Xogot to TestFlight.
   a slider - we were showing it for scenarios where they were not very useful
   (like position).  Fixes #1665.
 
-* Adjsuted the UI for grouped numeric inputs to use the same style as the
+* Adjusted the UI for grouped numeric inputs to use the same style as the
   inspector for suffix values.
 
 * iPhone: Group Numeric Editors will now compute their proper size when the

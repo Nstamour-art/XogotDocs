@@ -4,6 +4,28 @@ Release notes for public releases of Xogot to the App Store.
 
 # Releases 
 
+## 1.4.0
+
+This version has been upgraded to use Liquid Glass on iOS 26 and iPadOS 26.
+
+This released also vastly improves our iPhone support, lots of UI elements were
+fine tuned for use on the iPhone, our inspector is now a slide-out element
+freeing the bottom of the screen for the various custom Godot plugins.
+
+Lastly, Xogot has been localized into nine languages, with more to come.
+
+### Improvements
+
+* Performance improvement to node selection - internally we stopped doing a lot
+  fo work when scanning for plugins for a node (#1108).
+
+* By popular demand: New "Reload Current Project" option is now on the menus,
+  used when certain settings are changed.   I am not psyched about this extra
+  menu that replaces Close + Open, but it seems to be a common enough idiom in
+  Godot that seems important to bring.
+
+* Numeric editors should surface sliders in more places now.
+
 ## 1.2.0 (Build 2757), 1.2.2 (Build 2819)
 
 Two major themes.   Xogot comes to iPhone, and we now have a free tier edition,
