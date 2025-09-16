@@ -19,6 +19,43 @@ Release notes for our preview release of Xogot to TestFlight.
 
 # Releases 
 
+## Build 2929
+
+### Improvements
+
+* New: ShareSheet, it is now possible to share content to Xogot from various
+  creator apps by selecting Xogot from their share sheets.   Once this is done,
+  the file is tranferred to Xogot, and when you switch back to Xogot, or open
+  Xogot for the first time, you can place the file in their proper location
+  (#714).
+  
+* Improves the slider editor to ensure that the value 0 always gets a label.
+
+### Internals
+
+* Additional work for supporting plugins like Terrain3D, not yet fully baked,
+  but getting there - this impacts all the interop between Xogot and Godot, so
+  we are hoping that this does not introduce any regressions.
+
+### Fixes
+
+* Gizmo 3D Rotation improvements and fixes: the 3D Gizmo would not respond to
+  taps or rotation events, rendering it not very useful, and it is also now
+  slightly larger.   Fixes #1328.
+
+* Floating point formatting was too aggressive and removed valuable information,
+  this is fixed, and we started to move to Swift's native numeric formatting
+  system that gives us better control than the format-string system that we used
+  before.   These were bugs reported on Discord.
+
+* Fixes a crash that would happen when inspecting remote objects (Testflight
+  crash).
+
+* SpriteFrame's delete frame operation would delete all the frames afterwards,
+  this is now fixed (#1695).
+
+* Prevents a crash when out-of-range zoom values were passed (Testflight crash).
+
 ## Build 2919 (1.4.1)
 
 ### Improvements
