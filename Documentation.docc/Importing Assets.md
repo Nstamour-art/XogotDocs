@@ -2,10 +2,10 @@
 
 Bring sprites, textures, sounds, or 3D models into Xogot
 
-Xogot makes it easy to import game assets directly on your iPad. Whether you're working with
-**sprites, textures, sounds, or 3D models** created in other iPad apps or downloaded from the 
-web (such as **TurboSquid** and other game asset repositories), this guide will help you bring 
-your assets into Xogot projects smoothly.  
+Xogot makes it easy to import game assets directly on your iPad or iPhone. 
+Whether you're working with **sprites, textures, sounds, or 3D models** created in other 
+mobile apps or downloaded from the web (such as **TurboSquid** and other game asset
+repositories), this guide will help you bring your assets into Xogot projects smoothly.  
 
 ## Save to Files App
 
@@ -75,18 +75,18 @@ Xogot natively supports **.gltf** and **.obj** file formats for importing 3D mod
 
 This setup will allow Xogot to properly load and display your 3D models in your projects.
 
-### Compatible iPad Apps for Creating Assets
+## Compatible Apps for Creating Assets
 
-There are several excellent iPad apps for creating assets compatible with Xogot:
+There are several excellent iPhone and iPad apps for creating assets compatible with Xogot:
 
-- **[Uniform](https://sparseal.com/uniform/)**: A powerful 3D modeler that makes it easy to create and export models in formats like **gltf** and **obj**.
+- **[Nomad Sculpt](https://nomadsculpt.com)**: Sculpting and painting mobile application.
+- **[Morphin]https://apps.apple.com/ca/app/morphin/id6642651792**: Create, Rig, and Animate in 3D with ease.
+- **[Pixquare](https://www.pixquare.art)**: Create pixel art assets and animations on the go.
 - **Procreate**: Great for drawing and creating sprites and textures. Use the **Share** option to export images directly to Files.
 - **GarageBand**: Perfect for creating and exporting sounds and background music for your game.
 - **Affinity Designer/Photo**: Professional-grade vector and raster tools for creating game graphics.
-- **[Nomad Sculpt](https://nomadsculpt.com)**: Sculpting and painting mobile application.
+- **[Uniform](https://sparseal.com/uniform/)**: A powerful 3D modeler that makes it easy to create and export models in formats like **gltf** and **obj**.
 
-These apps, combined with Xogot’s easy importing process, can help you create high-quality game assets directly on your iPad, making the development process smoother and more enjoyable.
-
----
-
-Feel free to add more compatible apps if you have some in mind or need more details for any section!
+These apps, combined with Xogot’s easy importing process, can help you create high-quality 
+game assets directly on your mobile device, making the development process smoother and 
+more enjoyable.
