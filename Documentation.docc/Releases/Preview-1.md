@@ -19,6 +19,23 @@ Release notes for our preview release of Xogot to TestFlight.
 
 # Releases 
 
+## Build ..
+
+### Improvements
+
+* To better support iPadOS 26, when games are launched on a dedicated window, we
+  now have controls to allow you to Pause/Stop the game there (#1710).
+
+* The new recently introduced Command Palette (Command-P, or View/Command
+  Palette) now can search documentation when you use the "?" prefix and now
+  includes help text snippets on searches.
+
+* The accessory bar now also includes the equal sign (#1711).
+
+### Fixes
+
+* No longer shows a slider for integer values, like Godot does (#1730).
+
 ## Build 2953
 
 ### Fixes
