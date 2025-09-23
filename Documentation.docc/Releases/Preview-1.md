@@ -15,11 +15,28 @@ Release notes for our preview release of Xogot to TestFlight.
   written in Godot, let us know of any common ones, so we can prioritize them
   (#540) 
 
-- Currently only the English locale is supported (#440)
-
 # Releases 
 
-## Build ..
+## Build 2953
+
+### Improvements
+
+* It is now possible to use keyed animation that target resource properties in a
+  node (#1729, Discord).
+
+* Small UI touchups in a couple of dialogs that were missing space or were
+  formatting text incorrectly.
+
+* The Output panel now has selectable text (#1736).
+
+* Command Palette now also surfaced user-defined commands, and starts to support
+  Xogot-level commands.
+
+* Connect Signal dialog now select first node with script (#1063).
+
+* Now available in Italian, Czech and Dutch.
+
+## Build 2964
 
 ### Improvements
 
