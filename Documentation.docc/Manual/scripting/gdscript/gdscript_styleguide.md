@@ -1,4 +1,3 @@
-<!-- Remove this line to publish to docs.xogot.com -->
 # GDScript style guide
 
 This style guide lists conventions to write elegant GDScript. The goal is to

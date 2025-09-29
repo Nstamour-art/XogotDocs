@@ -1,4 +1,3 @@
-<!-- Remove this line to publish to docs.xogot.com -->
 # What is GDExtension?
 
 **GDExtension** is a Godot-specific technology that lets the engine interact with

@@ -1,4 +1,3 @@
-<!-- Remove this line to publish to docs.xogot.com -->
 # CanvasItem shaders
 
 CanvasItem shaders are used to draw all 2D elements in Godot. These include

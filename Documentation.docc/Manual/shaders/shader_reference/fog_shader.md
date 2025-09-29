@@ -1,4 +1,3 @@
-<!-- Remove this line to publish to docs.xogot.com -->
 # Fog shaders
 
 Fog shaders are used to define how fog is added (or subtracted) from a scene in

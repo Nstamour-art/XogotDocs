@@ -1,4 +1,3 @@
-<!-- Remove this line to publish to docs.xogot.com -->
 # HTTP client class
 
 [HTTPClient](https://docs.godotengine.org/en/stable/classes/class_httpclient.html#class-httpclient) provides low-level access to HTTP communication.

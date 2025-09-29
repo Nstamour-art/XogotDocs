@@ -1,4 +1,3 @@
-<!-- Remove this line to publish to docs.xogot.com -->
 # Controllers, gamepads, and joysticks
 
 Godot supports hundreds of controller models out of the box.

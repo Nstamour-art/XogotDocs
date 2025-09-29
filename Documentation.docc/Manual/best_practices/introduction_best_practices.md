@@ -1,4 +1,3 @@
-<!-- Remove this line to publish to docs.xogot.com -->
 # Introduction
 
 This series is a collection of best practices to help you work efficiently with

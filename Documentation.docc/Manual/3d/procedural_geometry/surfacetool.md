@@ -1,4 +1,3 @@
-<!-- Remove this line to publish to docs.xogot.com -->
 # Using the SurfaceTool
 
 The [SurfaceTool](https://docs.godotengine.org/en/stable/classes/class_surfacetool.html#class-surfacetool) provides a useful interface for constructing geometry.

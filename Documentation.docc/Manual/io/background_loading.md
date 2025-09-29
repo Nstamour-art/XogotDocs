@@ -1,4 +1,3 @@
-<!-- Remove this line to publish to docs.xogot.com -->
 # Background loading
 
 Commonly, games need to load resources asynchronously.

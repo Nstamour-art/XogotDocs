@@ -1,4 +1,3 @@
-<!-- Remove this line to publish to docs.xogot.com -->
 # Using physics interpolation
 
 How do we incorporate physics interpolation into a Godot game? Are there any

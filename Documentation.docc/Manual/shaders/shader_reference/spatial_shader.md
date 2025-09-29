@@ -1,4 +1,3 @@
-<!-- Remove this line to publish to docs.xogot.com -->
 # Spatial shaders
 
 Spatial shaders are used for shading 3D objects. They are the most complex type of shader Godot offers.

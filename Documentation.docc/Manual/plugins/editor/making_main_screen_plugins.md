@@ -1,4 +1,3 @@
-<!-- Remove this line to publish to docs.xogot.com -->
 # Making main screen plugins
 
 ## What this tutorial covers

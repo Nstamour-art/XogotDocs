@@ -1,4 +1,3 @@
-<!-- Remove this line to publish to docs.xogot.com -->
 # Particle shaders
 
 Particle shaders are a special type of shader that runs before the object is

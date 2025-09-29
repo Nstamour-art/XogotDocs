@@ -1,4 +1,3 @@
-<!-- Remove this line to publish to docs.xogot.com -->
 # Converting GLSL to Godot shaders
 
 This document explains the differences between Godot's shading language and GLSL

@@ -1,4 +1,3 @@
-<!-- Remove this line to publish to docs.xogot.com -->
 # Evaluating expressions
 
 Godot provides an [Expression](https://docs.godotengine.org/en/stable/classes/class_expression.html#class-expression) class you can use to evaluate expressions.

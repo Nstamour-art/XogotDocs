@@ -1,4 +1,3 @@
-<!-- Remove this line to publish to docs.xogot.com -->
 # Built-in functions
 
 Godot supports a large number of built-in functions, conforming roughly to the

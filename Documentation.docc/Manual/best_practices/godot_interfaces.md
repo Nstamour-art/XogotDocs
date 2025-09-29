@@ -1,4 +1,3 @@
-<!-- Remove this line to publish to docs.xogot.com -->
 # Godot interfaces
 
 Often one needs scripts that rely on other objects for features. There

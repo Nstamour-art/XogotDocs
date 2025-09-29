@@ -1,4 +1,3 @@
-<!-- Remove this line to publish to docs.xogot.com -->
 # Overridable functions
 
 Godot's Node class provides virtual functions you can override to update nodes

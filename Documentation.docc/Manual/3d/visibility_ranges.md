@@ -1,4 +1,3 @@
-<!-- Remove this line to publish to docs.xogot.com -->
 # Visibility ranges (HLOD)
 
 Along with <doc:mesh_lod> and <doc:occlusion_culling>,

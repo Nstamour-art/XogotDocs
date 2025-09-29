@@ -1,4 +1,3 @@
-<!-- Remove this line to publish to docs.xogot.com -->
 # Autoloads versus regular nodes
 
 Godot offers a feature to automatically load nodes at the root of your project,

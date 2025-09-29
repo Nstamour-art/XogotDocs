@@ -1,4 +1,3 @@
-<!-- Remove this line to publish to docs.xogot.com -->
 # Logic preferences
 
 Ever wondered whether one should approach problem X with strategy Y or Z?

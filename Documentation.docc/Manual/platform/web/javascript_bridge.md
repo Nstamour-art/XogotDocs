@@ -1,4 +1,3 @@
-<!-- Remove this line to publish to docs.xogot.com -->
 # The JavaScriptBridge singleton
 
 In web builds, the [JavaScriptBridge](https://docs.godotengine.org/en/stable/classes/class_javascriptbridge.html#class-javascriptbridge) singleton

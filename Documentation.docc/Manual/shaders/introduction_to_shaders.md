@@ -1,4 +1,3 @@
-<!-- Remove this line to publish to docs.xogot.com -->
 # Introduction to shaders
 
 This page explains what shaders are and will give you an overview of how they

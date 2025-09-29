@@ -1,4 +1,3 @@
-<!-- Remove this line to publish to docs.xogot.com -->
 # GDScript: An introduction to dynamic languages
 
 ## About

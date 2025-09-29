@@ -1,4 +1,3 @@
-<!-- Remove this line to publish to docs.xogot.com -->
 # Using WebSockets
 
 ## HTML5 and WebSocket

@@ -1,4 +1,3 @@
-<!-- Remove this line to publish to docs.xogot.com -->
 # Random number generation
 
 Many games rely on randomness to implement core game mechanics. This page

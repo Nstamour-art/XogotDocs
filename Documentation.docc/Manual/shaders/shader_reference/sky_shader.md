@@ -1,4 +1,3 @@
-<!-- Remove this line to publish to docs.xogot.com -->
 # Sky shaders
 
 Sky shaders are a special type of shader used for drawing sky backgrounds

@@ -1,4 +1,3 @@
-<!-- Remove this line to publish to docs.xogot.com -->
 # GDScript format strings
 
 Godot offers multiple ways to dynamically change the contents of strings:

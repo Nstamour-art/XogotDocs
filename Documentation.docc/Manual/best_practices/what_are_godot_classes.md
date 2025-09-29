@@ -1,4 +1,3 @@
-<!-- Remove this line to publish to docs.xogot.com -->
 # Applying object-oriented principles in Godot
 
 The engine offers two main ways to create reusable objects: scripts and scenes. Neither of these

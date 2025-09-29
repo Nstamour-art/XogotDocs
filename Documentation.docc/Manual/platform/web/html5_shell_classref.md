@@ -1,4 +1,3 @@
-<!-- Remove this line to publish to docs.xogot.com -->
 # HTML5 shell class reference
 
 Projects exported for the Web expose the :js:class:`Engine` class to the JavaScript environment, that allows

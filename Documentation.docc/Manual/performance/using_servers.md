@@ -1,4 +1,3 @@
-<!-- Remove this line to publish to docs.xogot.com -->
 # Optimization using Servers
 
 Engines like Godot provide increased ease of use thanks to their high-level constructs and features.

@@ -1,4 +1,3 @@
-<!-- Remove this line to publish to docs.xogot.com -->
 # When and how to avoid using nodes for everything
 
 Nodes are cheap to produce, but even they have their limits. A project may

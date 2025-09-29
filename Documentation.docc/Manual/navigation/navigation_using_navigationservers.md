@@ -1,4 +1,3 @@
-<!-- Remove this line to publish to docs.xogot.com -->
 # Using NavigationServer
 
 2D and 3D version of the NavigationServer are available as

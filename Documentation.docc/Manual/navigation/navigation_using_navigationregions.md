@@ -1,4 +1,3 @@
-<!-- Remove this line to publish to docs.xogot.com -->
 # Using NavigationRegions
 
 NavigationRegions are the visual Node representation of a **region** of the navigation **map** on the NavigationServer.

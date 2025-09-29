@@ -1,4 +1,3 @@
-<!-- Remove this line to publish to docs.xogot.com -->
 # Scene organization
 
 This article covers topics related to the effective organization of

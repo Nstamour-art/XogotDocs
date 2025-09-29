@@ -1,4 +1,3 @@
-<!-- Remove this line to publish to docs.xogot.com -->
 # Using compute shaders
 
 This tutorial will walk you through the process of creating a minimal compute

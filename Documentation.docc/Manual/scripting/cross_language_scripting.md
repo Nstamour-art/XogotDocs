@@ -1,4 +1,3 @@
-<!-- Remove this line to publish to docs.xogot.com -->
 # Cross-language scripting
 
 Godot allows you to mix and match scripting languages to suit your needs.

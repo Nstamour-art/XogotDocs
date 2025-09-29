@@ -1,4 +1,3 @@
-<!-- Remove this line to publish to docs.xogot.com -->
 # File paths in Godot projects
 
 This page explains how file paths work inside Godot projects. You will learn how

@@ -1,4 +1,3 @@
-<!-- Remove this line to publish to docs.xogot.com -->
 # Shader preprocessor
 
 ## Why use a shader preprocessor?

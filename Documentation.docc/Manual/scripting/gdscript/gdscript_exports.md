@@ -1,4 +1,3 @@
-<!-- Remove this line to publish to docs.xogot.com -->
 # GDScript exported properties
 
 In Godot, class members can be exported. This means their value gets saved along

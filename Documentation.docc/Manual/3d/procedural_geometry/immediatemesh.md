@@ -1,4 +1,3 @@
-<!-- Remove this line to publish to docs.xogot.com -->
 # Using ImmediateMesh
 
 The [ImmediateMesh](https://docs.godotengine.org/en/stable/classes/class_immediatemesh.html#class-immediatemesh) is a convenient tool to create

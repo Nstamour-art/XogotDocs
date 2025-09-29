@@ -1,4 +1,3 @@
-<!-- Remove this line to publish to docs.xogot.com -->
 # Optimization using MultiMeshes
 
 For large amount of instances (in the thousands), that need to be constantly processed

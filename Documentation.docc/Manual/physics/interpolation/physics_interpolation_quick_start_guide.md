@@ -1,4 +1,3 @@
-<!-- Remove this line to publish to docs.xogot.com -->
 # Quick start guide
 
 - Turn on physics interpolation: [Project Settings > Physics > Common > Physics Interpolation](https://docs.godotengine.org/en/stable/classes/class_projectsettings_property_physics/common/physics_interpolation.html#class-projectsettings_property_physics/common/physics_interpolation)

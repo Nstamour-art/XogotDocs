@@ -1,4 +1,3 @@
-<!-- Remove this line to publish to docs.xogot.com -->
 # When to use scenes versus scripts
 
 We've already covered how scenes and scripts are different. Scripts

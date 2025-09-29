@@ -1,4 +1,3 @@
-<!-- Remove this line to publish to docs.xogot.com -->
 # Model export considerations
 
 Before exporting a 3D model from a 3D modeling application, such as Blender,

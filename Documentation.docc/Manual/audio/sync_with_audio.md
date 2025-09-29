@@ -1,4 +1,3 @@
-<!-- Remove this line to publish to docs.xogot.com -->
 # Sync the gameplay with audio and music
 
 ## Introduction

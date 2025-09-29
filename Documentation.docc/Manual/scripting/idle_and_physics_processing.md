@@ -1,4 +1,3 @@
-<!-- Remove this line to publish to docs.xogot.com -->
 # Idle and Physics Processing
 
 Games run in a loop. Each frame, you need to update the state of your game world

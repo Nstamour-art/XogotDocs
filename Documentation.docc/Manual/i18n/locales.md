@@ -1,4 +1,3 @@
-<!-- Remove this line to publish to docs.xogot.com -->
 # Locale codes
 
 Locale code has the following format: language_Script_COUNTRY_VARIANT, where:

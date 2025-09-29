@@ -1,4 +1,3 @@
-<!-- Remove this line to publish to docs.xogot.com -->
 # Using the MeshDataTool
 
 The [MeshDataTool](https://docs.godotengine.org/en/stable/classes/class_meshdatatool.html#class-meshdatatool) is not used to generate geometry. But it is helpful for dynamically altering geometry, for example

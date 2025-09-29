@@ -1,4 +1,3 @@
-<!-- Remove this line to publish to docs.xogot.com -->
 # Shaders style guide
 
 This style guide lists conventions to write elegant shaders. The goal is to

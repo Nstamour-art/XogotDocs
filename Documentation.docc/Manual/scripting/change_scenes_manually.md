@@ -1,4 +1,3 @@
-<!-- Remove this line to publish to docs.xogot.com -->
 # Change scenes manually
 
 Sometimes it helps to have more control over how you swap scenes around.
