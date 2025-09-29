@@ -51,7 +51,38 @@ check_commands() {
     fi
 }
 
-# Process a single img directory
+# Process a single image file
+process_image_file() {
+    local file=$1
+    local target_dir=$2
+    
+    filename=$(basename "$file")
+    extension="${filename##*.}"
+    filename_no_ext="${filename%.*}"
+    
+    # Convert extension to lowercase for comparison (zsh compatible)
+    extension_lower=$(echo "$extension" | tr '[:upper:]' '[:lower:]')
+    
+    case "$extension_lower" in
+        webp)
+            # 1. Copy webp files to target
+            echo "  Copying webp: $filename"
+            cp "$file" "$target_dir/$filename"
+            ;;
+        png)
+            # 2. Convert png to webp and save to target
+            echo "  Converting png -> webp: $filename"
+            $CONVERT_CMD "$file" "$target_dir/$filename_no_ext.webp"
+            ;;
+        *)
+            # 3. Copy other files as-is
+            echo "  Copying other: $filename"
+            cp "$file" "$target_dir/$filename"
+            ;;
+    esac
+}
+
+# Process a single img directory and its subdirectories
 process_img_directory() {
     local src_img_dir=$1
     local target_img_dir=$2
@@ -61,48 +92,39 @@ process_img_directory() {
     # Create the target directory if it doesn't exist
     mkdir -p "$target_img_dir"
     
-    # Process each file in the source img directory
-    for file in "$src_img_dir"/*; do
-        if [[ ! -f "$file" ]]; then
-            continue
+    # Process each file and directory in the source img directory
+    for item in "$src_img_dir"/*; do
+        if [[ -f "$item" ]]; then
+            # Process file
+            process_image_file "$item" "$target_img_dir"
+        elif [[ -d "$item" ]]; then
+            # Process subdirectory recursively
+            subdir_name=$(basename "$item")
+            target_subdir="$target_img_dir/$subdir_name"
+            
+            echo "  Found subdirectory: $subdir_name"
+            process_img_directory "$item" "$target_subdir"
         fi
-        
-        filename=$(basename "$file")
-        extension="${filename##*.}"
-        filename_no_ext="${filename%.*}"
-        
-        # Convert extension to lowercase for comparison (zsh compatible)
-        extension_lower=$(echo "$extension" | tr '[:upper:]' '[:lower:]')
-        
-        case "$extension_lower" in
-            webp)
-                # 1. Copy webp files to target
-                echo "  Copying webp: $filename"
-                cp "$file" "$target_img_dir/$filename"
-                ;;
-            png)
-                # 2. Convert png to webp and save to target
-                echo "  Converting png -> webp: $filename"
-                $CONVERT_CMD "$file" "$target_img_dir/$filename_no_ext.webp"
-                ;;
-            *)
-                # 3. Copy other files as-is
-                echo "  Copying other: $filename"
-                cp "$file" "$target_img_dir/$filename"
-                ;;
-        esac
     done
     
-    # 4. Rename all webp files to png in the target directory
-    for webp_file in "$target_img_dir"/*.webp; do
-        if [[ ! -f "$webp_file" ]]; then
-            continue
-        fi
-        
-        png_file="${webp_file%.webp}.png"
-        echo "  Renaming: $(basename "$webp_file") -> $(basename "$png_file")"
-        mv "$webp_file" "$png_file"
-    done
+    # Rename all webp files to png in the target directory
+    # Enable nullglob to prevent "no matches found" error when no .webp files exist
+    setopt nullglob 2>/dev/null || true
+    
+    # Check if any webp files exist before processing
+    webp_files=("$target_img_dir"/*.webp(N))
+    if (( ${#webp_files[@]} > 0 )); then
+        for webp_file in "${webp_files[@]}"; do
+            png_file="${webp_file%.webp}.png"
+            echo "  Renaming: $(basename "$webp_file") -> $(basename "$png_file")"
+            mv "$webp_file" "$png_file"
+        done
+    else
+        echo "  No webp files to rename in $target_img_dir"
+    fi
+    
+    # Restore original glob behavior
+    unsetopt nullglob 2>/dev/null || true
 }
 
 # Get relative path (macOS compatible)

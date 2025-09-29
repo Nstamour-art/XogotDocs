@@ -70,7 +70,7 @@ This script generates a consolidated table of contents by:
 python3 get_references.py ~/GitHub/godot-docs references.csv
 
 # 2. Process images (if needed)
-./process_images.sh ~/GitHub/godot-docs/tutorials ~/GitHub/XogotDocs/Documentation.docc/Manual/images
+./process_images.sh ~/GitHub/godot-docs/tutorials ~/GitHub/XogotDocs/Documentation.docc/Manual
 
 # 3. Convert RST files to DocC format
 python3 rst_to_docc.py ~/GitHub/godot-docs/tutorials ~/GitHub/XogotDocs/Documentation.docc/Manual
