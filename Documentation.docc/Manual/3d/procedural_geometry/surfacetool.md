@@ -10,16 +10,17 @@ The SurfaceTool also provides some useful helper functions like index() and gene
 
 Attributes are added before each vertex is added:
 
-When finished generating your geometry with the [SurfaceTool](https://docs.godotengine.org/en/stable/classes/class_surfacetool.html#class-surfacetool)
+When finished generating your geometry with the [SurfaceTool](https://docs.godotengine.org/en/stable/classes/class_surfacetool.html#class-surfacetool),
 call commit() to finish generating the mesh. If an [ArrayMesh](https://docs.godotengine.org/en/stable/classes/class_arraymesh.html#class-arraymesh) is passed
-to commit() then it appends a new surface to the end of the ArrayMesh. While if nothing is passed
+to commit(), then it appends a new surface to the end of the ArrayMesh. While if nothing is passed
 in, commit() returns an ArrayMesh.
 
-Code creates a triangle with indices
+The code below creates a triangle without indices.
 
 You can optionally add an index array, either by calling add_index() and adding
-vertices to the index array or by calling index() which shrinks the vertex array
-to remove duplicate vertices.
+vertices to the index array manually, or by calling index() once,
+which generates the index array automatically and
+shrinks the vertex array to remove duplicate vertices.
 
 Similarly, if you have an index array, but you want each vertex to be unique (e.g. because
 you want to use unique normals or colors per face instead of per-vertex), you can call deindex().
@@ -36,7 +37,8 @@ tangents manually, or generate them automatically with
 generate_tangents(). This method requires that each vertex have UVs and
 normals set already.
 
-By default, when generating normals, they will be calculated on a per-face basis. If you want
-smooth vertex normals, when adding vertices, call add_smooth_group(). add_smooth_group()
-needs to be called while building the geometry, e.g. before the call to add_vertex()
-(if non-indexed) or add_index() (if indexed).
+By default, when generating normals, they will be calculated on a per-vertex basis (i.e. they will
+be "smooth normals"). If you want flat vertex normals (i.e. a single normal vector per face), when
+adding vertices, call add_smooth_group(i) where i is a unique number per vertex.
+add_smooth_group() needs to be called while building the geometry, e.g. before the call to
+add_vertex().

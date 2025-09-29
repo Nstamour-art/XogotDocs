@@ -143,7 +143,7 @@ func _intersect_to_global_pos(intersect : Vector2) -> Vector3:
 ```
 
 We also define a helper function that takes our intersect value and
-returns our location in the viewports local coordinate system:
+returns our location in the viewport's local coordinate system:
 
 ```
 ...
@@ -196,7 +196,7 @@ If so, we check if our button is pressed and place our pointer at our intersecti
 ```
 
 If we were intersecting in our previous process call and our pointer has moved,
-we prepare a [InputEventMouseMotion](https://docs.godotengine.org/en/stable/classes/class_inputeventmousemotion.html#class-inputeventmousemotion) object
+we prepare an [InputEventMouseMotion](https://docs.godotengine.org/en/stable/classes/class_inputeventmousemotion.html#class-inputeventmousemotion) object
 to simulate our mouse moving and send that to our viewport for further processing.
 
 ```
@@ -217,7 +217,7 @@ to simulate our mouse moving and send that to our viewport for further processin
 ```
 
 If we've just released our button we also prepare
-a [InputEventMouseButton](https://docs.godotengine.org/en/stable/classes/class_inputeventmousebutton.html#class-inputeventmousebutton) object
+an [InputEventMouseButton](https://docs.godotengine.org/en/stable/classes/class_inputeventmousebutton.html#class-inputeventmousebutton) object
 to simulate a button release and send that to our viewport for further processing.
 
 ```
@@ -235,7 +235,7 @@ to simulate a button release and send that to our viewport for further processin
 ```
 
 Or if we've just pressed our button we prepare
-a [InputEventMouseButton](https://docs.godotengine.org/en/stable/classes/class_inputeventmousebutton.html#class-inputeventmousebutton) object
+an [InputEventMouseButton](https://docs.godotengine.org/en/stable/classes/class_inputeventmousebutton.html#class-inputeventmousebutton) object
 to simulate a button press and send that to our viewport for further processing.
 
 ```
@@ -288,5 +288,5 @@ while anything in front of our viewport will be rendered as usual.
 You also need to set Sort Order to a negative value,
 the XR compositor will now draw the viewport first, and then overlay our rendering result.
 
-@Image(source: "openxr_composition_layer_hole_punch.png") {Use case showing how the users hand is incorrectly obscured
+@Image(source: "openxr_composition_layer_hole_punch.png") {Use case showing how the user's hand is incorrectly obscured
 by a composition layer when hole punching is not used.}

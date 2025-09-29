@@ -132,11 +132,17 @@ It respects both the horizontal and vertical sizing options.
 
 @Image(source: "containers_panel.png")
 
-This container is useful as top-level, or just to add custom backgrounds to sections of a layout.
+This container is useful as a top-level control, or just to add custom backgrounds to sections of a layout.
+
+### FoldableContainer
+
+A container that can be expanded/collapsed
+(via [FoldableContainer](https://docs.godotengine.org/en/stable/classes/class_foldablecontainer.html#class-foldablecontainer)).
+Child controls are hidden when it is collapsed.
 
 ### ScrollContainer
 
-Accepts a single child node. If this node is bigger than the container, scrollbars will be added
+Accepts a single child node. If the child node is bigger than the container, scrollbars will be added
 to allow panning the node around (via [ScrollContainer](https://docs.godotengine.org/en/stable/classes/class_scrollcontainer.html#class-scrollcontainer)). Both
 vertical and horizontal size options are respected, and the behavior can be turned on or off
 per axis in the properties.
@@ -159,27 +165,27 @@ It has multiple stretch modes, providing options for adjusting the child control
 
 @Image(source: "containers_aspectratio.png")
 
-useful when you have a container that needs to be dynamic and responsive to different screen sizes,
+It is useful when you have a container that needs to be dynamic and responsive to different screen sizes,
 and you want the child elements to scale proportionally without losing their intended shapes.
 
 @Image(source: "containers_aspectratio_drag.png")
 
 ### FlowContainer
 
-FlowContainer is a container that arranges its child controls either horizontally or vertically,
+FlowContainer is a container that arranges its child controls either horizontally or vertically
 (via [HFlowContainer](https://docs.godotengine.org/en/stable/classes/class_hflowcontainer.html#class-hflowcontainer) and via [VFlowContainer](https://docs.godotengine.org/en/stable/classes/class_vflowcontainer.html#class-vflowcontainer)).
-and when the available space runs out, it wraps the children to the next line or column, similar to how text wraps in a book.
+When the available space runs out, it wraps the children to the next line or column, similar to how text wraps in a book.
 
 @Image(source: "containers_hflow.png")
 
-useful for creating flexible layouts where the child controls adjust automatically to the available space without overlapping.
+It is useful for creating flexible layouts where the child controls adjust automatically to the available space without overlapping.
 
 @Image(source: "containers_hflow_drag.png")
 
 ### CenterContainer
 
 CenterContainer is a container that automatically keeps all of its child controls centered within it at their minimum size.
-It ensures that the child controls are always aligned to the center, making it easier to create centered layouts without manual positioning.
+It ensures that the child controls are always aligned to the center, making it easier to create centered layouts without manual positioning
 (via [CenterContainer](https://docs.godotengine.org/en/stable/classes/class_centercontainer.html#class-centercontainer)).
 
 @Image(source: "containers_center.png") {.. image:: img/containers_center_drag.webp}
@@ -192,4 +198,4 @@ it as if it was an image (via [SubViewportContainer](https://docs.godotengine.or
 ## Creating custom Containers
 
 It is possible to create a custom container using a script.
-Here is an example of a container that fits children to its rect size:
+Here is an example of a container that fits children to its size:

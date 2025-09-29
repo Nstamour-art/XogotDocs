@@ -6,7 +6,12 @@
 Godot provides a modular XR system that abstracts many of the different XR platform specifics away from the user.
 At the core sits the [XRServer](https://docs.godotengine.org/en/stable/classes/class_xrserver.html#class-xrserver) which acts as a central interface to the XR system that allows users to discover interfaces and interact with the components of the XR system.
 
-Each supported XR platform is implemented as an [XRInterface](https://docs.godotengine.org/en/stable/classes/class_xrinterface.html#class-xrinterface). Supported interfaces register themselves with the [XRServer](https://docs.godotengine.org/en/stable/classes/class_xrserver.html#class-xrserver) and can be queried with the find_interface method on the [XRServer](https://docs.godotengine.org/en/stable/classes/class_xrserver.html#class-xrserver). When the desired interface is found it can be initialized by calling initialize on the interface.
+Each supported XR platform is implemented as an [XRInterface](https://docs.godotengine.org/en/stable/classes/class_xrinterface.html#class-xrinterface).
+A list of supported platforms can be found on the list of features page <doc:xr_support>.
+Supported interfaces register themselves with the [XRServer](https://docs.godotengine.org/en/stable/classes/class_xrserver.html#class-xrserver)
+and can be queried with the find_interface method on the [XRServer](https://docs.godotengine.org/en/stable/classes/class_xrserver.html#class-xrserver).
+When the desired interface is found it can be initialized by calling initialize
+on the interface.
 
 > Warning:
 > A registered interface means nothing more than that the interface is available, if the interface is not supported by the host system, initialization may fail and return false. This can have many reasons and sadly the reasons differ from platform to platform. It can be because the user hasn't installed the required software, or that the user simply hasn't plugged in their headset. You as a developer must thus react properly on an interface failing to initialize.
@@ -47,7 +52,7 @@ This also means OpenXR needs to be enabled when Godot starts in order to set thi
 up correctly. Check the [Enabled](https://docs.godotengine.org/en/stable/classes/class_projectsettings_property_xr/openxr/enabled.html#class-projectsettings_property_xr/openxr/enabled)
 setting in your project settings under **XR > OpenXR**.
 
-@Image(source: "openxr_settings.png")
+@Image(source: "openxr_enabled.png")
 
 You can find several other settings related to OpenXR here as well. These can't be
 changed while your application is running. The default settings will get us started,

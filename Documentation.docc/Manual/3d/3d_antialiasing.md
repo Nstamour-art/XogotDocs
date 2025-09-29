@@ -163,6 +163,30 @@ Comparison between no antialiasing (left) and FXAA (right):
 
 @Image(source: "antialiasing_fxaa.png")
 
+## Sub-pixel Morphological Antialiasing (SMAA 1x)
+
+This is only available in the Forward+ and Mobile renderers, not the Compatibility
+renderer.
+
+Sub-pixel Morphological Antialiasing is a post-processing antialiasing solution.
+It runs slightly slower than FXAA, but produces less blurriness. This is very helpful
+when the screen resolution is 1080p or below. Just like FXAA, SMAA 1x lacks temporal
+information and will therefore not do much against specular aliasing.
+
+Use SMAA 1x if you can't afford MSAA, but find FXAA too blurry.
+
+Combine it with TAA, or even FSR2, to maximize antialiasing at a higher GPU cost
+and some added blurriness. This is most beneficial in fast-moving scenes or just
+after a camera cut, especially at lower FPS.
+
+SMAA 1x can be enabled in the Project Settings by changing the value of the
+[Rendering > Anti Aliasing > Quality > Screen Space AA](https://docs.godotengine.org/en/stable/classes/class_projectsettings_property_rendering/anti_aliasing/quality/screen_space_aa.html#class-projectsettings_property_rendering/anti_aliasing/quality/screen_space_aa)
+setting to SMAA.
+
+Comparison between no antialiasing (left) and SMAA 1x (right):
+
+@Image(source: "antialiasing_smaa.png")
+
 ## Supersample antialiasing (SSAA)
 
 This is available in all renderers.
@@ -269,17 +293,17 @@ same time.
 
 ### Antialiasing comparison
 
-Feature | MSAA | TAA | FSR2 | FXAA | SSAA | SSRL
-------- | ---- | --- | ---- | ---- | ---- | ----
-Edge antialiasing | 🟢 Yes | 🟢 Yes | 🟢 Yes | 🟢 Yes | 🟢 Yes | 🔴 No
-Specular antialiasing | 🟡 Some | 🟢 Yes | 🟢 Yes | 🟡 Some | 🟢 Yes | 🟢 Yes
-Transparency antialiasing | 🟡 Some[1] | 🟢 Yes[2] | 🟢 Yes[2] | 🟢 Yes | 🟢 Yes | 🔴 No
-Added blur | 🟢 None | 🟡 Some | 🟡 Some | 🟡 Some | 🟡 Some[3] | 🟢 None
-Ghosting artifacts | 🟢 None | 🔴 Yes | 🔴 Yes | 🟢 None | 🟢 None | 🟢 None
-Performance cost | 🟡 Medium | 🟡 Medium | 🔴 High | 🟢 Low | 🔴 Very High | 🟢 Low
-Forward+ | ✔️ Yes | ✔️ Yes | ✔️ Yes | ✔️ Yes | ✔️ Yes | ✔️ Yes
-Mobile | ✔️ Yes | ❌ No | ❌ No | ✔️ Yes | ✔️ Yes | ✔️ Yes
-Compatibility | ✔️ Yes | ❌ No | ❌ No | ❌ No | ✔️ Yes | ❌ No
+Feature | MSAA | TAA | FSR2 | FXAA | SMAA 1x | SSAA | SSRL
+------- | ---- | --- | ---- | ---- | ------- | ---- | ----
+Edge antialiasing | 🟢 Yes | 🟢 Yes | 🟢 Yes | 🟢 Yes | 🟢 Yes | 🟢 Yes | 🔴 No
+Specular antialiasing | 🟡 Some | 🟢 Yes | 🟢 Yes | 🟡 Some | 🟡 Some | 🟢 Yes | 🟢 Yes
+Transparency antialiasing | 🟡 Some[1] | 🟢 Yes[2] | 🟢 Yes[2] | 🟢 Yes | 🟢 Yes | 🟢 Yes | 🔴 No
+Added blur | 🟢 None | 🟡 Some | 🟡 Some | 🟡 Some | 🟢 Low | 🟡 Some[3] | 🟢 None
+Ghosting artifacts | 🟢 None | 🔴 Yes | 🔴 Yes | 🟢 None | 🟢 None | 🟢 None | 🟢 None
+Performance cost | 🟡 Medium | 🟡 Medium | 🔴 High | 🟢 Very Low | 🟢 Low | 🔴 Very High | 🟢 Low
+Forward+ | ✔️ Yes | ✔️ Yes | ✔️ Yes | ✔️ Yes | ✔️ Yes | ✔️ Yes | ✔️ Yes
+Mobile | ✔️ Yes | ❌ No | ❌ No | ✔️ Yes | ✔️ Yes | ✔️ Yes | ✔️ Yes
+Compatibility | ✔️ Yes | ❌ No | ❌ No | ❌ No | ❌ No | ✔️ Yes | ❌ No
 
 MSAA does not work well with materials with Alpha Scissor (1-bit transparency).
 This can be mitigated by enabling alpha antialiasing on the material.

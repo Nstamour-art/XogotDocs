@@ -21,10 +21,31 @@ will detect suffixes in object names and will perform actions automatically.
 > **case-insensitive**.
 >
 
-## Remove nodes (-noimp)
+## Opting out
 
-Objects that have the -noimp suffix will be removed at import-time no matter
-what their type is. They will not appear in the imported scene.
+If you do not want Godot to perform any of the actions described below, you
+can set the nodes/use_node_type_suffixes import option to false.
+This will disable all node type suffixes, which keeps nodes the same type
+as the original file indicated. However, the -noimp suffix will still
+be respected, as well as non-node suffixes like -vcol or -loop.
+
+Alternatively, you can completely opt out of all name suffixes by setting
+the nodes/use_name_suffixes import option to false. This will
+completely stop the general scene import code from looking at name suffixes.
+However, the format-specific import code may still look at name suffixes,
+such as the glTF importer checking for the -loop suffix.
+
+Disabling these options makes editor-imported files more similar to the
+original files, and more similar to importing files at runtime.
+For an import workflow that works at runtime, gives more predictable
+results, and only has explicitly defined behavior, consider setting these
+options to false and using [GLTFDocumentExtension](https://docs.godotengine.org/en/stable/classes/class_gltfdocumentextension.html#class-gltfdocumentextension) instead.
+
+## Remove nodes and animations (-noimp)
+
+Nodes and animations that have the -noimp suffix will be removed at
+import time no matter what their type is. They will not appear in the
+imported scene.
 
 This is equivalent to enabling **Skip Import** for a node in the Advanced Import
 Settings dialog.
@@ -126,3 +147,14 @@ will be imported as a Godot [Animation](https://docs.godotengine.org/en/stable/c
 
 In Blender, this requires using the NLA Editor and naming the Action with the loop or
 cycle prefix or suffix.
+
+## Material alpha (-alpha)
+
+A material with the -alpha suffix will be imported with the
+[TRANSPARENCY_ALPHA](https://docs.godotengine.org/en/stable/classes/class_basematerial3d_constant_transparency_alpha.html#class-basematerial3d_constant_transparency_alpha) transparency mode.
+
+## Material vertex color (-vcol)
+
+A material with the -vcol suffix will be imported with the
+[FLAG_ALBEDO_FROM_VERTEX_COLOR](https://docs.godotengine.org/en/stable/classes/class_basematerial3d_constant_flag_albedo_from_vertex_color.html#class-basematerial3d_constant_flag_albedo_from_vertex_color) and
+[FLAG_SRGB_VERTEX_COLOR](https://docs.godotengine.org/en/stable/classes/class_basematerial3d_constant_flag_srgb_vertex_color.html#class-basematerial3d_constant_flag_srgb_vertex_color) flags set.

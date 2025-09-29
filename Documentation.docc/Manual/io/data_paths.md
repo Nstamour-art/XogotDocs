@@ -112,6 +112,13 @@ On HTML5 exports, user:// will refer to a virtual filesystem stored on the
 device via IndexedDB. (Interaction with the main filesystem can still be performed
 through the [JavaScriptBridge](https://docs.godotengine.org/en/stable/classes/class_javascriptbridge.html#class-javascriptbridge) singleton.)
 
+## File logging
+
+> Seealso:
+>
+> Documentation on file logging has been moved to <doc:logging>.
+>
+
 ## Converting paths to absolute paths or "local" paths
 
 You can use [ProjectSettings.globalize_path()](https://docs.godotengine.org/en/stable/classes/class_projectsettings_method_globalize_path.html#class-projectsettings_method_globalize_path)

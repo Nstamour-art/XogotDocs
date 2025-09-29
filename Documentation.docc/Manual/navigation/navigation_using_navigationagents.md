@@ -15,6 +15,11 @@ New NavigationAgent nodes will automatically join the default navigation map on 
 NavigationsAgent nodes are optional and not a hard requirement to use the navigation system.
 Their entire functionality can be replaced with scripts and direct calls to the NavigationServer API.
 
+> Tip:
+>
+> For more advanced uses consider <doc:navigation_using_navigationpathqueryobjects> over NavigationAgent nodes.
+>
+
 ## NavigationAgent Pathfinding
 
 NavigationAgents query a new navigation path on their current navigation map when their target_position is set with a global position.
@@ -117,7 +122,7 @@ Same as with stuck dancing agents between two positions, this is usually caused 
 
 This section explains how to use the navigation avoidance specific to NavigationAgents.
 
-In order for NavigationAgents to use the avoidance feature the enable_avoidance property must be set to true.
+In order for NavigationAgents to use the avoidance feature the avoidance_enabled property must be set to true.
 
 @Image(source: "agent_avoidance_enabled.png")
 
@@ -173,7 +178,7 @@ NavigationObstacles can be used to add some environment constrains to the avoida
 > This means that very clinical avoidance test scenarios will commonly fail. E.g. agents moved directly against each other with perfect opposite velocities will fail because the agents can not get their passing sides assigned.
 >
 
-Using the NavigationAgent enable_avoidance property is the preferred option
+Using the NavigationAgent avoidance_enabled property is the preferred option
 to toggle avoidance. The following code snippets can be used to
 toggle avoidance on agents, create or delete avoidance callbacks or switch avoidance modes.
 

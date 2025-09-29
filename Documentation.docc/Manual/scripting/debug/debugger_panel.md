@@ -51,6 +51,14 @@ but it doesn't step line-by-line through functions.
 
 - **Continue**. This button resumes the game after a breakpoint or pause.
 
+> Note:
+>
+> Using the debugger and breakpoints on <doc:running_code_in_the_editor>
+> is not currently supported. Breakpoints placed in the script editor or using
+> the breakpoint keyword are ignored. You can use print statements to
+> display the contents of variables instead.
+>
+
 ## Errors
 
 This is where error and warning messages are printed while running the game.
@@ -216,7 +224,7 @@ the total bandwidth usage at any given moment.
 
 ## Monitors
 
-The monitors are graphs of several aspects of the game while its running such as
+The monitors are graphs of several aspects of the game while it's running such as
 FPS, memory usage, how many nodes are in a scene and more. All monitors keep
 track of stats automatically, so even if one monitor isn't open while the game
 is running, you can open it later and see how the values changed.

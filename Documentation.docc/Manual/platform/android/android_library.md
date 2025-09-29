@@ -251,6 +251,19 @@ If needed, disable automatic resizing / orientation configuration changes using 
 > to the Android app's assets directory.
 > Using this approach requires passing the --main-pack <pck_or_zip_filepath_relative_to_assets_dir> argument to the hosted Godot Engine instance using GodotHost#getCommandLine().
 >
+> Example:
+>
+> .. code-block:: java
+>
+> @Override
+> public List<String> getCommandLine(){
+> List<String> results = new ArrayList<>();
+> results.addAll(super.getCommandLine());
+> results.add("--main-pack");
+> results.add("res://foo.pck");
+> return results;
+> }
+>
 > The instructions below and the sample app follow the first approach of creating the Godot project in the Android app's assets directory.
 >
 >

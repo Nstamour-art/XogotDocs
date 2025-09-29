@@ -235,7 +235,7 @@ func _get_import_options(path, preset_index):
 This is the method which defines the available options.
 [_get_import_options()](https://docs.godotengine.org/en/stable/classes/class_editorimportplugin_private_method__get_import_options.html#class-editorimportplugin_private_method__get_import_options) returns
 an array of dictionaries, and each dictionary contains a few keys that are
-checked to customize the option as its shown to the user. The following table
+checked to customize the option as it's shown to the user. The following table
 shows the possible keys:
 
 Key | Type | Description

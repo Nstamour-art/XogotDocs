@@ -135,7 +135,7 @@ We also need to enable editable children to gain access to our [Skeleton3D](http
 
 ### The hand skeleton modifier
 
-Finally we need to add a [XRHandModifier3D](https://docs.godotengine.org/en/stable/classes/class_xrhandmodifier3d.html#class-xrhandmodifier3d) node as a child to our Skeleton3D node.
+Finally we need to add an [XRHandModifier3D](https://docs.godotengine.org/en/stable/classes/class_xrhandmodifier3d.html#class-xrhandmodifier3d) node as a child to our Skeleton3D node.
 This node will obtain the finger tracking data from OpenXR and apply it the hand model.
 
 You need to set the Hand Tracker property to either /user/hand_tracker/left or /user/hand_tracker/right

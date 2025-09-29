@@ -234,7 +234,7 @@ Use **camelCase** for all other identifiers (i.e. local variables, method argume
 an underscore (_) as a prefix for private fields (but not for methods or properties, as explained above):
 
 ```
-private Vector3 _aimingAt; // Use a `_` prefix for private fields.
+private Vector3 _aimingAt; // Use an `_` prefix for private fields.
 
 private void Attack(float attackStrength)
 {

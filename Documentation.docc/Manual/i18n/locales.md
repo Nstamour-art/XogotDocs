@@ -129,7 +129,6 @@ cr | Cree
 crh | Crimean Tatar
 crs | Seselwa Creole French
 cs | Czech
-csb | Kashubian
 cu | Church Slavic
 cv | Chuvash
 cy | Welsh
@@ -316,7 +315,6 @@ ky | Kirghiz
 lag | Langi
 la | Latin
 lad | Ladino
-lag | Langi
 lah | Lahnda
 lam | Lamba
 lb | Luxembourgish
@@ -396,7 +394,6 @@ nah | Nahuatl
 nan | Min Nan Chinese
 nap | Neapolitan
 naq | Nama
-nan | Min Nan Chinese
 nb, no | Norwegian Bokmål
 nd | North Ndebele
 nds | Low German

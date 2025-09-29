@@ -19,7 +19,7 @@ as it was too buggy and difficult to maintain.
 
 > Note:
 >
-> You may find videos with an .ogg or .ogx extensions, which are generic
+> You may find videos with a .ogg or .ogx extensions, which are generic
 > extensions for data within an Ogg container.
 >
 > Renaming these file extensions to .ogv may allow the videos to be
@@ -32,7 +32,7 @@ as it was too buggy and difficult to maintain.
 1. Create a VideoStreamPlayer node using the Create New Node dialog.
 
 1. Select the VideoStreamPlayer node in the scene tree dock, go to the inspector
-and load an .ogv file in the Stream property.
+and load a .ogv file in the Stream property.
 
 If you don't have your video in Ogg Theora format yet, jump to
 <doc:playing_videos#Recommended-Theora-Encoding-Settings>.
@@ -154,16 +154,12 @@ noticeable.
 
 ## Playback limitations
 
-There are several limitations with the current implementation of video playback in Godot:
-
-- Seeking a video to a certain point is not supported.
-
-- Changing playback speed is not supported. VideoStreamPlayer also won't follow
-[Engine.time_scale](https://docs.godotengine.org/en/stable/classes/class_engine_property_time_scale.html#class-engine_property_time_scale).
+There are some limitations with the current implementation of video playback in Godot:
 
 - Streaming a video from a URL is not supported.
 
-- Only mono and stereo audio output is supported.
+- Only mono and stereo audio output is supported. Videos with 4, 5.1 and 7.1
+audio channels are supported but down-mixed to stereo.
 
 ## Recommended Theora encoding settings
 
@@ -188,7 +184,7 @@ maximize the quality of the output Ogg Theora video, but this can require a lot
 of disk space.
 
 FFmpeg (CLI) is a popular open source tool
-for this purpose. FFmpeg has a steep learning curve, but it's powerful tool.
+for this purpose. FFmpeg has a steep learning curve, but it's a powerful tool.
 
 Here are example FFmpeg commands to convert an MP4 video to Ogg Theora. Since
 FFmpeg supports a lot of input formats, you should be able to use the commands
@@ -203,10 +199,9 @@ below with almost any input video format (AVI, MOV, WebM, …).
 
 > Warning:
 >
-> All FFmpeg releases before Feb 20th, 2025 could produce bad video streams
-> due to a couple of bugs. It's highly recommended to use one of the latest
-> static daily builds, or build FFmpeg from their master branch where they're
-> already fixed.
+> Current official FFmpeg releases have some bugs in their Ogg/Theora
+> multiplexer. It's highly recommended to use one of the latest static daily
+> builds, or build from their master branch to get the latest fixes.
 >
 
 ### Balancing quality and file size
@@ -232,11 +227,18 @@ variable bitrates.
 
 The **GOP (Group of Pictures) size** (-g:v) is the max interval between
 keyframes. Increasing this value can improve compression with almost no impact
-on quality. The valid range goes from 0 to 2,147,483,648, although
-compression benefits will fade away and even be reversed as the GOP size
-increases. The default size (12) is too low for most types of content, it's
-therefore recommended to test higher GOP sizes before reducing video quality.
+on quality. The default size (12) is too low for most types of content,
+it's therefore recommended using higher GOP values before reducing video
+quality. Compression benefits will fade away as the GOP size increases though.
 Values between 64 and 512 usually give the best compression.
+
+> Note:
+>
+> Higher GOP sizes will increase max seek times with a sudden increase when
+> going beyond powers of two starting at 64. Max seek times with GOP size
+> 65 can be almost twice as long as with GOP size 64, depending on
+> decoding speed.
+>
 
 ### FFmpeg: Convert while preserving original video resolution
 

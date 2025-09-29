@@ -12,7 +12,7 @@ suitable for this workflow.
 > On Windows and Linux, you can run a Godot binary in a terminal by specifying
 > its relative or absolute path.
 >
-> On macOS, the process is different due to Godot being contained within an
+> On macOS, the process is different due to Godot being contained within a
 > .app bundle (which is a folder, not a file). To run a Godot binary
 > from a terminal on macOS, you have to cd to the folder where the Godot
 > application bundle is located, then run Godot.app/Contents/MacOS/Godot
@@ -43,6 +43,7 @@ Command | Description
 --version | Display the version string.
 -v,--verbose | Use verbose stdout mode.
 -q,--quiet | Quiet mode, silences stdout messages. Errors are still displayed.
+--no-header | Do not print engine version and rendering method header on startup.
 
 **Run options**
 
@@ -51,12 +52,17 @@ Command | Description
 --,++ | Separator for user-provided arguments. Following arguments are not used by the engine, but can be read fromOS.get_cmdline_user_args().
 -e,--editor | Start the editor instead of running the scene.
 -p,--project-manager | Start the Project Manager, even if a project is auto-detected.
+--recovery-mode | "Start the editor in recovery mode, which disables features that can typically cause startup crashes, such as tool scripts, editor plugins,
+GDExtension addons, and others.
 --debug-server<uri> | Start the editor debug server (<protocol>://<host/IP>[:<port>], e.g.tcp://127.0.0.1:6007)
+--dap-port<port> | Use the specified port for the GDScript Debug Adapter Protocol. Recommended port range[1024, 49151].
+--lsp-port<port> | Use the specified port for the GDScript Language Server Protocol. Recommended port range[1024, 49151].
 --quit | Quit after the first iteration.
 --quit-after | Quit after the given number of iterations. Set to 0 to disable.
 -l,--language<locale> | Use a specific locale.<locale>follows the formatlanguage_Script_COUNTRY_VARIANTwhere language is a 2 or 3-letter language code in
 lowercase and the rest is optional. See <doc:locales> for more details.
 --path<directory> | Path to a project (<directory>must contain a 'project.godot' file).
+scene <path> | Path or UID of a scene in the project that should be started.
 -u,--upwards | Scan folders upwards for 'project.godot' file.
 --main-pack<file> | Path to a pack (.pck) file to load.
 --render-thread<mode> | Render thread mode ('unsafe', 'safe', 'separate'). See [Thread Model](https://docs.godotengine.org/en/stable/classes/class_projectsettings_property_rendering/driver/threads/thread_model.html#class-projectsettings_property_rendering/driver/threads/thread_model)
@@ -65,12 +71,16 @@ for more details.
 --remote-fs-password<password> | Password for remote filesystem.
 --audio-driver<driver> | Audio driver. Use--helpfirst to display the list of available drivers.
 --display-driver<driver> | Display driver (and rendering driver). Use--helpfirst to display the list of available drivers.
+--audio-output-latency<ms> | Override audio output latency in milliseconds (default is 15 ms). Lower values make sound playback more reactive but increase CPU usage, and may
+result in audio cracking if the CPU can't keep up
 --rendering-method<renderer> | Renderer name. Requires driver support.
 --rendering-driver<driver> | Rendering driver (depends on display driver). Use--helpfirst to display the list of available drivers.
 --gpu-index<device_index> | Use a specific GPU (run with--verboseto get available device list).
 --text-driver<driver> | Text driver (Fonts, BiDi, shaping).
 --tablet-driver<driver> | Pen tablet input driver.
 --headless | Enable headless mode (--display-driverheadless--audio-driverDummy). Useful for servers and with--script.
+--log-file | Write output/error log to the specified path instead of the default location defined by the project. <file> path should be absolute or relative to
+the project directory.
 --write-movie<file> | Run the engine in a way that a movie is written (usually with .avi or .png extension).--fixed-fpsis forced when enabled, but can be used to change movie FPS.--disable-vsynccan speed up movie writing but makes interaction more difficult.--quit-aftercan be used to specify the number of frames to write.
 
 **Display options**
@@ -86,6 +96,9 @@ Command | Description
 --screen<N> | Request window screen.
 --single-window | Use a single window (no separate subwindows).
 --xr-mode<mode> | Select XR mode ('default', 'off', 'on').
+--wid<window_id> | Request parented to window.
+--accessibility<mode> | Select accessibility mode ['auto' (when screen reader is running,
+default), 'always', 'disabled'].
 
 **Debug options**
 
@@ -93,10 +106,17 @@ Command | Description
 ------- | -----------
 -d,--debug | Debug (local stdout debugger).
 -b,--breakpoints | Breakpoint list as source::line comma-separated pairs, no spaces (use%20instead).
+--ignore-error-breaks | If debugger is connected, prevents sending error breakpoints.
 --profiling | Enable profiling in the script debugger.
 --gpu-profile | Show a GPU profile of the tasks that took the most time during frame rendering.
 --gpu-validation | Enable graphics API <doc:vulkan_validation_layers> for debugging.
 --gpu-abort | Abort on GPU errors (usually validation layer errors), may help see the problem if your system freezes.
+--generate-spirv-debug-info | Generate SPIR-V debug information. This allows source-level shader debugging with RenderDoc.
+--extra-gpu-memory-tracking | Enables additional memory tracking (see class reference for`RenderingDevice.get_driver_and_device_memory_report()`and linked methods). Currently only implemented for
+Vulkan. Enabling this feature may cause crashes on some systems due to buggy drivers or bugs in the Vulkan
+Loader. Seehttps://github.com/godotengine/godot/issues/95967
+--accurate-breadcrumbs | Force barriers between breadcrumbs. Useful for narrowing down a command causing GPU resets. Currently
+only implemented for Vulkan.
 --remote-debug<uri> | Remote debug (<protocol>://<host/IP>[:<port>], e.g.tcp://127.0.0.1:6007).
 --single-threaded-scene | Scene tree runs in single-threaded mode. Sub-thread groups are disabled and run on the main thread.
 --debug-collisions | Show collision shapes when running the scene.
@@ -104,7 +124,12 @@ Command | Description
 --debug-navigation | Show navigation polygons when running the scene.
 --debug-avoidance | Show navigation avoidance debug visuals when running the scene.
 --debug-stringnames | Print all StringName allocations to stdout when the engine quits.
---frame-delay<ms> | Simulate high CPU load (delay each frame by <ms> milliseconds).
+--debug-canvas-item-redraw | Display a rectangle each time a canvas item requests a redraw (useful to troubleshoot low processor
+mode).
+--max-fps<fps> | Set a maximum number of frames per second rendered (can be used to limit power usage). A value of 0
+results in unlimited framerate.
+--frame-delay<ms> | Simulate high CPU load (delay each frame by <ms> milliseconds). Do not use as a FPS limiter; use
+--max-fps instead.
 --time-scale<scale> | Force time scale (higher values are faster, 1.0 is normal speed).
 --disable-vsync | Forces disabling of vertical synchronization, even if enabled in the project settings.
 Does not override driver-level V-Sync enforcement.
@@ -113,6 +138,7 @@ Does not override driver-level V-Sync enforcement.
 --fixed-fps<fps> | Force a fixed number of frames per second. This setting disables real-time synchronization.
 --delta-smoothing<enable> | Enable or disable frame delta smoothing ('enable', 'disable').
 --print-fps | Print the frames per second to the stdout.
+--editor-pseudolocalization | Enable pseudolocalization for the editor and the project manager.
 
 **Standalone tools**
 
@@ -120,13 +146,17 @@ Command | Description
 ------- | -----------
 -s,--script<script> | Run a script.<script>must be a resource path relative to the project (myscript.gdwill be interpreted asres://myscript.gd)
 or an absolute filesystem path (for example on WindowsC:/tmp/myscript.gd)
+--main-loop<main_loop_name> | Run a MainLoop specified by its global class name.
 --check-only | Only parse for errors and quit (use with--script).
 --import | Starts the editor, waits for any resources to be imported, and then quits. Implies--editorand--quit.
---export-release<preset> <path> | Export the project using the given preset and matching release template. The preset name should match one defined in export_presets.cfg.<path>should be absolute or relative to the project directory, and include the filename for the binary (e.g. 'builds/game.exe'). The target
-directory should exist. Implies--import.
+--export-release<preset> <path> | Export the project in release mode using the given preset and output path. The preset name should match one defined in 'export_presets.cfg'.<path>should be absolute or relative to the project directory, and include the filename for the binary (e.g. 'builds/game.exe'). The target
+directory must exist.
 --export-debug<preset> <path> | Like--export-release, but use debug template. Implies--import.
 --export-pack<preset> <path> | Like--export-release, but only export the game pack for the given preset. The<path>extension determines whether it will be in PCK
 or ZIP format. Implies--import.
+--export-patch<preset> <path> | Export pack with changed files only. See --export-pack description for other considerations.
+--patches<paths> | List of patches to use with --export-patch. The list is comma-separated.
+--install-android-build-template | Install the Android build template. Used in conjunction with --export-release or --export-debug.
 --convert-3to4[<max_file_kb>] [<max_line_size>] | Convert project from Godot 3.x to Godot 4.x.
 --validate-conversion-3to4[<max_file_kb>] [<max_line_size>] | Show what elements will be renamed when converting project from Godot 3.x to Godot 4.x.
 --doctool[<path>] | Dump the engine API reference to the given<path>in XML format, merging if existing files are found.
@@ -140,6 +170,7 @@ or ZIP format. Implies--import.
 If incompatibilities or errors are detected, the return code will be non-zero.
 --benchmark | Benchmark the run time and print it to console.
 --benchmark-file<path> | Benchmark the run time and save it to a given file in JSON format. The path should be absolute.
+--test[--help] | Run unit tests. Use --test --help for more information.
 
 ## Path
 

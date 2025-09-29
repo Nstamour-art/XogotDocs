@@ -126,7 +126,7 @@ the project or the environment. The pipeline precompilation system will keep
 track of these features as they're encountered for the first time and enable
 precompilation of them for any meshes or surfaces that are created afterwards.
 
-If your game makes use of these features, **make sure to have an scene that uses
+If your game makes use of these features, **make sure to have a scene that uses
 them as early as possible** before loading the majority of the assets. This
 scene can be very simple and will do the job as long as it uses the features the
 game plans to use. It can even be rendered off-screen for at least one frame if
@@ -206,3 +206,57 @@ you can attach the effect as a child of the player as an invisible node. Make
 sure to disable the script attached to the hidden node or to hide any other
 nodes that could cause issues, which can be done by enabling **Editable
 Children** on the node.
+
+## Shader baker
+
+Since Godot 4.5, you can choose to bake shaders on export to improve initial
+startup time. This will generally not resolve existing stutters, but it will
+reduce the time it takes to load the game for the first time. This is especially
+the case when using Direct3D 12 or Metal, which have significantly slower initial
+shader compilation times than Vulkan due to the conversion step required.
+Godot's own shaders use GLSL and SPIR-V, but Direct3D 12 and Metal use
+different formats.
+
+> Note:
+>
+> The shader baker can only bake the source into the intermediate format
+> (SPIR-V for Vulkan, DXIL for Direct3D 12, MIL for Metal). It cannot bake
+> the intermediate format into the final pipeline, as this is
+> dependent on the GPU driver and the hardware.
+>
+> The shader baker is not a replacement for pipeline precompilation,
+> but it aims to complement it.
+>
+
+When enabled, the shader baker will bundle compiled shader code into the PCK,
+which results in the shader compilation step being skipped entirely.
+The downside is that exporting will take slightly longer. The PCK file
+will be larger by a few megabytes.
+
+The shader baker is disabled by default, but you can enable it in each
+export preset in the Export dialog by ticking the :ui:`Shader Baker > Enabled`
+export option.
+
+Note that shader baking will only be able to export shaders for drivers supported
+by the platform the editor is currently running on:
+
+- The editor running on Windows can export shaders for Vulkan and Direct3D 12.
+
+- The editor running on macOS can export shaders for Vulkan and Metal.
+
+- The editor running on Linux can export shaders for Vulkan only.
+
+- The editor running on Android can export shaders for Vulkan only.
+
+The shader baker will only export shaders that match the
+rendering/rendering_device/driver project setting for the target platform.
+
+> Note:
+>
+> The shader baker is only supported for the Forward+ and Mobile renderers.
+> It will have no effect if the project uses the Compatibility renderer,
+> or for users who make use of the Compatibility fallback due to their
+> hardware not supporting the Forward+ or Mobile renderer.
+>
+> This also means the shader baker is not supported on the web platform,
+> as the web platform only supports the Compatibility renderer.

@@ -15,7 +15,7 @@ and binding these to the actual inputs and outputs on your XR devices.
 As the XR action map is currently part of the OpenXR module, OpenXR needs to be enabled
 in your project settings to expose it:
 
-@Image(source: "openxr_settings.png")
+@Image(source: "openxr_enabled.png")
 
 You will then find the XR Action Map interface in the bottom of the screen:
 
@@ -125,7 +125,7 @@ a single action set and to not over-engineer things.
 
 For our walkthrough in this document we will thus create a single action set
 called my_first_action_set.
-We do this by pressing the Add action set button:
+We do this by pressing the :button:`Add action set` button:
 
 @Image(source: "xr_my_first_action_set.png")
 
@@ -140,7 +140,7 @@ some XR runtimes will not like spaces or special characters.
 Some XR runtimes will display this name to the end user, for example in
 configuration dialogs.
 3 | 0 | This is the priority of the action set.
-If multiple active action sets have actions bound to the same controllers inputs or
+If multiple active action sets have actions bound to the same controller's inputs or
 outputs, the action set with the highest priority value will determine the action
 that is updated.
 
@@ -499,7 +499,7 @@ through the modifier button on the right side of the interaction profile editor.
 
 @Image(source: "openxr_ip_binding_modifier.png")
 
-You can add a new modifier by pressing the Add binding modifier button.
+You can add a new modifier by pressing the :button:`Add binding modifier` button.
 
 > Warning:
 > As Godot doesn't know which controllers and runtimes support a modifier,
@@ -562,7 +562,7 @@ for that action.
 when an action becomes pressed.
 
 - Off Haptic lets us define a haptic output that is automatically activated
-when a action is released.
+when an action is released.
 
 ### Binding modifiers on individual bindings
 
@@ -571,7 +571,7 @@ the binding modifier button next to action attached to an input:
 
 @Image(source: "openxr_action_binding_modifier.png")
 
-You can add a new modifier by pressing the Add binding modifier button.
+You can add a new modifier by pressing the :button:`Add binding modifier` button.
 
 > Warning:
 > As Godot doesn't know which inputs on each runtime support a modifier,

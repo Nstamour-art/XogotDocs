@@ -2,7 +2,21 @@
 # Controllers, gamepads, and joysticks
 
 Godot supports hundreds of controller models out of the box.
-Controllers are supported on Windows, macOS, Linux, Android, iOS, and HTML5.
+Controllers are supported on Windows, macOS, Linux, Android, iOS, and Web.
+
+> Note:
+>
+> Since Godot 4.5, the engine relies on SDL 3
+> for controller support on Windows, macOS, and Linux. This means the list of
+> supported controllers and their behavior should closely match what is available
+> in other games and engines using SDL 3. Note that SDL is only used for input,
+> not for windowing or sound.
+>
+> Prior to Godot 4.5, the engine used its own controller support code.
+> This can cause certain controllers to behave incorrectly.
+> This custom code is still used to support controllers on Android, iOS,
+> and Web, so it may result in issues appearing only on those platforms.
+>
 
 Note that more specialized devices such as steering wheels, rudder pedals and
 HOTAS are less tested and may not
@@ -207,8 +221,8 @@ Flatpak, as sandboxing restrictions may make this impossible by default.
 ### My controller isn't recognized by Godot.
 
 First, check that your controller is recognized by other applications. You can
-use the Gamepad Tester website to confirm that
-your controller is recognized.
+use the Gamepad Tester website to confirm
+that your controller is recognized.
 
 On Windows Godot only supports up to 4 controllers at a time. This is
 because Godot uses the XInput API, which is limited to supporting 4 controllers
@@ -256,7 +270,18 @@ Controllers can still work without udev support, but it is less reliable as
 regular polling must be used to check for controllers being connected or
 disconnected during gameplay (hotplugging).
 
-HTML5 controller support is often less reliable compared to "native" platforms.
+As described at the top of the page, controller support on mobile platforms relies
+on a custom implementation instead of using SDL for input. This means controller
+support may be less reliable than on desktop platforms.
+
+Support for SDL-based controller input on mobile platforms is
+planned
+in a future release.
+
+Web controller support is often less reliable compared to "native" platforms.
 The quality of controller support tends to vary wildly across browsers. As a
 result, you may have to instruct your players to use a different browser if they
 can't get their controller to work.
+
+Like for mobile platforms, support for SDL-based controller input on the web platform
+is planned in a future release.

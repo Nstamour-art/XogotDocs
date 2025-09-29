@@ -175,6 +175,8 @@ in vec4**FRAGCOORD** | Coordinate of pixel center. In screen space.xyspecifies
 position in viewport. Upper-left of the viewport is the
 origin,(0.0, 0.0).
 in vec2**SCREEN_PIXEL_SIZE** | Size of individual pixels. Equal to inverse of resolution.
+in vec4**REGION_RECT** | Visible area of the sprite region in format(x, y, width, height). Varies according to
+Sprite2D'sregion_enabledproperty.
 in vec2**POINT_COORD** | Coordinate for drawing points.
 sampler2D**TEXTURE** | Default 2D texture.
 in vec2**TEXTURE_PIXEL_SIZE** | Normalized pixel size of default 2D texture.
@@ -183,6 +185,9 @@ in bool**AT_LIGHT_PASS** | Alwaysfalse.
 sampler2D**SPECULAR_SHININESS_TEXTURE** | Specular shininess texture of this object.
 in vec4**SPECULAR_SHININESS** | Specular shininess color, as sampled from the texture.
 in vec2**UV** | UV from thevertex()function.
+For Sprite2D with region enabled, this will sample the entire
+texture. UseREGION_RECTinstead to sample only the
+region defined in the Sprite2D's properties.
 in vec2**SCREEN_UV** | Screen UV coordinate for current pixel.
 sampler2D**SCREEN_TEXTURE** | Removed in Godot 4. Use asampler2Dwithhint_screen_textureinstead.
 inout vec3**NORMAL** | Normal read fromNORMAL_TEXTURE. Writable.

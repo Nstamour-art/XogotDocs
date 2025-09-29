@@ -18,7 +18,7 @@ Example use cases for runtime file loading and saving include:
 - Loading user-provided audio tracks and playing them back in an in-game radio station.
 
 - Loading custom levels or 3D models that can be designed with any 3D DCC that
-can export to glTF (including glTF scenes saved by Godot at runtime).
+can export to glTF or FBX (including glTF scenes saved by Godot at runtime).
 
 - Using user-provided fonts for menus and HUD.
 
@@ -145,7 +145,7 @@ $TextureRect.texture.get_image().save_png("/path/to/file.png")
 ## Audio/video files
 
 Godot supports loading Ogg Vorbis, MP3, and WAV audio at runtime. Note that not all
-files with an .ogg extension are Ogg Vorbis files. Some may be Ogg Theora
+files with a .ogg extension are Ogg Vorbis files. Some may be Ogg Theora
 videos, or contain Opus audio within an Ogg container. These files will **not**
 load correctly as audio files in Godot.
 
@@ -160,7 +160,7 @@ Example of loading an Ogg Theora video file in a [VideoStreamPlayer](https://doc
 ```
 var video_stream_theora = VideoStreamTheora.new()
 # File extension is ignored, so it is possible to load Ogg Theora videos
-# that have an `.ogg` extension this way.
+# that have a `.ogg` extension this way.
 video_stream_theora.file = "/path/to/file.ogv"
 $VideoStreamPlayer.stream = video_stream_theora
 
@@ -176,6 +176,13 @@ projects. Using [gltfdocument](https://docs.godotengine.org/en/stable/classes/cl
 Godot can load and save glTF files in exported projects, in both text
 (.gltf) and binary (.glb) formats. The binary format should be preferred
 as it's faster to write and smaller, but the text format is easier to debug.
+
+Since Godot 4.3, FBX scenes can also be loaded (but not saved) at runtime using the
+[fbxdocument](https://docs.godotengine.org/en/stable/classes/class_fbxdocument.html#class-fbxdocument) and [fbxstate](https://docs.godotengine.org/en/stable/classes/class_fbxstate.html#class-fbxstate) classes. The code to do so
+is the same as glTF, but you will need to replace all instances of
+GLTFDocument and GLTFState with FBXDocument and FBXState in the
+code samples below. There are known issues
+with runtime FBX loading, so using glTF instead is preferred for now.
 
 Example of loading a glTF scene and appending its root node to the scene:
 

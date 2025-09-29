@@ -42,14 +42,10 @@ of these expensive state changes.
 
 In 2D, the costs of treating each item individually can be prohibitively high -
 there can easily be thousands of them on the screen. This is why 2D batching
-is used with OpenGL-based rendering methods. Multiple similar items are grouped
+is used. Multiple similar items are grouped
 together and rendered in a batch, via a single draw call, rather than making a
 separate draw call for each item. In addition, this means state changes,
 material and texture changes can be kept to a minimum.
-
-Vulkan-based rendering methods do not use 2D batching yet. Since draw calls are
-much cheaper with Vulkan compared to OpenGL, there is less of a need to have 2D
-batching (although it can still be beneficial in some cases).
 
 ### 3D batching
 
@@ -64,7 +60,7 @@ other). This can be done by artists, or programmatically within Godot using an a
 There is also a cost to batching together objects in 3D. Several objects
 rendered as one cannot be individually culled. An entire city that is off-screen
 will still be rendered if it is joined to a single blade of grass that is on
-screen. Thus, you should always take objects' location and culling into account
+screen. Thus, you should always take objects' locations and culling into account
 when attempting to batch 3D objects together. Despite this, the benefits of
 joining static objects often outweigh other considerations, especially for large
 numbers of distant or low-poly objects.

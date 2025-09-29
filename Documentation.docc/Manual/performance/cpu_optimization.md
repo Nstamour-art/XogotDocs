@@ -228,8 +228,8 @@ that feature real-time player movement.
 
 The solution to jitter is to use fixed timestep interpolation, which involves
 smoothing the rendered positions and rotations over multiple frames to match the
-physics. You can either implement this yourself or use a
-third-party addon.
+physics. Godot has built-in physics interpolation which you can read about
+<doc:index>.
 Performance-wise, interpolation is a very cheap operation compared to running a
 physics tick. It's orders of magnitude faster, so this can be a significant
 performance win while also reducing jitter.

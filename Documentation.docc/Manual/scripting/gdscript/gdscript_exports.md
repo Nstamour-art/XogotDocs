@@ -51,6 +51,10 @@ Resources and nodes can be exported.
 @export var node: Node
 ```
 
+Even if a script is not executed in the editor, exported properties
+can still be edited. However, getters and setters will only be used
+if the script is in <doc:index#Tool-Mode>.
+
 ## Grouping exports
 
 It is possible to group your exported properties inside the Inspector
@@ -286,10 +290,6 @@ Therefore, if you specify an extension of Resource such as:
 The drop-down menu will be limited to AnimationNode and all
 its derived classes.
 
-It must be noted that even if the script is not being run while in the
-editor, the exported properties are still editable. This can be used
-in conjunction with a <doc:index#Tool-Mode>.
-
 ## Exporting bit flags
 
 See [@export_flags](https://docs.godotengine.org/en/stable/classes/class_@gdscript_annotation_@export_flags.html#class-@gdscript_annotation_@export_flags).
@@ -463,7 +463,7 @@ annotations, you can use @export_custom instead. This allows defining any
 property hint, hint string and usage flags, with a syntax similar to the one
 used by the editor for built-in nodes.
 
-For example, this exposes the altitude property with no range limits but a
+For example, this exposes the altitude property with no range limits but an
 m (meter) suffix defined:
 
 ```
@@ -487,7 +487,20 @@ for a list of parameters and their allowed values.
 If you need to create a clickable inspector button, you can use @export_tool_button.
 This exports a Callable property as a clickable button. When the button is pressed, the callable is called.
 
-Export a button with label "Hello" and icon "Callable". When you press it, it will print "Hello world!".
+You can specify a custom icon name, which must match one of the icon
+file names from the
+editor/icons
+folder of the Godot source repository (case-sensitive).
+You can also browse the editor icons using the
+Godot editor icons website.
+
+For example, if you wish to use Node2D.svg from that folder, you must
+specify "Node2D" as the second parameter of @export_tool_button. It is
+not currently possible to use custom icons from the project folder; only
+built-in editor icons can be used.
+
+This exports a button with label "Hello" and icon "Callable" (which is the
+default if no icon is specified). When you press it, it will print "Hello world!".
 
 ```
 @tool

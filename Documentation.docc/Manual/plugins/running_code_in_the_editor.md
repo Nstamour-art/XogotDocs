@@ -50,17 +50,33 @@ Here is how a _process() function might look for you:
 
 ## Important information
 
-Any other GDScript that your tool script uses must also be a tool. Any
-GDScript without @tool used by the editor will act like an empty file!
+The general rule is that **any other GDScript that your tool script uses must
+*also* be a tool**. The editor is not able to construct instances from GDScript
+files without @tool, which means you cannot call methods or reference member
+variables from them otherwise. However, since static methods, constants and
+enums can be used without creating an instance, it is possible to call them or
+reference them from a @tool script onto other non-tool scripts. One exception to
+this are <doc:index#Basics-Static-Variables>.
+If you try to read a static variable's value in a script that does not have
+@tool, it will always return null but won't print a warning or error
+when doing so. This restriction does not apply to static methods, which can be
+called regardless of whether the target script is in tool mode.
 
 Extending a @tool script does not automatically make the extending script
 a @tool. Omitting @tool from the extending script will disable tool
-behavior from the super class. Therefore the extending script should also
+behavior from the super class. Therefore, the extending script should also
 specify the @tool annotation.
 
-Modifications in the editor are permanent. For example, in the next
-section when we remove the script, the node will keep its rotation. Be careful
-to avoid making unwanted modifications.
+Modifications in the editor are permanent, with no undo/redo possible. For
+example, in the next section when we remove the script, the node will keep its
+rotation. Be careful to avoid making unwanted modifications. Consider setting up
+<doc:version_control_systems> to avoid losing work in
+case you make a mistake.
+
+Using the debugger and breakpoints on tool scripts is not currently supported.
+Breakpoints placed in the script editor or using the breakpoint keyword are
+ignored. You can use print statements to display the contents of variables
+instead.
 
 ## Try @tool out
 
@@ -99,8 +115,7 @@ _process() to include the rotation speed.
 > Code from other nodes doesn't run in the editor. Your access to other nodes
 > is limited. You can access the tree and nodes, and their default properties,
 > but you can't access user variables. If you want to do so, other nodes have
-> to run in the editor too. Autoload nodes cannot be accessed in the editor at
-> all.
+> to run in the editor too.
 >
 
 ## Getting notified when resources change
@@ -135,7 +150,7 @@ By default, the warning only updates when closing and reopening the scene.
 Sometimes, you need to run code just one time to automate a certain task that is
 not available in the editor out of the box. Some examples might be:
 
-- Use as a playground for GDScript without having to run a project.
+- Use as a playground for GDScript or C# scripting without having to run a project.
 print() output is displayed in the editor Output panel.
 
 - Scale all light nodes in the currently edited scene, as you noticed your level
@@ -148,11 +163,12 @@ This is available in Godot by extending [EditorScript](https://docs.godotengine.
 This provides a way to run individual scripts in the editor without having to
 create an editor plugin.
 
-To create an EditorScript, tap on the '+' sign on the FileSystem pad
-then choose **Create Script**. In the script creation dialog, and set the
-"Inherits" field to "EditorScript":
+To create an EditorScript, right-click a folder or empty space in the FileSystem
+dock then choose **New > Script...**. In the script creation dialog, click the
+tree icon to choose an object to extend from (or enter EditorScript directly
+in the field on the left, though note this is case-sensitive):
 
-@Image(source: "xogot-running_code_in_the_editor_creating_editor_script.png", alt: "Creating an editor script in the script editor creation dialog") {Creating an editor script in the script editor creation dialog}
+@Image(source: "running_code_in_the_editor_creating_editor_script.png", alt: "Creating an editor script in the script editor creation dialog") {Creating an editor script in the script editor creation dialog}
 
 This will automatically select a script template that is suited for
 EditorScripts, with a _run() method already inserted:
@@ -167,11 +183,11 @@ func _run():
 ```
 
 This _run() method is executed when you use **File > Run** or the keyboard
-shortcut `Command + Shift + X` while the EditorScript is the currently open
+shortcut `Ctrl + Shift + X` while the EditorScript is the currently open
 script in the script editor. This keyboard shortcut is only effective when
 currently focused on the script editor.
 
-Scripts that extend EditorScript must be @tool scripts to function, so make sure it is present.
+Scripts that extend EditorScript must be @tool scripts to function.
 
 > Note:
 >

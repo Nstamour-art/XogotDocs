@@ -384,7 +384,9 @@ can replace the above code with a single line:
 > Applying @onready and any @export annotation to the same variable
 > doesn't work as you might expect. The @onready annotation will cause
 > the default value to be set after the @export takes effect and will
-> override it::
+> override it:
+>
+> ::
 >
 > @export var a = "init_value_a"
 > @onready @export var b = "init_value_b"
@@ -670,7 +672,9 @@ Array and Array[Variant] are the same thing.
 > even if the type is a subtype of the required type.
 >
 > If you want to convert a typed array, you can create a new array and use the
-> [Array.assign()](https://docs.godotengine.org/en/stable/classes/class_array_method_assign.html#class-array_method_assign) method::
+> [Array.assign()](https://docs.godotengine.org/en/stable/classes/class_array_method_assign.html#class-array_method_assign) method:
+>
+> ::
 >
 > var a: Array[Node2D] = [Node2D.new()]
 >
@@ -781,6 +785,30 @@ print(d[test])
 > [Object.set()](https://docs.godotengine.org/en/stable/classes/class_object_method_set.html#class-object_method_set) methods instead.
 >
 
+Godot 4.4 added support for typed dictionaries. On write operations, Godot checks that
+element keys and values match the specified type, so the dictionary cannot contain invalid
+keys or values. The GDScript static analyzer takes typed dictionaries into account. However,
+dictionary methods that return values still have the Variant return type.
+
+Typed dictionaries have the syntax Dictionary[KeyType, ValueType], where KeyType and ValueType
+can be any Variant type, native or user class, or enum. Both the key and value type **must** be specified,
+but you can use Variant to make either of them untyped.
+Nested typed collections (like Dictionary[String, Dictionary[String, int]])
+are not supported.
+
+```
+var a: Dictionary[String, int]
+var b: Dictionary[String, Node]
+var c: Dictionary[Vector2i, MyClass]
+var d: Dictionary[MyEnum, float]
+# String keys, values can be any type.
+var e: Dictionary[String, Variant]
+# Keys can be any type, boolean values.
+var f: Dictionary[Variant, bool]
+```
+
+Dictionary and Dictionary[Variant, Variant] are the same thing.
+
 A signal is a message that can be emitted by an object to those who want to
 listen to it. The Signal type can be used for passing the emitter around.
 
@@ -890,7 +918,9 @@ its initialization is deferred to step 5.
 >
 > You can specify a complex expression as a variable initializer, including function calls.
 > Make sure the variables are initialized in the correct order, otherwise your values
-> may be overwritten. For example::
+> may be overwritten. For example:
+>
+> ::
 >
 > var a: int = proxy("a", 1)
 > var b: int = proxy("b", 2)
@@ -904,7 +934,9 @@ its initialization is deferred to step 5.
 > func _init() -> void:
 > print(_data)
 >
-> Will print::
+> Will print:
+>
+> ::
 >
 > { "a": 1 }
 > { "a": 1, "b": 2 }
@@ -1001,6 +1033,14 @@ func _ready():
     B.x = 3
     prints(A.x, B.x) # 3 3
 ```
+
+> Note:
+>
+> When referencing a static variable from a tool script, the other script
+> containing the static variable **must** also be a tool script.
+> See <doc:running_code_in_the_editor#Important-Information>
+> for details.
+>
 
 ### @static_unload annotation
 
@@ -1293,7 +1333,9 @@ lambda.call()
 > Warning:
 >
 > Local variables are captured by value once, when the lambda is created.
-> So they won't be updated in the lambda if reassigned in the outer function::
+> So they won't be updated in the lambda if reassigned in the outer function:
+>
+> ::
 >
 > var x = 42
 > var lambda = func (): print(x)
@@ -1302,7 +1344,9 @@ lambda.call()
 > lambda.call() # Prints `42`.
 >
 > Also, a lambda cannot reassign an outer local variable. After exiting the lambda,
-> the variable will be unchanged, because the lambda capture implicitly shadows it::
+> the variable will be unchanged, because the lambda capture implicitly shadows it:
+>
+> ::
 >
 > var x = 42
 > var lambda = func ():
@@ -1313,7 +1357,9 @@ lambda.call()
 > print(x) # Prints `42`.
 >
 > However, if you use pass-by-reference data types (arrays, dictionaries, and objects),
-> then the content changes are shared until you reassign the variable::
+> then the content changes are shared until you reassign the variable:
+>
+> ::
 >
 > var a = []
 > var lambda = func ():
@@ -1338,6 +1384,61 @@ static func sum2(a, b):
 Lambda functions cannot be declared static.
 
 See also Static variables and Static constructor.
+
+### Variadic functions
+
+A variadic function is a function that can take a variable number of arguments.
+Since Godot 4.5, GDScript supports variadic functions. To declare a variadic function,
+you need to use the rest parameter, which collects all the excess arguments into an array.
+
+```
+func my_func(a, b = 0, ...args):
+    prints(a, b, args)
+
+func _ready():
+    my_func(1)             # 1 0 []
+    my_func(1, 2)          # 1 2 []
+    my_func(1, 2, 3)       # 1 2 [3]
+    my_func(1, 2, 3, 4)    # 1 2 [3, 4]
+    my_func(1, 2, 3, 4, 5) # 1 2 [3, 4, 5]
+```
+
+A function can have at most one rest parameter, which must be the last one in the parameter list.
+The rest parameter cannot have a default value. Static and lambda functions can also be variadic.
+
+Static typing works for variadic functions too. However, typed arrays are currently not supported
+as a static type of the rest parameter:
+
+```
+# You cannot specify `...values: Array[int]`.
+func sum(...values: Array) -> int:
+    var result := 0
+    for value in values:
+        assert(value is int)
+        result += value
+    return result
+```
+
+> Note:
+>
+> Although you can declare functions as variadic using the rest parameter, unpacking parameters
+> when calling a function using spread syntax that exists in some languages ​​(JavaScript, PHP)
+> is currently not supported in GDScript. However, you can use callv() to call a function
+> with an array of arguments:
+>
+> ::
+>
+> func log_data(...values):
+> # ...
+>
+> func other_func(...args):
+> #log_data(...args) # This won't work.
+> log_data.callv(args) # This will work.
+>
+
+### Abstract functions
+
+See Abstract classes and methods.
 
 ## Statements and control flow
 
@@ -1942,6 +2043,93 @@ func _ready():
 > by the Godot editor.
 >
 
+### Abstract classes and methods
+
+Since Godot 4.5, you can define abstract classes and methods using
+the @abstract annotation.
+
+An abstract class is a class that cannot be instantiated directly.
+Instead, it is meant to be inherited by other classes. Attempting to instantiate
+an abstract class will result in an error.
+
+An abstract method is a method that has no implementation. Therefore, a newline
+or a semicolon is expected after the function header. This defines a contract that
+inheriting classes must conform to, because the method signature must be compatible
+when overriding.
+
+Inheriting classes must either provide implementations for all abstract methods,
+or the inheriting class must be marked as abstract. If a class has at least one
+abstract method (either its own or an unimplemented inherited one),
+then it must also be marked as abstract. However, the reverse is not true:
+an abstract class is allowed to have no abstract methods.
+
+> Tip:
+>
+> If you want to declare a method as optional to be overridden, you should use
+> a non-abstract method and provide a default implementation.
+>
+
+For example, you could have an abstract class called Shape that defines
+an abstract method called draw(). You can then create subclasses like Circle
+and Square that implement the draw() method in their own way.
+This allows you to define a common interface for all shapes without
+having to implement all the details in the abstract class itself:
+
+```
+@abstract class Shape:
+    @abstract func draw()
+
+# This is a concrete (non-abstract) subclass of Shape.
+# You **must** implement all abstract methods in concrete classes.
+class Circle extends Shape:
+    func draw():
+        print("Drawing a circle.")
+
+class Square extends Shape:
+    func draw():
+        print("Drawing a square.")
+```
+
+Both inner classes and classes created using class_name can be abstract.
+This example creates two abstract classes, one of which is a subclass of another
+abstract class:
+
+```
+@abstract
+class_name AbstractClass
+extends Node
+
+@abstract class AbstractSubClass:
+    func _ready():
+        pass
+
+# This is an example of a concrete subclass of AbstractSubClass.
+# This class can be instantiated using `AbstractClass.ConcreteSubclass.new()`
+# in other scripts, even though it's part of an abstract `class_name` script.
+class ConcreteClass extends AbstractSubClass:
+    func _ready():
+        print("Concrete class ready.")
+```
+
+> Warning:
+>
+> Since an abstract class cannot be instantiated, it is not possible to attach
+> an abstract class to a node. If you attempt to do so, the engine will print
+> an error when running the scene:
+>
+> ::
+>
+> Cannot set object script. Script '<path to script>' should not be abstract.
+>
+
+Unnamed classes can also be defined as abstract, the @abstract annotation
+must precede extends:
+
+```
+@abstract
+extends Node
+```
+
 ### Inheritance
 
 A class (stored as a file) can inherit from:
@@ -2073,7 +2261,7 @@ func _init(e=null, m=null):
 
 There are a few things to keep in mind here:
 
-1. If the inherited class (state.gd) defines a _init constructor that takes
+1. If the inherited class (state.gd) defines an _init constructor that takes
 arguments (e in this case), then the inheriting class (idle.gd) must
 define _init as well and pass appropriate parameters to _init from state.gd.
 
@@ -2088,15 +2276,16 @@ can pass expressions to the base constructor as well, not just variables, e.g.:
 # idle.gd
 
 func _init():
-    super(5)
+super(5)
+
+
 
 
 ```
 # idle.gd
-
-func _init():
-    super(5)
 ```
+
+super(5)
 
 ### Static constructor
 
@@ -2248,15 +2437,17 @@ func set_my_prop(value):
 > Warning:
 >
 > The exception does **not** propagate to other functions called in the setter/getter.
-> For example, the following code **will** cause an infinite recursion::
+> For example, the following code **will** cause an infinite recursion:
 >
-> var my_prop:
-> set(value):
-> set_my_prop(value)
->
-> func set_my_prop(value):
-> my_prop = value # Infinite recursion, since `set_my_prop()` is not the setter.
->
+
+```
+var my_prop:
+    set(value):
+        set_my_prop(value)
+
+func set_my_prop(value):
+    my_prop = value # Infinite recursion, since `set_my_prop()` is not the setter.
+```
 
 ## Tool mode
 
@@ -2433,8 +2624,7 @@ func _ready():
 This allows the Lifebar to react to health changes without coupling it to
 the Character node.
 
-You can write optional argument names in parentheses after the signal's
-definition:
+You can write optional argument names in parentheses after the signal's definition:
 
 ```
 # Defining a signal that forwards two arguments.
@@ -2575,8 +2765,7 @@ assert(i == 0)
 When running a project from the editor, the project will be paused if an
 assertion error occurs.
 
-You can optionally pass a custom error message to be shown if the assertion
-fails:
+You can optionally pass a custom error message to be shown if the assertion fails:
 
 ```
 assert(enemy_power < 256, "Enemy is too powerful!")

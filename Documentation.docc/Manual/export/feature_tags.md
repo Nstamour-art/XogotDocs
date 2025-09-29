@@ -41,6 +41,7 @@ Here is a list of most feature tags in Godot. Keep in mind they are **case-sensi
 **linux** | Running on Linux (but not within a Web browser)
 **macos** | Running on macOS (but not within a Web browser)
 **ios** | Running on iOS (but not within a Web browser)
+**visionos** | Running on visionOS (but not within a Web browser)
 **windows** | Running on Windows
 **linuxbsd** | Running on Linux or *BSD
 **debug** | Running on a debug build (including the editor)
@@ -70,6 +71,8 @@ Here is a list of most feature tags in Godot. Keep in mind they are **case-sensi
 **mobile** | Host OS is a mobile platform
 **pc** | Host OS is a PC platform (desktop/laptop)
 **web** | Host OS is a Web browser
+**nothreads** | Running without threading support
+**threads** | Running with threading support
 **web_android** | Host OS is a Web browser running on Android
 **web_ios** | Host OS is a Web browser running on iOS
 **web_linuxbsd** | Host OS is a Web browser running on Linux or *BSD
@@ -79,6 +82,10 @@ Here is a list of most feature tags in Godot. Keep in mind they are **case-sensi
 **etc2** | Textures using ETC2 compression are supported
 **s3tc** | Textures using S3TC (DXT/BC) compression are supported
 **movie** | <doc:creating_movies> is active
+**shader_baker** | Project was exported with <doc:pipeline_compilations#Shader-Baker>
+enabled (only applies to the exported project, not when running in the editor)
+**dedicated_server** | Project was exported as a <doc:exporting_for_dedicated_servers>
+(only applies to the exported project, not when running in the editor)
 
 > Warning:
 >
@@ -105,6 +112,10 @@ field in the export preset used to generate it:
 > (including with <doc:one-click_deploy>). They are **not used** when
 > running the project from the editor, even if the export preset marked as
 > **Runnable** for your current platform has custom feature tags defined.
+>
+> Custom feature tags are also not used in [EditorExportPlugin](https://docs.godotengine.org/en/stable/classes/class_editorexportplugin.html#class-editorexportplugin)
+> scripts. Instead, feature tags in [EditorExportPlugin](https://docs.godotengine.org/en/stable/classes/class_editorexportplugin.html#class-editorexportplugin)
+> will reflect the device the editor is currently running on.
 >
 
 ## Overriding project settings

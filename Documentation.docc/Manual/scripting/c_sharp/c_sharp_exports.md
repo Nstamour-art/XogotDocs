@@ -562,13 +562,6 @@ public Godot.Collections.Dictionary Dictionary { get; set; }
 Using the generic Godot.Collections.Dictionary<TKey, TValue> allows specifying
 the types of the key and value elements of the dictionary.
 
-> Note:
->
-> Typed dictionaries are currently unsupported in the Godot editor, so
-> the Inspector will not restrict the types that can be assigned, potentially
-> resulting in runtime exceptions.
->
-
 ```
 [Export]
 public Godot.Collections.Dictionary<string, int> Dictionary { get; set; }

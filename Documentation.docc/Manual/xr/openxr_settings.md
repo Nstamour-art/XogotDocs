@@ -167,7 +167,7 @@ Sets the foveation level used when rendering provided this feature is supported 
 Foveation is a technique where the further away from the center of the viewport we render content, the lower resolution we render at.
 Most XR runtimes only support fixed foveation, but some will take eye tracking into account and use the focal point for this effect.
 
-The higher the level, the better the performance gains, but also the more reduction in quality there is in the users peripheral vision.
+The higher the level, the better the performance gains, but also the more reduction in quality there is in the user's peripheral vision.
 
 > Note:
 > **Compatibility renderer only**,
@@ -237,7 +237,7 @@ come from optical hand tracking sensors or any other applicable source.
 
 If your game only supports controllers this should be turned off.
 
-See the chapter on <doc:openxr_hand_tracking> for additional details.
+See the page on <doc:openxr_hand_tracking> for additional details.
 
 ### Hand Tracking Unobstructed Data Source
 
@@ -286,10 +286,17 @@ and set its pose property to eye_pose.
 
 Now you can add things to this controller node such as a raycast, and control things with your eyes.
 
+### Render Models
+
+This extension is used to query the XR runtime for 3D assets of the hardware being
+used, usually a controller, as well as the position of that hardware. You can find a
+detailed guide on how to use it <doc:openxr_render_models>.
+
 ## Binding Modifiers
 
 These control whether or not binding modifiers can be used. Binding modifiers are
-used to apply thresholds or offset values.
+used to apply thresholds or offset values. You can find information on how to use
+and set them up on the XR action map page <doc:binding_modifiers>.
 
 ### Analog Threshold
 

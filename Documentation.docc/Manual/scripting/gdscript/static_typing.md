@@ -217,10 +217,11 @@ func get_property(param: Control) -> Node2D:
 To define the type of an Array, enclose the type name in [].
 
 An array's type applies to for loop variables, as well as some operators like
-[], []=, and +. Array methods (such as push_back) and other operators
-(such as ==) are still untyped. Built-in types, native and custom classes,
-and enums may be used as element types. Nested array types
-(like Array[Array[int]]) are not supported.
+[], [...] = (assignment), and +. Array methods
+(such as push_back) and other operators (such as ==)
+are still untyped. Built-in types, native and custom classes,
+and enums may be used as element types. Nested array types (like Array[Array[int]])
+are not supported.
 
 ```
 var scores: Array[int] = [10, 20, 30]
@@ -249,6 +250,33 @@ for name: String in names:
 
 The array will remain untyped, but the name variable within the for loop
 will always be of String type.
+
+### Specify the element type of a Dictionary
+
+To define the type of a Dictionary's keys and values, enclose the type name in []
+and separate the key and value type with a comma.
+
+A dictionary's value type applies to for loop variables, as well as some operators like
+[] and [...] = (assignment). Dictionary methods that return values
+and other operators (such as ==) are still untyped. Built-in types, native
+and custom classes, and enums may be used as element types. Nested typed collections
+(like Dictionary[String, Dictionary[String, int]]) are not supported.
+
+```
+var fruit_costs: Dictionary[String, int] = { "apple": 5, "orange": 10 }
+var vehicles: Dictionary[String, Node] = { "car": $Car, "plane": $Plane }
+var item_tiles: Dictionary[Vector2i, Item] = { Vector2i(0, 0): Item.new(), Vector2i(0, 1): Item.new() }
+var dictionary_of_dictionaries: Dictionary[String, Dictionary] = { { } }
+# var dicts: Dictionary[String, Dictionary[String, int]] -- disallowed
+
+for cost in fruit_costs:
+    # cost has type `int`
+
+# The following would be errors:
+fruit_costs["pear"] += vehicles
+var s: String = fruit_costs["apple"]
+fruit_costs["orange"] = "lots"
+```
 
 ### Type casting
 
@@ -284,7 +312,9 @@ get full autocompletion on the player variable thanks to that cast.
 > The as keyword silently casts the variable to null in case of a type
 > mismatch at runtime, without an error/warning. While this may be convenient
 > in some cases, it can also lead to bugs. Use the as keyword only if this
-> behavior is intended. A safer alternative is to use the is keyword::
+> behavior is intended. A safer alternative is to use the is keyword:
+>
+> ::
 >
 > if not (body is PlayerController):
 > push_error("Bug: body is not PlayerController.")
@@ -295,12 +325,16 @@ get full autocompletion on the player variable thanks to that cast.
 >
 > player.damage()
 >
-> You can also simplify the code by using the is not operator::
+> You can also simplify the code by using the is not operator:
+>
+> ::
 >
 > if body is not PlayerController:
 > push_error("Bug: body is not PlayerController")
 >
-> Alternatively, you can use the assert() statement::
+> Alternatively, you can use the assert() statement:
+>
+> ::
 >
 > assert(body is PlayerController, "Bug: body is not PlayerController.")
 >
@@ -339,7 +373,9 @@ green at the left of the script editor.
 > Note:
 >
 > Safe lines do not always mean better or more reliable code. See the note above
-> about the as keyword. For example::
+> about the as keyword. For example:
+>
+> ::
 >
 > @onready var node_1 := $Node1 as Type1 # Safe line.
 > @onready var node_2: Type2 = $Node2 # Unsafe line.
@@ -403,10 +439,7 @@ func _on_area_2d_body_entered(body):
 
 And the same callback, with type hints:
 
-```
-func _on_area_entered(area: CollisionObject2D) -> void:
-    pass
-```
+pass
 
 ## Warning system
 
@@ -432,6 +465,43 @@ UNSAFE_* warnings make unsafe operations more noticeable, than unsafe lines.
 Currently, UNSAFE_* warnings do not cover all cases that unsafe lines cover.
 
 ## Common unsafe operations and their safe counterparts
+
+### Global scope methods
+
+The following global scope methods are not statically typed, but they have
+typed counterparts available. These methods return statically typed values:
+
+Method | Statically typed equivalents
+------ | ----------------------------
+[abs()](https://docs.godotengine.org/en/stable/classes/class_@globalscope_method_abs.html#class-@globalscope_method_abs) | [absf()](https://docs.godotengine.org/en/stable/classes/class_@globalscope_method_absf.html#class-@globalscope_method_absf),
+[absi()](https://docs.godotengine.org/en/stable/classes/class_@globalscope_method_absi.html#class-@globalscope_method_absi)[Vector2.abs()](https://docs.godotengine.org/en/stable/classes/class_vector2_method_abs.html#class-vector2_method_abs),
+[Vector2i.abs()](https://docs.godotengine.org/en/stable/classes/class_vector2i_method_abs.html#class-vector2i_method_abs)[Vector3.abs()](https://docs.godotengine.org/en/stable/classes/class_vector3_method_abs.html#class-vector3_method_abs),
+[Vector3i.abs()](https://docs.godotengine.org/en/stable/classes/class_vector3i_method_abs.html#class-vector3i_method_abs)[Vector4.abs()](https://docs.godotengine.org/en/stable/classes/class_vector4_method_abs.html#class-vector4_method_abs),
+[Vector4i.abs()](https://docs.godotengine.org/en/stable/classes/class_vector4i_method_abs.html#class-vector4i_method_abs)
+[ceil()](https://docs.godotengine.org/en/stable/classes/class_@globalscope_method_ceil.html#class-@globalscope_method_ceil) | [ceilf()](https://docs.godotengine.org/en/stable/classes/class_@globalscope_method_ceilf.html#class-@globalscope_method_ceilf),
+[ceili()](https://docs.godotengine.org/en/stable/classes/class_@globalscope_method_ceili.html#class-@globalscope_method_ceili)[Vector2.ceil()](https://docs.godotengine.org/en/stable/classes/class_vector2_method_ceil.html#class-vector2_method_ceil)[Vector3.ceil()](https://docs.godotengine.org/en/stable/classes/class_vector3_method_ceil.html#class-vector3_method_ceil)[Vector4.ceil()](https://docs.godotengine.org/en/stable/classes/class_vector4_method_ceil.html#class-vector4_method_ceil)
+[clamp()](https://docs.godotengine.org/en/stable/classes/class_@globalscope_method_clamp.html#class-@globalscope_method_clamp) | [clampf()](https://docs.godotengine.org/en/stable/classes/class_@globalscope_method_clampf.html#class-@globalscope_method_clampf),
+[clampi()](https://docs.godotengine.org/en/stable/classes/class_@globalscope_method_clampi.html#class-@globalscope_method_clampi)[Vector2.clamp()](https://docs.godotengine.org/en/stable/classes/class_vector2_method_clamp.html#class-vector2_method_clamp),
+[Vector2i.clamp()](https://docs.godotengine.org/en/stable/classes/class_vector2i_method_clamp.html#class-vector2i_method_clamp)[Vector3.clamp()](https://docs.godotengine.org/en/stable/classes/class_vector3_method_clamp.html#class-vector3_method_clamp),
+[Vector3i.clamp()](https://docs.godotengine.org/en/stable/classes/class_vector3i_method_clamp.html#class-vector3i_method_clamp)[Vector4.clamp()](https://docs.godotengine.org/en/stable/classes/class_vector4_method_clamp.html#class-vector4_method_clamp),
+[Vector4i.clamp()](https://docs.godotengine.org/en/stable/classes/class_vector4i_method_clamp.html#class-vector4i_method_clamp)[Color.clamp()](https://docs.godotengine.org/en/stable/classes/class_color_method_clamp.html#class-color_method_clamp)(untypedclamp()does not work on Color)
+[floor()](https://docs.godotengine.org/en/stable/classes/class_@globalscope_method_floor.html#class-@globalscope_method_floor) | [floorf()](https://docs.godotengine.org/en/stable/classes/class_@globalscope_method_floorf.html#class-@globalscope_method_floorf),
+[floori()](https://docs.godotengine.org/en/stable/classes/class_@globalscope_method_floori.html#class-@globalscope_method_floori)[Vector2.floor()](https://docs.godotengine.org/en/stable/classes/class_vector2_method_floor.html#class-vector2_method_floor)[Vector3.floor()](https://docs.godotengine.org/en/stable/classes/class_vector3_method_floor.html#class-vector3_method_floor)[Vector4.floor()](https://docs.godotengine.org/en/stable/classes/class_vector4_method_floor.html#class-vector4_method_floor)
+[lerp()](https://docs.godotengine.org/en/stable/classes/class_@globalscope_method_lerp.html#class-@globalscope_method_lerp) | [lerpf()](https://docs.godotengine.org/en/stable/classes/class_@globalscope_method_lerpf.html#class-@globalscope_method_lerpf)[Vector2.lerp()](https://docs.godotengine.org/en/stable/classes/class_vector2_method_lerp.html#class-vector2_method_lerp)[Vector3.lerp()](https://docs.godotengine.org/en/stable/classes/class_vector3_method_lerp.html#class-vector3_method_lerp)[Vector4.lerp()](https://docs.godotengine.org/en/stable/classes/class_vector4_method_lerp.html#class-vector4_method_lerp)[Color.lerp()](https://docs.godotengine.org/en/stable/classes/class_color_method_lerp.html#class-color_method_lerp)[Quaternion.slerp()](https://docs.godotengine.org/en/stable/classes/class_quaternion_method_slerp.html#class-quaternion_method_slerp)[Basis.slerp()](https://docs.godotengine.org/en/stable/classes/class_basis_method_slerp.html#class-basis_method_slerp)[Transform2D.interpolate_with()](https://docs.godotengine.org/en/stable/classes/class_transform2d_method_interpolate_with.html#class-transform2d_method_interpolate_with)[Transform3D.interpolate_with()](https://docs.godotengine.org/en/stable/classes/class_transform3d_method_interpolate_with.html#class-transform3d_method_interpolate_with)
+[round()](https://docs.godotengine.org/en/stable/classes/class_@globalscope_method_round.html#class-@globalscope_method_round) | [roundf()](https://docs.godotengine.org/en/stable/classes/class_@globalscope_method_roundf.html#class-@globalscope_method_roundf),
+[roundi()](https://docs.godotengine.org/en/stable/classes/class_@globalscope_method_roundi.html#class-@globalscope_method_roundi)[Vector2.round()](https://docs.godotengine.org/en/stable/classes/class_vector2_method_round.html#class-vector2_method_round)[Vector3.round()](https://docs.godotengine.org/en/stable/classes/class_vector3_method_round.html#class-vector3_method_round)[Vector4.round()](https://docs.godotengine.org/en/stable/classes/class_vector4_method_round.html#class-vector4_method_round)
+[sign()](https://docs.godotengine.org/en/stable/classes/class_@globalscope_method_sign.html#class-@globalscope_method_sign) | [signf()](https://docs.godotengine.org/en/stable/classes/class_@globalscope_method_signf.html#class-@globalscope_method_signf)[signi()](https://docs.godotengine.org/en/stable/classes/class_@globalscope_method_signi.html#class-@globalscope_method_signi)[Vector2.sign()](https://docs.godotengine.org/en/stable/classes/class_vector2_method_sign.html#class-vector2_method_sign),
+[Vector2i.sign()](https://docs.godotengine.org/en/stable/classes/class_vector2i_method_sign.html#class-vector2i_method_sign)[Vector3.sign()](https://docs.godotengine.org/en/stable/classes/class_vector3_method_sign.html#class-vector3_method_sign),
+[Vector3i.sign()](https://docs.godotengine.org/en/stable/classes/class_vector3i_method_sign.html#class-vector3i_method_sign)[Vector4.sign()](https://docs.godotengine.org/en/stable/classes/class_vector4_method_sign.html#class-vector4_method_sign),
+[Vector4i.sign()](https://docs.godotengine.org/en/stable/classes/class_vector4i_method_sign.html#class-vector4i_method_sign)
+[snapped()](https://docs.godotengine.org/en/stable/classes/class_@globalscope_method_snapped.html#class-@globalscope_method_snapped) | [snappedf()](https://docs.godotengine.org/en/stable/classes/class_@globalscope_method_snappedf.html#class-@globalscope_method_snappedf)[snappedi()](https://docs.godotengine.org/en/stable/classes/class_@globalscope_method_snappedi.html#class-@globalscope_method_snappedi)[Vector2.snapped()](https://docs.godotengine.org/en/stable/classes/class_vector2_method_snapped.html#class-vector2_method_snapped),
+[Vector2i.snapped()](https://docs.godotengine.org/en/stable/classes/class_vector2i_method_snapped.html#class-vector2i_method_snapped)[Vector3.snapped()](https://docs.godotengine.org/en/stable/classes/class_vector3_method_snapped.html#class-vector3_method_snapped),
+[Vector3i.snapped()](https://docs.godotengine.org/en/stable/classes/class_vector3i_method_snapped.html#class-vector3i_method_snapped)[Vector4.snapped()](https://docs.godotengine.org/en/stable/classes/class_vector4_method_snapped.html#class-vector4_method_snapped),
+[Vector4i.snapped()](https://docs.godotengine.org/en/stable/classes/class_vector4i_method_snapped.html#class-vector4i_method_snapped)
+
+When using static typing, use the typed global scope methods whenever possible.
+This ensures you have safe lines and benefit from typed instructions for
+better performance.
 
 ### UNSAFE_PROPERTY_ACCESS and UNSAFE_METHOD_ACCESS warnings
 
@@ -518,26 +588,17 @@ To wrap up this introduction, let's mention cases where you can't use type hints
 This will trigger a **syntax error**.
 
 1. You can't specify the type of individual elements in an array or a dictionary:
+
+```
 var enemies: Array = [$Goblin: Enemy, $Zombie: Enemy]
 var character: Dictionary = {
     name: String = "Richard",
     money: int = 1000,
     inventory: Inventory = $Inventory,
 }
-
+```
 
 1. Nested types are not currently supported:
-var teams: Array[Array[Character]] = []
-
-
-```
-var enemies: Array = [$Goblin: Enemy, $Zombie: Enemy]
-var character: Dictionary = {
-    name: String = "Richard",
-    money: int = 1000,
-    inventory: Inventory = $Inventory,
-}
-```
 
 ```
 var teams: Array[Array[Character]] = []

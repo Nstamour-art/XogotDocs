@@ -44,7 +44,7 @@ Otherwise, the one-click deploy button won't appear.
 the project should be exported to.
 
 - **iOS:** Exports the project with debugging enabled and runs it on the
-connected device or simulator.
+connected device.
 
 
 Make sure to follow the steps described in <doc:exporting_for_ios>.
@@ -135,14 +135,6 @@ By default, the editor is listening for `localhost` connections only.
 
 
 
-
-For running in simulator:
-
-Install and start simulator from the Xcode.
-
-
-
-
 Device screen should be unlocked.
 
 
@@ -178,17 +170,6 @@ By default, the editor is listening for `localhost` connections only.
 - Make sure the device is on the same local network and a correct network
 interface is selected in the editor settings (see `Network ⇾ Debug ⇾ Remote Host`).
 By default, the editor is listening for `localhost` connections only.
-
-- 
-For running in simulator:
-
-Install and start simulator from the Xcode.
-
-
-
-
-
-- Install and start simulator from the Xcode.
 
 - Device screen should be unlocked.
 
@@ -251,17 +232,6 @@ By default, the editor is listening for `localhost` connections only.
 interface is selected in the editor settings (see `Network ⇾ Debug ⇾ Remote Host`).
 By default, the editor is listening for `localhost` connections only.
 
-- 
-For running in simulator:
-
-Install and start simulator from the Xcode.
-
-
-
-
-
-- Install and start simulator from the Xcode.
-
 - Device screen should be unlocked.
 
 - Pair your mobile device with a Mac.
@@ -273,8 +243,6 @@ Install and start simulator from the Xcode.
 - Make sure the device is on the same local network and a correct network
 interface is selected in the editor settings (see `Network ⇾ Debug ⇾ Remote Host`).
 By default, the editor is listening for `localhost` connections only.
-
-- Install and start simulator from the Xcode.
 
 - Enable `SSH Remote Deploy` and configure connection settings in the project
 export setting.
@@ -340,3 +308,12 @@ Web > Use TLS**.
 > the paths to the key and certificate files in the **Export > Web > TLS Key**
 > and **Export > Web > TLS Certificate**. This will only work if the project
 > is accessed through a domain name that is part of the TLS certificate.
+>
+
+> Warning:
+>
+> When using one-click deploy on different projects, it's possible that
+> a previously edited project is being shown instead. This is due to service
+> worker caching not being cleared automatically. See
+> <doc:exporting_for_web#Troubleshooting> for instructions on unregistering
+> the service worker, which will effectively clear the cache and resolve the issue.

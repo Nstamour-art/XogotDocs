@@ -209,11 +209,12 @@ dynamically adjusting control sizes may help.
 options available in [Label](https://docs.godotengine.org/en/stable/classes/class_label.html#class-label).
 
 To check whether your UI can accommodate translations with longer strings than
-the original, you can enable pseudolocalization in the advanced Project
-Settings. This will replace all your localizable strings with longer versions of
-themselves, while also replacing some characters in the original strings with
-accented versions (while still being readable). Placeholders are kept as-is,
-so that they keep working when pseudolocalization is enabled.
+the original, you can enable <doc:pseudolocalization>
+in the advanced Project Settings. This will replace all your localizable strings
+with longer versions of themselves, while also replacing some characters in the
+original strings with accented versions (while still being readable).
+Placeholders are kept as-is, so that they keep working when pseudolocalization
+is enabled.
 
 For example, the string Hello world, this is %s! becomes
 [Ĥéłłô ŵôŕłd́, ŧh̀íš íš %s!] when pseudolocalization is enabled.
@@ -284,11 +285,13 @@ It is possible to override text and control layout direction by using the follow
 
 ## Adding break iterator data to exported project
 
-Some languages are written without spaces, and word and line breaking requires more than rules over character sequences.
-Godot includes ICU rule and dictionary based, break iterator data, but this data is not included into exported projects by default.
-To include it go to **Project → Project Settings → Localization → Text Server Data** and click **Install support data...**. Break iterator data is about 4 MB large.
+Some languages are written without spaces. In those languages,
+word and line breaking require more than rules over character sequences.
+Godot includes ICU rule and dictionary-based break iterator data, but this data
+is not included in exported projects by default.
 
-@Image(source: "icu_data.png")
+To include it, go to **Project → Project Settings**, enable **Internationalization → Locale → Include Text Server Data**,
+then export the project. Break iterator data is about 4 MB in size.
 
 ## Structured text BiDi override
 
@@ -322,10 +325,10 @@ buttons). Otherwise, they can remain the same.
 
 ## Testing translations
 
-You may want to test a project's translation before releasing it. Godot provides two ways
+You may want to test a project's translation before releasing it. Godot provides three ways
 to do this.
 
-First, in the Project Settings, under **Internationalization > Locale** (with advanced settings enabled), there is a **Test**
+First, in the Project Settings, under :menu:`Internationalization > Locale` (with advanced settings enabled), there is a **Test**
 property. Set this property to the locale code of the language you want to test. Godot will
 run the project with that locale when the project is run (either from the editor or when
 exported).
@@ -335,6 +338,13 @@ exported).
 Keep in mind that since this is a project setting, it will show up in version control when
 it is set to a non-empty value. Therefore, it should be set back to an empty value before
 committing changes to version control.
+
+Second, from within the editor go to the top bar and click on :button:`View` on the top bar, then go down to
+:ui:`Preview Translation` and select the language you want to preview.
+
+@Image(source: "locale_editor_preview.png")
+
+All text in scenes in the editor should now be displayed using the selected language.
 
 Translations can also be tested when <doc:command_line_tutorial>.
 For example, to test a game in French, the following argument can be

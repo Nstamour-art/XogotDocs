@@ -35,7 +35,7 @@ received input, in order:
 capability as a Window-Manager (e.g. for resizing or moving Windows).
 
 1. Next if an embedded Window is focused, the event is sent to that Window and processed in
-the Windows Viewport and afterwards treated as handled. If no embedded Window is focused,
+the Window's Viewport and afterwards treated as handled. If no embedded Window is focused,
 the event is sent to the nodes of the current viewport in the following order.
 
 1. First of all, the standard [Node._input()](https://docs.godotengine.org/en/stable/classes/class_node_private_method__input.html#class-node_private_method__input) function

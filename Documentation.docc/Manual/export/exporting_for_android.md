@@ -21,6 +21,11 @@ The following steps detail what is needed to set up the Android SDK and the engi
 
 Download and install OpenJDK 17.
 
+> Note:
+>
+> Higher versions of the JDK are also supported, but we recommend using JDK 17 for optimal compatibility and stability.
+>
+
 ## Download the Android SDK
 
 Download and install the Android SDK.
@@ -30,16 +35,16 @@ Download and install the Android SDK.
 Run it once to complete the SDK setup using these instructions.
 Ensure that the required packages are installed as well.
 
-Android SDK Platform-Tools version 34.0.0 or later
-Android SDK Build-Tools version 34.0.0
-Android SDK Platform 34
+Android SDK Platform-Tools version 35.0.0 or later
+Android SDK Build-Tools version 35.0.0
+Android SDK Platform 35
 Android SDK Command-line Tools (latest)
 
 
 Ensure that the NDK and CMake are installed and configured.
 
 CMake version 3.10.2.4988404
-NDK version r23c (23.2.8568313)
+NDK version r28b (28.1.13356709)
 
 
 
@@ -49,31 +54,31 @@ NDK version r23c (23.2.8568313)
 
 - Ensure that the required packages are installed as well.
 
-Android SDK Platform-Tools version 34.0.0 or later
-Android SDK Build-Tools version 34.0.0
-Android SDK Platform 34
+Android SDK Platform-Tools version 35.0.0 or later
+Android SDK Build-Tools version 35.0.0
+Android SDK Platform 35
 Android SDK Command-line Tools (latest)
 
 
 
-- Android SDK Platform-Tools version 34.0.0 or later
+- Android SDK Platform-Tools version 35.0.0 or later
 
-- Android SDK Build-Tools version 34.0.0
+- Android SDK Build-Tools version 35.0.0
 
-- Android SDK Platform 34
+- Android SDK Platform 35
 
 - Android SDK Command-line Tools (latest)
 
 - Ensure that the NDK and CMake are installed and configured.
 
 CMake version 3.10.2.4988404
-NDK version r23c (23.2.8568313)
+NDK version r28b (28.1.13356709)
 
 
 
 - CMake version 3.10.2.4988404
 
-- NDK version r23c (23.2.8568313)
+- NDK version r28b (28.1.13356709)
 
 - Alternatively, you can install the Android SDK with the `sdkmanager` command line tool.
 
@@ -90,50 +95,50 @@ Once the command line tools are installed, run the following `sdkmanager` comman
 
 - Ensure that the required packages are installed as well.
 
-Android SDK Platform-Tools version 34.0.0 or later
-Android SDK Build-Tools version 34.0.0
-Android SDK Platform 34
+Android SDK Platform-Tools version 35.0.0 or later
+Android SDK Build-Tools version 35.0.0
+Android SDK Platform 35
 Android SDK Command-line Tools (latest)
 
 
 
-- Android SDK Platform-Tools version 34.0.0 or later
+- Android SDK Platform-Tools version 35.0.0 or later
 
-- Android SDK Build-Tools version 34.0.0
+- Android SDK Build-Tools version 35.0.0
 
-- Android SDK Platform 34
+- Android SDK Platform 35
 
 - Android SDK Command-line Tools (latest)
 
 - Ensure that the NDK and CMake are installed and configured.
 
 CMake version 3.10.2.4988404
-NDK version r23c (23.2.8568313)
+NDK version r28b (28.1.13356709)
 
 
 
 - CMake version 3.10.2.4988404
 
-- NDK version r23c (23.2.8568313)
+- NDK version r28b (28.1.13356709)
 
-- Android SDK Platform-Tools version 34.0.0 or later
+- Android SDK Platform-Tools version 35.0.0 or later
 
-- Android SDK Build-Tools version 34.0.0
+- Android SDK Build-Tools version 35.0.0
 
-- Android SDK Platform 34
+- Android SDK Platform 35
 
 - Android SDK Command-line Tools (latest)
 
 - CMake version 3.10.2.4988404
 
-- NDK version r23c (23.2.8568313)
+- NDK version r28b (28.1.13356709)
 
 - Install the command line tools package using these instructions.
 
 - Once the command line tools are installed, run the following `sdkmanager` command to complete the setup process:
 
 ```
-sdkmanager --sdk_root=<android_sdk_path> "platform-tools" "build-tools;34.0.0" "platforms;android-34" "cmdline-tools;latest" "cmake;3.10.2.4988404" "ndk;23.2.8568313"
+sdkmanager --sdk_root=<android_sdk_path> "platform-tools" "build-tools;35.0.0" "platforms;android-35" "cmdline-tools;latest" "cmake;3.10.2.4988404" "ndk;28.1.13356709"
 ```
 
 > Note:

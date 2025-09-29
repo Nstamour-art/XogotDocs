@@ -67,7 +67,7 @@ the value from the runtime equivalent property or method:
 You can open the project.godot file using a text editor and manually
 change project settings. Note that if the project.godot file does not have a
 stored value for a particular setting, it is implicitly the default value of
-that setting. This means that if you are are manually editing the file, you may
+that setting. This means that if you are manually editing the file, you may
 have to write in both the setting name and the value.
 
 In general, it is recommended to use the Project Settings window rather than

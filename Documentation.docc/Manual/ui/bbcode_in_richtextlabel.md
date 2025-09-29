@@ -234,6 +234,11 @@ Tag | Example
 **char**Adds Unicode character with hexadecimal UTF-32{codepoint}. | [char={codepoint}]
 **p**Adds new paragraph with{text}. Supports configuration options,
 see <doc:bbcode_in_richtextlabel#Paragraph-Options>. | [p]{text}[/p][p{options}]{text}[/p]
+**br**Adds line break in a text, without adding a new paragraph.
+If used within a list, this won't create a new list item,
+but will add a line break within the current item instead. | [br]
+**hr**Adds new a horizontal rule to separate content. Supports configuration options,
+see <doc:bbcode_in_richtextlabel#Hr-Options>. | [hr][hr {options}]
 **center**Makes{text}horizontally centered.Same as[p align=center]. | [center]{text}[/center]
 **left**Makes{text}horizontally left-aligned.Same as[p align=left]. | [left]{text}[/left]
 **right**Makes{text}horizontally right-aligned.Same as[p align=right]. | [right]{text}[/right]
@@ -242,7 +247,10 @@ see <doc:bbcode_in_richtextlabel#Paragraph-Options>. | [p]{text}[/p][p{options}]
 The indentation width is the same as with[ul]or[ol], but without a bullet point. | [indent]{text}[/indent]
 **url**Creates a hyperlink (underlined and clickable text). Can contain optional{text}or display{link}as is.**Must be handled with the "meta_clicked" signal to have an effect,**see <doc:bbcode_in_richtextlabel#Handling-Url-Tag-Clicks>. | [url]{link}[/url][url={link}]{text}[/url]
 **hint**Creates a tooltip hint that is displayed when hovering the text with the mouse.
-Tooltip text should not be quoted (quotes will appear as-is in the tooltip otherwise). | [hint={tooltiptext displayed onhover}]{text}[/hint]
+While not required, it's recommended to put tooltip text between double or single quotes.
+Note that it is not possible to escape quotes using\"or\'. To use
+single quotes for apostrophes in the hint string, you must use double quotes
+to surround the string. | [hint="{tooltiptext displayed onhover}"]{text}[/hint]
 **img**Inserts an image from the{path}(can be any valid [Texture2D](https://docs.godotengine.org/en/stable/classes/class_texture2d.html#class-texture2d) resource).If{width}is provided, the image will try to fit that width maintaining
 the aspect ratio.If both{width}and{height}are provided, the image will be scaled
 to that size.Add%to the end of{width}or{height}value to specify it as percentages of the control width instead of pixels.If{valign}configuration is provided, the image will try to align to the
@@ -444,13 +452,87 @@ func _richtextlabel_on_meta_clicked(meta):
     OS.shell_open(str(meta))
 ```
 
-For more advanced use cases, it's also possible to store JSON in an [url]
+For more advanced use cases, it's also possible to store JSON in a [url]
 tag's option and parse it in the function that handles the meta_clicked signal.
 For example:
 
 ```
 [url={"example": "value"}]JSON[/url]
 ```
+
+### Horizontal rule options
+
+- **color**
+
+
+`Values`
+Color name or color in HEX format
+
+`Default`
+Color(1, 1, 1, 1)
+
+
+
+Color tint of the rule (modulation).
+
+
+- **height**
+
+
+`Values`
+Integer number
+
+`Default`
+2
+
+
+
+Target height of the rule in pixels, add % to the end of value to specify it as percentages of the control width instead of pixels.
+
+
+- **width**
+
+
+`Values`
+Integer number
+
+`Default`
+90%
+
+
+
+Target width of the rule in pixels, add % to the end of value to specify it as percentages of the control width instead of pixels.
+
+
+- **align**
+
+
+`Values`
+left (or l), center (or c), right (or r)
+
+`Default`
+left
+
+
+
+Horizontal alignment.
+
+
+`Values` | Color name or color in HEX format
+-------- | ---------------------------------
+`Default` | Color(1, 1, 1, 1)
+
+`Values` | Integer number
+-------- | --------------
+`Default` | 2
+
+`Values` | Integer number
+-------- | --------------
+`Default` | 90%
+
+`Values` | left(orl),center(orc),right(orr)
+-------- | --------------------------------
+`Default` | left
 
 ### Image options
 
@@ -493,7 +575,7 @@ Inherit
 
 
 
-Target width of the image, add % to the end of value to specify it as percentages of the control width instead of pixels.
+Target width of the image in pixels, add % to the end of value to specify it as percentages of the control width instead of pixels.
 
 
 - **region**
@@ -910,9 +992,9 @@ Left, top, right, and bottom cell padding.
 By default, the [ul] tag uses the U+2022 "Bullet" Unicode glyph as the
 bullet character. This behavior is similar to web browsers. The bullet character
 can be customized using [ul bullet={bullet}]. If provided, this {bullet}
-parameter must be a single character with no enclosing quotes (for example,
-[bullet=*]). Additional characters are ignored. The bullet character's
-width does not affect the list's formatting.
+parameter must be a string with no enclosing quotes (for example,
+[bullet=*]). You can add trailing spaces after the bullet character
+to increase the spacing between the bullet and the list item text.
 
 See Bullet (typography) on Wikipedia
 for a list of common bullet characters that you can paste directly in the bullet parameter.
@@ -941,7 +1023,7 @@ All examples below mention the default values for options in the listed tag form
 
 > Note:
 >
-> Text effects that move characters' position may result in characters being
+> Text effects that move characters' positions may result in characters being
 > clipped by the RichTextLabel node bounds.
 >
 > You can resolve this by disabling **Control > Layout > Clip Contents** in
@@ -1066,9 +1148,6 @@ use the name of the file to determine what the BBCode tag should be.
 This is where the logic of each effect takes place and is called once per glyph
 during the draw phase of text rendering. This passes in a [CharFXTransform](https://docs.godotengine.org/en/stable/classes/class_charfxtransform.html#class-charfxtransform)
 object, which holds a few variables to control how the associated glyph is rendered:
-
-- identity specifies which custom effect is being processed. You should use that for
-code flow control.
 
 - outline is true if effect is called for drawing text outline.
 

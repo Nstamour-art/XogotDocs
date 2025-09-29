@@ -17,14 +17,11 @@ Nowadays, this is no longer the case, as there are plenty of different screen
 sizes, densities, and aspect ratios. Non-conventional sizes are also becoming
 increasingly popular, such as ultrawide displays.
 
-For 3D games, there is not much of a need to support multiple resolutions (from
-the aesthetic point of view). The 3D geometry will just fill the screen based on
-the field of view, disregarding the aspect ratio. The main reason one may want
-to support this, in this case, is for performance reasons (running in lower
-resolution to increase frames per second).
-
-For 2D and game UIs, this is a different matter, as art needs to be created
-using specific pixel sizes in software such as Photoshop, GIMP or Krita.
+For 3D rendering, there is not much of a need to support multiple resolutions.
+Thanks to its vector-based nature, 3D geometry will just fill the screen based
+on the viewport size. For 2D and game UIs, this is a different matter,
+as art needs to be created using specific pixel sizes in software such
+as Photoshop, GIMP or Krita.
 
 Since layouts, aspect ratios, resolutions, and pixel densities can change so
 much, it is no longer possible to design UIs for every specific screen.
@@ -117,6 +114,15 @@ In any case, while changing the root Viewport params is probably the
 most flexible way to deal with the problem, it can be a lot of work,
 code and guessing, so Godot provides a set of parameters in the
 project settings to handle multiple resolutions.
+
+> Tip:
+>
+> To render 3D at a lower resolution than 2D elements (without needing
+> separate viewports), you can use Godot's
+> <doc:resolution_scaling> support. This is a good way
+> to improve performance significantly in GPU-bottlenecked scenarios.
+> This works with any stretch mode and stretch aspect combination.
+>
 
 ## Stretch settings
 
@@ -269,6 +275,12 @@ To configure the stretch scale at runtime from a script, use the
 get_tree().root.content_scale_factor property (see
 [Window.content_scale_factor](https://docs.godotengine.org/en/stable/classes/class_window_property_content_scale_factor.html#class-window_property_content_scale_factor)).
 
+You can also adjust the scale at which the default project theme is generated
+using the **GUI > Theme > Default Theme Scale** project setting. This can be
+used to create more logically-sized UIs at base resolutions that are
+significantly higher or lower than the default. However, this project setting
+cannot be changed at runtime, as its value is only read once when the project starts.
+
 ### Stretch Scale Mode
 
 Since Godot 4.2, the **Stretch Scale Mode** setting allows you to constrain the
@@ -343,8 +355,17 @@ lower values to make the window smaller when the project starts.
 - Alternatively, if you're targeting high-end devices primarily, set the base
 window width to 3840 and window height to 2160.
 This allows you to provide higher resolution 2D assets, resulting in crisper
-visuals at the cost of higher memory usage and file sizes.
+visuals at the cost of higher memory usage and file sizes. You'll also want
+to increase **GUI > Theme > Default Theme Scale** to a value between 2.0
+and 3.0 to ensure UI elements remain readable.
+
 Note that this will make non-mipmapped textures grainy on low resolution devices,
+so make sure to follow the instructions described in
+<doc:multiple_resolutions#Reducing-Aliasing-On-Downsampling>.
+
+
+
+- Note that this will make non-mipmapped textures grainy on low resolution devices,
 so make sure to follow the instructions described in
 <doc:multiple_resolutions#Reducing-Aliasing-On-Downsampling>.
 
@@ -354,6 +375,14 @@ so make sure to follow the instructions described in
 and makes better use of tall smartphone displays (such as 18:9 or 19:9 aspect ratios).
 
 - Configure Control nodes' anchors to snap to the correct corners using the **Layout** menu.
+
+- For 3D games, consider exposing <doc:resolution_scaling> in the game's options menu
+to allow players to adjust the 3D rendering resolution separately from UI elements.
+This is useful for performance tuning, especially on lower-end hardware.
+
+- Note that this will make non-mipmapped textures grainy on low resolution devices,
+so make sure to follow the instructions described in
+<doc:multiple_resolutions#Reducing-Aliasing-On-Downsampling>.
 
 **Pixel art:**
 
@@ -397,8 +426,17 @@ window width to 1920 and window height to 1080.
 This allows you to provide higher resolution 2D assets, resulting in crisper
 visuals at the cost of higher memory usage and file sizes. Many devices have
 even higher resolution displays (1440p), but the difference with 1080p is
-barely visible given the small size of smartphone displays.
+barely visible given the small size of smartphone displays. You'll also want
+to increase **GUI > Theme > Default Theme Scale** to a value between 1.5
+and 2.0 to ensure UI elements remain readable.
+
 Note that this will make non-mipmapped textures grainy on low resolution devices,
+so make sure to follow the instructions described in
+<doc:multiple_resolutions#Reducing-Aliasing-On-Downsampling>.
+
+
+
+- Note that this will make non-mipmapped textures grainy on low resolution devices,
 so make sure to follow the instructions described in
 <doc:multiple_resolutions#Reducing-Aliasing-On-Downsampling>.
 
@@ -408,6 +446,10 @@ so make sure to follow the instructions described in
 and makes better use of tall smartphone displays (such as 18:9 or 19:9 aspect ratios).
 
 - Configure Control nodes' anchors to snap to the correct corners using the **Layout** menu.
+
+- Note that this will make non-mipmapped textures grainy on low resolution devices,
+so make sure to follow the instructions described in
+<doc:multiple_resolutions#Reducing-Aliasing-On-Downsampling>.
 
 > Tip:
 >
@@ -427,8 +469,17 @@ window width to 1080 and window height to 1920.
 This allows you to provide higher resolution 2D assets, resulting in crisper
 visuals at the cost of higher memory usage and file sizes. Many devices have
 even higher resolution displays (1440p), but the difference with 1080p is
-barely visible given the small size of smartphone displays.
+barely visible given the small size of smartphone displays. You'll also want
+to increase **GUI > Theme > Default Theme Scale** to a value between 1.5
+and 2.0 to ensure UI elements remain readable.
+
 Note that this will make non-mipmapped textures grainy on low resolution devices,
+so make sure to follow the instructions described in
+<doc:multiple_resolutions#Reducing-Aliasing-On-Downsampling>.
+
+
+
+- Note that this will make non-mipmapped textures grainy on low resolution devices,
 so make sure to follow the instructions described in
 <doc:multiple_resolutions#Reducing-Aliasing-On-Downsampling>.
 
@@ -440,6 +491,10 @@ so make sure to follow the instructions described in
 and makes better use of tall smartphone displays (such as 18:9 or 19:9 aspect ratios).
 
 - Configure Control nodes' anchors to snap to the correct corners using the **Layout** menu.
+
+- Note that this will make non-mipmapped textures grainy on low resolution devices,
+so make sure to follow the instructions described in
+<doc:multiple_resolutions#Reducing-Aliasing-On-Downsampling>.
 
 > Tip:
 >
@@ -464,18 +519,15 @@ This is not required, but this ensures that you design your UI with small window
 script's _ready() function. This prevents the user from resizing the application
 below a certain size, which could break the UI layout.
 
-> Note:
->
-> Godot doesn't support manually overriding the 2D scale factor yet, so it is
-> not possible to have hiDPI support in non-game applications. Due to this, it
-> is recommended to leave **Allow Hidpi** disabled in non-game applications to
-> allow for the OS to use its low-DPI fallback.
->
+- Add a setting in the application's settings to change the root viewport's
+<doc:multiple_resolutions#Stretch-Scale>,
+so that the UI can be made larger to account for hiDPI displays.
+See also the section on hiDPI support below.
 
 ## hiDPI support
 
 By default, Godot projects are considered DPI-aware by the operating system.
-This is controlled by the **Display > Window > Dpi > Allow Hidpi** project setting,
+This is controlled by the **Display > Window > DPI > Allow hiDPI** project setting,
 which should be left enabled whenever possible. Disabling DPI awareness can break
 fullscreen behavior on Windows.
 
@@ -496,18 +548,18 @@ stretch scale to a value corresponding to the display scale factor in an
 <doc:singletons_autoload>'s _ready() function.
 The display scale factor is set in the operating system's settings and can be queried
 using [screen_get_scale](https://docs.godotengine.org/en/stable/classes/class_displayserver_method_screen_get_scale.html#class-displayserver_method_screen_get_scale). This
-method is currently only implemented on macOS. On other operating systems, you
-will need to implement a method to guess the display scale factor based on the
-screen resolution (with a setting to let the user override this if needed). This
-is the approach currently used by the Godot editor.
+method is currently implemented on Android, iOS, Linux (Wayland only), macOS and Web.
+On other platforms, you'll have to implement a method to guess the display
+scale factor based on the screen resolution (with a setting to let the
+user override this if needed). This is the approach currently used by the Godot editor.
 
-The **Allow Hidpi** setting is only effective on Windows and macOS. It's ignored
+The **Allow hiDPI** setting is only effective on Windows and macOS. It's ignored
 on all other platforms.
 
 > Note:
 >
 > The Godot editor itself is always marked as DPI-aware. Running the project
-> from the editor will only be DPI-aware if **Allow Hidpi** is enabled in the
+> from the editor will only be DPI-aware if **Allow hiDPI** is enabled in the
 > Project Settings.
 >
 
@@ -538,20 +590,10 @@ more sense to use **Keep Width** instead (also called Vert-). This way,
 smartphones with an aspect ratio taller than 16:9 (e.g. 19:9) will use a
 taller field of view, which is more logical here.
 
-## Scaling 2D and 3D elements differently using Viewports
+## Scaling 2D and 3D elements differently
 
-Using multiple Viewport nodes, you can have different scales for various
-elements. For instance, you can use this to render the 3D world at a low
-resolution while keeping 2D elements at the native resolution. This can improve
-performance significantly while keeping the HUD and other 2D elements crisp.
-
-This is done by using the root Viewport node only for 2D elements, then creating
-a Viewport node to display the 3D world and displaying it using a
-SubViewportContainer or TextureRect node. There will effectively be two viewports
-in the final project. One upside of using TextureRect over SubViewportContainer is
-that it allows enable linear filtering. This makes scaled 3D viewports look
-better in many cases.
-
-See the
-3D viewport scaling demo
-for examples.
+To render 3D at a different resolution from 2D elements (such as the UI), use Godot's
+<doc:resolution_scaling> functionality. This allows you to
+control the resolution scale factor used for 3D without needing to use a separate Viewport
+node. This can either be used to improve performance by rendering 3D at a lower resolution,
+or improve quality via supersampling.

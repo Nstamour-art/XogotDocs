@@ -17,6 +17,13 @@ system. When exporting for Windows, the exporter takes all the project files and
 creates a data.pck file. This file is bundled with a specially optimized
 binary that is smaller, faster and does not contain the editor and debugger.
 
+## Changing the executable icon
+
+Godot will automatically use whatever image is set as your project's icon in the project
+settings, and convert it to an ICO file for the exported project. If you want to
+manually create an ICO file for greater control over how the icon looks at different
+resolutions then see the <doc:changing_application_icon_for_windows> page.
+
 ## Code signing
 
 Godot is capable of automatic code signing on export. To do this you must have the

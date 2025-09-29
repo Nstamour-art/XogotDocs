@@ -68,11 +68,11 @@ This is **case-sensitive**. If a script isn't in the proper node_type folder, it
 
 For example:
 
-- template_scripts/Node/smooth_camera.gd
+- script_templates/Node/smooth_camera.gd
 
-- template_scripts/CharacterBody3D/platformer_movement.gd
+- script_templates/CharacterBody3D/platformer_movement.gd
 
-## Default behaviour and overriding it
+## Default behavior and overriding it
 
 By default:
 
@@ -84,7 +84,7 @@ By default:
 
 - the template will not be set as the default for the given node
 
-It is possible to customize this behaviour by adding meta headers at the start
+It is possible to customize this behavior by adding meta headers at the start
 of your file, like this:
 
 In this case, the name will be set to "Platformer movement", with the given custom description, and
@@ -140,6 +140,7 @@ Placeholder | Description
 ----------- | -----------
 _BINDINGS_NAMESPACE_ | The name of the Godot namespace (used in C# only).
 _CLASS_ | The name of the new class.
+_CLASS_SNAKE_CASE_ | The name of the new class assnake_case(used in GDScript only).
 _BASE_ | The base type a new script inherits from.
 _TS_ | Indentation placeholder. The exact type and number
 of whitespace characters used for indentation is

@@ -1,5 +1,5 @@
 <!-- Remove this line to publish to docs.xogot.com -->
-# Renderers
+# Overview of renderers
 
 > Seealso:
 >
@@ -146,7 +146,8 @@ Mobile | ✔️ Yes (low-end). | ✔️ Yes (high-end). | ⚠️ Supported, but 
 optimized. Use Mobile or
 Compatibility instead.
 XR | ✔️ Yes. Recommended for
-standalone headsets. | ✔️ Yes. Recommended fordesktop headsets. | ⚠️ Supported, but poorly
+standalone headsets. | ✔️ Yes. Recommended for
+desktop headsets. | ⚠️ Supported, but poorly
 optimized. Use Mobile or
 Compatibility instead.
 Web | ✔️ Yes. | ❌ No. | ❌ No.
@@ -185,8 +186,6 @@ low scaling cost.
 Rendering driver | OpenGL. | Vulkan, Direct3D 12, or
 Metal. | Vulkan, Direct3D 12, or
 Metal.
-
-desktop headsets.
 
 ### Lights and shadows
 

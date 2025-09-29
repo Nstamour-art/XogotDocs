@@ -992,7 +992,7 @@ $MeshInstance3D.set_instance_shader_parameter("my_color", Color(0.3, 0.6, 1.0))
 
 When using per-instance uniforms, there are some restrictions you should be aware of:
 
-- **Per-instance uniforms do not support textures**, only regular scalar and
+- **Per-instance uniforms do not support textures or arrays**, only regular scalar and
 vector types. As a workaround, you can pass a texture array as a regular
 uniform, then pass the index of the texture to be drawn using a per-instance
 uniform.
@@ -1103,7 +1103,8 @@ this limit, only the size of the sampler uniform.
 A large number of built-in variables are available, like UV, COLOR and
 VERTEX. What variables are available depends on the type of shader
 (spatial, canvas_item, particle, etc) and the
-function used (vertex, fragment, light, start, process, ``sky, or fog). For a list of the built-in variables that are available,
+function used (vertex, fragment, light, start, process,
+sky, or fog). For a list of the built-in variables that are available,
 please see the corresponding pages:
 
 - <doc:spatial_shader>

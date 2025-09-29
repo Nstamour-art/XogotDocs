@@ -201,7 +201,7 @@ Every face whose front-side is hit by the light rays is lit, while the others
 stay dark. Unlike most other light types, directional lights don't have specific
 parameters.
 
-The directional light also offers a **Angular Distance** property, which
+The directional light also offers an **Angular Distance** property, which
 determines the light's angular size in degrees. Increasing this above 0.0
 will make shadows softer at greater distances from the caster, while also
 affecting the sun's appearance in procedural sky materials. This is called a
@@ -305,9 +305,9 @@ Omni light shadow mapping is relatively straightforward. The main issue that
 needs to be considered is the algorithm used to render it.
 
 Omni Shadows can be rendered as either **Dual Paraboloid** or **Cube** mapped.
-**Dual Parabolid** renders quickly, but can cause deformations, while **Cube**
+**Dual Paraboloid** renders quickly, but can cause deformations, while **Cube**
 is more correct, but slower. The default is **Cube**, but consider changing it
-to **Dual Parabolid** for lights where it doesn't make much of a visual
+to **Dual Paraboloid** for lights where it doesn't make much of a visual
 difference.
 
 @Image(source: "lights_and_shadows_dual_parabolid_vs_cubemap.png")
@@ -357,7 +357,7 @@ and add two extra parameters:
 Spots feature the same parameters as omni lights for shadow mapping. Rendering
 spot shadow maps is significantly faster compared to omni lights, as only one
 shadow texture needs to be rendered (instead of rendering 6 faces, or 2 in dual
-parabolid mode).
+paraboloid mode).
 
 Spot lights with shadows enabled can make use of projectors. The projector
 texture will multiply the light's color by the color at a given point on the

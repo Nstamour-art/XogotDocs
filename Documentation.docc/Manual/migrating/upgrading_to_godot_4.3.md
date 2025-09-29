@@ -192,7 +192,7 @@ Type renamed toEditorSceneFormatImporterFBX2GLTF | |❌| | |❌| | |❌| | GH-81
 
 ## Behavior changes
 
-In 4.3 some behavior changes have been introduced, which might require you to adjust your project.
+In 4.3, some behavior changes have been introduced, which might require you to adjust your project.
 
 ### Core
 

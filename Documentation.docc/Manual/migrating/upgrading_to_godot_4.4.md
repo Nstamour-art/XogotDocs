@@ -50,6 +50,25 @@ Methodpostadds a newcountoptional parameter | |✔️| | |✔️ with compat| | 
 **TranslationServer** |  |  |  | 
 Methodstandardize_localeadds a newadd_defaultsoptional parameter | |✔️| | |✔️ with compat| | |✔️ with compat| | GH-98972
 
+**Export annotations**
+
+> Warning:
+>
+> The behavior of @export_file changed in Godot 4.4. When assigning a new value
+> from the Inspector, the path is now stored and returned as a uid:// reference
+> instead of the traditional res:// path(GH-97912). This is a **breaking change** and may
+> cause issues if you're expecting res://-based paths in scripts or serialized
+> files.
+>
+> For example, exported arrays of files may now contain a mix of uid:// and
+> res:// paths, especially if they were partially edited in the Inspector.
+>
+> In 4.4, the only way to retain the res:// format is to **manually edit** the
+> `.tscn` or `.tres` files in a text editor. Starting in Godot 4.5, a new annotation
+> @export_file_path can be used to explicitly retain the old behavior and export
+> raw res:// paths.
+>
+
 Default buffer size in 4.3 is 1024.
 
 ### GUI nodes

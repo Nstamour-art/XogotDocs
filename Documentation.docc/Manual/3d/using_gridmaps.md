@@ -82,6 +82,20 @@ additional nodes can be added as source geometry just for baking the navmesh.
 > size to properly merge the navigation meshes of different grid cells.
 >
 
+## Lightmaps
+
+It is possible to bake lightmaps onto a GridMap. Lightmap UV2 data will be reused
+from meshes if already present. If UV2 data is not present, then it will be
+automatically generated on bake with a lightmap texel size of 0.1 units.
+To generate UV2 data with a different lightmap texel size, you can set the
+global illumination mode in the Import dock to **Static Lightmaps**
+and specify the texel size there. This option must be changed before the scene
+is converted to a MeshLibrary, as changing it later on will not affect
+the existing MeshLibrary data.
+
+Aside from this peculiarity, the lightmap baking process is the same as for any other 3D scene.
+See <doc:using_lightmap_gi> for more information about lightmap baking.
+
 ## MeshLibrary format
 
 To summarize the specific constraints of the MeshLibrary format, a MeshLibrary
@@ -114,7 +128,7 @@ as a resource.
 
 @Image(source: "gridmap_export.png")
 
-You can find an already exported MeshLibrary in the project named "MeshLibrary.tres".
+You can find an already exported MeshLibrary in the project named MeshLibrary.tres.
 
 ## Using GridMap
 

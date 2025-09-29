@@ -1,14 +1,23 @@
 <!-- Remove this line to publish to docs.xogot.com -->
 # Using NavigationPathQueryObjects
 
+> Tip:
+>
+> Path query parameters expose various options to improve pathfinding performance or lower memory consumption.
+>
+> They cater to more advanced pathfinding needs that the high-level nodes can not always cover.
+>
+> See the respective option sections below.
+>
+
 NavigationPathQueryObjects can be used together with NavigationServer.query_path()
-to obtain a heavily **customized** navigation path including optional **meta data** about the path.
+to obtain a heavily **customized** navigation path including optional **metadata** about the path.
 
 This requires more setup compared to obtaining a normal NavigationPath but lets you tailor
 the pathfinding and provided path data to the different needs of a project.
 
 NavigationPathQueryObjects consist of a pair of objects, a NavigationPathQueryParameters object holding the customization options
-for the query and a NavigationPathQueryResult that receives (regular) updates with the resulting path and meta data from the query.
+for the query and a NavigationPathQueryResult that receives (regular) updates with the resulting path and metadata from the query.
 
 2D and 3D versions of NavigationPathQueryParameters are available as
 [NavigationPathQueryParameters2D](https://docs.godotengine.org/en/stable/classes/class_navigationpathqueryparameters2d.html#class-navigationpathqueryparameters2d) and
@@ -18,11 +27,159 @@ for the query and a NavigationPathQueryResult that receives (regular) updates wi
 [NavigationPathQueryResult2D](https://docs.godotengine.org/en/stable/classes/class_navigationpathqueryresult2d.html#class-navigationpathqueryresult2d) and
 [NavigationPathQueryResult3D](https://docs.godotengine.org/en/stable/classes/class_navigationpathqueryresult3d.html#class-navigationpathqueryresult3d) respectively.
 
+## Creating a basic path query
+
 Both parameters and result are used as a pair with the NavigationServer.query_path() function.
 
-For the available customization options and their use see the class doc of the parameters.
+For the available customization options, see further below. See also the descriptions for each parameter in the class reference.
 
 While not a strict requirement, both objects are intended to be created once in advance, stored in a
 persistent variable for the agent and reused for every followup path query with updated parameters.
-This reuse avoids performance implications from frequent object creation if a project
-has a large quantity of simultaneous agents that regularly update their paths.
+
+Reusing the same objects improves performance when frequently creating objects or allocating memory.
+
+The following script creates the objects and provides a query_path() function to create new navigation paths.
+The resulting path is identical to using NavigationServer.map_get_path() while reusing the objects.
+
+## Path postprocessing options
+
+@Image(source: "path_postprocess_diff.png", alt: "Path post-processing differences depending on navigation mesh polygon layout") {Path post-processing differences depending on navigation mesh polygon layout.}
+
+A path query search travels from the closest navigation mesh polygon edge to the closest edge along the available polygons.
+If possible it builds a polygon corridor towards the target position polygon.
+
+This raw "search" polygon corridor path is not very optimized and usually a bad fit for agents to travel along.
+E.g. the closest edge point on a navigation mesh polygon might cause a huge detour for agents on larger polygons.
+In order to improve the quality of paths returned by the query various path_postprocessing options exist.
+
+- The PATH_POSTPROCESSING_CORRIDORFUNNEL post-processing shortens paths by funneling paths around corners **inside the available polygon corridor**.
+This is the default post-processing and usually also the most useful as it gives the shortest path result **inside the available polygon corridor**.
+If the polygon corridor is already suboptimal, e.g. due to a suboptimal navigation mesh layout,
+the funnel can snap to unexpected polygon corners causing detours.
+
+
+- The PATH_POSTPROCESSING_EDGECENTERED post-processing forces all path points to be placed in the middle of the crossed polygon edges  **inside the available polygon corridor**.
+This post-processing is usually only useful when used with strictly tile-like navigation mesh polygons that are all
+evenly sized and where the expected path following is also constrained to cell centers,
+e.g. typical grid game with movement constrained to grid cell centers.
+
+
+- The PATH_POSTPROCESSING_NONE post-processing returns the path as is how the pathfinding traveled **inside the available polygon corridor**.
+This post-processing is very useful for debug as it shows how the path search traveled from closest edge point to closet edge point and what polygons it picked.
+A lot of unexpected or suboptimal path results can be immediately explained by looking at this raw path and polygon corridor.
+
+
+## Path simplification
+
+> Tip:
+>
+> Path simplification can help steering agents or agents that jitter on thin polygon edges.
+>
+
+@Image(source: "path_simplification_diff.png", alt: "Path point difference with or without path simplification") {Path point difference with or without path simplification.}
+
+If simplify_path is enabled a variant of the Ramer-Douglas-Peucker path simplification algorithm is applied to the path.
+This algorithm straightens paths by removing less relevant path points depending on the simplify_epsilon used.
+
+Path simplification helps with all kinds of agent movement problems in "open fields" that are caused by having many unnecessary polygon edges.
+E.g. a terrain mesh when baked to a navigation mesh can cause an excessive polygon count due to all the small (but for pathfinding almost meaningless) height variations in the terrain.
+
+Path simplification also helps with "steering" agents because they only have more critical corner path points to aim for.
+
+> Warning:
+>
+> Path simplification is an additional final post-processing of the path. It adds extra performance costs to the query so only enable when actually needed.
+>
+
+> Note:
+>
+> Path simplification is exposed on the NavigationServer as a generic function. It can be used outside of navigation queries for all kinds of position arrays as well.
+>
+
+## Path metadata
+
+> Tip:
+>
+> Disabling unneeded path metadata options can improve performance and lower memory consumption.
+>
+
+A path query can return additional metadata for every path point.
+
+- The PATH_METADATA_INCLUDE_TYPES flag collects an array with the primitive information about the point owners, e.g. if a point belongs to a region or link.
+
+- The PATH_METADATA_INCLUDE_RIDS flag collects an array with the [RIDs](https://docs.godotengine.org/en/stable/classes/class_rid.html#class-rid) of the point owners. Depending on point owner primitive, these RIDs can be used with the various NavigationServer functions related to regions or links.
+
+- The PATH_METADATA_INCLUDE_OWNERS flag collects an array with the ObjectIDs of the point owners. These object IDs can be used with [@GlobalScope.instance_from_id()](https://docs.godotengine.org/en/stable/classes/class_@globalscope_method_instance_from_id.html#class-@globalscope_method_instance_from_id) to retrieve the node behind that object instance, e.g. a NavigationRegion or NavigationLink node.
+
+By default all path metadata is collected as this metadata can be essential for more advanced navigation gameplay.
+
+- E.g. to know what path point maps to what object or node owner inside the SceneTree.
+
+- E.g. to know if a path point is the start or end of a navigation link that requires scripted takeover.
+
+For the most basic path uses metadata is not always needed.
+Path metadata collection can be selectively disabled to gain some performance and reduce memory consumption.
+
+## Excluding or including regions
+
+> Tip:
+>
+> Region filters can greatly help with performance on large navigation maps that are region partitioned.
+>
+
+Query parameters allow limiting the pathfinding to specific region navigation meshes.
+
+If a large navigation map is well partitioned into smaller regions this can greatly help with performance as the
+query can skip a large number of polygons at one of the earliest checks in the path search.
+
+- By default and if left empty all regions of the queried navigation map are included.
+
+- If a region [RID](https://docs.godotengine.org/en/stable/classes/class_rid.html#class-rid) is added to the excluded_regions array the region's navigation mesh will be ignored in the path search.
+
+- If a region [RID](https://docs.godotengine.org/en/stable/classes/class_rid.html#class-rid) is added to the included_regions array the region's navigation mesh will be considered in the path search and also all other regions not included will be ignored as well.
+
+- If a region ends up both included and excluded it is considered excluded.
+
+Region filters are very effective for performance when paired with navigation region chunks that are aligned on a grid.
+This way the filter can be set to only include the start position chunk and surrounding chunks instead of the entire navigation map.
+
+Even if the target might be outside these surrounding chunks (can always add more "rings") the pathfinding will
+try to create a path to the polygon closest to the target.
+This usually creates half-paths heading in the general direction that are good enough,
+all for a fraction of the performance cost of a full map search.
+
+The following addition to the basic path query script showcases the idea how to integrate a region chunk mapping with the region filters.
+This is not a full working example.
+
+## Path clipping and limits
+
+> Tip:
+>
+> Sensibly set limits can greatly help with performance on large navigation maps, especially when targets end up being unreachable.
+>
+
+@Image(source: "path_clip_and_limits.gif", alt: "Clipping returned paths to specific distances") {Clipping returned paths to specific distances.}
+
+Query parameters allow clipping returned paths to specific lengths.
+These options clip the path as a part of post-processing. The path is still searched as if at full length,
+so it will have the same quality.
+Path length clipping can be helpful in creating paths that better fit constrained gameplay, e.g. tactical games with limited movement ranges.
+
+- The path_return_max_length property can be used to clip the returned path to a specific max length.
+
+- The path_return_max_radius property can be used to clip the returned path inside a circle (2D) or sphere (3D) radius around the start position.
+
+Query parameters allow limiting the path search to only search up to a specific distance or a specific number of searched polygons.
+These options are for performance and affect the path search directly.
+
+- The path_search_max_distance property can be used to stop the path search when going over this distance from the start position.
+
+- The path_search_max_polygons property can be used to stop the path search when going over this searched polygon number.
+
+When the path search is stopped by reaching a limit the path resets and creates a path from the start position polygon
+to the polygon found so far that is closest to the target position.
+
+> Warning:
+>
+> While good for performance, if path search limit values are set too low they can affect the path quality very negatively.
+> Depending on polygon layout and search pattern the returned paths might go into completely wrong directions instead of the direction of the target.

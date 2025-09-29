@@ -60,12 +60,14 @@ There are several methods of measuring performance, including:
 - Using external GPU profilers/debuggers such as
 NVIDIA Nsight Graphics,
 Radeon GPU Profiler,
-Intel Graphics Performance Analyzers, or
+PIX (Direct3D 12 only),
+Xcode (Metal only), or
 Arm Performance Studio.
 
 - Checking the frame rate (with V-Sync disabled). Third-party utilities such as
-RivaTuner Statistics Server
-(Windows) or MangoHud
+RivaTuner Statistics Server (Windows),
+Special K (Windows),
+or MangoHud
 (Linux) can also be useful here.
 
 - Using an unofficial debug menu add-on.

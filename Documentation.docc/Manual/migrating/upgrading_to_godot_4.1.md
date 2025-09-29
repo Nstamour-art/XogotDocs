@@ -162,7 +162,7 @@ Methodcreate_actionadds a newbackward_undo_opsoptional parameter | |✔️| | |�
 
 ## Behavior changes
 
-In 4.1 some behavior changes have been introduced, which might require you to adjust your project.
+In 4.1, some behavior changes have been introduced, which might require you to adjust your project.
 
 Change | Introduced
 ------ | ----------
@@ -173,9 +173,6 @@ Multiple layeredSubViewportContainernodes, that should all receive mouse input e
 Viewportnodes, that have Physics Picking enabled, now automatically set InputEvents as handled. SeeGH-79897for workarounds. | GH-77595
 
 ## Updating your GDExtension for 4.1
-
-GDExtension is still in beta. Until it's marked as stable, compatibility may break when
-upgrading to a new minor version of Godot.
 
 In order to fix a serious bug, in Godot 4.1 we had to break binary compatibility in a big
 way and source compatibility in a small way.

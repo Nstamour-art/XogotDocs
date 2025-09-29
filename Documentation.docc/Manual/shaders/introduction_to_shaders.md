@@ -25,8 +25,8 @@ GDScript, your code would use for loops:
 
 ```
 for x in range(width):
-  for y in range(height):
-    set_color(x, y, some_color)
+    for y in range(height):
+        set_color(x, y, some_color)
 ```
 
 Your code is already part of a loop in a shader, so the corresponding code would
@@ -34,7 +34,7 @@ look like this.
 
 ```
 void fragment() {
-  COLOR = some_color;
+    COLOR = some_color;
 }
 ```
 
@@ -157,7 +157,7 @@ example.
 
 The fragment() processing function is used to set up the Godot material
 parameters per pixel. This code runs on every visible pixel the object or
-primitive draws. It is only available in spatial, canvas_item, and sky shaders.
+primitive draws. It is only available in spatial and canvas_item shaders.
 
 The standard use of the fragment function is to set up material properties used
 to calculate lighting. For example, you would set values for ROUGHNESS,

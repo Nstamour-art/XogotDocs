@@ -56,9 +56,12 @@ have well-defined vertical or horizontal navigation flow.
 
 ## Necessary code
 
-For keyboard and controller navigation to work correctly, any node must be focused on
+For keyboard and controller navigation to work correctly, any node must be focused by
 using code when the scene starts. Without doing this, pressing buttons or keys won't
-do anything. Here is a basic example of setting initial focus with code:
+do anything.
 
-Now when the scene starts the "Start Button" node will be focused, and the keyboard
+You can use the [Control.grab_focus()](https://docs.godotengine.org/en/stable/classes/class_control_method_grab_focus.html#class-control_method_grab_focus) method
+to focus a control. Here is a basic example of setting initial focus with code:
+
+Now when the scene starts, the "Start Button" node will be focused, and the keyboard
 or a controller can be used to navigate between it and other UI elements.

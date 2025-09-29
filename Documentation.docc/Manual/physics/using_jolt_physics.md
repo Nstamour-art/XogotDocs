@@ -5,7 +5,7 @@
 
 The Jolt physics engine was added as an alternative to the existing Godot Physics
 physics engine in 4.4. Jolt is developed by Jorrit Rouwe with a focus on games and
-VR applications. Previously it was available as a extension but is now built into
+VR applications. Previously it was available as an extension but is now built into
 Godot.
 
 It is important to note that the built-in Jolt Physics module is considered
@@ -27,21 +27,6 @@ When the editor opens again, 3D scenes should now be using Jolt for physics.
 ## Notable differences to Godot Physics
 
 There are many differences between the existing Godot Physics engine and Jolt.
-
-### Area3D and static bodies
-
-When using Jolt, [Area3D](https://docs.godotengine.org/en/stable/classes/class_area3d.html#class-area3d) will not detect overlaps with [StaticBody3D](https://docs.godotengine.org/en/stable/classes/class_staticbody3d.html#class-staticbody3d)
-(nor a [RigidBody3D](https://docs.godotengine.org/en/stable/classes/class_rigidbody3d.html#class-rigidbody3d) frozen with FREEZE_MODE_STATIC) by default, for
-performance reasons. If you have many/large [Area3D](https://docs.godotengine.org/en/stable/classes/class_area3d.html#class-area3d) overlapping with
-complex static geometry, such as [ConcavePolygonShape3D](https://docs.godotengine.org/en/stable/classes/class_concavepolygonshape3d.html#class-concavepolygonshape3d) or
-[HeightMapShape3D](https://docs.godotengine.org/en/stable/classes/class_heightmapshape3d.html#class-heightmapshape3d), you can end up wasting a significant amount of CPU
-performance and memory without realizing it.
-
-For this reason this behavior is opt-in through the project setting
-[Physics > Jolt Physics 3D > Simulation > Areas Detect Static Bodies](https://docs.godotengine.org/en/stable/classes/class_projectsettings_property_physics/jolt_physics_3d/simulation/areas_detect_static_bodies.html#class-projectsettings_property_physics/jolt_physics_3d/simulation/areas_detect_static_bodies),
-with the recommendation that you set up your collision layers and masks in such a
-way that only a few small [Area3D](https://docs.godotengine.org/en/stable/classes/class_area3d.html#class-area3d) are able to detect collisions with
-static bodies.
 
 ### Joint properties
 

@@ -302,7 +302,6 @@ https://www.khronos.org/registry/OpenGL-Refpages/gl4/html/atanh.xhtml
 
 Return Type | Function | Description / Return value
 ----------- | -------- | --------------------------
- |  | 
 |vec_type| | :ref:`pow<shader_func_pow>`(|vec_type| x, |vec_type| y) | Power (undefined ifx < 0or ifx == 0andy <= 0).
 |vec_type| | :ref:`exp<shader_func_exp>`(|vec_type| x) | Base-e exponential.
 |vec_type| | :ref:`exp2<shader_func_exp2>`(|vec_type| x) | Base-2 exponential.
@@ -322,8 +321,8 @@ Return Type | Function | Description / Return value
 |vec_type||vec_type| | :ref:`mod<shader_func_mod>`(|vec_type| x, |vec_type| y):ref:`mod<shader_func_mod>`(|vec_type| x, float y) | Modulo (division remainder).
 |vec_type| | :ref:`modf<shader_func_modf>`(|vec_type| x, out |vec_type| i) | Fractional ofx, withias integer part.
 |vec_type||vec_type||vec_int_type||vec_int_type||vec_uint_type||vec_uint_type| | :ref:`min<shader_func_min>`(|vec_type| a, |vec_type| b):ref:`min<shader_func_min>`(|vec_type| a, float b):ref:`min<shader_func_min>`(|vec_int_type| a, |vec_int_type| b):ref:`min<shader_func_min>`(|vec_int_type| a, int b):ref:`min<shader_func_min>`(|vec_uint_type| a, |vec_uint_type| b):ref:`min<shader_func_min>`(|vec_uint_type| a, uint b) | Lowest value betweenaandb.
-|vec_type||vec_type||vec_uint_type||vec_uint_type||vec_int_type||vec_int_type| | :ref:`max<shader_func_max>`(|vec_type| a, |vec_type| b):ref:`max<shader_func_max>`(|vec_type| a, float b):ref:`max<shader_func_max>`(|vec_uint_type| a, |vec_uint_type| b):ref:`max<shader_func_max>`(|vec_uint_type| a, uint b):ref:`max<shader_func_max>`(|vec_int_type| a, |vec_int_type| b):ref:`max<shader_func_max>`(|vec_int_type| a, int b) | Highest value betweenaandb.
-|vec_type||vec_type||vec_uint_type||vec_uint_type||vec_int_type||vec_int_type| | :ref:`clamp<shader_func_clamp>`(|vec_type| x, |vec_type| min, |vec_type| max):ref:`clamp<shader_func_clamp>`(|vec_type| x, float min, float max):ref:`clamp<shader_func_clamp>`(|vec_int_type| x, |vec_int_type| min, |vec_int_type| max):ref:`clamp<shader_func_clamp>`(|vec_int_type| x, float min, float max):ref:`clamp<shader_func_clamp>`(|vec_type| x, |vec_type| min, |vec_type| max):ref:`clamp<shader_func_clamp>`(|vec_type| x, float min, float max) | Clampsxbetweenminandmax(inclusive).
+|vec_type||vec_type||vec_int_type||vec_int_type||vec_uint_type||vec_uint_type| | :ref:`max<shader_func_max>`(|vec_type| a, |vec_type| b):ref:`max<shader_func_max>`(|vec_type| a, float b):ref:`max<shader_func_max>`(|vec_int_type| a, |vec_int_type| b):ref:`max<shader_func_max>`(|vec_int_type| a, int b):ref:`max<shader_func_max>`(|vec_uint_type| a, |vec_uint_type| b):ref:`max<shader_func_max>`(|vec_uint_type| a, uint b) | Highest value betweenaandb.
+|vec_type||vec_type||vec_int_type||vec_int_type||vec_uint_type||vec_uint_type| | :ref:`clamp<shader_func_clamp>`(|vec_type| x, |vec_type| min, |vec_type| max):ref:`clamp<shader_func_clamp>`(|vec_type| x, float min, float max):ref:`clamp<shader_func_clamp>`(|vec_int_type| x, |vec_int_type| min, |vec_int_type| max):ref:`clamp<shader_func_clamp>`(|vec_int_type| x, int min, int max):ref:`clamp<shader_func_clamp>`(|vec_uint_type| x, |vec_uint_type| min, |vec_uint_type| max):ref:`clamp<shader_func_clamp>`(|vec_uint_type| x, uint min, uint max) | Clampsxbetweenminandmax(inclusive).
 |vec_type||vec_type||vec_type| | :ref:`mix<shader_func_mix>`(|vec_type| a, |vec_type| b, |vec_type| c):ref:`mix<shader_func_mix>`(|vec_type| a, |vec_type| b, float c):ref:`mix<shader_func_mix>`(|vec_type| a, |vec_type| b, |vec_bool_type| c) | Linear interpolate betweenaandbbyc.
 |vec_type| | :ref:`fma<shader_func_fma>`(|vec_type| a, |vec_type| b, |vec_type| c) | Fused multiply-add operation:(a * b + c)
 |vec_type||vec_type| | :ref:`step<shader_func_step>`(|vec_type| a, |vec_type| b):ref:`step<shader_func_step>`(float a, |vec_type| b) | b < a ? 0.0 : 1.0
@@ -636,13 +635,13 @@ https://www.khronos.org/registry/OpenGL-Refpages/gl4/html/max.xhtml
 
 |vec_type| **clamp**(|vec_type| x, float minVal, float maxVal) :ref:`🔗<shader_func_clamp>`
 
-|vec_type| **clamp**(|vec_type| x, float minVal, float maxVal) :ref:`🔗<shader_func_clamp>`
+|vec_int_type| **clamp**(|vec_int_type| x, |vec_int_type| minVal, |vec_int_type| maxVal) :ref:`🔗<shader_func_clamp>`
 
-|vec_uint_type| **clamp**(|vec_int_type| x, float minVal, float maxVal) :ref:`🔗<shader_func_clamp>`
+|vec_int_type| **clamp**(|vec_int_type| x, int minVal, int maxVal) :ref:`🔗<shader_func_clamp>`
 
-|vec_int_type| **clamp**(|vec_type| x, |vec_type| minVal, |vec_type| maxVal) :ref:`🔗<shader_func_clamp>`
+|vec_uint_type| **clamp**(|vec_uint_type| x, |vec_uint_type| minVal, |vec_uint_type| maxVal) :ref:`🔗<shader_func_clamp>`
 
-|vec_int_type| **clamp**(|vec_type| x, float minVal, float maxVal) :ref:`🔗<shader_func_clamp>`
+|vec_uint_type| **clamp**(|vec_uint_type| x, uint minVal, uint maxVal) :ref:`🔗<shader_func_clamp>`
 
 |componentwise|
 
@@ -924,8 +923,7 @@ https://www.khronos.org/registry/OpenGL-Refpages/gl4/html/dot.xhtml
 
 vec3 **cross**(vec3 a, vec3 b) :ref:`🔗<shader_func_cross>`
 
-Returns the cross product of two vectors.
-i.e.:
+Returns the cross product of two vectors. i.e.:
 
 ```
 vec2( a.y * b.z - b.y * a.z,
@@ -1771,13 +1769,13 @@ floating-point numbers.
 uintvec2 | :ref:`packHalf2x16<shader_func_packHalf2x16>`(vec2 v):ref:`unpackHalf2x16<shader_func_unpackHalf2x16>`(uint v) | Convert two 32-bit floats to 16 bit floats and pack them.
 -------- | -------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------
 uintvec2 | :ref:`packUnorm2x16<shader_func_packUnorm2x16>`(vec2 v):ref:`unpackUnorm2x16<shader_func_unpackUnorm2x16>`(uint v) | Convert two normalized (range 0..1) 32-bit floats
-to 16-bit floats and pack them.
+to 16-bit unsigned ints and pack them.
 uintvec2 | :ref:`packSnorm2x16<shader_func_packSnorm2x16>`(vec2 v):ref:`unpackSnorm2x16<shader_func_unpackSnorm2x16>`(uint v) | Convert two signed normalized (range -1..1) 32-bit floats
-to 16-bit floats and pack them.
+to 16-bit signed ints and pack them.
 uintvec4 | :ref:`packUnorm4x8<shader_func_packUnorm4x8>`(vec4 v):ref:`unpackUnorm4x8<shader_func_unpackUnorm4x8>`(uint v) | Convert four normalized (range 0..1) 32-bit floats
-into 8-bit floats and pack them.
+into 8-bit unsigned ints and pack them.
 uintvec4 | :ref:`packSnorm4x8<shader_func_packSnorm4x8>`(vec4 v):ref:`unpackSnorm4x8<shader_func_unpackSnorm4x8>`(uint v) | Convert four signed normalized (range -1..1) 32-bit floats
-into 8-bit floats and pack them.
+into 8-bit signed ints and pack them.
 
 ### Packing and unpacking function descriptions
 

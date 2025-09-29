@@ -6,7 +6,7 @@
 The .gdextension file in your project contains the instructions for how to load
 the GDExtension. The instructions are separated into specific sections. This page
 should give you a quick overview of the different options available to you. For an introduction
-how to get started with GDExtensions take a look at the <doc:gdextension_cpp_example>.
+how to get started with C++ (godot-cpp), take a look at the <doc:gdextension_cpp_example>.
 
 ## Configuration section
 
@@ -51,6 +51,16 @@ linux.debug.arm64 = "res://bin/libgdexample.linux.template_debug.arm64.so"
 linux.release.arm64 = "res://bin/libgdexample.linux.template_release.arm64.so"
 linux.debug.rv64 = "res://bin/libgdexample.linux.template_debug.rv64.so"
 linux.release.rv64 = "res://bin/libgdexample.linux.template_release.rv64.so"
+```
+
+Entries are matched in order, so if two sets of feature tags could match
+the same system, be sure to put the more specific ones first:
+
+```
+[libraries]
+
+linux.release.editor.x86_64 = "res://bin/libgdexample.linux.template_release.x86_64.so"
+linux.release.x86_64 = "res://bin/libgdexample.linux.noeditor.template_release.x86_64.so"
 ```
 
 Here are lists of some of the available built-in options (for more look at the <doc:feature_tags>):

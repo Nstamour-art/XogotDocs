@@ -70,9 +70,11 @@ To provide further understanding, here is a break-down of the steps used to crea
 1. Create an Android library module using these instructions
 
 1. Add the Godot Android library as a dependency by updating the module's gradle build file:
+
 dependencies {
     implementation("org.godotengine:godot:4.2.0.stable")
 }
+
 
 
 ```
@@ -87,9 +89,11 @@ The Godot Android library is hosted on MavenCentral, and updated for each releas
 
 
 If the plugin exposes Kotlin or Java methods to be called from GDScript, they must be annotated with @UsedByGodot. The name called from GDScript **must match the method name exactly**. There is **no** coercing snake_case to camelCase. For example, from GDScript:
+
 if Engine.has_singleton("MyPlugin"):
     var singleton = Engine.get_singleton("MyPlugin")
     print(singleton.myPluginFunction("World"))
+
 
 If the plugin uses signals, the init class must return the set of signals used by overriding GodotPlugin::getPluginSignals(). To emit signals, the plugin can use the GodotPlugin::emitSignal(...) method.
 
@@ -97,23 +101,29 @@ If the plugin uses signals, the init class must return the set of signals used b
 
 
 1. If the plugin exposes Kotlin or Java methods to be called from GDScript, they must be annotated with @UsedByGodot. The name called from GDScript **must match the method name exactly**. There is **no** coercing snake_case to camelCase. For example, from GDScript:
+
 if Engine.has_singleton("MyPlugin"):
     var singleton = Engine.get_singleton("MyPlugin")
     print(singleton.myPluginFunction("World"))
+
 
 
 1. If the plugin uses signals, the init class must return the set of signals used by overriding GodotPlugin::getPluginSignals(). To emit signals, the plugin can use the GodotPlugin::emitSignal(...) method.
 
 1. Update the plugin AndroidManifest.xml file with the following meta-data:
+
 <meta-data
     android:name="org.godotengine.plugin.v2.[PluginName]"
     android:value="[plugin.init.ClassFullName]" />
 
 
+
 - If the plugin exposes Kotlin or Java methods to be called from GDScript, they must be annotated with @UsedByGodot. The name called from GDScript **must match the method name exactly**. There is **no** coercing snake_case to camelCase. For example, from GDScript:
+
 if Engine.has_singleton("MyPlugin"):
     var singleton = Engine.get_singleton("MyPlugin")
     print(singleton.myPluginFunction("World"))
+
 
 
 - If the plugin uses signals, the init class must return the set of signals used by overriding GodotPlugin::getPluginSignals(). To emit signals, the plugin can use the GodotPlugin::emitSignal(...) method.
@@ -166,10 +176,6 @@ Change the org.godotengine.plugin.v1 prefix to org.godotengine.plugin.v2
 
 You can continue using the godot-lib.<version>.<status>.aar binary from Godot's download page if that's your preference. Make sure it's updated to the latest stable version.
 Or you can switch to the MavenCentral provided dependency:
-dependencies {
-    implementation("org.godotengine:godot:4.2.0.stable")
-}
-
 
 
 
@@ -177,32 +183,12 @@ dependencies {
 1. You can continue using the godot-lib.<version>.<status>.aar binary from Godot's download page if that's your preference. Make sure it's updated to the latest stable version.
 
 1. Or you can switch to the MavenCentral provided dependency:
-dependencies {
-    implementation("org.godotengine:godot:4.2.0.stable")
-}
-
-
-1. After updating the Godot Android library dependency, sync or build the plugin and resolve any compile errors:
-
-
-The Godot instance provided by GodotPlugin::getGodot() no longer has access to a android.content.Context reference. Use GodotPlugin::getActivity() instead.
-
-
-
-
-1. The Godot instance provided by GodotPlugin::getGodot() no longer has access to a android.content.Context reference. Use GodotPlugin::getActivity() instead.
-
-1. Delete the gdap configuration file(s) and follow the instructions in the Packaging a v2 Android plugin section to set up the plugin configuration.
 
 - Change the org.godotengine.plugin.v1 prefix to org.godotengine.plugin.v2
 
 - You can continue using the godot-lib.<version>.<status>.aar binary from Godot's download page if that's your preference. Make sure it's updated to the latest stable version.
 
 - Or you can switch to the MavenCentral provided dependency:
-dependencies {
-    implementation("org.godotengine:godot:4.2.0.stable")
-}
-
 
 ```
 dependencies {
@@ -210,7 +196,19 @@ dependencies {
 }
 ```
 
-- The Godot instance provided by GodotPlugin::getGodot() no longer has access to a android.content.Context reference. Use GodotPlugin::getActivity() instead.
+1. After updating the Godot Android library dependency, sync or build the plugin and resolve any compile errors:
+
+
+The Godot instance provided by GodotPlugin::getGodot() no longer has access to an android.content.Context reference. Use GodotPlugin::getActivity() instead.
+
+
+
+
+1. The Godot instance provided by GodotPlugin::getGodot() no longer has access to an android.content.Context reference. Use GodotPlugin::getActivity() instead.
+
+1. Delete the gdap configuration file(s) and follow the instructions in the Packaging a v2 Android plugin section to set up the plugin configuration.
+
+- The Godot instance provided by GodotPlugin::getGodot() no longer has access to an android.content.Context reference. Use GodotPlugin::getActivity() instead.
 
 ## Packaging a v2 Android plugin
 
@@ -223,60 +221,6 @@ As mentioned, a v2 Android plugin is now provided to the Godot Editor as an Edit
 
 The created script must be a @tool script, or else it will not work properly
 The export tool script is used to configure the Android plugin and hook it within the Godot Editor's export process. It should look something like this:
-@tool
-extends EditorPlugin
-
-# A class member to hold the editor export plugin during its lifecycle.
-var export_plugin : AndroidExportPlugin
-
-func _enter_tree():
-    # Initialization of the plugin goes here.
-    export_plugin = AndroidExportPlugin.new()
-    add_export_plugin(export_plugin)
-
-
-func _exit_tree():
-    # Clean-up of the plugin goes here.
-    remove_export_plugin(export_plugin)
-    export_plugin = null
-
-
-class AndroidExportPlugin extends EditorExportPlugin:
-    # Plugin's name.
-    var _plugin_name = "<plugin_name>"
-
-    # Specifies which platform is supported by the plugin.
-    func _supports_platform(platform):
-        if platform is EditorExportPlatformAndroid:
-            return true
-        return false
-
-    # Return the paths of the plugin's AAR binaries relative to the 'addons' directory.
-    func _get_android_libraries(platform, debug):
-        if debug:
-            return PackedStringArray(["<paths_to_debug_android_plugin_aar_binaries>"])
-        else:
-            return PackedStringArray(["<paths_to_release_android_plugin_aar_binaries>"])
-
-    # Return the plugin's name.
-    func _get_name():
-        return _plugin_name
-
-Here are the set of EditorExportPlugin APIs most relevant to use in this tool script:
-
-
-_supports_platform: returns true if the plugin supports the given platform. For Android plugins, this must return true when platform is EditorExportPlatformAndroid
-_get_android_libraries: retrieve the local paths of the Android libraries binaries (AAR files) provided by the plugin
-_get_android_dependencies: retrieve the set of Android maven dependencies (e.g: `org.godot.example:my-plugin:0.0.0`) provided by the plugin
-_get_android_dependencies_maven_repos: retrieve the urls of the maven repos for the android dependencies provided by _get_android_dependencies
-_get_android_manifest_activity_element_contents: update the contents of the `<activity>` element in the generated Android manifest
-_get_android_manifest_application_element_contents: update the contents of the `<application>` element in the generated Android manifest
-_get_android_manifest_element_contents: update the contents of the `<manifest>` element in the generated Android manifest
-
-The _get_android_manifest_* methods allow the plugin to automatically provide changes
-to the app's manifest which are preserved when the Godot Editor is updated, resolving a long standing issue with v1 Android plugins.
-
-
 
 
 
@@ -284,158 +228,10 @@ to the app's manifest which are preserved when the Godot Editor is updated, reso
 1. The created script must be a @tool script, or else it will not work properly
 
 1. The export tool script is used to configure the Android plugin and hook it within the Godot Editor's export process. It should look something like this:
-@tool
-extends EditorPlugin
-
-# A class member to hold the editor export plugin during its lifecycle.
-var export_plugin : AndroidExportPlugin
-
-func _enter_tree():
-    # Initialization of the plugin goes here.
-    export_plugin = AndroidExportPlugin.new()
-    add_export_plugin(export_plugin)
-
-
-func _exit_tree():
-    # Clean-up of the plugin goes here.
-    remove_export_plugin(export_plugin)
-    export_plugin = null
-
-
-class AndroidExportPlugin extends EditorExportPlugin:
-    # Plugin's name.
-    var _plugin_name = "<plugin_name>"
-
-    # Specifies which platform is supported by the plugin.
-    func _supports_platform(platform):
-        if platform is EditorExportPlatformAndroid:
-            return true
-        return false
-
-    # Return the paths of the plugin's AAR binaries relative to the 'addons' directory.
-    func _get_android_libraries(platform, debug):
-        if debug:
-            return PackedStringArray(["<paths_to_debug_android_plugin_aar_binaries>"])
-        else:
-            return PackedStringArray(["<paths_to_release_android_plugin_aar_binaries>"])
-
-    # Return the plugin's name.
-    func _get_name():
-        return _plugin_name
-
-
-1. Here are the set of EditorExportPlugin APIs most relevant to use in this tool script:
-
-
-_supports_platform: returns true if the plugin supports the given platform. For Android plugins, this must return true when platform is EditorExportPlatformAndroid
-_get_android_libraries: retrieve the local paths of the Android libraries binaries (AAR files) provided by the plugin
-_get_android_dependencies: retrieve the set of Android maven dependencies (e.g: `org.godot.example:my-plugin:0.0.0`) provided by the plugin
-_get_android_dependencies_maven_repos: retrieve the urls of the maven repos for the android dependencies provided by _get_android_dependencies
-_get_android_manifest_activity_element_contents: update the contents of the `<activity>` element in the generated Android manifest
-_get_android_manifest_application_element_contents: update the contents of the `<application>` element in the generated Android manifest
-_get_android_manifest_element_contents: update the contents of the `<manifest>` element in the generated Android manifest
-
-The _get_android_manifest_* methods allow the plugin to automatically provide changes
-to the app's manifest which are preserved when the Godot Editor is updated, resolving a long standing issue with v1 Android plugins.
-
-
-
-1. _supports_platform: returns true if the plugin supports the given platform. For Android plugins, this must return true when platform is EditorExportPlatformAndroid
-
-1. _get_android_libraries: retrieve the local paths of the Android libraries binaries (AAR files) provided by the plugin
-
-1. _get_android_dependencies: retrieve the set of Android maven dependencies (e.g: `org.godot.example:my-plugin:0.0.0`) provided by the plugin
-
-1. _get_android_dependencies_maven_repos: retrieve the urls of the maven repos for the android dependencies provided by _get_android_dependencies
-
-1. _get_android_manifest_activity_element_contents: update the contents of the `<activity>` element in the generated Android manifest
-
-1. _get_android_manifest_application_element_contents: update the contents of the `<application>` element in the generated Android manifest
-
-1. _get_android_manifest_element_contents: update the contents of the `<manifest>` element in the generated Android manifest
-
-1. Create a plugin.cfg. This is an INI file with metadata about your plugin:
-[plugin]
-
-name="<plugin_name>"
-description="<plugin_description>"
-author="<plugin_author>"
-version="<plugin_version>"
-script="<relative_path_to_the_export_tool_script>"
-
 
 - The created script must be a @tool script, or else it will not work properly
 
 - The export tool script is used to configure the Android plugin and hook it within the Godot Editor's export process. It should look something like this:
-@tool
-extends EditorPlugin
-
-# A class member to hold the editor export plugin during its lifecycle.
-var export_plugin : AndroidExportPlugin
-
-func _enter_tree():
-    # Initialization of the plugin goes here.
-    export_plugin = AndroidExportPlugin.new()
-    add_export_plugin(export_plugin)
-
-
-func _exit_tree():
-    # Clean-up of the plugin goes here.
-    remove_export_plugin(export_plugin)
-    export_plugin = null
-
-
-class AndroidExportPlugin extends EditorExportPlugin:
-    # Plugin's name.
-    var _plugin_name = "<plugin_name>"
-
-    # Specifies which platform is supported by the plugin.
-    func _supports_platform(platform):
-        if platform is EditorExportPlatformAndroid:
-            return true
-        return false
-
-    # Return the paths of the plugin's AAR binaries relative to the 'addons' directory.
-    func _get_android_libraries(platform, debug):
-        if debug:
-            return PackedStringArray(["<paths_to_debug_android_plugin_aar_binaries>"])
-        else:
-            return PackedStringArray(["<paths_to_release_android_plugin_aar_binaries>"])
-
-    # Return the plugin's name.
-    func _get_name():
-        return _plugin_name
-
-
-- Here are the set of EditorExportPlugin APIs most relevant to use in this tool script:
-
-
-_supports_platform: returns true if the plugin supports the given platform. For Android plugins, this must return true when platform is EditorExportPlatformAndroid
-_get_android_libraries: retrieve the local paths of the Android libraries binaries (AAR files) provided by the plugin
-_get_android_dependencies: retrieve the set of Android maven dependencies (e.g: `org.godot.example:my-plugin:0.0.0`) provided by the plugin
-_get_android_dependencies_maven_repos: retrieve the urls of the maven repos for the android dependencies provided by _get_android_dependencies
-_get_android_manifest_activity_element_contents: update the contents of the `<activity>` element in the generated Android manifest
-_get_android_manifest_application_element_contents: update the contents of the `<application>` element in the generated Android manifest
-_get_android_manifest_element_contents: update the contents of the `<manifest>` element in the generated Android manifest
-
-The _get_android_manifest_* methods allow the plugin to automatically provide changes
-to the app's manifest which are preserved when the Godot Editor is updated, resolving a long standing issue with v1 Android plugins.
-
-
-
-- _supports_platform: returns true if the plugin supports the given platform. For Android plugins, this must return true when platform is EditorExportPlatformAndroid
-
-- _get_android_libraries: retrieve the local paths of the Android libraries binaries (AAR files) provided by the plugin
-
-- _get_android_dependencies: retrieve the set of Android maven dependencies (e.g: `org.godot.example:my-plugin:0.0.0`) provided by the plugin
-
-- _get_android_dependencies_maven_repos: retrieve the urls of the maven repos for the android dependencies provided by _get_android_dependencies
-
-- _get_android_manifest_activity_element_contents: update the contents of the `<activity>` element in the generated Android manifest
-
-- _get_android_manifest_application_element_contents: update the contents of the `<application>` element in the generated Android manifest
-
-- _get_android_manifest_element_contents: update the contents of the `<manifest>` element in the generated Android manifest
 
 ```
 @tool
@@ -476,24 +272,23 @@ class AndroidExportPlugin extends EditorExportPlugin:
     # Return the plugin's name.
     func _get_name():
         return _plugin_name
+
+
+- Here are the set of `EditorExportPlugin APIs <https://docs.godotengine.org/en/stable/classes/class_editorexportplugin.html>`_ most relevant to use in this tool script:
+
+    - `_supports_platform <https://docs.godotengine.org/en/latest/classes/class_editorexportplugin.html#class-editorexportplugin-method-supports-platform>`_: returns ``true`` if the plugin supports the given platform. For Android plugins, this must return ``true`` when ``platform`` is `EditorExportPlatformAndroid <https://docs.godotengine.org/en/stable/classes/class_editorexportplatformandroid.html>`_
+    - `_get_android_libraries <https://docs.godotengine.org/en/latest/classes/class_editorexportplugin.html#class-editorexportplugin-method-get-android-libraries>`_: retrieve the local paths of the Android libraries binaries (AAR files) provided by the plugin
+    - `_get_android_dependencies <https://docs.godotengine.org/en/latest/classes/class_editorexportplugin.html#class-editorexportplugin-method-get-android-dependencies>`_: retrieve the set of Android maven dependencies (e.g: `org.godot.example:my-plugin:0.0.0`) provided by the plugin
+    - `_get_android_dependencies_maven_repos <https://docs.godotengine.org/en/latest/classes/class_editorexportplugin.html#class-editorexportplugin-method-get-android-dependencies-maven-repos>`_: retrieve the urls of the maven repos for the android dependencies provided by ``_get_android_dependencies``
+    - `_get_android_manifest_activity_element_contents <https://docs.godotengine.org/en/latest/classes/class_editorexportplugin.html#class-editorexportplugin-method-get-android-manifest-activity-element-contents>`_: update the contents of the `<activity>` element in the generated Android manifest
+    - `_get_android_manifest_application_element_contents <https://docs.godotengine.org/en/latest/classes/class_editorexportplugin.html#class-editorexportplugin-method-get-android-manifest-application-element-contents>`_: update the contents of the `<application>` element in the generated Android manifest
+    - `_get_android_manifest_element_contents <https://docs.godotengine.org/en/latest/classes/class_editorexportplugin.html#class-editorexportplugin-method-get-android-manifest-element-contents>`_: update the contents of the `<manifest>` element in the generated Android manifest
+
+    The ``_get_android_manifest_*`` methods allow the plugin to automatically provide changes
+    to the app's manifest which are preserved when the Godot Editor is updated, resolving a long standing issue with v1 Android plugins.
 ```
 
-- _supports_platform: returns true if the plugin supports the given platform. For Android plugins, this must return true when platform is EditorExportPlatformAndroid
-
-- _get_android_libraries: retrieve the local paths of the Android libraries binaries (AAR files) provided by the plugin
-
-- _get_android_dependencies: retrieve the set of Android maven dependencies (e.g: `org.godot.example:my-plugin:0.0.0`) provided by the plugin
-
-- _get_android_dependencies_maven_repos: retrieve the urls of the maven repos for the android dependencies provided by _get_android_dependencies
-
-- _get_android_manifest_activity_element_contents: update the contents of the `<activity>` element in the generated Android manifest
-
-- _get_android_manifest_application_element_contents: update the contents of the `<application>` element in the generated Android manifest
-
-- _get_android_manifest_element_contents: update the contents of the `<manifest>` element in the generated Android manifest
-
-The _get_android_manifest_* methods allow the plugin to automatically provide changes
-to the app's manifest which are preserved when the Godot Editor is updated, resolving a long standing issue with v1 Android plugins.
+1. Create a plugin.cfg. This is an INI file with metadata about your plugin:
 
 ```
 [plugin]
@@ -586,18 +381,14 @@ At runtime, the plugin will provide these paths to the Godot engine which will u
 1. In the Android export preset, scroll to Gradle Build and set Use Gradle Build to true
 
 1. Update the project's scripts as needed to access the plugin's functionality. For example:
+
+```
 if Engine.has_singleton("MyPlugin"):
         var singleton = Engine.get_singleton("MyPlugin")
         print(singleton.myPluginFunction("World"))
-
+```
 
 1. Connect an Android device to your machine and run the project on it
-
-```
-if Engine.has_singleton("MyPlugin"):
-        var singleton = Engine.get_singleton("MyPlugin")
-        print(singleton.myPluginFunction("World"))
-```
 
 ### Using a v2 Android plugin as an Android library
 

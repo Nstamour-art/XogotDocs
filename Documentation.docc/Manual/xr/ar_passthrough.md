@@ -150,7 +150,7 @@ any geometry behind our surface even when fully transparent.
 - As we are making the surface opaque if in shadow, we can have virtual
 objects cast shadows on real world objects [2].
 
-@Image(source: "xr_passthrough_example.png", alt: "Image showing shadow to opacity being used to show the users desk.") {Image showing shadow to opacity being used to show the users desk.}
+@Image(source: "xr_passthrough_example.png", alt: "Image showing shadow to opacity being used to show the user's desk.") {Image showing shadow to opacity being used to show the user's desk.}
 
 This enabled the following use cases:
 

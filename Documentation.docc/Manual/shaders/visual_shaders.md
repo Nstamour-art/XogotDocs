@@ -34,12 +34,17 @@ in the dropdown, then give it a name.
 
 Click on the visual shader you just created to open the Shader Editor.
 The layout of the Shader Editor comprises four parts, a file list on
-the right, the upper toolbar, the graph itself, and a material preview
+the left, the upper toolbar, the graph itself, and a material preview
 on the right that can be toggled off
 
 @Image(source: "visual_shader_editor2.png")
 
 From left to right in the toolbar:
+
+- The arrow can be used to toggle the files panel's visibility.
+
+- The File button opens a dropdown menu for saving, loading, and creating
+files.
 
 - The Add Node button displays a popup menu to let you add nodes to the
 shader graph.
@@ -61,7 +66,12 @@ varying.
 
 - The show generated code button shows shader code corresponding to your graph.
 
-- The last icon toggles the material preview on or off.
+- The toggle turns the material preview on or off.
+
+- The Online Docs button opens this documentation page in your web browser.
+
+- The last button allows you to put the shader editor in its own window,
+separate from the rest of the editor.
 
 > Note:
 >
@@ -210,7 +220,7 @@ only available for shaders that are in Particles mode.
 
 Keep in mind that not all 3D objects are mesh files. a glTF file can't be dragged
 and dropped into the graph. However, you can create an inherited scene from it,
-save the mesh in that scene as it's own file, and use that.
+save the mesh in that scene as its own file, and use that.
 
 @Image(source: "vs_meshemitter.png")
 

@@ -17,7 +17,7 @@ An iOS plugin requires a .gdip configuration file, a binary file which can be ei
 
 @Image(source: "ios_export_preset_plugins_section.png")
 
-When a plugin is active, you can access it in your using Engine.get_singleton():
+When a plugin is active, you can access it in your code using Engine.get_singleton():
 
 ```
 if Engine.has_singleton("MyPlugin"):
@@ -93,466 +93,145 @@ xcodebuild -create-xcframework -library [DeviceLibrary].a -library [SimulatorLib
 
 The configuration file extension must be gdip (e.g.: MyPlugin.gdip).
 The configuration file format is as follow:
-[config]
-name="MyPlugin"
-binary="MyPlugin.a"
 
-initialization="init_my_plugin"
-deinitialization="deinit_my_plugin"
+    [config]
+    name="MyPlugin"
+    binary="MyPlugin.a"
 
-[dependencies]
-linked=[]
-embedded=[]
-system=["Foundation.framework"]
+    initialization="init_my_plugin"
+    deinitialization="deinit_my_plugin"
 
-capabilities=["arkit", "metal"]
+    [dependencies]
+    linked=[]
+    embedded=[]
+    system=["Foundation.framework"]
 
-files=["data.json"]
+    capabilities=["arkit", "metal"]
 
-linker_flags=["-ObjC"]
+    files=["data.json"]
 
-[plist]
-PlistKeyWithDefaultType="Some Info.plist key you might need"
-StringPlistKey:string="String value"
-IntegerPlistKey:integer=42
-BooleanPlistKey:boolean=true
-RawPlistKey:raw="
-<array>
-    <string>UIInterfaceOrientationPortrait</string>
-</array>
-"
-StringPlistKeyToInput:string_input="Type something"
-The config section and fields are required and defined as follow:
+    linker_flags=["-ObjC"]
 
+    [plist]
+    PlistKeyWithDefaultType="Some Info.plist key you might need"
+    StringPlistKey:string="String value"
+    IntegerPlistKey:integer=42
+    BooleanPlistKey:boolean=true
+    RawPlistKey:raw="
+    <array>
+        <string>UIInterfaceOrientationPortrait</string>
+    </array>
+    "
+    StringPlistKeyToInput:string_input="Type something"
 
-**name**: name of the plugin
-**binary**: this should be the filepath of the plugin library (a or xcframework) file.
+The ``config`` section and fields are required and defined as follow:
 
-The filepath can be relative (e.g.: MyPlugin.a, MyPlugin.xcframework) in which case it's relative to the directory where the gdip file is located.
-The filepath can be absolute: res://some_path/MyPlugin.a or res://some_path/MyPlugin.xcframework.
-In case you need multitarget library usage, the filename should be MyPlugin.a and .a files should be named as MyPlugin.release.a and MyPlugin.debug.a.
-In case you use multitarget xcframework libraries, their filename in the configuration should be MyPlugin.xcframework. The .xcframework files should be named as MyPlugin.release.xcframework and MyPlugin.debug.xcframework.
+    -   **name**: name of the plugin
 
+    -   **binary**: this should be the filepath of the plugin library (``a`` or ``xcframework``) file.
 
+        -   The filepath can be relative (e.g.: ``MyPlugin.a``, ``MyPlugin.xcframework``) in which case it's relative to the directory where the ``gdip`` file is located.
+        -   The filepath can be absolute: ``res://some_path/MyPlugin.a`` or ``res://some_path/MyPlugin.xcframework``.
+        -   In case you need multitarget library usage, the filename should be ``MyPlugin.a`` and ``.a`` files should be named as ``MyPlugin.release.a`` and ``MyPlugin.debug.a``.
+        -   In case you use multitarget ``xcframework`` libraries, their filename in the configuration should be ``MyPlugin.xcframework``. The ``.xcframework`` files should be named as ``MyPlugin.release.xcframework`` and ``MyPlugin.debug.xcframework``.
 
+The ``dependencies`` and ``plist`` sections are optional and defined as follow:
 
-The dependencies and plist sections are optional and defined as follow:
+    -   **dependencies**:
 
+        -   **linked**: contains a list of iOS frameworks that the iOS application should be linked with.
 
-**dependencies**:
+        -   **embedded**: contains a list of iOS frameworks or libraries that should be both linked and embedded into the resulting iOS application.
 
-**linked**: contains a list of iOS frameworks that the iOS application should be linked with.
-**embedded**: contains a list of iOS frameworks or libraries that should be both linked and embedded into the resulting iOS application.
-**system**: contains a list of iOS system frameworks that are required for plugin.
-**capabilities**: contains a list of iOS capabilities that is required for plugin. A list of available capabilities can be found at Apple UIRequiredDeviceCapabilities documentation page.
-**files**: contains a list of files that should be copied on export. This is useful for data files or images.
-**linker_flags**: contains a list of linker flags to add to the Xcode project when exporting the plugin.
+        -   **system**: contains a list of iOS system frameworks that are required for plugin.
 
+        -   **capabilities**: contains a list of iOS capabilities that is required for plugin. A list of available capabilities can be found at `Apple UIRequiredDeviceCapabilities documentation page <https://developer.apple.com/documentation/bundleresources/information_property_list/uirequireddevicecapabilities>`_.
 
-**plist**: should have keys and values that should be present in Info.plist file.
+        -   **files**: contains a list of files that should be copied on export. This is useful for data files or images.
 
-Each line should follow pattern: KeyName:KeyType=KeyValue
-Supported values for KeyType are string, integer, boolean, raw, string_input
-If no type is used (e.g.: KeyName="KeyValue") string type will be used.
-If raw type is used value for corresponding key will be stored in Info.plist as is.
-If string_input type is used you will be able to modify value in Export window.
+        -   **linker_flags**: contains a list of linker flags to add to the Xcode project when exporting the plugin.
 
+    -   **plist**: should have keys and values that should be present in ``Info.plist`` file.
 
-
-
-
-
+        -   Each line should follow pattern: ``KeyName:KeyType=KeyValue``
+        -   Supported values for ``KeyType`` are ``string``, ``integer``, ``boolean``, ``raw``, ``string_input``
+        -   If no type is used (e.g.: ``KeyName="KeyValue"``) ``string`` type will be used.
+        -   If ``raw`` type is used value for corresponding key will be stored in ``Info.plist`` as is.
+        -   If ``string_input`` type is used you will be able to modify value in Export window.
 
 
 
 1. The configuration file extension must be gdip (e.g.: MyPlugin.gdip).
 
 1. The configuration file format is as follow:
-[config]
-name="MyPlugin"
-binary="MyPlugin.a"
-
-initialization="init_my_plugin"
-deinitialization="deinit_my_plugin"
-
-[dependencies]
-linked=[]
-embedded=[]
-system=["Foundation.framework"]
-
-capabilities=["arkit", "metal"]
-
-files=["data.json"]
-
-linker_flags=["-ObjC"]
-
-[plist]
-PlistKeyWithDefaultType="Some Info.plist key you might need"
-StringPlistKey:string="String value"
-IntegerPlistKey:integer=42
-BooleanPlistKey:boolean=true
-RawPlistKey:raw="
-<array>
-    <string>UIInterfaceOrientationPortrait</string>
-</array>
-"
-StringPlistKeyToInput:string_input="Type something"
-The config section and fields are required and defined as follow:
-
-
-**name**: name of the plugin
-**binary**: this should be the filepath of the plugin library (a or xcframework) file.
-
-The filepath can be relative (e.g.: MyPlugin.a, MyPlugin.xcframework) in which case it's relative to the directory where the gdip file is located.
-The filepath can be absolute: res://some_path/MyPlugin.a or res://some_path/MyPlugin.xcframework.
-In case you need multitarget library usage, the filename should be MyPlugin.a and .a files should be named as MyPlugin.release.a and MyPlugin.debug.a.
-In case you use multitarget xcframework libraries, their filename in the configuration should be MyPlugin.xcframework. The .xcframework files should be named as MyPlugin.release.xcframework and MyPlugin.debug.xcframework.
-
-
-
-
-The dependencies and plist sections are optional and defined as follow:
-
-
-**dependencies**:
-
-**linked**: contains a list of iOS frameworks that the iOS application should be linked with.
-**embedded**: contains a list of iOS frameworks or libraries that should be both linked and embedded into the resulting iOS application.
-**system**: contains a list of iOS system frameworks that are required for plugin.
-**capabilities**: contains a list of iOS capabilities that is required for plugin. A list of available capabilities can be found at Apple UIRequiredDeviceCapabilities documentation page.
-**files**: contains a list of files that should be copied on export. This is useful for data files or images.
-**linker_flags**: contains a list of linker flags to add to the Xcode project when exporting the plugin.
-
-
-**plist**: should have keys and values that should be present in Info.plist file.
-
-Each line should follow pattern: KeyName:KeyType=KeyValue
-Supported values for KeyType are string, integer, boolean, raw, string_input
-If no type is used (e.g.: KeyName="KeyValue") string type will be used.
-If raw type is used value for corresponding key will be stored in Info.plist as is.
-If string_input type is used you will be able to modify value in Export window.
-
-
-
-
-
-
-1. **name**: name of the plugin
-
-1. **binary**: this should be the filepath of the plugin library (a or xcframework) file.
-
-The filepath can be relative (e.g.: MyPlugin.a, MyPlugin.xcframework) in which case it's relative to the directory where the gdip file is located.
-The filepath can be absolute: res://some_path/MyPlugin.a or res://some_path/MyPlugin.xcframework.
-In case you need multitarget library usage, the filename should be MyPlugin.a and .a files should be named as MyPlugin.release.a and MyPlugin.debug.a.
-In case you use multitarget xcframework libraries, their filename in the configuration should be MyPlugin.xcframework. The .xcframework files should be named as MyPlugin.release.xcframework and MyPlugin.debug.xcframework.
-
-
-
-1. The filepath can be relative (e.g.: MyPlugin.a, MyPlugin.xcframework) in which case it's relative to the directory where the gdip file is located.
-
-1. The filepath can be absolute: res://some_path/MyPlugin.a or res://some_path/MyPlugin.xcframework.
-
-1. In case you need multitarget library usage, the filename should be MyPlugin.a and .a files should be named as MyPlugin.release.a and MyPlugin.debug.a.
-
-1. In case you use multitarget xcframework libraries, their filename in the configuration should be MyPlugin.xcframework. The .xcframework files should be named as MyPlugin.release.xcframework and MyPlugin.debug.xcframework.
-
-1. **dependencies**:
-
-**linked**: contains a list of iOS frameworks that the iOS application should be linked with.
-**embedded**: contains a list of iOS frameworks or libraries that should be both linked and embedded into the resulting iOS application.
-**system**: contains a list of iOS system frameworks that are required for plugin.
-**capabilities**: contains a list of iOS capabilities that is required for plugin. A list of available capabilities can be found at Apple UIRequiredDeviceCapabilities documentation page.
-**files**: contains a list of files that should be copied on export. This is useful for data files or images.
-**linker_flags**: contains a list of linker flags to add to the Xcode project when exporting the plugin.
-
-
-
-1. **linked**: contains a list of iOS frameworks that the iOS application should be linked with.
-
-1. **embedded**: contains a list of iOS frameworks or libraries that should be both linked and embedded into the resulting iOS application.
-
-1. **system**: contains a list of iOS system frameworks that are required for plugin.
-
-1. **capabilities**: contains a list of iOS capabilities that is required for plugin. A list of available capabilities can be found at Apple UIRequiredDeviceCapabilities documentation page.
-
-1. **files**: contains a list of files that should be copied on export. This is useful for data files or images.
-
-1. **linker_flags**: contains a list of linker flags to add to the Xcode project when exporting the plugin.
-
-1. **plist**: should have keys and values that should be present in Info.plist file.
-
-Each line should follow pattern: KeyName:KeyType=KeyValue
-Supported values for KeyType are string, integer, boolean, raw, string_input
-If no type is used (e.g.: KeyName="KeyValue") string type will be used.
-If raw type is used value for corresponding key will be stored in Info.plist as is.
-If string_input type is used you will be able to modify value in Export window.
-
-
-
-1. Each line should follow pattern: KeyName:KeyType=KeyValue
-
-1. Supported values for KeyType are string, integer, boolean, raw, string_input
-
-1. If no type is used (e.g.: KeyName="KeyValue") string type will be used.
-
-1. If raw type is used value for corresponding key will be stored in Info.plist as is.
-
-1. If string_input type is used you will be able to modify value in Export window.
 
 - The configuration file extension must be gdip (e.g.: MyPlugin.gdip).
 
 - The configuration file format is as follow:
-[config]
-name="MyPlugin"
-binary="MyPlugin.a"
-
-initialization="init_my_plugin"
-deinitialization="deinit_my_plugin"
-
-[dependencies]
-linked=[]
-embedded=[]
-system=["Foundation.framework"]
-
-capabilities=["arkit", "metal"]
-
-files=["data.json"]
-
-linker_flags=["-ObjC"]
-
-[plist]
-PlistKeyWithDefaultType="Some Info.plist key you might need"
-StringPlistKey:string="String value"
-IntegerPlistKey:integer=42
-BooleanPlistKey:boolean=true
-RawPlistKey:raw="
-<array>
-    <string>UIInterfaceOrientationPortrait</string>
-</array>
-"
-StringPlistKeyToInput:string_input="Type something"
-The config section and fields are required and defined as follow:
-
-
-**name**: name of the plugin
-**binary**: this should be the filepath of the plugin library (a or xcframework) file.
-
-The filepath can be relative (e.g.: MyPlugin.a, MyPlugin.xcframework) in which case it's relative to the directory where the gdip file is located.
-The filepath can be absolute: res://some_path/MyPlugin.a or res://some_path/MyPlugin.xcframework.
-In case you need multitarget library usage, the filename should be MyPlugin.a and .a files should be named as MyPlugin.release.a and MyPlugin.debug.a.
-In case you use multitarget xcframework libraries, their filename in the configuration should be MyPlugin.xcframework. The .xcframework files should be named as MyPlugin.release.xcframework and MyPlugin.debug.xcframework.
-
-
-
-
-The dependencies and plist sections are optional and defined as follow:
-
-
-**dependencies**:
-
-**linked**: contains a list of iOS frameworks that the iOS application should be linked with.
-**embedded**: contains a list of iOS frameworks or libraries that should be both linked and embedded into the resulting iOS application.
-**system**: contains a list of iOS system frameworks that are required for plugin.
-**capabilities**: contains a list of iOS capabilities that is required for plugin. A list of available capabilities can be found at Apple UIRequiredDeviceCapabilities documentation page.
-**files**: contains a list of files that should be copied on export. This is useful for data files or images.
-**linker_flags**: contains a list of linker flags to add to the Xcode project when exporting the plugin.
-
-
-**plist**: should have keys and values that should be present in Info.plist file.
-
-Each line should follow pattern: KeyName:KeyType=KeyValue
-Supported values for KeyType are string, integer, boolean, raw, string_input
-If no type is used (e.g.: KeyName="KeyValue") string type will be used.
-If raw type is used value for corresponding key will be stored in Info.plist as is.
-If string_input type is used you will be able to modify value in Export window.
-
-
-
-
-
-
-- **name**: name of the plugin
-
-- **binary**: this should be the filepath of the plugin library (a or xcframework) file.
-
-The filepath can be relative (e.g.: MyPlugin.a, MyPlugin.xcframework) in which case it's relative to the directory where the gdip file is located.
-The filepath can be absolute: res://some_path/MyPlugin.a or res://some_path/MyPlugin.xcframework.
-In case you need multitarget library usage, the filename should be MyPlugin.a and .a files should be named as MyPlugin.release.a and MyPlugin.debug.a.
-In case you use multitarget xcframework libraries, their filename in the configuration should be MyPlugin.xcframework. The .xcframework files should be named as MyPlugin.release.xcframework and MyPlugin.debug.xcframework.
-
-
-
-- The filepath can be relative (e.g.: MyPlugin.a, MyPlugin.xcframework) in which case it's relative to the directory where the gdip file is located.
-
-- The filepath can be absolute: res://some_path/MyPlugin.a or res://some_path/MyPlugin.xcframework.
-
-- In case you need multitarget library usage, the filename should be MyPlugin.a and .a files should be named as MyPlugin.release.a and MyPlugin.debug.a.
-
-- In case you use multitarget xcframework libraries, their filename in the configuration should be MyPlugin.xcframework. The .xcframework files should be named as MyPlugin.release.xcframework and MyPlugin.debug.xcframework.
-
-- **dependencies**:
-
-**linked**: contains a list of iOS frameworks that the iOS application should be linked with.
-**embedded**: contains a list of iOS frameworks or libraries that should be both linked and embedded into the resulting iOS application.
-**system**: contains a list of iOS system frameworks that are required for plugin.
-**capabilities**: contains a list of iOS capabilities that is required for plugin. A list of available capabilities can be found at Apple UIRequiredDeviceCapabilities documentation page.
-**files**: contains a list of files that should be copied on export. This is useful for data files or images.
-**linker_flags**: contains a list of linker flags to add to the Xcode project when exporting the plugin.
-
-
-
-- **linked**: contains a list of iOS frameworks that the iOS application should be linked with.
-
-- **embedded**: contains a list of iOS frameworks or libraries that should be both linked and embedded into the resulting iOS application.
-
-- **system**: contains a list of iOS system frameworks that are required for plugin.
-
-- **capabilities**: contains a list of iOS capabilities that is required for plugin. A list of available capabilities can be found at Apple UIRequiredDeviceCapabilities documentation page.
-
-- **files**: contains a list of files that should be copied on export. This is useful for data files or images.
-
-- **linker_flags**: contains a list of linker flags to add to the Xcode project when exporting the plugin.
-
-- **plist**: should have keys and values that should be present in Info.plist file.
-
-Each line should follow pattern: KeyName:KeyType=KeyValue
-Supported values for KeyType are string, integer, boolean, raw, string_input
-If no type is used (e.g.: KeyName="KeyValue") string type will be used.
-If raw type is used value for corresponding key will be stored in Info.plist as is.
-If string_input type is used you will be able to modify value in Export window.
-
-
-
-- Each line should follow pattern: KeyName:KeyType=KeyValue
-
-- Supported values for KeyType are string, integer, boolean, raw, string_input
-
-- If no type is used (e.g.: KeyName="KeyValue") string type will be used.
-
-- If raw type is used value for corresponding key will be stored in Info.plist as is.
-
-- If string_input type is used you will be able to modify value in Export window.
 
 ```
-[config]
-name="MyPlugin"
-binary="MyPlugin.a"
+    [config]
+    name="MyPlugin"
+    binary="MyPlugin.a"
 
-initialization="init_my_plugin"
-deinitialization="deinit_my_plugin"
+    initialization="init_my_plugin"
+    deinitialization="deinit_my_plugin"
 
-[dependencies]
-linked=[]
-embedded=[]
-system=["Foundation.framework"]
+    [dependencies]
+    linked=[]
+    embedded=[]
+    system=["Foundation.framework"]
 
-capabilities=["arkit", "metal"]
+    capabilities=["arkit", "metal"]
 
-files=["data.json"]
+    files=["data.json"]
 
-linker_flags=["-ObjC"]
+    linker_flags=["-ObjC"]
 
-[plist]
-PlistKeyWithDefaultType="Some Info.plist key you might need"
-StringPlistKey:string="String value"
-IntegerPlistKey:integer=42
-BooleanPlistKey:boolean=true
-RawPlistKey:raw="
-<array>
-    <string>UIInterfaceOrientationPortrait</string>
-</array>
-"
-StringPlistKeyToInput:string_input="Type something"
+    [plist]
+    PlistKeyWithDefaultType="Some Info.plist key you might need"
+    StringPlistKey:string="String value"
+    IntegerPlistKey:integer=42
+    BooleanPlistKey:boolean=true
+    RawPlistKey:raw="
+    <array>
+        <string>UIInterfaceOrientationPortrait</string>
+    </array>
+    "
+    StringPlistKeyToInput:string_input="Type something"
+
+The ``config`` section and fields are required and defined as follow:
+
+    -   **name**: name of the plugin
+
+    -   **binary**: this should be the filepath of the plugin library (``a`` or ``xcframework``) file.
+
+        -   The filepath can be relative (e.g.: ``MyPlugin.a``, ``MyPlugin.xcframework``) in which case it's relative to the directory where the ``gdip`` file is located.
+        -   The filepath can be absolute: ``res://some_path/MyPlugin.a`` or ``res://some_path/MyPlugin.xcframework``.
+        -   In case you need multitarget library usage, the filename should be ``MyPlugin.a`` and ``.a`` files should be named as ``MyPlugin.release.a`` and ``MyPlugin.debug.a``.
+        -   In case you use multitarget ``xcframework`` libraries, their filename in the configuration should be ``MyPlugin.xcframework``. The ``.xcframework`` files should be named as ``MyPlugin.release.xcframework`` and ``MyPlugin.debug.xcframework``.
+
+The ``dependencies`` and ``plist`` sections are optional and defined as follow:
+
+    -   **dependencies**:
+
+        -   **linked**: contains a list of iOS frameworks that the iOS application should be linked with.
+
+        -   **embedded**: contains a list of iOS frameworks or libraries that should be both linked and embedded into the resulting iOS application.
+
+        -   **system**: contains a list of iOS system frameworks that are required for plugin.
+
+        -   **capabilities**: contains a list of iOS capabilities that is required for plugin. A list of available capabilities can be found at `Apple UIRequiredDeviceCapabilities documentation page <https://developer.apple.com/documentation/bundleresources/information_property_list/uirequireddevicecapabilities>`_.
+
+        -   **files**: contains a list of files that should be copied on export. This is useful for data files or images.
+
+        -   **linker_flags**: contains a list of linker flags to add to the Xcode project when exporting the plugin.
+
+    -   **plist**: should have keys and values that should be present in ``Info.plist`` file.
+
+        -   Each line should follow pattern: ``KeyName:KeyType=KeyValue``
+        -   Supported values for ``KeyType`` are ``string``, ``integer``, ``boolean``, ``raw``, ``string_input``
+        -   If no type is used (e.g.: ``KeyName="KeyValue"``) ``string`` type will be used.
+        -   If ``raw`` type is used value for corresponding key will be stored in ``Info.plist`` as is.
+        -   If ``string_input`` type is used you will be able to modify value in Export window.
 ```
-
-- **name**: name of the plugin
-
-- **binary**: this should be the filepath of the plugin library (a or xcframework) file.
-
-The filepath can be relative (e.g.: MyPlugin.a, MyPlugin.xcframework) in which case it's relative to the directory where the gdip file is located.
-The filepath can be absolute: res://some_path/MyPlugin.a or res://some_path/MyPlugin.xcframework.
-In case you need multitarget library usage, the filename should be MyPlugin.a and .a files should be named as MyPlugin.release.a and MyPlugin.debug.a.
-In case you use multitarget xcframework libraries, their filename in the configuration should be MyPlugin.xcframework. The .xcframework files should be named as MyPlugin.release.xcframework and MyPlugin.debug.xcframework.
-
-
-
-- The filepath can be relative (e.g.: MyPlugin.a, MyPlugin.xcframework) in which case it's relative to the directory where the gdip file is located.
-
-- The filepath can be absolute: res://some_path/MyPlugin.a or res://some_path/MyPlugin.xcframework.
-
-- In case you need multitarget library usage, the filename should be MyPlugin.a and .a files should be named as MyPlugin.release.a and MyPlugin.debug.a.
-
-- In case you use multitarget xcframework libraries, their filename in the configuration should be MyPlugin.xcframework. The .xcframework files should be named as MyPlugin.release.xcframework and MyPlugin.debug.xcframework.
-
-- The filepath can be relative (e.g.: MyPlugin.a, MyPlugin.xcframework) in which case it's relative to the directory where the gdip file is located.
-
-- The filepath can be absolute: res://some_path/MyPlugin.a or res://some_path/MyPlugin.xcframework.
-
-- In case you need multitarget library usage, the filename should be MyPlugin.a and .a files should be named as MyPlugin.release.a and MyPlugin.debug.a.
-
-- In case you use multitarget xcframework libraries, their filename in the configuration should be MyPlugin.xcframework. The .xcframework files should be named as MyPlugin.release.xcframework and MyPlugin.debug.xcframework.
-
-- **dependencies**:
-
-**linked**: contains a list of iOS frameworks that the iOS application should be linked with.
-**embedded**: contains a list of iOS frameworks or libraries that should be both linked and embedded into the resulting iOS application.
-**system**: contains a list of iOS system frameworks that are required for plugin.
-**capabilities**: contains a list of iOS capabilities that is required for plugin. A list of available capabilities can be found at Apple UIRequiredDeviceCapabilities documentation page.
-**files**: contains a list of files that should be copied on export. This is useful for data files or images.
-**linker_flags**: contains a list of linker flags to add to the Xcode project when exporting the plugin.
-
-
-
-- **linked**: contains a list of iOS frameworks that the iOS application should be linked with.
-
-- **embedded**: contains a list of iOS frameworks or libraries that should be both linked and embedded into the resulting iOS application.
-
-- **system**: contains a list of iOS system frameworks that are required for plugin.
-
-- **capabilities**: contains a list of iOS capabilities that is required for plugin. A list of available capabilities can be found at Apple UIRequiredDeviceCapabilities documentation page.
-
-- **files**: contains a list of files that should be copied on export. This is useful for data files or images.
-
-- **linker_flags**: contains a list of linker flags to add to the Xcode project when exporting the plugin.
-
-- **plist**: should have keys and values that should be present in Info.plist file.
-
-Each line should follow pattern: KeyName:KeyType=KeyValue
-Supported values for KeyType are string, integer, boolean, raw, string_input
-If no type is used (e.g.: KeyName="KeyValue") string type will be used.
-If raw type is used value for corresponding key will be stored in Info.plist as is.
-If string_input type is used you will be able to modify value in Export window.
-
-
-
-- Each line should follow pattern: KeyName:KeyType=KeyValue
-
-- Supported values for KeyType are string, integer, boolean, raw, string_input
-
-- If no type is used (e.g.: KeyName="KeyValue") string type will be used.
-
-- If raw type is used value for corresponding key will be stored in Info.plist as is.
-
-- If string_input type is used you will be able to modify value in Export window.
-
-- **linked**: contains a list of iOS frameworks that the iOS application should be linked with.
-
-- **embedded**: contains a list of iOS frameworks or libraries that should be both linked and embedded into the resulting iOS application.
-
-- **system**: contains a list of iOS system frameworks that are required for plugin.
-
-- **capabilities**: contains a list of iOS capabilities that is required for plugin. A list of available capabilities can be found at Apple UIRequiredDeviceCapabilities documentation page.
-
-- **files**: contains a list of files that should be copied on export. This is useful for data files or images.
-
-- **linker_flags**: contains a list of linker flags to add to the Xcode project when exporting the plugin.
-
-- Each line should follow pattern: KeyName:KeyType=KeyValue
-
-- Supported values for KeyType are string, integer, boolean, raw, string_input
-
-- If no type is used (e.g.: KeyName="KeyValue") string type will be used.
-
-- If raw type is used value for corresponding key will be stored in Info.plist as is.
-
-- If string_input type is used you will be able to modify value in Export window.

@@ -67,7 +67,7 @@ The following is a list of some of the providers:
 Switch and Playstation 4 porting and publishing of Godot games.
 
 - Pineapple Works offers
-Switch, Xbox One & Xbox Series X/S (GDK) porting and publishing of Godot games (GDScript/C#).
+Nintendo Switch 1 & 2, Xbox One & Xbox Series X/S, PlayStation 5 porting and publishing of Godot games (GDScript/C#).
 
 - RAWRLAB games offers
 Switch porting of Godot games.

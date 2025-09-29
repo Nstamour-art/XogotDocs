@@ -746,7 +746,9 @@ first line of the script.
 
 Follow with the optional @icon then the class_name if necessary. You can turn a
 GDScript file into a global type in your project using class_name. For more
-information, see <doc:index#Basics-Class-Name>.
+information, see <doc:index#Basics-Class-Name>. If the class is meant
+to be an <doc:index#Basics-Abstract-Class>,
+add @abstract before the class_name keyword.
 
 Then, add the extends keyword if the class extends a built-in type.
 
@@ -756,12 +758,24 @@ You can use that to explain the role of your class to your teammates, how it wor
 and how other developers should use it, for example.
 
 ```
+@abstract
 class_name MyNode
 extends Node
 ## A brief description of the class's role and functionality.
 ##
 ## The description of the script, what it can do,
 ## and any further detail.
+```
+
+For inner classes, use single-line declarations:
+
+```
+## A brief description of the class's role and functionality.
+##
+## The description of the script, what it can do,
+## and any further detail.
+@abstract class MyNode extends Node:
+    pass
 ```
 
 ### Signals and properties
@@ -955,4 +969,3 @@ that type will be used to infer the type of the var.
 > This option is considered more <doc:static_typing#Safe-Lines> than type hints,
 > but also less null-safe as it silently casts the variable to null in case of a type mismatch at runtime,
 > without an error/warning.
->
