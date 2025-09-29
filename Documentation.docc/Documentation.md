@@ -14,6 +14,14 @@ To get started building games with Xogot, check out our <doc:Getting-Started> gu
 - <doc:AppStore>
 - <doc:Preview-1>
 
+### Articles
+- <doc:Differences>
+- <doc:Embedded-Game-View>
+- <doc:Importing-Assets>
+- <doc:Onscreen-Controls>
+- <doc:Publishing-to-the-Web>
+- <doc:Working-with-Source-Control>
+
 ### Tutorials
 - <doc:Xogot-Tutorials>
 
