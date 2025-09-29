@@ -1,5 +1,6 @@
 filename,reference,title
-index.rst,,Godot Docs – *4.4* branch
+index.rst,,Godot Docs – *master* branch
+404.rst,,Page not found
 class_astar2d.rst,class_AStar2D,AStar2D
 class_rdvertexattribute.rst,class_RDVertexAttribute,RDVertexAttribute
 class_aabb.rst,class_AABB,AABB
@@ -33,6 +34,7 @@ class_button.rst,class_Button,Button
 class_subviewportcontainer.rst,class_SubViewportContainer,SubViewportContainer
 class_importermeshinstance3d.rst,class_ImporterMeshInstance3D,ImporterMeshInstance3D
 class_textserverdummy.rst,class_TextServerDummy,TextServerDummy
+class_aimmodifier3d.rst,class_AimModifier3D,AimModifier3D
 class_convexpolygonshape3d.rst,class_ConvexPolygonShape3D,ConvexPolygonShape3D
 class_xmlparser.rst,class_XMLParser,XMLParser
 class_audiolistener3d.rst,class_AudioListener3D,AudioListener3D
@@ -127,9 +129,12 @@ class_animationrootnode.rst,class_AnimationRootNode,AnimationRootNode
 class_javaclass.rst,class_JavaClass,JavaClass
 class_fontvariation.rst,class_FontVariation,FontVariation
 class_vseparator.rst,class_VSeparator,VSeparator
+class_openxrfutureextension.rst,class_OpenXRFutureExtension,OpenXRFutureExtension
 class_videostreamplayback.rst,class_VideoStreamPlayback,VideoStreamPlayback
 class_mutex.rst,class_Mutex,Mutex
 class_cameraserver.rst,class_CameraServer,CameraServer
+class_openxrextensionwrapper.rst,class_OpenXRExtensionWrapper,OpenXRExtensionWrapper
+class_scriptbacktrace.rst,class_ScriptBacktrace,ScriptBacktrace
 class_imageformatloaderextension.rst,class_ImageFormatLoaderExtension,ImageFormatLoaderExtension
 class_parallax2d.rst,class_Parallax2D,Parallax2D
 class_x509certificate.rst,class_X509Certificate,X509Certificate
@@ -162,6 +167,7 @@ class_audioserver.rst,class_AudioServer,AudioServer
 class_nodepath.rst,class_NodePath,NodePath
 class_editorexportplatformios.rst,class_EditorExportPlatformIOS,EditorExportPlatformIOS
 class_multimesh.rst,class_MultiMesh,MultiMesh
+class_converttransformmodifier3d.rst,class_ConvertTransformModifier3D,ConvertTransformModifier3D
 class_marker2d.rst,class_Marker2D,Marker2D
 class_openxrbindingmodifier.rst,class_OpenXRBindingModifier,OpenXRBindingModifier
 class_material.rst,class_Material,Material
@@ -241,12 +247,14 @@ class_visualshadernodecolorparameter.rst,class_VisualShaderNodeColorParameter,Vi
 class_visualshadernodetextureparametertriplanar.rst,class_VisualShaderNodeTextureParameterTriplanar,VisualShaderNodeTextureParameterTriplanar
 class_openxrhapticvibration.rst,class_OpenXRHapticVibration,OpenXRHapticVibration
 class_compressedcubemaparray.rst,class_CompressedCubemapArray,CompressedCubemapArray
+class_copytransformmodifier3d.rst,class_CopyTransformModifier3D,CopyTransformModifier3D
 class_convexpolygonshape2d.rst,class_ConvexPolygonShape2D,ConvexPolygonShape2D
 class_worldenvironment.rst,class_WorldEnvironment,WorldEnvironment
 class_visualshadernodetexture2darrayparameter.rst,class_VisualShaderNodeTexture2DArrayParameter,VisualShaderNodeTexture2DArrayParameter
 class_visualshadernodevectordecompose.rst,class_VisualShaderNodeVectorDecompose,VisualShaderNodeVectorDecompose
 class_audiolistener2d.rst,class_AudioListener2D,AudioListener2D
 class_rdshaderspirv.rst,class_RDShaderSPIRV,RDShaderSPIRV
+class_foldablecontainer.rst,class_FoldableContainer,FoldableContainer
 class_referencerect.rst,class_ReferenceRect,ReferenceRect
 class_vector4.rst,class_Vector4,Vector4
 class_audioeffecteq21.rst,class_AudioEffectEQ21,AudioEffectEQ21
@@ -329,6 +337,7 @@ class_boxmesh.rst,class_BoxMesh,BoxMesh
 class_csgmesh3d.rst,class_CSGMesh3D,CSGMesh3D
 class_shortcut.rst,class_Shortcut,Shortcut
 class_audioeffectinstance.rst,class_AudioEffectInstance,AudioEffectInstance
+class_openxrrendermodelextension.rst,class_OpenXRRenderModelExtension,OpenXRRenderModelExtension
 class_conetwistjoint3d.rst,class_ConeTwistJoint3D,ConeTwistJoint3D
 class_visualshadernodeconstant.rst,class_VisualShaderNodeConstant,VisualShaderNodeConstant
 class_systemfont.rst,class_SystemFont,SystemFont
@@ -343,10 +352,12 @@ class_audioeffectphaser.rst,class_AudioEffectPhaser,AudioEffectPhaser
 class_inputeventjoypadmotion.rst,class_InputEventJoypadMotion,InputEventJoypadMotion
 class_navigationpathqueryparameters3d.rst,class_NavigationPathQueryParameters3D,NavigationPathQueryParameters3D
 class_proceduralskymaterial.rst,class_ProceduralSkyMaterial,ProceduralSkyMaterial
+class_openxrfutureresult.rst,class_OpenXRFutureResult,OpenXRFutureResult
 class_physicsdirectbodystate2dextension.rst,class_PhysicsDirectBodyState2DExtension,PhysicsDirectBodyState2DExtension
 class_audioeffectbandlimitfilter.rst,class_AudioEffectBandLimitFilter,AudioEffectBandLimitFilter
 class_enetmultiplayerpeer.rst,class_ENetMultiplayerPeer,ENetMultiplayerPeer
 class_visualshadernodetexture3d.rst,class_VisualShaderNodeTexture3D,VisualShaderNodeTexture3D
+class_editorexportplatformvisionos.rst,class_EditorExportPlatformVisionOS,EditorExportPlatformVisionOS
 class_raycast3d.rst,class_RayCast3D,RayCast3D
 class_inputeventgesture.rst,class_InputEventGesture,InputEventGesture
 class_missingresource.rst,class_MissingResource,MissingResource
@@ -479,6 +490,7 @@ class_occluderpolygon2d.rst,class_OccluderPolygon2D,OccluderPolygon2D
 class_pathfollow3d.rst,class_PathFollow3D,PathFollow3D
 class_inputeventscreentouch.rst,class_InputEventScreenTouch,InputEventScreenTouch
 class_boneattachment3d.rst,class_BoneAttachment3D,BoneAttachment3D
+class_editorexportplatformappleembedded.rst,class_EditorExportPlatformAppleEmbedded,EditorExportPlatformAppleEmbedded
 class_csharpscript.rst,class_CSharpScript,CSharpScript
 class_visualshadernodeexpression.rst,class_VisualShaderNodeExpression,VisualShaderNodeExpression
 class_audiostreamplaybackresampled.rst,class_AudioStreamPlaybackResampled,AudioStreamPlaybackResampled
@@ -512,6 +524,7 @@ class_colorrect.rst,class_ColorRect,ColorRect
 class_transform3d.rst,class_Transform3D,Transform3D
 class_curvexyztexture.rst,class_CurveXYZTexture,CurveXYZTexture
 class_labelsettings.rst,class_LabelSettings,LabelSettings
+class_boneconstraint3d.rst,class_BoneConstraint3D,BoneConstraint3D
 class_renderscenedataextension.rst,class_RenderSceneDataExtension,RenderSceneDataExtension
 class_vehiclebody3d.rst,class_VehicleBody3D,VehicleBody3D
 class_animationnodeoutput.rst,class_AnimationNodeOutput,AnimationNodeOutput
@@ -591,6 +604,7 @@ class_undoredo.rst,class_UndoRedo,UndoRedo
 class_stringname.rst,class_StringName,StringName
 class_progressbar.rst,class_ProgressBar,ProgressBar
 class_animationplayer.rst,class_AnimationPlayer,AnimationPlayer
+class_openxrrendermodelmanager.rst,class_OpenXRRenderModelManager,OpenXRRenderModelManager
 class_arrayoccluder3d.rst,class_ArrayOccluder3D,ArrayOccluder3D
 class_time.rst,class_Time,Time
 class_physicsbody2d.rst,class_PhysicsBody2D,PhysicsBody2D
@@ -659,6 +673,7 @@ class_packedvector3array.rst,class_PackedVector3Array,PackedVector3Array
 class_placeholdermesh.rst,class_PlaceholderMesh,PlaceholderMesh
 class_audioeffectcompressor.rst,class_AudioEffectCompressor,AudioEffectCompressor
 class_packedvector2array.rst,class_PackedVector2Array,PackedVector2Array
+class_resourceimportersvg.rst,class_ResourceImporterSVG,ResourceImporterSVG
 class_float.rst,class_float,float
 class_gltfobjectmodelproperty.rst,class_GLTFObjectModelProperty,GLTFObjectModelProperty
 class_visualshadernoderandomrange.rst,class_VisualShaderNodeRandomRange,VisualShaderNodeRandomRange
@@ -666,6 +681,7 @@ class_stylebox.rst,class_StyleBox,StyleBox
 class_inputeventscreendrag.rst,class_InputEventScreenDrag,InputEventScreenDrag
 class_animationnodeadd2.rst,class_AnimationNodeAdd2,AnimationNodeAdd2
 class_polygonpathfinder.rst,class_PolygonPathFinder,PolygonPathFinder
+class_modifierbonetarget3d.rst,class_ModifierBoneTarget3D,ModifierBoneTarget3D
 class_lightmapgi.rst,class_LightmapGI,LightmapGI
 class_visualshadernodevarying.rst,class_VisualShaderNodeVarying,VisualShaderNodeVarying
 class_basematerial3d.rst,class_BaseMaterial3D,BaseMaterial3D
@@ -691,6 +707,7 @@ class_inputmap.rst,class_InputMap,InputMap
 class_openxrinterface.rst,class_OpenXRInterface,OpenXRInterface
 class_rect2.rst,class_Rect2,Rect2
 class_characterbody3d.rst,class_CharacterBody3D,CharacterBody3D
+class_openxrrendermodel.rst,class_OpenXRRenderModel,OpenXRRenderModel
 class_visualshadernodeworldpositionfromdepth.rst,class_VisualShaderNodeWorldPositionFromDepth,VisualShaderNodeWorldPositionFromDepth
 class_editorscript.rst,class_EditorScript,EditorScript
 class_texturelayered.rst,class_TextureLayered,TextureLayered
@@ -739,6 +756,7 @@ class_visualshadernodetransformvecmult.rst,class_VisualShaderNodeTransformVecMul
 class_quadoccluder3d.rst,class_QuadOccluder3D,QuadOccluder3D
 class_classdb.rst,class_ClassDB,ClassDB
 class_centercontainer.rst,class_CenterContainer,CenterContainer
+class_foldablegroup.rst,class_FoldableGroup,FoldableGroup
 class_visualshadernodevectorbase.rst,class_VisualShaderNodeVectorBase,VisualShaderNodeVectorBase
 class_itemlist.rst,class_ItemList,ItemList
 class_transform2d.rst,class_Transform2D,Transform2D
@@ -775,6 +793,7 @@ class_placeholdertexture2d.rst,class_PlaceholderTexture2D,PlaceholderTexture2D
 class_openxrdpadbindingmodifier.rst,class_OpenXRDpadBindingModifier,OpenXRDpadBindingModifier
 class_visualshadernodeis.rst,class_VisualShaderNodeIs,VisualShaderNodeIs
 class_flowcontainer.rst,class_FlowContainer,FlowContainer
+class_dpitexture.rst,class_DPITexture,DPITexture
 class_xranchor3d.rst,class_XRAnchor3D,XRAnchor3D
 class_skeletonprofilehumanoid.rst,class_SkeletonProfileHumanoid,SkeletonProfileHumanoid
 class_audioeffectpanner.rst,class_AudioEffectPanner,AudioEffectPanner
@@ -927,6 +946,7 @@ class_audioeffectdistortion.rst,class_AudioEffectDistortion,AudioEffectDistortio
 class_physicsserver3drenderingserverhandler.rst,class_PhysicsServer3DRenderingServerHandler,PhysicsServer3DRenderingServerHandler
 class_skeletonmodification2dccdik.rst,class_SkeletonModification2DCCDIK,SkeletonModification2DCCDIK
 class_diraccess.rst,class_DirAccess,DirAccess
+class_logger.rst,class_Logger,Logger
 class_animationtree.rst,class_AnimationTree,AnimationTree
 class_callbacktweener.rst,class_CallbackTweener,CallbackTweener
 class_gltfstate.rst,class_GLTFState,GLTFState
@@ -995,26 +1015,21 @@ class_navigationpathqueryresult3d.rst,class_NavigationPathQueryResult3D,Navigati
 class_skeletonmodification2dstackholder.rst,class_SkeletonModification2DStackHolder,SkeletonModification2DStackHolder
 class_xrinterface.rst,class_XRInterface,XRInterface
 class_aescontext.rst,class_AESContext,AESContext
-how_to_contribute.rst,doc_ways_to_contribute,How to contribute
-index.rst,doc_contributing_writing_documentation,Writing documentation
-contributing_to_the_documentation.rst,doc_contributing_to_the_documentation,Contributing to the documentation
-editor_and_docs_localization.rst,doc_editor_and_docs_localization,Editor and documentation localization
-updating_the_class_reference.rst,doc_updating_the_class_reference,Contributing to the class reference
-docs_image_guidelines.rst,docs_image_guidelines,Creating documentation images and videos
-content_guidelines.rst,doc_content_guidelines,Content guidelines
-building_the_manual.rst,doc_building_the_manual,Building the manual with Sphinx
-class_reference_primer.rst,doc_class_reference_primer,Class reference primer
-docs_contribution_checklist.rst,docs_contribution_checklist,Documentation contribution checklist
-docs_writing_guidelines.rst,doc_docs_writing_guidelines,Writing guidelines
-index.rst,doc_contributing_to_the_engine,Engine development
-best_practices_for_engine_contributors.rst,doc_best_practices_for_engine_contributors,Best practices for engine contributors
-code_style_guidelines.rst,doc_code_style_guidelines,Code style guidelines
-cpp_usage_guidelines.rst,doc_cpp_usage_guidelines,C++ usage guidelines
-handling_compatibility_breakages.rst,doc_handling_compatibility_breakages,Handling compatibility breakages
+complying_with_licenses.rst,doc_complying_with_licenses,Complying with licenses
+docs_changelog.rst,doc_docs_changelog,Documentation changelog
+release_policy.rst,doc_release_policy,Godot release policy
+list_of_features.rst,doc_list_of_features,List of features
+system_requirements.rst,doc_system_requirements,System requirements
+introduction.rst,doc_about_intro,Introduction
+faq.rst,doc_faq,Frequently asked questions
 index.rst,,Godot file formats
 tscn.rst,doc_tscn_file_format,TSCN file format
 gdscript_grammar.rst,doc_gdscript_grammar,GDScript grammar
-index.rst,,Building from source
+index.rst,doc_class_reference_primer,Class reference primer
+index.rst,doc_contributing_to_the_engine,Engine development
+handling_compatibility_breakages.rst,doc_handling_compatibility_breakages,Handling compatibility breakages
+index.rst,doc_compiling_index,Building from source
+compiling_for_visionos.rst,doc_compiling_for_visionos,Compiling for visionOS
 compiling_for_macos.rst,doc_compiling_for_macos,Compiling for macOS
 introduction_to_the_buildsystem.rst,doc_introduction_to_the_buildsystem,Introduction to the buildsystem
 compiling_for_web.rst,doc_compiling_for_web,Compiling for the Web
@@ -1043,7 +1058,7 @@ rider.rst,doc_configuring_an_ide_rider,JetBrains Rider
 clion.rst,doc_configuring_an_ide_clion,CLion
 android_studio.rst,doc_configuring_an_ide_android_studio,Android Studio
 visual_studio_code.rst,doc_configuring_an_ide_vscode,Visual Studio Code
-index.rst,,Engine core and modules
+index.rst,,Engine architecture
 variant_class.rst,doc_variant_class,Variant class
 internal_rendering_architecture.rst,doc_internal_rendering_architecture,Internal rendering architecture
 custom_platform_ports.rst,doc_custom_platform_ports,Custom platform ports
@@ -1061,23 +1076,8 @@ binding_to_external_libraries.rst,doc_binding_to_external_libraries,Binding to e
 common_engine_methods_and_macros.rst,doc_common_engine_methods_and_macros,Common engine methods and macros
 2d_coordinate_systems.rst,doc_2d_coordinate_systems,2D coordinate systems and 2D transforms
 index.rst,,Editor development
-editor_style_guide.rst,doc_editor_style_guide,Editor style guide
 introduction_to_editor_development.rst,doc_introduction_to_editor_development,Introduction to editor development
 creating_icons.rst,doc_editor_icons,Editor icons
-index.rst,doc_contributing_workflow,Contribution workflow
-pr_review_guidelines.rst,doc_pr_review_guidelines,Pull request review process
-pr_workflow.rst,doc_pr_workflow,Pull request workflow
-bisecting_regressions.rst,doc_bisecting_regressions,Bisecting regressions
-first_steps.rst,,
-bug_triage_guidelines.rst,doc_bug_triage_guidelines,Bug triage guidelines
-testing_pull_requests.rst,doc_testing_pull_requests,Testing pull requests
-complying_with_licenses.rst,doc_complying_with_licenses,Complying with licenses
-docs_changelog.rst,doc_docs_changelog,Documentation changelog
-release_policy.rst,doc_release_policy,Godot release policy
-list_of_features.rst,doc_list_of_features,List of features
-system_requirements.rst,doc_system_requirements,System requirements
-introduction.rst,doc_about_intro,Introduction
-faq.rst,doc_faq,Frequently asked questions
 troubleshooting.rst,doc_troubleshooting,Troubleshooting
 index.rst,doc_user_interface,User interface (UI)
 gui_using_theme_editor.rst,doc_gui_using_theme_editor,Using the theme editor
@@ -1092,6 +1092,7 @@ gui_theme_type_variations.rst,doc_gui_theme_type_variations,Theme type variation
 gui_using_fonts.rst,doc_gui_using_fonts,Using Fonts
 index.rst,,Migrating to a new version
 upgrading_to_godot_4.4.rst,,Upgrading from Godot 4.3 to Godot 4.4
+upgrading_to_godot_4.5.rst,,Upgrading from Godot 4.4 to Godot 4.5
 upgrading_to_godot_4.1.rst,,Upgrading from Godot 4.0 to Godot 4.1
 upgrading_to_godot_4.rst,doc_upgrading_to_godot_4,Upgrading from Godot 3 to Godot 4
 upgrading_to_godot_4.2.rst,,Upgrading from Godot 4.1 to Godot 4.2
@@ -1141,6 +1142,7 @@ surfacetool.rst,doc_surfacetool,Using the SurfaceTool
 meshdatatool.rst,doc_meshdatatool,Using the MeshDataTool
 arraymesh.rst,doc_arraymesh,Using the ArrayMesh
 index.rst,,Scripting
+other_languages.rst,,
 how_to_read_the_godot_api.rst,doc_how_to_read_the_godot_api,How to read the Godot API
 scene_tree.rst,doc_scene_tree,Using SceneTree
 creating_script_templates.rst,doc_creating_script_templates,Creating script templates
@@ -1155,6 +1157,7 @@ singletons_autoload.rst,doc_singletons_autoload,Singletons (Autoload)
 resources.rst,doc_resources,Resources
 scene_unique_nodes.rst,doc_scene_unique_nodes,Scene Unique Nodes
 idle_and_physics_processing.rst,doc_idle_and_physics_processing,Idle and Physics Processing
+logging.rst,doc_logging,Logging
 nodes_and_scene_instances.rst,doc_nodes_and_scene_instances,Nodes and scene instances
 groups.rst,doc_groups,Groups
 c_sharp_features.rst,doc_c_sharp_features,C# language features
@@ -1200,11 +1203,13 @@ static_typing.rst,doc_gdscript_static_typing,Static typing in GDScript
 gdscript_advanced.rst,doc_gdscript_more_efficiently,GDScript: An introduction to dynamic languages
 warning_system.rst,doc_gdscript_warning_system,GDScript warning system
 what_is_gdextension.rst,doc_what_is_gdextension,What is GDExtension?
-index.rst,,GDExtension
+index.rst,doc_gdextension,The GDExtension system
 gdextension_file.rst,doc_gdextension_file,The .gdextension file
-gdextension_cpp_example.rst,doc_gdextension_cpp_example,GDExtension C++ example
-gdextension_docs_system.rst,doc_gdextension_docs_system,GDExtension documentation system
 gdextension_c_example.rst,doc_gdextension_c_example,GDExtension C example
+index.rst,doc_godot_cpp,C++ (godot-cpp)
+gdextension_cpp_example.rst,doc_godot_cpp_getting_started,Getting started
+about_godot_cpp.rst,doc_about_godot_cpp,About godot-cpp
+gdextension_docs_system.rst,doc_godot_cpp_docs_system,Adding documentation
 index.rst,,Debug
 the_profiler.rst,doc_the_profiler,The Profiler
 output_panel.rst,doc_output_panel,Output panel
@@ -1222,7 +1227,7 @@ installing_plugins.rst,doc_installing_plugins,Installing plugins
 import_plugins.rst,doc_import_plugins,Import plugins
 making_main_screen_plugins.rst,doc_making_main_screen_plugins,Making main screen plugins
 index.rst,,Networking
-websocket.rst,doc_websocket,WebSocket
+websocket.rst,doc_websocket,Using WebSockets
 webrtc.rst,doc_webrtc,WebRTC
 ssl_certificates.rst,doc_ssl_certificates,TLS/SSL certificates
 high_level_multiplayer.rst,doc_high_level_multiplayer,High-level multiplayer
@@ -1239,6 +1244,7 @@ ios_plugin.rst,doc_ios_plugin,Creating iOS plugins
 plugins_for_ios.rst,doc_plugins_for_ios,Plugins for iOS
 index.rst,,Android
 android_library.rst,doc_android_library,Godot Android library
+javaclasswrapper_and_androidruntimeplugin.rst,doc_javaclasswrapper_and_androidruntimeplugin,Integrating with Android APIs
 android_plugin.rst,doc_android_plugin,Godot Android plugins
 android_in_app_purchases.rst,doc_android_in_app_purchases,Android in-app purchases
 index.rst,,File and data I/O
@@ -1287,6 +1293,7 @@ openxr_composition_layers.rst,doc_openxr_composition_layers,OpenXR composition l
 introducing_xr_tools.rst,doc_introducing_xr_tools,Introducing XR tools
 basic_xr_locomotion.rst,doc_basic_xr_locomotion,Basic XR Locomotion
 xr_next_steps.rst,doc_xr_next_steps,Where to go from here
+openxr_render_models.rst,doc_openxr_render_models,OpenXR Render Models
 xr_room_scale.rst,doc_xr_room_scale,Room scale in XR
 a_better_xr_start_script.rst,doc_a_better_xr_start_script,A better XR start script
 index.rst,,Math
@@ -1308,6 +1315,7 @@ node_type_customization.rst,doc_importing_3d_scenes_node_type_customization,Node
 available_formats.rst,doc_importing_3d_scenes_available_formats,Available 3D formats
 import_configuration.rst,doc_importing_3d_scenes_import_configuration,Import configuration
 model_export_considerations.rst,doc_importing_3d_scenes_model_export_considerations,Model export considerations
+advanced_import_settings.rst,doc_advanced_import_settings,Advanced Import Settings
 index.rst,,Blender ESCN exporter
 index.rst,,Audio
 audio_effects.rst,doc_audio_effects,Audio effects
@@ -1343,7 +1351,7 @@ shader_preprocessor.rst,doc_shader_preprocessor,Shader preprocessor
 index.rst,,Rendering
 compositor.rst,doc_compositor,The Compositor
 jitter_stutter.rst,doc_jitter_stutter,"Fixing jitter, stutter and input lag"
-renderers.rst,doc_renderers,Renderers
+renderers.rst,doc_renderers,Overview of renderers
 viewports.rst,doc_viewports,Using Viewports
 multiple_resolutions.rst,doc_multiple_resolutions,Multiple resolutions
 large_world_coordinates.rst,doc_large_world_coordinates,Large world coordinates
@@ -1352,7 +1360,7 @@ ragdoll_system.rst,doc_ragdoll_system,Ragdoll system
 troubleshooting_physics_issues.rst,doc_troubleshooting_physics_issues,Troubleshooting physics issues
 ray-casting.rst,doc_ray-casting,Ray-casting
 kinematic_character_2d.rst,doc_kinematic_character_2d,Kinematic character (2D)
-soft_body.rst,doc_soft_body,Using SoftBody
+soft_body.rst,doc_soft_body,Using SoftBody3D
 using_jolt_physics.rst,doc_using_jolt_physics,Using Jolt Physics
 rigid_body.rst,doc_rigid_body,Using RigidBody
 collision_shapes_2d.rst,doc_collision_shapes_2d,Collision shapes (2D)
@@ -1383,8 +1391,9 @@ index.rst,doc_export_index,Export
 exporting_for_windows.rst,doc_exporting_for_windows,Exporting for Windows
 exporting_for_dedicated_servers.rst,doc_exporting_for_dedicated_servers,Exporting for dedicated servers
 exporting_pcks.rst,doc_exporting_pcks,"Exporting packs, patches, and mods"
-changing_application_icon_for_windows.rst,doc_changing_application_icon_for_windows,Changing application icon for Windows
+changing_application_icon_for_windows.rst,doc_changing_application_icon_for_windows,Manually changing application icon for Windows
 exporting_for_macos.rst,doc_exporting_for_macos,Exporting for macOS
+exporting_for_visionos.rst,doc_exporting_for_visionos,Exporting for visionOS
 one-click_deploy.rst,doc_one-click_deploy,One-click deploy
 exporting_for_linux.rst,doc_exporting_for_linux,Exporting for Linux
 exporting_for_web.rst,doc_exporting_for_web,Exporting for the Web
@@ -1410,8 +1419,9 @@ animating_thousands_of_fish.rst,doc_animating_thousands_of_fish,Animating thousa
 index.rst,,Internationalization
 pseudolocalization.rst,doc_pseudolocalization,Pseudolocalization
 locales.rst,doc_locales,Locale codes
+localization_using_spreadsheets.rst,doc_localization_using_spreadsheets,Localization using spreadsheets
 internationalizing_games.rst,doc_internationalizing_games,Internationalizing games
-localization_using_gettext.rst,doc_localization_using_gettext,Localization using gettext
+localization_using_gettext.rst,doc_localization_using_gettext,Localization using gettext (PO files)
 index.rst,,2D
 2d_meshes.rst,doc_2d_meshes,2D meshes
 2d_lights_and_shadows.rst,doc_2d_lights_and_shadows,2D lights and shadows
@@ -1434,7 +1444,8 @@ default_key_mapping.rst,doc_default_key_mapping,Default editor shortcuts
 project_settings.rst,doc_project_settings,Project Settings
 managing_editor_features.rst,doc_managing_editor_features,Managing editor features
 external_editor.rst,doc_external_editor,Using an external text editor
-inspector_dock.rst,doc_editor_inspector_dock,The Inspector
+inspector_dock.rst,doc_editor_inspector_dock,Inspector Dock
+using_engine_compilation_configuration_editor.rst,doc_engine_compilation_configuration_editor,Using the engine compilation configuration editor
 project_manager.rst,doc_project_manager,Using the Project Manager
 customizing_editor.rst,doc_customizing_editor,Customizing the interface
 script_editor.rst,doc_script_editor,Script Editor
