@@ -40,6 +40,14 @@ jobs:
             --hosting-base-path / \
             --output-path /tmp/docs Documentation.docc;
           find docs -name index.html -exec cp /tmp/docs/index.html {} \;
+          for file in $(find . -name '*.js'); do
+            count=$(grep -o 'e\.currentLanguage\.name' "$file" | wc -l)
+            if [ "$count" -gt 0 ]; then
+              sed -i '' 's/e\.currentLanguage\.name/"GDScript"/g' "$file"
+              echo "[$file] Replaced $count occurrences"
+            fi
+          done
+
           mv Documentation.docc/Resources/favicon.* docs;
           echo "<script>window.location.href += \"/documentation/xogot\"</script>" > docs/index.html;
           (cd docs; find . -name '*html' | sed -e 's,^.,https://docs.xogot.com,') > docs/sitemap.txt
