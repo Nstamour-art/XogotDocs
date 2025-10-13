@@ -4,7 +4,39 @@ Release notes for our preview release of Xogot to TestFlight.
 
 # Releases 
 
-## Build 
+## Build
+
+## Build 3070
+
+### Improvements
+
+* iPhone: Shuffled the tabs in the phone to place more important items on the
+  display
+
+* When importing files with the system File Picker, if you pick files across
+  directories, the hierarchy will be preserved, which will make it easy to
+  import 3D models that come often with a "Textures" directory and colormaps
+  along with models.
+
+* Tuned the BottomBar/Output View controls, so that the trash can is easier to
+  tap, but also aligns the text.
+
+* Clipboard operations will now be supported in embedded Godot controls
+
+* Will now ask for reviews
+
+* Improved our AnimationPlayer's Bezier editor - since this needs more space, we
+  zoom in when selected, so the users can more easily modify the values, and we
+  will now auto-adjust the values on the view.
+
+* The accessory bar now also includes the equal sign (#1711) - we had previously
+  implemented this, but had not merged the change - apologies.
+  
+### Fixes
+
+* Remote Debugging: fixes an issue when loading resources
+
+* Fixed a cropping issue on the multi-mesh instance configuration popup.
 
 ### Improvements
 
