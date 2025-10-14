@@ -98,7 +98,6 @@
                 
                 @Image(source: mob_capsule.png)
             }
-            }
         }
     }
     @Section(title: "Enemy script") {
