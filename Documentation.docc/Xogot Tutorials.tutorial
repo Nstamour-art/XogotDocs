@@ -10,16 +10,16 @@
         @Image(source: dodge_preview.gif)
     }
     
-    @Chapter(name: "Step by Step") {
-        @Image(source: scripting_first_script_rotating_godot.gif)
+<!--    @Chapter(name: "Step by Step") {-->
+<!--        @Image(source: scripting_first_script_rotating_godot.gif)-->
 <!--        @TutorialReference(tutorial: "doc:faq")-->
 <!--        @TutorialReference(tutorial: "doc:nodes_and_scenes")-->
 <!--        @TutorialReference(tutorial: "doc:instancing")-->
 <!--        @TutorialReference(tutorial: "doc:scripting_languages")-->
-        @TutorialReference(tutorial: "doc:scripting_first_script")
-        @TutorialReference(tutorial: "doc:scripting_player_input")
-        @TutorialReference(tutorial: "doc:signals")
-    }
+<!--        @TutorialReference(tutorial: "doc:scripting_first_script")-->
+<!--        @TutorialReference(tutorial: "doc:scripting_player_input")-->
+<!--        @TutorialReference(tutorial: "doc:signals")-->
+<!--    }-->
     @Chapter(name: "Your First 2D Game") {
         @Image(source: dodge_preview.gif)
         
