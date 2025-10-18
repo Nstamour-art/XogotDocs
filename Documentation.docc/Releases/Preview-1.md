@@ -4,7 +4,25 @@ Release notes for our preview release of Xogot to TestFlight.
 
 # Releases 
 
-## Build
+## Build 3108
+
+### Fixes
+
+* We now use our FloatingWindow for various popovers and negotiate the size for
+  some of these, this fixes the Mesh dialog display and also adds the ability to
+  close these popups from a native UI.   Fixes #1813 and #1583 (Discord,
+  TestFlight).
+  
+* Fixes linked value editing in the numeric editor (#1817).
+
+* Properties that are supposed to be linked (like a Node's transformation scale)
+  are now linked by default, and the setting will be preserved across the type,
+  just like Godot on desktop (#1816)
+
+* iPhone: no longer shows the invalid option "Start on New Window" a recent
+  regression #1832, TestFlight.
+
+## Build 3098
 
 ### Improvements
 
