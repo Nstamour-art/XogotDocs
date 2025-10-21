@@ -4,6 +4,32 @@ Release notes for our preview release of Xogot to TestFlight.
 
 # Releases 
 
+## Build 3125
+
+### Changes
+
+* Open command is now Command-Control-O, since we can not always override Command-O to be open, and it would fail to open sometimes.
+
+### Improvements
+
+* We now provide guidance to users if their tiles from a texture are incorrectly
+  configured (#1841).
+
+* After you create a directory in the Filepad, it is now selected after creation
+  (#1805)
+
+* iPhone: will stay on the "Remote" tab after a remote session completes (#1821)
+
+* Game: will put the display in "do not sleep mode" (#1790)
+
+* Game Shell: provides a button to expand over the safe areas (First part of #1846).
+
+### Fixes
+
+* iPhone: Fixes the sidebar on first rotation (#1835)
+
+* Fixes debugger logging errors (#1844)
+
 ## Build 3108
 
 ### Fixes
