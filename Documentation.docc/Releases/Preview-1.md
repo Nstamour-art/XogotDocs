@@ -8,6 +8,32 @@ Release notes for our preview release of Xogot to TestFlight.
 
 ### Improvements
 
+* When you run a game from the main screen, or under remote debugging, you can
+  now toggle the safe area region (so you do not get blank bars on the sides),
+  toggle the visibility of the toolbar and we give more space to your game by
+  removing the toolbar and using a floating dock for it (#1853, and public bug
+  #28).
+
+### Fixes
+
+* iPhone: makes it so that you can create a game in landscape mode, as the
+  button was not visible (#1752).
+
+* TileMap: fixed support for 'one way' physics toggle (#1854, Discord).
+
+* iPhone: Moved the 'Settings' menu from under the Xogot menu to the equivalent
+  menu of the iPad (#1848).
+
+* Remote debug: Enable "Search Peer Devices" will now activate as soon as you
+  login (#1849)
+
+* Games that set the 'Keep Screen' on setting will now have that setting honored
+  (#1840).
+
+## Build 3148
+
+### Improvements
+
 * Bring BBCode rendering to the output view (implements feature #574)
 
 * Add support for showing remote objects on the inspector (#1224).

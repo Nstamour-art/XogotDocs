@@ -4,7 +4,42 @@ Release notes for public releases of Xogot to the App Store.
 
 # Releases 
 
-## 1.4.4 ()
+## 1.4.6 ()
+
+* New: bringing remote debugging to Xogot, you can now continue developing in
+  your iPad or iPhone and deploy the game on another iPhone or iPad.   This
+  allows you to keep the debugger and inspector open and single step in one
+  devices, while getting the full screen experience in the target device without
+ the interference of the editor.
+ 
+  This is in particular useful to test iPhone games from an iPad.
+
+  For this feature to work, you must be logged in, and your devices must be
+  near each other, they do not need to be on the same WiFi network.  This feature is powered by Apple's Multipeer Connectivity Framework.
+
+* We now provide guidance to users if their tiles from a texture are incorrectly
+  configured (#1841).
+
+* After you create a directory in the Filepad, it is now selected after creation
+  (#1805)
+
+* iPhone: will stay on the "Remote" tab after a remote session completes (#1821)
+
+* Game: will put the display in "do not sleep mode" (#1790)
+
+* Game Shell: provides a button to expand over the safe areas (First part of #1846).
+
+* Bring BBCode rendering to the output view (implements feature #574)
+
+* Add support for showing remote objects on the inspector (#1224).
+
+* We no longer zoom into non-Bezier tracks on the animation player editor.
+
+* SpriteFrameEditor: add cut/copy/paste support for sprite frames (#1843).
+
+* Plus a dozen of bugs reports fixed.
+
+## 1.4.4 (3109)
 
 ### Improvements
 
