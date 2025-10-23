@@ -25,8 +25,6 @@ To get started building games with Xogot, check out our <doc:Getting-Started> gu
 ### Tutorials
 - <doc:Xogot-Tutorials>
 
-## 2D
-
 ### 2D
 
 - <doc:introduction_to_2d>
@@ -53,8 +51,6 @@ To get started building games with Xogot, check out our <doc:Getting-Started> gu
 - <doc:using_tilesets>
 - <doc:using_tilemaps>
 
-## 3D
-
 ### 3D
 
 - <doc:introduction_to_3d>
@@ -76,6 +72,34 @@ To get started building games with Xogot, check out our <doc:Getting-Started> gu
 - <doc:volumetric_fog>
 - <doc:3d_antialiasing>
 
+### 3D - Procedural geometry
+
+- <doc:arraymesh>
+- <doc:meshdatatool>
+- <doc:surfacetool>
+- <doc:immediatemesh>
+
+### 3D - Rendering - Particle systems (3D)
+
+- <doc:creating_a_3d_particle_system>
+- <doc:properties>
+- <doc:process_material_properties>
+- <doc:subemitters>
+- <doc:trails>
+- <doc:turbulence>
+- <doc:attractors>
+- <doc:collision>
+- <doc:complex_shapes>
+
+### 3D - Rendering - Global illumination
+
+- <doc:introduction_to_global_illumination>
+- <doc:using_voxel_gi>
+- <doc:using_sdfgi>
+- <doc:using_lightmap_gi>
+- <doc:reflection_probes>
+- <doc:faking_global_illumination>
+
 ### 3D - Optimization
 
 - <doc:using_multi_mesh_instance>
@@ -91,45 +115,6 @@ To get started building games with Xogot, check out our <doc:Getting-Started> gu
 - <doc:using_gridmaps>
 - <doc:spring_arm>
 
-## global_illumination
-
-### Global illumination
-
-- <doc:introduction_to_global_illumination>
-- <doc:using_voxel_gi>
-- <doc:using_sdfgi>
-- <doc:using_lightmap_gi>
-- <doc:reflection_probes>
-- <doc:faking_global_illumination>
-
-## Particle systems (3D)
-
-### Particle systems (3D)
-
-- <doc:creating_a_3d_particle_system>
-- <doc:properties>
-- <doc:process_material_properties>
-
-### Particle systems (3D)
-
-- <doc:subemitters>
-- <doc:trails>
-- <doc:turbulence>
-- <doc:attractors>
-- <doc:collision>
-- <doc:complex_shapes>
-
-## Procedural geometry
-
-### Procedural geometry
-
-- <doc:arraymesh>
-- <doc:meshdatatool>
-- <doc:surfacetool>
-- <doc:immediatemesh>
-
-## Animation
-
 ### Animation
 
 - <doc:introduction>
@@ -139,8 +124,6 @@ To get started building games with Xogot, check out our <doc:Getting-Started> gu
 - <doc:animation_tree>
 - <doc:playing_videos>
 - <doc:creating_movies>
-
-## Assets pipeline
 
 ### Assets pipeline
 
@@ -153,17 +136,13 @@ To get started building games with Xogot, check out our <doc:Getting-Started> gu
 - <doc:exporting_3d_scenes>
 - <doc:escn_exporter/index>
 
-## Importing 3D scenes
-
-### Importing 3D scenes
+### Assets pipeline - Importing 3D scenes
 
 - <doc:available_formats>
 - <doc:model_export_considerations>
 - <doc:node_type_customization>
 - <doc:import_configuration>
 - <doc:advanced_import_settings>
-
-## Audio
 
 ### Audio
 
@@ -173,8 +152,6 @@ To get started building games with Xogot, check out our <doc:Getting-Started> gu
 - <doc:sync_with_audio>
 - <doc:recording_with_microphone>
 - <doc:text_to_speech>
-
-## Best practices
 
 ### Best practices
 
@@ -190,8 +167,6 @@ To get started building games with Xogot, check out our <doc:Getting-Started> gu
 - <doc:logic_preferences>
 - <doc:project_organization>
 - <doc:version_control_systems>
-
-## Editor introduction
 
 ### Editor introduction - Editor's interface
 
@@ -224,8 +199,6 @@ To get started building games with Xogot, check out our <doc:Getting-Started> gu
 
 - <doc:managing_editor_features>
 
-## Export
-
 ### Export
 
 - <doc:exporting_projects>
@@ -244,7 +217,13 @@ To get started building games with Xogot, check out our <doc:Getting-Started> gu
 - <doc:one-click_deploy>
 - <doc:exporting_for_dedicated_servers>
 
-## Internationalization
+### File and data I/O
+
+- <doc:background_loading>
+- <doc:data_paths>
+- <doc:saving_games>
+- <doc:runtime_file_loading_and_saving>
+- <doc:binary_serialization_api>
 
 ### Internationalization
 
@@ -253,8 +232,6 @@ To get started building games with Xogot, check out our <doc:Getting-Started> gu
 - <doc:localization_using_gettext>
 - <doc:locales>
 - <doc:pseudolocalization>
-
-## Input handling
 
 ### Input handling
 
@@ -265,18 +242,6 @@ To get started building games with Xogot, check out our <doc:Getting-Started> gu
 - <doc:controllers_gamepads_joysticks>
 - <doc:handling_quit_requests>
 
-## File and data I/O
-
-### File and data I/O
-
-- <doc:background_loading>
-- <doc:data_paths>
-- <doc:saving_games>
-- <doc:runtime_file_loading_and_saving>
-- <doc:binary_serialization_api>
-
-## Math
-
 ### Math
 
 - <doc:vector_math>
@@ -286,8 +251,6 @@ To get started building games with Xogot, check out our <doc:Getting-Started> gu
 - <doc:beziers_and_curves>
 - <doc:random_number_generation>
 
-## Migrating to a new version
-
 ### Migrating to a new version
 
 - <doc:upgrading_to_godot_4>
@@ -296,8 +259,6 @@ To get started building games with Xogot, check out our <doc:Getting-Started> gu
 - <doc:upgrading_to_godot_4.3>
 - <doc:upgrading_to_godot_4.4>
 - <doc:upgrading_to_godot_4.5>
-
-## Navigation
 
 ### Navigation
 
@@ -320,8 +281,6 @@ To get started building games with Xogot, check out our <doc:Getting-Started> gu
 - <doc:navigation_different_actor_area_access>
 - <doc:navigation_optimizing_performance>
 
-## Networking
-
 ### Networking
 
 - <doc:high_level_multiplayer>
@@ -330,8 +289,6 @@ To get started building games with Xogot, check out our <doc:Getting-Started> gu
 - <doc:ssl_certificates>
 - <doc:websocket>
 - <doc:webrtc>
-
-## Performance
 
 ### Performance - Common
 
@@ -358,14 +315,10 @@ To get started building games with Xogot, check out our <doc:Getting-Started> gu
 - <doc:using_multiple_threads>
 - <doc:thread_safe_apis>
 
-## Animating thousands of objects
-
-### Animating thousands of objects
+### Performance - 3D - Animating thousands of objects
 
 - <doc:animating_thousands_of_fish>
 - <doc:controlling_thousands_of_fish>
-
-## Physics
 
 ### Physics
 
@@ -384,8 +337,6 @@ To get started building games with Xogot, check out our <doc:Getting-Started> gu
 - <doc:interpolation/index>
 - <doc:troubleshooting_physics_issues>
 
-## Physics Interpolation
-
 ### Physics Interpolation
 
 - <doc:physics_interpolation_quick_start_guide>
@@ -394,8 +345,6 @@ To get started building games with Xogot, check out our <doc:Getting-Started> gu
 - <doc:advanced_physics_interpolation>
 - <doc:2d_and_3d_physics_interpolation>
 
-## Platform-specific
-
 ### Platform-specific
 
 - <doc:android/index>
@@ -403,40 +352,30 @@ To get started building games with Xogot, check out our <doc:Getting-Started> gu
 - <doc:web/index>
 - <doc:consoles>
 
-## Android
-
-### Android
+### Platform-specific - Android
 
 - <doc:android_library>
 - <doc:android_plugin>
 - <doc:android_in_app_purchases>
 - <doc:javaclasswrapper_and_androidruntimeplugin>
 
-## iOS plugins
-
-### iOS plugins
+### Platform-specific - iOS plugins
 
 - <doc:ios_plugin>
 - <doc:plugins_for_ios>
 
-## Web
-
-### Web
+### Platform-specific - Web
 
 - <doc:javascript_bridge>
 - <doc:html5_shell_classref>
 - <doc:customizing_html5_shell>
-
-## Plugins
 
 ### Plugins
 
 - <doc:editor/index>
 - <doc:running_code_in_the_editor>
 
-## Editor plugins
-
-### Editor plugins
+### Plugins - Editor plugins
 
 - <doc:installing_plugins>
 - <doc:making_plugins>
@@ -446,8 +385,6 @@ To get started building games with Xogot, check out our <doc:Getting-Started> gu
 - <doc:inspector_plugins>
 - <doc:visual_shader_plugins>
 
-## Rendering
-
 ### Rendering
 
 - <doc:renderers>
@@ -455,8 +392,6 @@ To get started building games with Xogot, check out our <doc:Getting-Started> gu
 - <doc:multiple_resolutions>
 - <doc:jitter_stutter>
 - <doc:compositor>
-
-## Scripting
 
 ### Scripting
 
@@ -466,37 +401,26 @@ To get started building games with Xogot, check out our <doc:Getting-Started> gu
 - <doc:other_languages>
 - <doc:gdextension/index>
 
-### Scripting - Core features
+### Scripting - GDScript
 
-- <doc:how_to_read_the_godot_api>
-- <doc:debug/index>
-- <doc:idle_and_physics_processing>
-- <doc:groups>
-- <doc:nodes_and_scene_instances>
-- <doc:overridable_functions>
-- <doc:cross_language_scripting>
-- <doc:creating_script_templates>
-- <doc:evaluating_expressions>
-- <doc:change_scenes_manually>
-- <doc:instancing_with_signals>
-- <doc:pausing_games>
-- <doc:filesystem>
-- <doc:resources>
-- <doc:singletons_autoload>
-- <doc:scene_tree>
-- <doc:scene_unique_nodes>
-- <doc:logging>
+- <doc:gdscript_basics>
+- <doc:gdscript_advanced>
+- <doc:gdscript_exports>
+- <doc:gdscript_documentation_comments>
+- <doc:gdscript_styleguide>
+- <doc:static_typing>
+- <doc:warning_system>
+- <doc:gdscript_format_string>
 
-## C#/.NET
 
-### C#/.NET
+### Scripting - C#/.NET
 
 - <doc:c_sharp_basics>
 - <doc:c_sharp_features>
 - <doc:c_sharp_style_guide>
 - <doc:diagnostics/index>
 
-### C#/.NET - Godot API for C#
+### Scripting - C#/.NET - C# diagnostics
 
 - <doc:c_sharp_differences>
 - <doc:c_sharp_collections>
@@ -504,11 +428,6 @@ To get started building games with Xogot, check out our <doc:Getting-Started> gu
 - <doc:c_sharp_signals>
 - <doc:c_sharp_exports>
 - <doc:c_sharp_global_classes>
-
-## C# diagnostics
-
-### C# diagnostics
-
 - <doc:GD0001>
 - <doc:GD0002>
 - <doc:GD0003>
@@ -532,46 +451,43 @@ To get started building games with Xogot, check out our <doc:Getting-Started> gu
 - <doc:GD0401>
 - <doc:GD0402>
 
-## C++ (godot-cpp)
+### Scripting - The GDExtension system
 
-### C++ (godot-cpp)
-
+- <doc:what_is_gdextension>
+- <doc:gdextension_file>
+- <doc:gdextension_c_example>
 - <doc:about_godot_cpp>
 - <doc:gdextension_cpp_example>
 - <doc:gdextension_docs_system>
 
-## Debug
+### Scripting - Core features
 
-### Debug
+- <doc:how_to_read_the_godot_api>
+- <doc:debug/index>
+- <doc:idle_and_physics_processing>
+- <doc:groups>
+- <doc:nodes_and_scene_instances>
+- <doc:overridable_functions>
+- <doc:cross_language_scripting>
+- <doc:creating_script_templates>
+- <doc:evaluating_expressions>
+- <doc:change_scenes_manually>
+- <doc:instancing_with_signals>
+- <doc:pausing_games>
+- <doc:filesystem>
+- <doc:resources>
+- <doc:singletons_autoload>
+- <doc:scene_tree>
+- <doc:scene_unique_nodes>
+- <doc:logging>
+
+### Scripting - Core features - Debug
 
 - <doc:overview_of_debugging_tools>
 - <doc:output_panel>
 - <doc:debugger_panel>
 - <doc:the_profiler>
 - <doc:custom_performance_monitors>
-
-## The GDExtension system
-
-### The GDExtension system
-
-- <doc:what_is_gdextension>
-- <doc:gdextension_file>
-- <doc:gdextension_c_example>
-
-## GDScript
-
-### GDScript
-
-- <doc:gdscript_basics>
-- <doc:gdscript_advanced>
-- <doc:gdscript_exports>
-- <doc:gdscript_documentation_comments>
-- <doc:gdscript_styleguide>
-- <doc:static_typing>
-- <doc:warning_system>
-- <doc:gdscript_format_string>
-
-## Shaders
 
 ### Shaders
 
@@ -588,9 +504,7 @@ To get started building games with Xogot, check out our <doc:Getting-Started> gu
 - <doc:advanced_postprocessing>
 - <doc:making_trees>
 
-## Shading reference
-
-### Shading reference
+### Shaders - Shading reference
 
 - <doc:shading_language>
 - <doc:shader_functions>
@@ -601,15 +515,11 @@ To get started building games with Xogot, check out our <doc:Getting-Started> gu
 - <doc:sky_shader>
 - <doc:fog_shader>
 
-## Your first shader
-
-### Your first shader
+### Shaders - Your first shader
 
 - <doc:your_first_2d_shader>
 - <doc:your_first_3d_shader>
 - <doc:your_second_3d_shader>
-
-## User interface (UI)
 
 ### User interface (UI) - UI building blocks
 
@@ -629,8 +539,6 @@ To get started building games with Xogot, check out our <doc:Getting-Started> gu
 ### User interface (UI) - Control node tutorials
 
 - <doc:bbcode_in_richtextlabel>
-
-## XR
 
 ### XR - Basic Tutorial
 
@@ -655,4 +563,3 @@ To get started building games with Xogot, check out our <doc:Getting-Started> gu
 
 - <doc:introducing_xr_tools>
 - <doc:basic_xr_locomotion>
-
