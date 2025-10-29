@@ -20,6 +20,7 @@ To get started building games with Xogot, check out our <doc:Getting-Started> gu
 - <doc:Importing-Assets>
 - <doc:Onscreen-Controls>
 - <doc:Publishing-to-the-Web>
+- <doc:Remote-Debugging>
 - <doc:Working-with-Source-Control>
 
 ### Tutorials
