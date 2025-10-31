@@ -8,6 +8,76 @@ Release notes for our preview release of Xogot to TestFlight.
 
 ### Improvements
 
+* Distributes the [Terrain3D](https://github.com/TokisanGames/Terrain3D) runtime
+  for Godot from TokisanGames.   If your project already includes it, Xogot will
+  dynamically replace it with the bundled version, allowing your game to work
+  with it.    The UI for Terrain3D has not been updated to be mobile friendly,
+  but the keyboard shortcuts should work. 
+
+### Fixes
+
+* Fixes a crash when undoing operations on Polygon2Ds and bones.  Fixes
+  https://github.com/godotengine/godot/issues/112203
+
+* We have fixed a family of bugs that could crash Xogot when closing a project,
+  as well as some crashes that were being triggered by starting a game before it
+  fully launched, leading to two games running at once (#1878, #1877).
+
+* Fixed a family of bugs related to a misuse of the BottomBar in Xogot.
+
+## Build 3239
+
+### Improvements
+
+* Remote Debugging: provides guidance if the user has not allowed network
+  connections for Xogot when attempting to connect to a peer iOS device (#1873).
+
+### Fixes
+
+* Workaround for a crash on iOS 26.1 Beta (23B82), the AI writing tools is
+  crashing when text(in:) returns nil (for example, when invalid data is
+  requested).   For now, we return an empty string instead of a nil to prevent
+  the crash.   (#1874, Discord)
+
+* Ongoing stabilization fixes for cases where the user is closing a project
+  down (TestFlight data)
+
+## Build 3230
+
+### Fixes
+
+* InputMap was crashing when it was being activated for the first time
+  (TestFlight).
+
+* Fixes a crash that caused launching a game to crash, and also broke remote
+  debugging (Discord).
+
+## Build 3219
+
+### Improvements
+
+* Requests to keep the screen on during game play will be honored (#1840).
+
+* Bottom bar panels will no longer cover the text editor (Discord, no bug
+  report).
+
+* During remote debugging, both the editor and the game will disable the screen
+  idle timer, to prevent the session from disconnecting in the middle of
+  debugging (More comprehensive solution for #1790)
+
+* TileMap and SpriteFrame Editor will now scale the tiles directly, to get crisp
+  images rather than relying on the system zoom which would interpolate the
+  images (#1866, Discord).
+
+### Fixes
+
+* A family of crashes that would trigger when closing a game has been fixed.
+  This is not exactly easy to reproduce. 
+  
+## Build 3193
+
+### Improvements
+
 * Remote Debugging: reduce the timeout that we have to wait for a connection
 
 * The command palette is no longer limited on the iPhone, as we can use the
@@ -23,6 +93,9 @@ Release notes for our preview release of Xogot to TestFlight.
 * When loading, we now pulse the icon for the folder, rather than have a
   separate progress view indicator that I could not align.
 
+* Animation editor: rendering optimization that makes it faster to redraw when
+  there were too many tracks on an animation (#1845).
+
 ### Fixes
 
 * Fix a layout issue that happens sometimes on the project launcher.
@@ -36,7 +109,7 @@ Release notes for our preview release of Xogot to TestFlight.
 * We no longer poll deleted track objects (#1363), which reduces the warnings on
   the console.   It was harmless, but wrong.
 
-## Build 3164
+## Build 3165
 
 ### Improvements
 
