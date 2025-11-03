@@ -146,7 +146,7 @@
             `_process()` is called every frame, so we'll use it to update elements of our
             game, which we expect will change often. 
             
-            For the player, we need to (1) Check for input,
+            > For the player, we need to (1) Check for input,
             (2) Move in the given direction, and (3) Play the appropriate animation.
             @Step {
                 We start by setting the `velocity` to `(0, 0)` 
@@ -282,34 +282,42 @@
             @Step {
                 Add "`signal hit`" to the top of the script after `extends Area2D`. 
                 
-                This defines a custom signal called "hit" that we will have our player emit
+                > This defines a custom signal called "hit" that we will have our player emit
                 (send out) when it collides with an enemy. 
                 
                 @Code(name: "player.gd", file: player-10.gd, previousFile: player-09.gd)
             }
+            We will use an `Area2D` signal to detect the collision. 
             @Step {
-                We will use an `Area2D` signal to detect the collision. 
-                Select the `Player` node and open the Inspector.  Notice there are four tabs at 
-                the top of the Inspector.  
+                Select the `Player` node and open the Inspector.  
                 
-                Tap the second tab from the left - the one that looks like two squares connected
-                by a curve - to open the Signals tab.  Notice our custom "hit" signal is 
-                at the top of the list!
+                > Notice there are four tabs at 
+                the top of the Inspector.  
                 
                 @Image(source: player_signals.png)
                 
             }
             @Step {
-                Since our enemies are going to
-                be `RigidBody2D` nodes, we want the `body_entered(body: Node2D)` signal. This
-                signal will be emitted when a body contacts the player. 
+                Tap the second tab from the left - the one that looks like two squares connected
+                by a curve - to open the Signals tab.  
                 
+                > Notice our custom "hit" signal is 
+                at the top of the list!
+                
+                @Image(source: player_signals.png)
+            }
+            Since our enemies are going to
+            be `RigidBody2D` nodes, we want the `body_entered(body: Node2D)` signal. This
+            signal will be emitted when a body contacts the player. 
+            
+            @Step {
                 Tap the `body_entered(body: Node2D)` signal and the **Connect a Signal** dialog appears.
                 
                 @Image(source: player_signal_connection.png)
             }
             @Step {
-                You don't need to change the default settings right now.  
+                
+                > Important: You don't need to change the default settings right now.  
                 
                 Tap **Connect**.
                 
@@ -319,29 +327,27 @@
                 Xogot will create a function with that exact name the signal expects 
                 directly in script for you. 
                 
-                @Comment {
-                    Note the icon indicating that a signal is connected to this function; this does
-                    not mean the function exists, only that the signal will attempt to connect to a function
-                    with that name, so double-check that the spelling of the function matches exactly!
-                    
-                    @Image(source: player_signal_connection.png)
-                }
-                
                 @Code(name: "player.gd", file: player-11.gd)
+            }
+            @Step{ 
+                > Warning: See the icon indicating the signal has been connected to a function? This does
+                not mean the function exists, only that the signal will attempt to connect to a function
+                with that name, so double-check that the spelling of the function matches exactly!
+            
+                @Image(source: player_signal_connection.png)
             }
             @Step {
                 Replace the `pass` line with this code in the `_on_body_entered` function.
                 
-                Whenever an enemy hits the player, we will `hide` the `Player` sprite and
+                > Note: Whenever an enemy hits the player, we will `hide` the `Player` sprite and
                 the `hit` signal will be emitted. 
                 
                 @Code(name: "player.gd", file: player-12.gd)
             }
+            We need to disable the player's collision so that we don't trigger the `hit` 
+            signal more than once; however, disabling the area's collision shape can cause 
+            an error if it happens in the middle of the engine's collision processing.
             @Step {
-                We need to disable the player's collision so that we don't trigger the `hit` 
-                signal more than once; however, disabling the area's collision shape can cause 
-                an error if it happens in the middle of the engine's collision processing. 
-                
                 Using `set_deferred()` tells Godot to wait to disable the shape until it's
                 safe to do so.
                 
