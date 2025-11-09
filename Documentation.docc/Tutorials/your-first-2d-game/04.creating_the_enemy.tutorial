@@ -42,9 +42,9 @@
             @Step {
                 Add [`AnimatedSprite2D`](https://docs.godotengine.org/en/stable/classes/class_animatedsprite2d.html#class-animatedsprite2d) 
                 and [`CollisionShape2D`](https://docs.godotengine.org/en/stable/classes/class_collisionshape2d.html#class-collisionshape2d) 
-                nodes, and a new node type - 
+                nodes, and a new node type  
                 [`VisibleOnScreenNotifier2D`](https://docs.godotengine.org/en/stable/classes/class_visibleonscreennotifier2d.html#class-visibleonscreennotifier2d)
-                - as children of the **Mob**.  
+                 as children of the **Mob**.  
                 
                 > Your scene tree for the new Scene should look like this. 
                 

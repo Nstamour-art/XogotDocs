@@ -4,25 +4,22 @@
             In this step-by-step tutorial series, you will create your first complete 2D
             game with Godot. By the end of the series, you will have a simple yet complete
             game of your own, like the image below.
-            You will learn how the Godot editor works, how to structure a project, and build
+            You will learn how the Xogot editor works, how to structure a project, and build
             a 2D game.
             
-            .. note:: This project is an introduction to the Godot engine. It assumes that
-            you have some programming experience already. If you're new to
-            programming entirely, you should start here: :ref:`doc_scripting`.
+            This project is an introduction to the Godot engine and the Xogot editor. It assumes that you have some programming experience already. If you're new to programming entirely, please start with Getting Started.
             
-            The game is called "Dodge the Creeps!". Your character must move and avoid the
-            enemies for as long as possible.
+            The game you will build is called "Save the Axolotl". The goal is for the player to survive by dodging three types of the Axolotl's main predators for as long as you can.
             
             You will learn to:
             
-            - Create a complete 2D game with the Godot editor.
+            - Create a complete 2D game with the Xogot editor.
             - Structure a simple game project.
             - Move the player character and change its sprite.
             - Spawn random enemies.
             - Count the score.
             
-            And more.
+            ...and more!
             
             You'll find another series where you'll create a similar game but in 3D. We
             recommend you to start with this one, though.

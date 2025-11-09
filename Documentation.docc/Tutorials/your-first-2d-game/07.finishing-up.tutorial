@@ -2,7 +2,7 @@
     @Intro(title: "Finishing up") {
             
             We have now completed all the functionality for our game. This lesson will
-            cover some remaining steps to add a bit more "juice" to improve the game experience.
+            cover some remaining steps to improve the game experience.
             
             Feel free to expand the gameplay with your own ideas.
         @Image(source: dodge_preview.gif)
@@ -13,12 +13,13 @@
             
         }
         @Steps {
+            One way to change the background color is to use a
+            [`ColorRect`](https://docs.godotengine.org/en/stable/classes/class_colorrect.html#class-colorrect) 
+            node.
             @Step {
-                One way to change the background color is to use a
-                [`ColorRect`](https://docs.godotengine.org/en/stable/classes/class_colorrect.html#class-colorrect) 
-                node. 
+                Make a new ColorRect and move it to be the first node under `Main` so that it will be drawn behind the other nodes.
                 
-                Make it the first node under `Main` so that it will be drawn behind the other nodes.
+                >Tip: In Xogot 2D scenes, Nodes are drawn bottom to top. Because of this, any nodes you want in the background need to be higher in the scene tree.
                 
                 @Image(source: fin_colorrect.png)
             }
@@ -64,13 +65,12 @@
                 Inspector, and tap **Pick Resource** next to the **`Stream`** property.
                 Select **Quick Load**, and choose the "gameover.wav" audio file.  
                 
-                Repeat this process to load the music loop for the **`Music`** `AudioStreamPlayer`.
+                > Important:Repeat this process to load the music loop for the **`Music`** `AudioStreamPlayer`.
                 
                 @Image(source: fin_gameover.png)
             }
+            All audio is automatically imported with the `Loop` setting disabled.
             @Step {
-                All audio is automatically imported with the `Loop` setting disabled.
-                
                 If you want the music loop seamlessly, tap the **...** next to the 
                 Stream file name and select **Make Unique** (1). Then, select **Inspect** (2) 
                 in the **...** menu and enable **Loop**.
@@ -121,8 +121,9 @@
                 
                 @Image(source: fin_start_mapping.png)
             }
+            The next step is optional and can be skipped if you plan to keep your game on mobile, but will make the game more accessible for a wider audience.
             @Step {
-                Optional:  To support desktop gamers with only a keyboard, now would be 
+                Optional: To support desktop gamers with only a keyboard, now would be 
                 a good time to add **Keyboard Keys** mappings, if you haven't already.
                 
                 For each `move` input action, you can add additional mappings for 
@@ -169,10 +170,9 @@
                 Now when the start button appears, you can either tap it or press the 
                 `Enter` key or joypad bottom action button to start the game.
                 
-                And with that, you have completed your first 2D game in Godot.
-                
                 @Image(source: start_action_done.png)
             }
+            And with that, you have completed your first 2D game in Xogot.
         }
     }
     @Section(title: "Sharing your game with others") {
@@ -221,15 +221,16 @@
                 @Image(source: fin_congratulations.png)
             } 
             @Step {
-                You're done!  You got to make a player-controlled character, enemies 
+                You're done!  You learned to make a player-controlled character, enemies 
                 that spawn randomly around the game board, count the score, implement
-                a game over and replay, user interface, sounds, and more. Congratulations!
+                a game over and replay, user interface, sounds, and more.
                 
-                There's still much to learn, but you can take a moment to appreciate what you
-                achieved.
+                Congratulations!
                 
                 @Image(source: dodge_preview.gif)
             }
+            There's still much to learn, but you can take a moment to appreciate what you
+            achieved and give yourself a pat on the back!
         }
     }
 }

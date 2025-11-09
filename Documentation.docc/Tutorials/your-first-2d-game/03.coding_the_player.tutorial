@@ -330,7 +330,7 @@
                 @Code(name: "player.gd", file: player-11.gd)
             }
             @Step{ 
-                > Warning: See the icon indicating the signal has been connected to a function? This does
+                Warning: See the icon indicating the signal has been connected to a function? This does
                 not mean the function exists, only that the signal will attempt to connect to a function
                 with that name, so double-check that the spelling of the function matches exactly!
             
