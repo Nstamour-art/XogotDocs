@@ -202,7 +202,15 @@
                 use the `deg_to_rad()` and `rad_to_deg()` functions to
                 convert between the two.
                 
-                @Code(name: "main.gd", file: main-07.gd)
+                @Code(name: "main.gd", file: main-07.gd, previousFile: main-06.gd)
+            }
+            We also need to make sure we flip the mobs vertically so they look correct when moving from either direction.
+            @Step {
+                First access the AnimatedSprite of the mob instance, then set the `flip_v` to `true` when the cosine of the direction is less than 0. We also use an `else` statement to set the flip back to `false` if the direction were to change.
+                
+                > Tip: This is useful when flipping any character in 2D. Traditionally in platformers we might want the player character to flip horizontally when we move left. To do so we would access the node's `flip_h` attribute.
+                
+                @Code(name: "main.gd", file: main-07-2.gd, previousFile: main-07.gd)
             }
         }
     }
@@ -234,7 +242,9 @@
             }
             @Step {
                 When you're sure everything is working, remove the call to `new_game()` from
-                `_ready()` and replace it with `pass`.
+                `_ready()`. 
+                
+                We can also take this opportunity to remove the `_ready()` and `_process(delta)` functions entirely. We won't need them for this script.
                 
                 @Code(name: "main.gd", file: main-09.gd) 
             }
