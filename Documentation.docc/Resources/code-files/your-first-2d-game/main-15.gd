@@ -17,7 +17,7 @@ func game_over() -> void:
     $HUD.show_game_over()
     
     # Stop the music
-	$Music.stop()
+    $Music.stop()
 
 
 # This will be called when the player presses the start button

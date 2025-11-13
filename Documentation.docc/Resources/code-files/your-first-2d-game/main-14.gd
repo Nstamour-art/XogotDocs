@@ -38,7 +38,7 @@ func new_game():
     get_tree().call_group("mobs", "queue_free")
 
     # Start the game music
-	$Music.play()
+    $Music.play()
 
 
 # Called by the MobTimer timeout signal
