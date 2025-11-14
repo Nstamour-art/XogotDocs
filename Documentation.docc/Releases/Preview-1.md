@@ -4,6 +4,48 @@ Release notes for our preview release of Xogot to TestFlight.
 
 # Releases 
 
+## Build
+
+### Improvements
+
+* Quick Open and Command Palette: they will now show image previews for any
+  assets loaded (#1812).
+
+* Keyboard users: if you press the control or command key when you drop a scene
+  node into the code editor, it will insert an '@onready' variable declaration,
+  instead of just inserting the name.   Implements a long-standing feature
+  request (#973, #1701, Discord)
+
+* Keyboard users: FilePad dragging gets new benefits as well, if you press the
+  control or command key when you drop a file into the editor, instead of just
+  inserting the path, it will insert either `preload("PATH")`, or if you drop on
+  an empty line `const VAR = preload("PATH")`.   Additionally, if you press
+  shift, on Xogot 4.4, it will insert the UID reference, on Xogot 4.5, shift
+  prevents the use of the UID.   (#1702 4.5)
+
+* XogotBeta (4.5 release): Adds support for Variants to be exported, so now you
+  can export a Variant and change the type on the inspector (#1704, 4.5)
+
+* You can now sort the Animation Tracks (#1708 4.5)
+
+### Fixes
+
+* Numeric Input: It will now display values even if the value is still zero (for
+  example when typing 0.0 we would just show a zero until a value was entered
+  that was non-zero, like 0.01).  (#1903, Discord).
+
+* iPhone: Game Tab now display items in a list, not as a grid, which gives was
+  very crowded and looked bad (#1895)
+
+* Attempt to get terrain plugin to work on Testflight.
+
+* Undo/Redo gesture was incorrectly bound to 2-taps and 3-taps respectively, but
+  it should have been single-tap with 2 fingers, and single-tap with three
+  fingers (#1827, Discord).
+
+* iPhone: removed additional colors on the viewport settings that were looking
+  very bad on iOS 26.
+
 ## Build 3320
 
 ### Improvements
