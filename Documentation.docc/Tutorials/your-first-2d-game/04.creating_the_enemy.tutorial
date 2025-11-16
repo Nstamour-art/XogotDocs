@@ -157,7 +157,7 @@
                 Replace the method body of `_on_visible_on_screen_notifier_2d_screen_exited`
                 with `queue_free()` to delete the mob
                 
-                @Code(name: "mob.gd", file: mob-02.gd, reset: true)
+                @Code(name: "mob.gd", file: mob-03.gd)
             }
             This completes the `Mob` scene.
         }
