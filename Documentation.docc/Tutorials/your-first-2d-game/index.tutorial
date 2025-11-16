@@ -32,44 +32,19 @@
             
             You can find a completed version of this project at this location:
             
-            - https://github.com/godotengine/godot-demo-projects/tree/master/2d/dodge_the_creeps
-        @Image(source: dodge_preview.gif,
-               alt: "alt text")
+            - ["Github: Save the Axolotl"](https://github.com/xogot-projects/save_the_axolotl)
+            
+            @Image(source: dodge_preview.gif, alt: "Gif of Save the Axolotl game completed and being played")
     }
     @Section(title: "Prerequisites") {
         @ContentAndMedia {
-            This step-by-step tutorial is intended for beginners who followed the complete
-            :ref:`Getting Started <toc-learn-step_by_step>`.
+            This step-by-step tutorial is intended for beginners who followed the complete Getting Started tutorial series.
             
             If you're an experienced programmer, you can find the complete demo's source
-            code here: `Save the Axolotl source code
-            <https://github.com/godotengine/godot-demo-projects/tree/master/2d/dodge_the_creeps>`__.
-            
-            We prepared some game assets you'll need to download so we can jump straight to
-            the code.
-            
-            You can download them by clicking the link below.
-            
-            `dodge_the_creeps_2d_assets.zip <https://github.com/godotengine/godot-docs-project-starters/releases/download/latest-4.x/dodge_the_creeps_2d_assets.zip>`_.
+            code here: [`Save the Axolotl source code`](https://github.com/xogot-projects/save_the_axolotl).
         }
         @Steps {
         }
     }
-    @Section(title: "Contents") {
-        @ContentAndMedia {
-            .. toctree::
-            :maxdepth: 1
-            :name: toc-learn-first_2d_game
-            
-            01.project_setup
-            02.player_scene
-            03.coding_the_player
-            04.creating_the_enemy
-            05.the_main_game_scene
-            06.heads_up_display
-            07.finishing-up
-        }
-        @Steps {
-        }
-    }
+
 }
