@@ -14,30 +14,29 @@
         }
         @Steps {
             One way to change the background color is to use a
-            [`ColorRect`](https://docs.godotengine.org/en/stable/classes/class_colorrect.html#class-colorrect) 
+            [`TextureRect`](https://docs.godotengine.org/en/stable/classes/class_texturerect.html) 
             node.
             @Step {
-                Make a new ColorRect and move it to be the first node under `Main` so that it will be drawn behind the other nodes.
+                Make a new TextureRect and move it to be the first node under `Main` so that it will be drawn behind the other nodes. Rename it "Background".
                 
                 >Tip: In Xogot 2D scenes, Nodes are drawn bottom to top. Because of this, any nodes you want in the background need to be higher in the scene tree.
                 
-                @Image(source: fin_colorrect.png)
+                @Image(source: fin_texturerect_rename.png)
             }
             @Step {
-                `ColorRect` only has one property: **Color**. Choose a color you like (1).
+                `TextureRect` only has one main property: **Texture**. Choose our background image in the assets folder. Click **Pick Resource** (1) and then select Background.png (2).
                 
-                @Image(source: fin_color.png)
+                @Image(source: fin_picktexture.png)
             }
             @Step {
-                Next, to make it cover the screen,  select **Full Rect** (1) from **Anchors Preset** 
-                under either the `Anchors` toolbar at the top of the viewport or in the inspector 
-                under `Layout` so that it covers the screen.
+                Next, to make it cover the screen,  grab the bottom corner and drag it to cover the viewport (1). 
+                Then under `Expand Mode` set the mode to **Fit Width Proportional** (2).
                 
-                You could also add a background image, if you have one, by using a
-                [`TextureRect`](https://docs.godotengine.org/en/stable/classes/class_texturerect.html#class-texturerect) 
+                You could also add just make your background a color, if you prefer, by using a
+                [`ColorRect`](https://docs.godotengine.org/en/stable/classes/class_colorrect.html#class-colorrect+) 
                 node instead.
                 
-                @Image(source: fin_fullrect.png)
+                @Image(source: fin_resizetexture.png)
             }
         }
     }
