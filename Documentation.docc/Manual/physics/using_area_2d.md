@@ -1,9 +1,8 @@
-<!-- Remove this line to publish to docs.xogot.com -->
 # Using Area2D
 
 ## Introduction
 
-Godot offers a number of collision objects to provide both collision detection
+Xogot offers a number of collision objects to provide both collision detection
 and response. Trying to decide which one to use for your project can be confusing.
 You can avoid problems and simplify development if you understand how each of them
 works and what their pros and cons are. In this tutorial, we'll look at the
@@ -63,6 +62,12 @@ body_entered signal.
 > Note: If you're not familiar with using signals, see <doc:signals> for
 > an introduction.
 >
+```gdscript
+extends Area2D
+
+func _on_coin_body_entered(body):
+	queue_free()
+```
 
 Now our player can collect the coins!
 
@@ -119,4 +124,4 @@ override.
 @Image(source: "area2d_override.gif")
 
 You can download this project here:
-area_2d_starter.zip
+[area_2d_starter.zip](https://github.com/godotengine/godot-docs-project-starters/releases/download/latest-4.x/area_2d_starter.zip)
