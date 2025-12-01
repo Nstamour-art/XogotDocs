@@ -245,6 +245,13 @@
                 Lastly, add `$UI.show()` inside `new_game()` to reveal the joystick when the player starts playing the game.
                 @Code(name: "main.gd", file: main-21.gd, previousFile: main-20.gd)
             }
+            We're done with the code, so go back to 2D mode.
+            
+            Now, we also need to disable the iOS virtual controller we enabled earlier in this tutorial. 
+            @Step {
+                Hit the dropdown next to scope, press Settings and then inside **Project Settings** go to **Input Devices > Virtual Controller** and set `Enable Controller` and `Enable Left Thumbstick` to **Disabled** by hitting the toggle switches.
+                @Image(source: fin_project_settings.png)
+            }
             With that, we are finally done customizing the new Virtual Controller! Congrats!
         }
     }
