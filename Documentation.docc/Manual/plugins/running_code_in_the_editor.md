@@ -272,7 +272,7 @@ By default, the warning only updates when closing and reopening the scene.
 Sometimes, you need to run code just one time to automate a certain task that is
 not available in the editor out of the box. Some examples might be:
 
-- Use as a playground for GDScript or C# scripting without having to run a project.
+- Use as a playground for GDScript without having to run a project.
 print() output is displayed in the editor Output panel.
 
 - Scale all light nodes in the currently edited scene, as you noticed your level
@@ -304,10 +304,8 @@ func _run():
     pass
 ```
 
-This _run() method is executed when you use **File > Run** or the keyboard
-shortcut `Ctrl + Shift + X` while the EditorScript is the currently open
-script in the script editor. This keyboard shortcut is only effective when
-currently focused on the script editor.
+This _run() method is executed when you use the keyboard
+shortcut `Ctrl + Shift + X` while the EditorScript is the currently open script in the script editor. This keyboard shortcut is only effective when currently focused on the script editor.
 
 Scripts that extend EditorScript must be @tool scripts to function.
 
