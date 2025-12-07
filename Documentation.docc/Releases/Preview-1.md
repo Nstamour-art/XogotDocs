@@ -4,6 +4,66 @@ Release notes for our preview release of Xogot to TestFlight.
 
 # Releases 
 
+## Build
+
+### Fixes
+
+* Fixes a crash in the wild in the Tilemap editor (Testflight, #1977) when the
+  following condition took place: 
+  - Create pattern in TileMap bottom menu
+  - Select probability mode on (dice image)
+  - Paint some pattern with this mode on over TileMap layer
+  - Go to TileSet delete one of tiles that was part of pattern
+  - Go back to tile map bottom panel selction and try to paint pattern again
+
+* Fixes a crash when drag and dropping a node (Testflight, #1978)
+
+* Fixes a Godot issue related to the Skeleton3D editor that would sometimes
+  crash (submitted upstream) (Testflight)
+
+* Fixes an issue with the Keyboard layout on certain locales that started
+  happening in iOS 26.2 beta.
+
+* Fixes a crash if you delete an animation key and then press the next button
+  (#1983).
+
+## Build 3440
+
+This contains a large upgrade where we centralized the value editing for numeric
+values in the inspector, but also in other places that used our pop-out editor.
+This is one of the necessary steps to make Xogot better on Mac, and eventually
+on VisionOS.
+
+### Fixes
+
+* Fixes a recent regression: When specifying a line in the Command Palette for a
+  filename, it will now navigate to the specified line (#1961).
+
+* Proper fix for the leak in #1943, which is also a better fix for the original
+  issue that caused the leak #1681.
+
+* Fixes for right-click not selecting a row in the ScenePad, this has been an
+  ongoing challenge with SwiftUI - we finally had to drop to UIKit to solve this
+  (#1502).
+
+* 4.5.1: Fixes a crash on the initial import process (#1964).
+
+* Fix for Path2D: last point gets removed #1974 (Discord)
+
+* The toolbar controls will no longer move decoupled from the toolbar itself
+  (#1156).
+
+* Added localization to a handful of places that were missing it.
+
+## Build 3423
+
+### Fixes
+
+* Fixes a big leak that would be triggerred every time you ran a game, this
+  addresses the major source of leaks but there are a handful of smaller leaks
+  still present (Discord, #1943).
+
+
 ## Build 3413
 
 ### Improvements

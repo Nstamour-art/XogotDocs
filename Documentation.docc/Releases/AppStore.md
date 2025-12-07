@@ -4,6 +4,40 @@ Release notes for public releases of Xogot to the App Store.
 
 # Releases 
 
+## 1.4.14
+
+* Improved encoding of paths when dragging scene pad nodes into the text editor.
+
+* GLTF Exporter now uses our own numeric input pads, so that we do not get a
+  full keyboard popup.
+
+* Search in Files: The "Replace" button will now automatically navigate to the
+  next match after performing replace.
+
+* Command Palette: filtered some internal Godot scripts that are not available
+  on iPad, and added a new "Find in Files" command.
+
+* Command Palette: you can now access it as "Command-Shift-P" which defaults to
+  command search, similar to VSCode.   And the spaces after the ">" in the
+  Command Palette are ignored when searching for a command.
+
+* Added support for Godot's dynamic path sections, used in the Bone editor, so
+  now the bone elements are visible (#876)
+
+* Added support for Godot's "Recovery Mode", if Godot crashes at startup, we now
+  offer the option of strating the game in recovery mode, where various plugins
+  and features are disabled to help you restore your project to a well know
+  state (#1915).
+
+* It is now possible to drag and drop multiple nodes into the editors (#1896)
+
+* Added support for gLTF 2.0 exporting.
+
+* A major memory leak that happened when you started and stopped a game has been
+  fixed. 
+  
+* Over twenty six bugs fixed.
+
 ## 1.4.12 (3364)
 
 * Support for External Displays: while you can move windows manually into the

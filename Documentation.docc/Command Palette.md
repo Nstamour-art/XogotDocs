@@ -58,6 +58,9 @@ Script or Shader).
 
 By default, this uses the fuzzy search.
 
+Additionally, if you have selected a text filename, and you add the suffix
+":NUMBER" Xogot will open the file and then navigate to the specified line number.
+
 ### Commands
 
 Xogot comes with a number of built-in commands for common operations that you
