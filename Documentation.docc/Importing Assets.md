@@ -80,7 +80,7 @@ This setup will allow Xogot to properly load and display your 3D models in your 
 There are several excellent iPhone and iPad apps for creating assets compatible with Xogot:
 
 - **[Nomad Sculpt](https://nomadsculpt.com)**: Sculpting and painting mobile application.
-- **[Morphin]https://apps.apple.com/ca/app/morphin/id6642651792**: Create, Rig, and Animate in 3D with ease.
+- **[Morphin](https://apps.apple.com/ca/app/morphin/id6642651792)**: Create, Rig, and Animate in 3D with ease.
 - **[Pixquare](https://www.pixquare.art)**: Create pixel art assets and animations on the go.
 - **Procreate**: Great for drawing and creating sprites and textures. Use the **Share** option to export images directly to Files.
 - **GarageBand**: Perfect for creating and exporting sounds and background music for your game.
