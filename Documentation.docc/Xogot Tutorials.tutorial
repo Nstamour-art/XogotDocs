@@ -14,7 +14,6 @@
         @Image(source: scripting_first_script_rotating_godot.gif)
         @TutorialReference(tutorial: "doc:1_nodes_and_scenes")
         @TutorialReference(tutorial: "doc:2_instancing")
-        @TutorialReference(tutorial: "doc:3_scripting_languages")
         @TutorialReference(tutorial: "doc:4_scripting_first_script")
         @TutorialReference(tutorial: "doc:5_scripting_player_input")
         @TutorialReference(tutorial: "doc:6_signals")
