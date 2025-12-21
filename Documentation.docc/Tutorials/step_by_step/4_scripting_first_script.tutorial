@@ -68,8 +68,7 @@
         }
         @Steps {
             @Step {
-                Long-press on Sprite2D in the
-                Scene dock and select Attach Script.
+                Select `Sprite2D` in the tree and then press the Attach Script icon.
                 @Image(source: "scripting_first_script_attach_script.png")
             }
             The window that opens is called the "Attach Node Script" window. It allows you to select the script's language and file path, among other options.
