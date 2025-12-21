@@ -6,7 +6,9 @@
     @Section(title: "Introduction") {
         @ContentAndMedia {
             In this lesson, you will code your first script to make the Godot icon turn in
-            circles. This tutorial assumes you have some basic programming foundations before you start.
+            circles. 
+            
+            This tutorial assumes you have some basic programming foundations before you start.
             
             Now that we've stated that, let's have fun learning to code in GDScript!
             
@@ -40,7 +42,7 @@
                 @Image(source: "scripting_first_script_scene_tree.png")
             }
             @Step {
-                A Sprite2D node needs a texture to display. In the Scope on the right, you can open it by tapping the Scope icon if it's closed. 
+                A Sprite2D node needs a texture to display. We can add this in the Scope on the right; you can open it by tapping the Scope icon if it's closed. 
                 
                 Inside, you
                 can see that the Texture property says `Pick Resource`. 
@@ -53,8 +55,7 @@
                 Alternatively, tap `Pick Resource` and pick `Load` in the menu that appears. Then in the popup window, choose the icon file and hit `select`. 
                 @Image(source: "scripting_first_script_setting_texture.png")
             }
-            > Tip: You can create Sprite2D nodes automatically by dragging and dropping images
-            on the viewport.
+            > Tip: You can create Sprite2D nodes automatically by dragging and dropping images on the viewport.
             @Step {
                 With the move tool selected, press and drag the icon in the viewport to center it in the game view.
                 @Image(source: "scripting_first_script_centering_sprite.png")
@@ -63,18 +64,18 @@
     }
     @Section(title: "Creating a new script") {
         @ContentAndMedia {
-            To create and attach a new script to our node, long-press on Sprite2D in the
-            Scene dock and select Attach Script.
-
-            @Image(source: "scripting_first_script_attach_script.png")
+            It's time to create and attach a new script to our node!
         }
         @Steps {
-            The Attach Node Script window appears. It allows you to select the script's
-            language and file path, among other options.
+            @Step {
+                Long-press on Sprite2D in the
+                Scene dock and select Attach Script.
+                @Image(source: "scripting_first_script_attach_script.png")
+            }
+            The window that opens is called the "Attach Node Script" window. It allows you to select the script's language and file path, among other options.
             @Step {
                 Hit the toggle switch for **Use Template** to `off` in  order to
-                start with a clean file. Leave the other options set to their default values and
-                press the Create button to create the script.
+                start with a clean file. Leave the other options set to their default values and press the Create button to create the script.
                 @Image(source: "scripting_first_script_attach_node_script.png")
             }
             @Step {
@@ -83,22 +84,18 @@
 
                 @Code(name: "sprite_2d.gd", file: scripting_01.gd, previousFile: scripting_01.gd)
             }
-            Every GDScript file is implicitly a class. The `extends` keyword defines the
-                class this script inherits or extends. In this case, it's `Sprite2D`, meaning
-                our script will get access to all the properties and functions of the Sprite2D
-                node, including classes it extends, like `Node2D`, `CanvasItem`, and
-                `Node`.
+            Every GDScript file functions implicitly as an extension of a class. The `extends` keyword defines the class this script inherits or extends. In this case, it's `Sprite2D`, meaning our script will get access to all the properties and functions of the Sprite2D node, including classes it extends, like `Node2D`, `CanvasItem`, and `Node`.
 
-            > In GDScript, if you omit the line with the `extends` keyword, your
+            > Tip: In GDScript, if you omit the line with the `extends` keyword, your
                 class will implicitly extend [`RefCounted`](https://docs.godotengine.org/en/stable/classes/class_RefCounted.html#class-RefCounted), which
                 Godot uses to manage your application's memory.
 
-            Inherited properties include the ones you can see in the Inspector dock, like
-                our node's `texture`.
+            By extending we have access to inherited properties which include the ones you can see in the Inspector dock, like
+                our node's `texture` property.
 
-            > By default, the Scope displays a node's properties in "Title Case", with
+            > Tip: By default, the Scope displays a node's properties in "Title Case", with
                 capitalized words separated by a space. In GDScript code, these properties
-                are in "snake_case", which is lowercase with words separated by an underscore.You can hover over any property's name in the Inspector to see a description and
+                are in "snake_case", which is lowercase with words separated by an underscore. You can hover over any property's name in the Inspector to see a description and
                 its identifier in code.
     
         }
@@ -114,17 +111,16 @@
 
                 @Code(name: "sprite_2d.gd", file: scripting_02.gd, previousFile: scripting_01.gd)
             }
+            Let's break it down. 
+            
+            - The `func` keyword defines a new function named
+            `_init`. 
+            - "`_init`" is a built in function that acts as our class's constructor function. When this function is defined, Godot will try to call this function first whenever the object is defined in memory.
+            
+            > Note:  As an indent-based language, GDScript requires the print() line to be indented to function. Incorrect indentation, like if we had not indented that block, triggers the error: 'Indented block expected'.
+            
+            > Style Tip: You may use either tabs or spaces, but consistency is key. You strictly cannot mix both within the same file.
             @Step {
-                Let's break it down. The `func` keyword defines a new function named
-                `_init`. This is a special name for our class's constructor. The engine calls
-                `_init()` on every object or node upon creating it in memory, if you define
-                this function.
-
-                > GDScript is an indent-based language. The tab at the start of the line
-                that says `print()` is necessary for the code to work. If you omit
-                it or don't indent a line correctly, the editor will highlight it in
-                red and display the following error message: "Indented block expected".
-
                 Save the scene as `sprite_2d.tscn` if you haven't already, then press **Play**
                 to run it. Look at the Output bottom panel that expands automatically.
                 It should display "Hello, world!".
@@ -148,56 +144,46 @@
 
                 @Code(name: "sprite_2d.gd", file: scripting_04.gd, previousFile: scripting_03.gd)
             }
+            Let's breakdown what we just added. 
+            These are called Member variables.
+            
+            Member variables sit near the top of the script, after any "extends" lines,
+            but before functions. Every node
+            instance with this script attached to it will have its own copy of the `speed`
+            and `angular_speed` properties.
+            
+            > Note on Radians: Angles in Godot work in radians by default, though built-in properties allow you to work in degrees if preferred. Because of this default, we use PI to initialize our angular speed; PI corresponds to 180 degrees, or roughly 3.14 radians.
+            
+            To move our icon, we need to update its position and rotation every frame in the
+            game loop. Godot classes that are based on the `Node` class, like Sprite2D, come with a built in function we can use called `_process()`. This is a virtual function that, once defined, Godot
+            will call the function every frame and pass it an argument named `delta`, the time elapsed since the last frame.
+            
+            > Note on Delta: Games work by rendering many images per second, each called a frame, and
+            they do so in a loop. We measure the rate at which a game produces images in
+            Frames Per Second (FPS). Most games aim for 60 FPS, although you might find
+            figures like 30 FPS on slower mobile devices or 90 to 240 for virtual
+            reality games. The engine and game developers do their best to update the game world and
+            render images at a constant time interval, but there are always small
+            variations in frame render times. That's why the engine provides us with
+            this delta time value, making our motion independent of our framerate.
+            
             @Step {
-                Member variables sit near the top of the script, after any "extends" lines,
-                but before functions. Every node
-                instance with this script attached to it will have its own copy of the `speed`
-                and `angular_speed` properties.
-
-                > Angles in Godot work in radians by default,
-                but you have built-in functions and properties available if you prefer
-                to calculate angles in degrees instead.
-
-                To move our icon, we need to update its position and rotation every frame in the
-                game loop. We can use the `_process()` virtual function of the `Node` class.
-                If you define it in any class that extends the Node class, like Sprite2D, Godot
-                will call the function every frame and pass it an argument named `delta`, the
-                time elapsed since the last frame.
-
-                > Games work by rendering many images per second, each called a frame, and
-                they do so in a loop. We measure the rate at which a game produces images in
-                Frames Per Second (FPS). Most games aim for 60 FPS, although you might find
-                figures like 30 FPS on slower mobile devices or 90 to 240 for virtual
-                reality games.The engine and game developers do their best to update the game world and
-                render images at a constant time interval, but there are always small
-                variations in frame render times. That's why the engine provides us with
-                this delta time value, making our motion independent of our framerate.
-            }
-            @Step {
-                At the bottom of the script, define the function:
+                At the bottom of the script, define the function like this:
 
                 @Code(name: "sprite_2d.gd", file: scripting_05.gd, previousFile: scripting_04.gd)
             }
+            Breaking this down: we start with the keyword `func` and the function name. Then, we use parentheses as a container for the arguments. The colon at the end tells the engine that the instructions follow in the indented block below.
+            
+            > Tip: Notice how `_process()`, like `_init()`, starts with a leading underscore. By convention, Godot uses this to mark virtual functions or callbacks the engine looks for and runs automatically. This also follows general programming conventions of GDScript that many developers use, where a leading `_` indicates that a function or variable is private or intended for internal use within the script rather than external access.
+            
+            Inside the function we just created, the line `rotation += angular_speed * delta` updates the sprite's angle every frame.
+            
+            > Breaking this down: First, take note that rotation is a property inherited from **Node2D** (the class **Sprite2D** extends). It controls the node's angle using radians. Next, we increment (using `+=`) this value by our `angular_speed` multiplied by `delta`. Multiplying by `delta` converts our speed from 'per frame' to 'per second,' ensuring the movement remains consistent regardless of the frame rate.
+            
+            > Tip: In the code editor, you can double-tap or select and press **lookup symbol** in the context menu on any built-in property or function like `position`,
+            `rotation`, or `_process` to open the corresponding documentation
+            in a new tab.
             @Step {
-                The `func` keyword defines a new function. After it, we have to write the
-                function's name and arguments it takes in parentheses. A colon ends the
-                definition, and the indented blocks that follow are the function's content or
-                instructions.
-
-                > Notice how `_process()`, like `_init()`, starts with a leading
-                underscore. By convention, Godot's virtual functions, that is to say,
-                built-in functions you can override to communicate with the engine,
-                start with an underscore.
-
-                The line inside the function, `rotation += angular_speed * delta`, increments
-                our sprite's rotation every frame. Here, `rotation` is a property inherited
-                from the class `Node2D`, which `Sprite2D` extends. It controls the rotation
-                of our node and works with radians.
-
-                > Tip: In the code editor, you can double-tap or select and press `lookup symbol` in the context menu on any built-in property or function like `position`,
-                `rotation`, or `_process` to open the corresponding documentation
-                in a new tab.
-
                 Run the scene to see the Godot icon turn in-place.
                 @Image(source: "scripting_first_script_godot_turning_in_place.gif")
             }
@@ -205,43 +191,33 @@
     }
     @Section(title: "Moving forward") {
         @ContentAndMedia {
-            Let's now make the node move. 
+            Let's make the node move. 
         }
         @Steps {
             @Step {
                 Add the following two lines inside of the `_process()`
-                function, ensuring the new lines are indented the same way as the `rotation += angular_speed * delta` line before
+                function, ensuring the new lines are indented the same way as the line before
                 them.
 
                 @Code(name: "sprite_2d.gd", file: scripting_06.gd, previousFile: scripting_05.gd)
             }
+            As we covered, `var` defines variables. At the top of the script, it creates a *property* accessible everywhere. Inside a function, it creates a *local variable* that exists only within that block.
+            
+            Inside, we define a local `velocity` variable. To find the forward direction, we take `Vector2.UP` and rotate it by the node's angle using `.rotated(rotation)`.
+            
+            Multiplying this direction by `speed` gives us our movement vector. Finally, we add `velocity * delta` to the node's position property to move it
+            
+            The position property is a  [`Vector2`](https://docs.godotengine.org/en/stable/classes/class_Vector2.html#class-Vector2)
+            ; a built-in type in Godot
+            representing a 2D vector.
+            
             @Step {
-                As we already saw, the `var` keyword defines a new variable. If you put it at
-                the top of the script, it defines a property of the class. Inside a function, it
-                defines a local variable: it only exists within the function's scope.
-
-                We define a local variable named `velocity`, a 2D vector representing both a
-                direction and a speed. To make the node move forward, we start from the Vector2
-                class's constant `Vector2.UP`, a vector pointing up, and rotate it by calling the
-                Vector2 method `rotated()`. This expression, `Vector2.UP.rotated(rotation)`,
-                is a vector pointing forward relative to our icon. Multiplied by our `speed`
-                property, it gives us a velocity we can use to move the node forward.
-
-                We add `velocity * delta` to the node's `position` to move it. The position
-                itself is of type [`Vector2`](https://docs.godotengine.org/en/stable/classes/class_Vector2.html#class-Vector2), a built-in type in Godot
-                representing a 2D vector.
-
                 Run the scene to see the Godot head run in circles.
                 @Image(source: "scripting_first_script_rotating_godot.gif")
             }
-            @Step {
-                > Moving a node like that does not take into account colliding with
-                walls or the floor. In <doc:doc_your_first_2d_game>, you will learn
-                another approach to moving objects while detecting collisions.
-
-                Our node currently moves by itself. In the next part,
-                <doc:doc_scripting_player_input>, we'll use player input to control it.
-            }
+            
+            Our node currently moves by itself. In the next part, we'll use player input to control the movement.
+            
             @Step {
                 And here is the complete script:
                 @Code(name: "sprite_2d.gd", file: scripting_06.gd)
