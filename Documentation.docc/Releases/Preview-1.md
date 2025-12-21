@@ -4,7 +4,59 @@ Release notes for our preview release of Xogot to TestFlight.
 
 # Releases 
 
-## Build 3519
+## Build 3557/Beta 170
+
+### Fixes
+
+* SpriteSheet: Import grid misalignment (#2057, Discord)
+
+* Search on the inspector was not matching properties correctly (#2058, Discord)
+
+* Fixes a crash in the resource previewed when the bitmap importer was triggered
+  (#2061, Testflight, upstream bug)
+
+* Fixes a crash in the debugger at startup (#2062, Testflight, upstream bug).
+
+* Fixes the errors when embedding Godot controls in the inspector that rendered
+  some warnings when activated (#2038, Discord)
+
+* Fixes Godot embedded controls sometimes not showing up in the inspector
+  (#2040).
+
+## Build 3539
+
+### Improvements
+
+* Numeric Input will now allow you to set the negative value before you start
+  entering numbers, before you had to had a non-zero number before it would
+  recognize it (Discord).
+
+* "Memory Usage" option has been renamed "System Information" and includes build
+  version and various other memory statistics.
+  
+### Fixes
+
+* Fixes a crash when the the debugger disconnects before the debugger starts up
+  (TestFlight).
+
+* Delay accessing the network until the user requests it.
+
+* Prevents a crash when a script is unloaded (#2055)
+
+* Do not auto-capitalize your scene names when creating a new scene (Discord).
+
+## Build 3529/Beta 161
+
+### Improvements
+
+* Added a convenient "Download from GitHub" option that downloads a project from
+  GitHub to get started (#1994).
+
+* Built in TexturePreviewer, which uses fewer resources and works around a bug
+  that we are working to identify (#2038).   It is also snappier.
+
+* Removed the "Swipe to Delete" gesture from directories, as it is not too
+  common.
 
 ### Fixes
 
@@ -31,6 +83,16 @@ Release notes for our preview release of Xogot to TestFlight.
 
 * Fixes a problem with remote debugging (#2026, Testflight)
 
+* Fixes instantiate menu option on the FilePad not working (#2036, Discord).
+
+* Fixes "Open in Files" not working (#2039, Discord)
+
+* Fix Inspector: resource editor misplaces icon when texture is loaded #2041
+
+* Fix CodeEditorUI: completion popup size issue #2046
+
+* Fixes some bugs in the remote debugging support, stemming from older
+  non-thread safe code (Testflight)
 
 ## Build 3501 (beta 151)
 
