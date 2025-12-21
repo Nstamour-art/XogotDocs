@@ -4,7 +4,22 @@ Release notes for public releases of Xogot to the App Store.
 
 # Releases 
 
-## 1.4.14
+## 1.4.16
+
+* Godot feature tags are now supported.
+
+* Upgraded the numeric input controls.
+
+* Added a convenient "Download from GitHub" option that downloads a project from
+  GitHub to get started.
+
+* Faster and snappier texture preview panel.
+
+* Removed the "Swipe to Delete" gesture from directories, as it is not too common.
+ 
+* Over 38 reported bugs fixed.
+
+## 1.4.14 (3458)
 
 * Improved encoding of paths when dragging scene pad nodes into the text editor.
 

@@ -4,7 +4,160 @@ Release notes for our preview release of Xogot to TestFlight.
 
 # Releases 
 
-## Build
+## Build 3557/Beta 170
+
+### Fixes
+
+* SpriteSheet: Import grid misalignment (#2057, Discord)
+
+* Search on the inspector was not matching properties correctly (#2058, Discord)
+
+* Fixes a crash in the resource previewed when the bitmap importer was triggered
+  (#2061, Testflight, upstream bug)
+
+* Fixes a crash in the debugger at startup (#2062, Testflight, upstream bug).
+
+* Fixes the errors when embedding Godot controls in the inspector that rendered
+  some warnings when activated (#2038, Discord)
+
+* Fixes Godot embedded controls sometimes not showing up in the inspector
+  (#2040).
+
+## Build 3539
+
+### Improvements
+
+* Numeric Input will now allow you to set the negative value before you start
+  entering numbers, before you had to had a non-zero number before it would
+  recognize it (Discord).
+
+* "Memory Usage" option has been renamed "System Information" and includes build
+  version and various other memory statistics.
+  
+### Fixes
+
+* Fixes a crash when the the debugger disconnects before the debugger starts up
+  (TestFlight).
+
+* Delay accessing the network until the user requests it.
+
+* Prevents a crash when a script is unloaded (#2055)
+
+* Do not auto-capitalize your scene names when creating a new scene (Discord).
+
+## Build 3529/Beta 161
+
+### Improvements
+
+* Added a convenient "Download from GitHub" option that downloads a project from
+  GitHub to get started (#1994).
+
+* Built in TexturePreviewer, which uses fewer resources and works around a bug
+  that we are working to identify (#2038).   It is also snappier.
+
+* Removed the "Swipe to Delete" gesture from directories, as it is not too
+  common.
+
+### Fixes
+
+* Fixed array editing in the Project Settings (#2015)
+
+* Prevents a crash during drag and drop (#2031, TestFlight)
+
+* Properly reports rename errors, and also improves the Rename File dialog to
+  auto-select the file, without selecting the extension (#2030, Discord).
+
+* Another attempt at fixing the crash on the keyboard layout guide that
+  sometimes gets triggered (#2032, Testflight).  We have tracked this down
+  to a bug in SwiftUI on iPhone, and we have added a workaround.
+
+* Fixes a race condition in Godot that crashes the editor when closing a project
+  (#2034, Testflight).
+
+* Fixes a crash on the text editor when attempting to highlight a line that has
+  been removed (#2033, Testflight)
+
+* Fixes a crash when starting a game, related to the Virtual Controller
+  initialization.   We finally tracked down our major source of crashes (#1920,
+  related to #1633 - Testflight)
+
+* Fixes a problem with remote debugging (#2026, Testflight)
+
+* Fixes instantiate menu option on the FilePad not working (#2036, Discord).
+
+* Fixes "Open in Files" not working (#2039, Discord)
+
+* Fix Inspector: resource editor misplaces icon when texture is loaded #2041
+
+* Fix CodeEditorUI: completion popup size issue #2046
+
+* Fixes some bugs in the remote debugging support, stemming from older
+  non-thread safe code (Testflight)
+
+## Build 3501 (beta 151)
+
+### Improvements
+
+* Improved our numeric input controls - it no longer roundrips data to strings,
+  so it should keep the precision just as you see it.   This fixed a handful of
+  small usability problems too with numeric input, and would love if you could
+  test this.
+
+### Fixes
+
+* Fixes "New Shader Global" regression, it was not possible to add new shader
+  globals (#2016).
+
+* Fixes a crash related to the gizmo display update when the selection changed
+  before the finger was lifted (Testflight, #2023)
+
+* Fixed ranged input on the project settings, which was getting choppy (#2017)
+
+## Build 3484
+
+### Improvements
+
+* Feature Tags are now supported (#614) so you can more easily have conditional
+  code in your games.  Learn more here
+  https://docs.godotengine.org/en/stable/tutorials/export/feature_tags.html
+
+### Fixes
+
+* Caught another crash in the wild that should now be fixed (Testflight)
+
+* When you use the command to show the file in the FilePad inspector
+  (Command-Shift-J), we will now open the sidebar if it is closed.
+
+* Fixes running from a "Run Scene" that sometimes might not initialize correctly
+  (#1996).
+
+* It is now possible to create ShaderInclude resources without getting a warning
+  (#1992, Discord)
+
+* Workaround for a SwiftUI problem when you shrank the window and it would crash
+  on you (Testflight)
+
+* Fix for a crash when trying to setup a remote debugging connection (#2005,
+  Testflight).
+
+* We now react to changes on resource objects, before you had to navigate
+  back/forward in the inspector.  #2004. This worked for Nodes, this was just a
+  special case for Resource editing.
+
+* Paywall will not show up on first use anymore.
+
+* Prevents a crash if we attempt to switch the theme color before Xogot starts,
+  or just after it is shutting down (#2010).
+
+* Fixes an importer loader crash (#2011).
+
+* Prevents a crash on the numeric input (values larger than Int crashing when
+  editing Int values - #2012).
+
+* Prevents a crash when the user switches a scene, but was playing an animation
+  (#2013).
+
+## Build 3457
 
 ### Fixes
 
