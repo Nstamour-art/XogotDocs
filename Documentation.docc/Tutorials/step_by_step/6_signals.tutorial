@@ -40,26 +40,28 @@
         @ContentAndMedia {
             To add a button to our game, we will create a new scene which will include
             both a [`Button`](https://docs.godotengine.org/en/stable/classes/class_button.html#class-button) and the `sprite_2d.tscn` scene we created in
-            the <doc:doc_scripting_first_script> lesson.
+            the last tutorial.
 
             @Image(source: "signals_01_new_scene.png")
         }
         @Steps {
             @Step {
+                Open the Sprite2D project from the previous lesson.
+                
                 Create a new scene by pressing **sprite_2d** in the top menu bar and tapping **New Scene**.
             }
             @Step {
-                In the Scene dock, click the 2D Scene button. This will add
+                In the Scene dock, press the 2D Scene button. This will add
                 a [`Node2D`](https://docs.godotengine.org/en/stable/classes/class_Node2D.html#class-Node2D) as our root.
                 @Image(source: "signals_02_2d_scene.png")
             }
             @Step {
-                In the FileSystem dock, click and drag the `sprite_2d.tscn` file you saved
+                In the FileSystem dock, press and drag the `sprite_2d.tscn` file you saved
                 previously onto the Node2D to instantiate it.
                 @Image(source: "signals_03_dragging_scene.png")
             }
             @Step {
-                We want to add another node as a sibling of the Sprite2D. To do so, right-click
+                We want to add another node as a sibling of the Sprite2D. To do so, long-press
                 on Node2D and select Add Child Node.
                 @Image(source: "signals_04_add_child_node.png")
             }
@@ -68,7 +70,7 @@
                 @Image(source: "signals_05_add_button.png")
             }
             @Step {
-                The node is small by default. Click and drag on the bottom-right handle of the
+                The node is small by default. Press and drag on the bottom-right handle of the
                 Button in the viewport to resize it.
                 @Image(source: "signals_06_drag_button.png")
             }
@@ -77,7 +79,7 @@
                 @Image(source: "signals_07_select_tool.png")
             }
             @Step {
-                Click and drag on the button itself to move it closer to the sprite.
+                Press and drag on the button itself to move it closer to the sprite.
 
                 You can also write a label on the Button by editing its Text property
                 in the Inspector. Enter `Toggle motion`.
@@ -89,7 +91,7 @@
             }
             @Step {
                 Save your newly created scene as `node_2d.tscn`, if you haven't already.
-                You can then run it with F6 (Cmd + R on macOS).
+                You can then run it with the play button.
                 At the moment, the button will be visible, but nothing will happen if you
                 press it.
             }
@@ -103,7 +105,7 @@
             lesson.
 
             You can connect signals in the Node dock. Select the Button node and, on the
-            right side of the editor, click on the tab named Node next to the
+            right side of the editor, press on the tab named Node next to the
             Inspector.
 
             @Image(source: "signals_10_node_dock.png")
@@ -127,20 +129,20 @@
                 modes. The simple one only allows you to connect to nodes that have a
                 script attached to them and creates a new callback function on them.The advanced view lets you connect to any node and any built-in
                 function, add arguments to the callback, and set options. You can
-                toggle the mode in the window's bottom-right by clicking the Advanced
+                toggle the mode in the window's bottom-right by pressing the Advanced
                 button.
 
                 > If you are using an external editor (such as VS Code), this
                 automatic code generation might not work. In this case, you need to connect
                 the signal via code as explained in the next section.
 
-                Click the Connect button to complete the signal connection and jump to the
+                Press the Connect button to complete the signal connection and jump to the
                 Script workspace. You should see the new method with a connection icon in the
                 left margin.
                 @Image(source: "signals_13_signals_connection_icon.png")
             }
             @Step {
-                If you click the icon, a window pops up and displays information about the
+                If you press the icon, a window pops up and displays information about the
                 connection. This feature is only available when connecting nodes in the editor.
                 @Image(source: "signals_14_signals_connection_info.png")
             }
@@ -194,8 +196,8 @@
                 ```
             }
             @Step {
-                Run the current scene by pressing F6 (Cmd + R on macOS),
-                and click the button to see the sprite start and stop.
+                Run the current scene by pressing the **Play** button,
+                and then tap the button to see the sprite start and stop.
             }
         }
     }
@@ -207,10 +209,10 @@
             Let's use a different node here. Godot has a [`Timer`](https://docs.godotengine.org/en/stable/classes/class_Timer.html#class-Timer) node
             that's useful to implement skill cooldown times, weapon reloading, and more.
 
-            Head back to the 2D workspace. You can either click the "2D" text at the top of
-            the window or press Ctrl + F1 (Ctrl + Cmd + 1 on macOS).
+            Head back to the 2D workspace. You can either press the "2D" text at the top of
+            the window or press Cmd + 1 on a keyboard.
 
-            In the Scene dock, right-click on the Sprite2D node and add a new child node.
+            In the Scene dock, long-press on the Sprite2D node and add a new child node.
             Search for Timer and add the corresponding node. Your scene should now look like
             this.
 
@@ -223,7 +225,7 @@
                 @Image(source: "signals_18_timer_autostart.png")
             }
             @Step {
-                Click the script icon next to Sprite2D to jump back to the scripting workspace.
+                Press the script icon next to Sprite2D to jump back to the scripting workspace.
                 @Image(source: "signals_16_click_script.png")
             }
             @Step {
