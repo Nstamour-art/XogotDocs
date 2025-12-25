@@ -4,6 +4,66 @@ Release notes for our preview release of Xogot to TestFlight.
 
 # Releases 
 
+## Build 3573
+
+### Improvements
+
+Embraced the new search UI idioms on iOS 26 on iPhone, this required a rewrite
+of the toolbar on the iPhone, but we get the intended experience and a little
+bit more control of the toolbar now.   Would love for folks to test if I got all
+the details right.
+
+Also replaced the Command Palette on iPhone from showing a list of guides to
+search for similar to what Slack on iOS does.   This was inspired by the Liquid
+Glass presentation from Slack.
+
+### Fixes
+
+* Fixes a crash on the tileset in the wild (#2067, TestFlight)
+
+* Fixes the new scene tabs when adding new scene scene view turns black (#2068,
+  Discord). 
+
+## Build 3568
+
+### Fixes
+
+* Fix TileSet: Collision layer position mismatch (#2066, Discord)
+
+## Build 3564
+
+* iPhone: additional Liquid Glass work, this time, the UI has been moved to use
+  a tab-view inspired by recent Apple talks covering migration to Liquid Glass.
+
+  This vastly simplified the two menu entries that we had (the Scene/Project)
+  and another for the editor.   They are now both more consistent as I managed
+  to redistribute some of their tasks to the TabView and narrow their roles and
+  this helped clear up a little the menus and make it much more finger-friendly.
+
+  The "Search" tab on it triggers the built-in universal search as well (Command
+  Palette).
+
+* Scene tabs: you can now navigate your scenes using tabs.   This takes some
+  vertical space, but I think it is vastly more convenient than the switcher we
+  had on the menu that was getting tiresome.
+
+* Implements 4.5 support for
+  text_editor/behavior/files/drop_preload_resources_as_uid
+
+### Fixes
+
+* An elusive bug that we have been monitoring on Testflight that had an
+  impossible stack trace has been fixed - I happened to run into it in person,
+  it affects iOS 18 users, and it would crash Xogot if your pressed the [x]
+  button on the Command Palette (#1939).
+
+* Fixed the color background for multi-line inputs on the inspector, they were
+  hard to distinguish from their label (#2064).
+
+* Fixed a rare problem where the theme of elements in the 2D editor was using
+  the Editor theme instead of the game theme (#2060, Discord).
+
+
 ## Build 3557/Beta 170
 
 ### Fixes
