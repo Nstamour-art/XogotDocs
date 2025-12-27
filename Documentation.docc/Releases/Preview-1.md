@@ -2,9 +2,19 @@
 
 Release notes for our preview release of Xogot to TestFlight.
 
-# Releases 
+# Releases
 
-## Build
+## Build 
+
+* Experimenting with the Scene Tab navigator on the iPhone too.
+
+* XogotBeta: bring a few fixes that were missing from the main branch, due to a
+  partial merge.
+
+* Fix another assumption in the code that would trigger incorrect placement of
+  buttons on the iPhone Max.
+  
+## Build 3587/Beta 182
 
 ### Improvements
 
