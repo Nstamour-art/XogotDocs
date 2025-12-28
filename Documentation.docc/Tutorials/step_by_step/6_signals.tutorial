@@ -283,7 +283,7 @@
                 In a production game, it's better to leave the variable undefined and add a type hint (e.g., `@export var health: int`). 
                 
                 This exposes the variable in the Xogot Inspector, allowing you to easily set different health values for different entities using the same script, while ensuring the value is always a whole number. When you create copde this way, you can use this single script on a Goblin (set health to 5) and a Giant (set health to 100) without changing the code! Both entities would still benefit from the same functions and signals.
-                @Image(source: "singals_best_practices.png")
+                @Image(source: "signals_best_practices.png")
             }
             
             > As signals represent events that just occurred, we generally use an

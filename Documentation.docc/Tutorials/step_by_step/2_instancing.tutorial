@@ -1,7 +1,7 @@
 @Tutorial(time: 30) {
     @Intro(title: "Creating instances") {
 
-        @Image(source: "fix-me.png")
+        @Image(source: "instantcing_multi_ball_scene.gif")
     }
     @Section(title: "Instancing: An Introduction") {
           
@@ -78,7 +78,7 @@
                 @Image(source: "instancing_scene_link_button.png")
             }
             @Step {
-                Double-click the ball scene to instance it.
+                Double-tap the ball scene to instance it.
                 @Image(source: "instancing_instance_child_window.png")
             }
             @Step {
@@ -86,11 +86,12 @@
                 @Image(source: "instancing_ball_instanced.png")
             }
             @Step {
-                Press and drag it towards the center of the view.
+                With **Move Mode** enabled, press and drag it towards the center of the view.
                 @Image(source: "instancing_ball_moved.png")
             }
             @Step {
                 Play the game by pressing the **Play** icon. You should see it fall.
+                @Image(source: "instancing_single_ball_scene.gif")
             }
             Now, we want to create more instances of the `Ball` node.
             @Step {
@@ -100,6 +101,7 @@
             }
             @Step {
                 Press and drag to move the new ball to a different location.
+                @Image(source: "instancing_move_duplicate.png")
             }
             @Step {
                 You can repeat this process until you have several in the scene.
@@ -111,6 +113,7 @@
                 
                 This is what instances do. Each is an independent reproduction of a
                 template scene.
+                @Image(source: "instantcing_multi_ball_scene.gif")
             }
         }
     }
@@ -126,20 +129,20 @@
 
             > Changing a property on an instance always overrides values from the
             corresponding packed scene.
-
-
-            @Image(source: "instancing_ball_scene_open.png")
         }
         @Steps {
-            Let's try this. Double-click `ball.tscn` in the FileSystem to open it.
+            Let's try this. 
             @Step {
-                In the Scene dock on the left, select the Ball node. Then, in the Inspector on the
-                right, press on the PhysicsMaterial property to expand it.
+                Double-tap `ball.tscn` in the FileSystem to open it.
+                @Image(source: "instancing_ball_scene_open.png")
+            }
+            @Step {
+                In the Scene dock on the left, select the Ball node. Then, with the **Scope** open and in the **Inspector** tab (1), press on the `PhysicsMaterial` property to expand it (2).
                 @Image(source: "instancing_physics_material_expand.png")
             }
             @Step {
-                Let's change it's `Bounce` property by press on the number field nect to `Bounce`, typing `0.5`,
-                and closing the menu.
+                Let's change it's `Bounce` property by press on the number field next to `Bounce`, type `0.5` (1),
+                and closing the menu by pressing *Enter* on a connected keyboard or the **Return key** (2).
                 @Image(source: "instancing_property_bounce_updated.png")
             }
             @Step {
@@ -157,10 +160,6 @@
                 @Image(source: "instancing_property_gravity_scale.png")
             }
             @Step {
-                A grey "revert" button appears next to the adjusted property.
-                @Image(source: "instancing_property_revert_icon.png")
-            }
-            @Step {
                 Rerun the game and notice how this ball now falls much faster than the others.
 
                 > Tip: You may notice you are unable to change the values of the `PhysicsMaterial`
@@ -172,6 +171,7 @@
                 
                 > Resources are another essential building block of Godot Engine games we will cover
                 in a later lesson.
+                @Image(source: "instancing_multi_bouncing_10_grav.gif")
             }
         }
     }
