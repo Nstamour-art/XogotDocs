@@ -12,7 +12,6 @@
             
             Now that we've stated that, let's have fun learning to code in GDScript!
             
-            @Image(source: "scripting_first_script_rotating_godot.gif")
         }
     }
     @Section(title: "Project setup") {
@@ -119,7 +118,7 @@
             
             > Note:  As an indent-based language, GDScript requires the print() line to be indented to function. Incorrect indentation, like if we had not indented that block, triggers the error: 'Indented block expected'.
             
-            > Style Tip: You may use either tabs or spaces, but consistency is key. You strictly cannot mix both within the same file.
+            > Warning: You may use either tabs or spaces, but consistency is key. You *strictly* **cannot** mix both within the same file.
             @Step {
                 Save the scene as `sprite_2d.tscn` if you haven't already, then press **Play**
                 to run it. Look at the Output bottom panel that expands automatically.

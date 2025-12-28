@@ -1,13 +1,12 @@
 @Tutorial(time: 30) {
     @Intro(title: "Listening to player input") {
 
-        @Image(source: "fix-me.png")
+        @Image(source: "scripting_first_script_moving_with_input.gif")
     }
     @Section(title: "Introduction") {
         @ContentAndMedia {
             Building upon the previous lesson, let's look
             at another important feature of any game: giving control to the player.
-            @Image(source: "scripting_first_script_moving_with_input.gif")
         }
         @Steps {
             To process player input, you have two primary tools:
@@ -55,12 +54,15 @@
         @Steps {
             @Step {
                 Press this icon and then open **Settings**.
+                @Image(source: "nodes_and_scenes_settings_dropdown.png")
                 }
             @Step {
                 Inside setting scroll to **Input Devices** and press **Virtual Controller**.
+                @Image(source: "scripting_virtual_controller_settings.png")
             }
             @Step {
                 Inside *ios* enable the toggle for **Enable Controller** and disable all the other options except **Enable Left Thumbstick**.
+                @Image(source: "scripting_virtual_controller_settings_on.png")
             }
             In future tutorials we will cover how to install plugins that upgrade and allow more customization for the virtual controller experience.
             
@@ -68,6 +70,7 @@
             @Step {
                 Run the scene; the icon should rotate when you press
                 Left and Right on a keyboard or when you move the left joystick.
+                @Image(source: "scripting_virtual_controller_running.png")
             }
         }
     }
