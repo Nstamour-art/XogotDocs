@@ -20,15 +20,13 @@ screenshot to help you locate each feature.
 
 1. Show/Hide Xogot Sidebar
 2. Document Menu - New/Open/Save/Close Scene, Close Project
-3. Undo
-4. Redo
-5. Import Assets
-6. Open 3D Editor
-7. Open 2D Editor
-8. Open Script Editor
-9. Run Project
-10. Show/Hide Inspector
-11. Settings menu
+3. Open 3D Editor
+4. Open 2D Editor
+5. Open Script Editor
+6. Open Game Tab
+7. Run Project
+8. Show/Hide Inspector
+9. Settings menu
 
 Refer to the screenshot above to better understand the numbered elements of
 the toolbar.
@@ -47,16 +45,18 @@ by tapping the Sidebar toolbar button in the upper-right corner of Xogot.
 
 1. Create New Node
 2. Instantiate Child Scene
-3. Attach/Detach Node Script
-4. Select multiple nodes
-5. Open in Editor
-6. Toggle Visibility
-7. Open Attached Script
+3. Select multiple nodes
+4. Show/Hide Xogot Sidebar
+5. Open Attached Node Script
+6. Open in Editor
+7. Toggle Visibility
 8. Create New File (Scene/Script/Resource/Import/etc)
 9. File Sort order / Show Search / Refresh
 10. Find/Replace Tool
 11. Show/Hide Scene Tree
 12. Show/Hide File Pad
+13. Undo
+14. Redo
 
 Refer to the screenshot above to better understand the numbered elements of
 the Scene Tree and File Pad UI components.
@@ -173,13 +173,14 @@ of the 2D workspace.
 2. Move Mode
 3. Rotate Mode / Change Rotation Pivot
 4. Scale Mode
-5. Use Snap
-6. Snap Menu
-7. Lock/Unlock Select Node(s)
-8. Group/Ungroup Selected Node(s)
-9. Bones Menu / Selection Options
-10. Zoom
-11. View Menu
+5. Set Scale Behavior (Freeform or Uniform)
+6. Use Snap
+7. Snap Menu
+8. Lock/Unlock Select Node(s)
+9. Group/Ungroup Selected Node(s)
+10. Bones Menu / Selection Options
+11. Zoom
+12. View Menu
 
 Refer to the screenshot above to better understand the numbered elements of
 these 2D Editor Toolbar.

@@ -2,7 +2,123 @@
 
 Release notes for our preview release of Xogot to TestFlight.
 
-# Releases 
+# Releases
+
+## Build 
+
+* Experimenting with the Scene Tab navigator on the iPhone too.
+
+* XogotBeta: bring a few fixes that were missing from the main branch, due to a
+  partial merge.
+
+* Fix another assumption in the code that would trigger incorrect placement of
+  buttons on the iPhone Max.
+  
+## Build 3587/Beta 182
+
+### Improvements
+
+* We are bringing the pre-compiled Shaders back into Xogot, which should help
+  startup performance as fewer shaders must be compiled when the editor starts.
+
+  We used to have this a long time ago, but we disabled shortly before the Xogot
+  official launch, I am enabling it, as I got a chance to identify the root
+  cause of the bugs that this introduced back in March.
+
+* Command Palette uses a bit more space, and the image previews are slightly
+  larger along.
+
+* The Command Palette when directed to load files will now load the file listing
+  upfront.
+
+* The XogotShell no longer triggers the command palette when tapping again
+  2D/3D, I found it confusing - but the document icon will, like it did before,
+  and is replaced by the Command Palette.
+
+### Fixes
+
+* Fixes the sidebar position on the iPhone in landscape mode.
+
+* Should fix the UI on iPhone Max when rotating the UI (Discord).
+
+## Build 3582/Beta 179
+
+### Improvements
+
+* iPhone: Fixes various papercuts in the search tab #2069, now tapping on
+  different filters will update the results without typing additional text, it
+  will now auto-close the search when you take an action, automatically selects
+  the text input.
+
+* iPhone: synced the fact that our iPhone tabs are not exacly the same as the
+  iPad tabs, and we need to propagate some state.
+
+* iPhone: Fixes the sizing after rotation, the bug was alwasy present, but the
+  new TabView made it more pronounced (#2077)
+
+## Build 3575
+
+* iPhone: Small fix for the new tab view
+
+## Build 3573/Beta 176
+
+### Improvements
+
+Embraced the new search UI idioms on iOS 26 on iPhone, this required a rewrite
+of the toolbar on the iPhone, but we get the intended experience and a little
+bit more control of the toolbar now.   Would love for folks to test if I got all
+the details right.
+
+Also replaced the Command Palette on iPhone from showing a list of guides to
+search for similar to what Slack on iOS does.   This was inspired by the Liquid
+Glass presentation from Slack.
+
+### Fixes
+
+* Fixes a crash on the tileset in the wild (#2067, TestFlight)
+
+* Fixes the new scene tabs when adding new scene scene view turns black (#2068,
+  Discord). 
+
+## Build 3568
+
+### Fixes
+
+* Fix TileSet: Collision layer position mismatch (#2066, Discord)
+
+## Build 3564/Beta 173
+
+* iPhone: additional Liquid Glass work, this time, the UI has been moved to use
+  a tab-view inspired by recent Apple talks covering migration to Liquid Glass.
+
+  This vastly simplified the two menu entries that we had (the Scene/Project)
+  and another for the editor.   They are now both more consistent as I managed
+  to redistribute some of their tasks to the TabView and narrow their roles and
+  this helped clear up a little the menus and make it much more finger-friendly.
+
+  The "Search" tab on it triggers the built-in universal search as well (Command
+  Palette).
+
+* Scene tabs: you can now navigate your scenes using tabs.   This takes some
+  vertical space, but I think it is vastly more convenient than the switcher we
+  had on the menu that was getting tiresome.
+
+* Implements 4.5 support for
+  text_editor/behavior/files/drop_preload_resources_as_uid
+
+### Fixes
+
+* An elusive bug that we have been monitoring on Testflight that had an
+  impossible stack trace has been fixed - I happened to run into it in person,
+  it affects iOS 18 users, and it would crash Xogot if your pressed the [x]
+  button on the Command Palette (#1939).
+
+* Fixed the color background for multi-line inputs on the inspector, they were
+  hard to distinguish from their label (#2064).
+
+* Fixed a rare problem where the theme of elements in the 2D editor was using
+  the Editor theme instead of the game theme (#2060, Discord).
+
 
 ## Build 3557/Beta 170
 
