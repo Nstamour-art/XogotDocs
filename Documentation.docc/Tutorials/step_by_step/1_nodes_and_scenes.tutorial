@@ -203,7 +203,7 @@
                 @Image(source: "nodes_and_scenes_13_main_scene_popup.png")
             }
             @Step {
-                Press the **Run Specific Scene** button, and in the file dialog that appears, select `label.tscn` (1) and press the folder icon (2).
+                Press the **Run Specific Scene** button, and in the file dialog that appears, select `label.tscn` (1) and press **Select** (2).
                 @Image(source: "nodes_and_scenes_14_select_main_scene.png")
             }
             

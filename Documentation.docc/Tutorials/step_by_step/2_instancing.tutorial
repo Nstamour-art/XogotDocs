@@ -44,24 +44,20 @@
         }
         @Steps {
             @Step {
-                Extract the archive via the Files App. To do so, navigate to the archive and click on it. Once done, switch back to Xogot. 
+                Extract the archive via the Files App. To do so, navigate to the archive and press on it. Once done, switch back to Xogot. 
                 
-                > Tip: To import it, you need the **Project Manager**.
-                The **Project Manager** is what you see when you first open Xogot. If a Xogot project is already open, click the down arrow next to your scene name, and click **Close Project**.
+                > Tip: To import it, you need to be in the main screen, also known as the **Project Manager**.
+                The **Project Manager** is what you see when you first open Xogot. If a Xogot project is already open, press the down arrow next to your scene name, and press **Close Project**.
                 
-                In the Project Manager, click the Import button to import the project.
+                In the Project Manager, press the **Folder** button to import the project.
                 @Image(source: "instancing_import_button.png")
             }
             @Step {
                 In the pop-up that appears navigate to the folder you extracted.
-                Double-click the `project.godot` file to open it.
+                Press the **Open** button to enter the project.
                 @Image(source: "instancing_import_project_file.png")
             }
-            @Step {
-                Finally, click the Import button.
-                @Image(source: "instancing_import_and_edit_button.png")
-            }
-            > Important: A window might appear stating that this project was made in an older version of the Godot Engine. If that happens click "**Upgrade and Restart**"
+            > Important: A window might appear stating that this project was made in an older version of the Godot Engine. If that happens press "**Upgrade and Restart**"
             @Step {
                 The project contains two packed scenes: `main.tscn`, containing walls against
                 which the ball collides, and `ball.tscn`. The `main scene` should open
@@ -69,13 +65,13 @@
                 @Image(source: "instancing_main_scene.png")
             }
             @Step {
-                If you're seeing an empty **3D** scene instead of the `main scene`, click the **2D** button at the top of the screen.
+                If you're seeing an empty **3D** scene instead of the `main scene`, press the **2D** button at the top of the screen.
                 @Image(source: "instancing_2d_scene_select.png")
             }
             Let's add a ball as a child of the `Main` node.
             @Step {
                 In the Scene dock, select the `Main`
-                node. Then, click the link icon at the top of the scene dock. 
+                node. Then, press the link icon at the top of the scene dock. 
                 
                 This button allows
                 you to add an instance of a scene as a child of the currently selected node.
@@ -90,7 +86,7 @@
                 @Image(source: "instancing_ball_instanced.png")
             }
             @Step {
-                Click on it and drag it towards the center of the view.
+                Press and drag it towards the center of the view.
                 @Image(source: "instancing_ball_moved.png")
             }
             @Step {
@@ -103,7 +99,7 @@
                 @Image(source: "instancing_ball_duplicated.png")
             }
             @Step {
-                Click and drag to move the new ball to a different location.
+                Press and drag to move the new ball to a different location.
             }
             @Step {
                 You can repeat this process until you have several in the scene.
@@ -138,11 +134,11 @@
             Let's try this. Double-click `ball.tscn` in the FileSystem to open it.
             @Step {
                 In the Scene dock on the left, select the Ball node. Then, in the Inspector on the
-                right, click on the PhysicsMaterial property to expand it.
+                right, press on the PhysicsMaterial property to expand it.
                 @Image(source: "instancing_physics_material_expand.png")
             }
             @Step {
-                Let's change it's `Bounce` property by click on the number field nect to `Bounce`, typing `0.5`,
+                Let's change it's `Bounce` property by press on the number field nect to `Bounce`, typing `0.5`,
                 and closing the menu.
                 @Image(source: "instancing_property_bounce_updated.png")
             }
@@ -151,7 +147,7 @@
                 more. As the Ball scene is a template for all instances, modifying it and saving
                 causes all instances to update accordingly.
 
-                Let's now adjust an individual instance. Head back to the Main scene by clicking
+                Let's now adjust an individual instance. Head back to the Main scene by pressing
                 on the corresponding tab above the viewport.
                 @Image(source: "instancing_scene_tabs.png")
             }
@@ -170,8 +166,8 @@
                 > Tip: You may notice you are unable to change the values of the `PhysicsMaterial`
                 of the ball. This is because `PhysicsMaterial` is a *resource*, and needs
                 to be made unique before you can edit it in a scene that is linking to its
-                original scene. To make a resource unique for one instance, click the three dots on
-                the Physics Material property in the **Scope** and click **Make Unique**
+                original scene. To make a resource unique for one instance, press the three dots on
+                the Physics Material property in the **Scope** and press **Make Unique**
                 in the context menu. 
                 
                 > Resources are another essential building block of Godot Engine games we will cover
