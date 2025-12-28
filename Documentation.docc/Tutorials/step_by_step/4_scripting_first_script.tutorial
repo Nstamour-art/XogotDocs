@@ -1,7 +1,7 @@
 @Tutorial(time: 30) {
     @Intro(title: "Creating your first script") {
 
-        @Image(source: "fix-me.png")
+        @Image(source: "scripting_first_script_rotating_godot.gif")
     }
     @Section(title: "Introduction") {
         @ContentAndMedia {
@@ -17,7 +17,7 @@
     }
     @Section(title: "Project setup") {
         @ContentAndMedia {
-            Please create a new project to
+            >Important: Please create a new project to
             start with a clean slate. 
             
             In the file browser dock  on the left you will find one image: the Godot icon or `icon.svg`; which we often use for prototyping in the community.
@@ -33,7 +33,7 @@
             }
             @Step {
                 Tap **All** in the tab bar and then
-                type "Sprite2D" in the search bar to filter nodes and double-click on Sprite2D
+                type "Sprite2D" in the search bar to filter nodes and double-tap on Sprite2D
                 to create the node.
                 @Image(source: "scripting_first_script_add_sprite_node.png")
             }
@@ -46,6 +46,7 @@
                 
                 Inside, you
                 can see that the Texture property says `Pick Resource`. 
+                @Image(source: "scripting_first_script_resource.png")
             }
             @Step {
                 To display the
@@ -74,7 +75,7 @@
             The window that opens is called the "Attach Node Script" window. It allows you to select the script's language and file path, among other options.
             @Step {
                 Hit the toggle switch for **Use Template** to `off` in  order to
-                start with a clean file. Leave the other options set to their default values and press the Create button to create the script.
+                start with a clean file (1). Leave the other options set to their default values and press the **Create** (2) button to create the script.
                 @Image(source: "scripting_first_script_attach_node_script.png")
             }
             @Step {
