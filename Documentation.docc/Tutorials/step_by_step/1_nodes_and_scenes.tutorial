@@ -131,7 +131,6 @@
                 below the **Text property** (1) and type "Hello World" (2). Press **Save** when finished (3).
                 @Image(source: "nodes_and_scenes_06_label_text.png")
             }
-            You will see the text draw in the viewport as you type.
             @Step {
                 > Tip: You can edit any property listed in the Scope as we did with
                 the Text.

@@ -119,7 +119,7 @@
             You can connect signals in the Node dock. 
             @Step {
                 Select the Button node and, on the
-                right side of the editor in the Scope window, press on the tab that looks like a line connecting two circles next to the Inspector tab.
+                right side of the editor in the Scope dock, press on the tab that looks like a line connecting two circles next to the Inspector tab.
                 @Image(source: "signals_11_pressed_signals.png")
             }
             The **Signals** tab displays a list of signals available on the selected node.
@@ -187,7 +187,7 @@
             
             @Step {
                 Head back to the 2D workspace. You can either press the "2D" text at the top of
-                the window or press Cmd + 2 on a keyboard.
+                the app or press Cmd + 2 on a keyboard.
                 @Image(source: "instancing_2d_scene_select.png")
             }
             @Step {
