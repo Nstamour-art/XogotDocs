@@ -246,7 +246,7 @@
             @Step {
                 Add the new referenced function below `_on_button_pressed()`:
 
-                @Code(name: "sprite_2d.gd", file: scripting_16.gd, previousFile: scripting_15.gd)
+                @Code(name: "sprite_2d.gd", file: scripting_16-2.gd, previousFile: scripting_15.gd)
             }
             The `visible` property is a boolean that controls the visibility of our node.
             The line `visible = not visible` toggles the value. If `visible` is
