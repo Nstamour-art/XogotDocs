@@ -197,7 +197,7 @@
                 function, ensuring the new lines are indented the same way as the line before
                 them.
 
-                @Code(name: "sprite_2d.gd", file: scripting_06-2.gd, previousFile: scripting_05.gd)
+                @Code(name: "sprite_2d.gd", file: scripting_06.gd, previousFile: scripting_05.gd)
             }
             As we covered, `var` defines variables. At the top of the script, it creates a *property* accessible everywhere. Inside a function, it creates a *local variable* that exists only within that block.
             
@@ -218,7 +218,7 @@
             
             @Step {
                 And here is the complete script:
-                @Code(name: "sprite_2d.gd", file: scripting_06.gd)
+                @Code(name: "sprite_2d.gd", file: scripting_06_final.gd)
             }
         }
     }

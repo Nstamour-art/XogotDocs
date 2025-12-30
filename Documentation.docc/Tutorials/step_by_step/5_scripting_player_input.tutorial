@@ -101,7 +101,7 @@
             We can take this further. Let's add reverse to our tank controls!
             @Step {
                 Add this code to our script above the final line with `position += velocity * delta`:
-                @Code(name: "sprite_2d.gd", file: scripting_10-2.gd, previousFile: scripting_09.gd)
+                @Code(name: "sprite_2d.gd", file: scripting_10.gd, previousFile: scripting_09.gd)
             }
             This code performs a similar function but adds a new tool: the `elif` ( or else if) statement.
             
@@ -117,7 +117,7 @@
         @Steps {
             @Step {
                 For reference here's the complete script:
-                @Code(name: "sprite_2d.gd", file: scripting_10.gd)
+                @Code(name: "sprite_2d.gd", file: scripting_10_final.gd)
             }
             @Step {
                 If you run the scene, you should now be able to rotate with the left and right
