@@ -3,37 +3,27 @@
 
         @Image(source: "fix-me.png")
     }
-    @Section(title: "FIXME: Introduction") {
-        @ContentAndMedia {
-            FIXME: Replace this with introduction content (possibly from the next step or section that appears after this.)
-
-            @Image(source: "fix-me.png")
-        }
-    }
     @Section(title: "Introduction") {
         @ContentAndMedia {
             A tilemap is a grid of tiles used to create a game's layout. There are several
             benefits to using [`TileMapLayer`](https://docs.godotengine.org/en/stable/classes/class_TileMapLayer.html#class-TileMapLayer) nodes to design your
-            levels. First, they let you draw a layout by "painting" tiles onto a grid,
-            which is much faster than placing individual [`Sprite2D`](https://docs.godotengine.org/en/stable/classes/class_Sprite2D.html#class-Sprite2D) nodes one by one. Second, they allow for larger levels
-            because they are optimized for drawing large numbers of tiles.
-            Finally, they allow you to add greater functionality to your tiles with
-            collision, occlusion, and navigation shapes.
-
-            To use TileMapLayer nodes, you will need to create a TileSet first. A TileSet is a
-            collection of tiles that can be placed in a TileMapLayer node. After creating a
-            TileSet, you will be able to place them [`using the TileMap editor`](doc:doc_using_tilemaps).
-
-            To follow this guide, you will need an image containing your tiles where every
-            tile has the same size (large objects can be split into several tiles). This
-            image is called a *tilesheet*. Tiles do not have to be square: they can be
-            rectangular, hexagonal, or isometric (pseudo-3D perspective).
+            levels
+            @Image(source: "Tileset_cover.png", alt: "An example tileset featuring the Kenny's Abstract Platformer tileset")
         }
-    }
-    @Section(title: "Creating a new TileSet") {
-        @ContentAndMedia {
-
-        }
+        First, they let you draw a layout by "painting" tiles onto a grid,
+        which is much faster than placing individual [`Sprite2D`](https://docs.godotengine.org/en/stable/classes/class_Sprite2D.html#class-Sprite2D) nodes one by one. Second, they allow for larger levels
+        because they are optimized for drawing large numbers of tiles.
+        Finally, they allow you to add greater functionality to your tiles with
+        collision, occlusion, and navigation shapes.
+        
+        To use TileMapLayer nodes, you will need to create a TileSet first. A TileSet is a
+        collection of tiles that can be placed in a TileMapLayer node. After creating a
+        TileSet, you will be able to place them [`using the TileMap editor`](doc:02.using_tilemaps).
+        
+        To follow this guide, you will need an image containing your tiles where every
+        tile has the same size (large objects can be split into several tiles). This
+        image is called a *tilesheet*. Tiles do not have to be square: they can be
+        rectangular, hexagonal, or isometric (pseudo-3D perspective).
     }
     @Section(title: "Using a tilesheet") {
         @ContentAndMedia {
@@ -42,94 +32,106 @@
             We'll use this particular *tilesheet* from the set:
 
             @Image(source: "using_tilesets_kenney_abstract_platformer_tile_sheet.png", alt: "Tilesheet example with 64×64 tiles")
+            
         }
+        Download the attached *.zip* file and extract it in the **Files** app, the once ready continue back in Xogot.
         @Steps {
             @Step {
-                Create a new **TileMapLayer** node, then select it and create a new TileSet resource in the inspector:
-                @Image(source: "using_tilesets_create_new_tileset.png", alt: "Creating a new TileSet resource within the TileMapLayer node")
+                Starting from the **Project Manager** press the **+** or **New Game** buttons to create a new project.
+                
+                Name the project whatever you like, we will use "Tiles Tutorial"
             }
             @Step {
-                After creating the TileSet resource, click the value to unfold it in the
-                inspector. The default tile shape is Square, but you can also choose Isometric,
-                Half-Offset Square or Hexagon (depending on the shape of your tile images). If
-                using a tile shape other than Square, you may also need to adjust the **Tile
-                Layout** and **Tile Offset Axis** properties. Lastly, enabling the
-                **Rendering > UV Clipping** property may be useful if you wish tiles to be clipped
-                by their tile coordinates. This ensures tiles cannot draw outside their allocated
-                area on the tilesheet.
-
+                Press **Create Other Node** and in the **All** tab, search for **TileMapLayer**, then *tap* it to create it.
+            }
+            @Step {
+                Select the new node and create a new TileSet resource in the **Inspector** by tapping `PickResource` and selecting `New TileSet`:
+                @Image(source: "using_tilesets_create_new_tileset.png", alt: "Creating a new TileSet resource within the TileMapLayer node")
+                
+                >Tip: If the **Scope** dock is closed press the cross-hair icon in the upper right next to play to open it.
+            }
+            This will automatically open the TileMap editor dock on the bottom. We will explore these tabs in a bit.
+            @Step {
+                For now, click the value to unfold it in the
+                inspector.
+            }
+            > Tip:  The default tile shape is Square, but you can also choose Isometric,
+            Half-Offset Square or Hexagon (depending on the shape of your tile images). If
+            using a tile shape other than Square, you may also need to adjust the **Tile
+            Layout** and **Tile Offset Axis** properties. Lastly, enabling the
+            **Rendering > UV Clipping** property may be useful if you wish tiles to be clipped
+            by their tile coordinates. This ensures tiles cannot draw outside their allocated
+            area on the tilesheet.
+            @Step {
                 Set the tile size to 64×64 in the inspector to match the example tilesheet:
                 @Image(source: "using_tilesets_specify_size_then_edit.png", alt: "Setting the tile size to 64×64 to match the example tilesheet")
             }
+            >Important: If relying on automatic tiles creation (like we're about to do here), you must
+            set the tile size **before** creating the *atlas*. The atlas will
+            determine which tiles from the tilesheet can be added to a `TileMapLayer` node
+            (as not every part of the image may be a valid tile).
             @Step {
-                If relying on automatic tiles creation (like we're about to do here), you must
-                set the tile size **before** creating the *atlas*. The atlas will
-                determine which tiles from the tilesheet can be added to a TileMapLayer node
-                (as not every part of the image may be a valid tile).
-
-                Open the **TileSet** panel at the bottom of the editor, then click and drag the
-                tilesheet image onto the panel. You will be asked whether to create tiles
-                automatically. Answer **Yes**:
+                Press the little **+** icon next to `res://`. Then tap **Import Files** and navigate to your extracted archive. We want "tilesheet_complete.png" from inside the Tilesheet folder. Select it, and then press **Open**.
+            }
+            @Step {
+                With the `TileMapLayer`, open the **TileSet** panel at the bottom of the editor, then press and drag the
+                tilesheet image onto the left half of the panel. This will automatically import the tileset image.
                 @Image(source: "using_tilesets_create_tiles_automatically.png", alt: "Automatically creating tiles based on tilesheet image content")
             }
+            This will automatically create tiles according to the tile size you specified
+            earlier in the TileSet resource. This greatly speeds up initial tile setup.
+            
             @Step {
-                This will automatically create tiles according to the tile size you specified
-                earlier in the TileSet resource. This greatly speeds up initial tile setup.
-
-                > When using automatic tile generation based on image contents, parts of the
-                tilesheet that are *fully* transparent will not have tiles generated.
-
-                If there are tiles from the tilesheet you do not wish to be present in atlas,
-                choose the Eraser tool at the top of the tileset preview, then click the tiles
-                you wish to remove:
-                @Image(source: "using_tilesets_eraser_tool.png", alt: "Using the Eraser tool to remove unwanted tiles from the TileSet atlas")
+                Let's get a better look at your tileset image by closing both the **Scope** and **Scene Tree** panels. 
+                
+                Then drag up on the pull handle to expand the **TileSet** panel.
             }
+            
+            > When using automatic tile generation based on image contents, parts of the
+            tilesheet that are *fully* transparent will not have tiles generated.
+
             @Step {
-                You can also right-click a tile and choose **Delete**, as an alternative to the
-                Eraser tool.
-
-                > Tip: Like in the 2D and TileMap editors, you can pan across the TileSet panel using
-                the middle or right mouse buttons, and zoom using the mouse wheel or buttons in
-                the top-left corner.
-
-                If you wish to source tiles from several tilesheet images for a single TileSet,
-                create additional atlases and assign textures to each of them before continuing.
-                It is also possible to use one image per tile this way (although using
-                tilesheets is recommended for better usability).
-
-                You can adjust properties for the atlas in the middle column:
+                You can select a tile and choose **Delete**  in the **Ellipsis** (**...**) menu to remove any tiles you don't want.
+            }
+            If you wish to source tiles from several tilesheet images for a single TileSet,
+            create additional atlases and assign textures to each of them before continuing.
+            It is also possible to use one image per tile this way (although using
+            tilesheets is recommended for better usability).
+            @Step { 
+                You can adjust properties for the atlas by opening the **Scope** and selecting **Setup** in the **Atlas** tab.
                 @Image(source: "using_tilesets_properties.png", alt: "Adjusting TileSet atlas properties in the dedicated inspector (part of the TileSet panel)")
             }
+            The following properties can be adjusted in the **Atlas**:
+
+            * **ID:** The identifier (unique within this TileSet), used for sorting.
+            * **Name:** The human-readable name for the atlas. Use a descriptive name
+            here for organizational purposes (such as "terrain", "decoration", etc).
+            * **Margins:** The margins on the image's edges that should not be selectable as
+            tiles (in pixels). Increasing this can be useful if you download a tilesheet
+            image that has margins on the edges (e.g. for attribution).
+            * **Separation:** The separation between each tile on the atlas in pixels.
+            Increasing this can be useful if the tilesheet image you're using contains
+            guides (such as outlines between every tile).
+            * **Texture Region Size:** The size of each tile on the atlas in pixels. In most
+            cases, this should match the tile size defined in the TileMapLayer property
+            (although this is not strictly necessary).
+            * **Use Texture Padding:** If checked, adds a 1-pixel transparent edge around
+            each tile to prevent texture bleeding when filtering is enabled.
+            It's recommended to leave this enabled unless you're running into rendering issues
+            due to texture padding.
+
+            Note that changing texture margin, separation and region size may cause tiles to
+            be lost (as some of them would be located outside the atlas image's
+            coordinates). 
             @Step {
-                The following properties can be adjusted on the atlas:
-
-                * **ID:** The identifier (unique within this TileSet), used for sorting.
-                * **Name:** The human-readable name for the atlas. Use a descriptive name
-                here for organizational purposes (such as "terrain", "decoration", etc).
-                * **Margins:** The margins on the image's edges that should not be selectable as
-                tiles (in pixels). Increasing this can be useful if you download a tilesheet
-                image that has margins on the edges (e.g. for attribution).
-                * **Separation:** The separation between each tile on the atlas in pixels.
-                Increasing this can be useful if the tilesheet image you're using contains
-                guides (such as outlines between every tile).
-                * **Texture Region Size:** The size of each tile on the atlas in pixels. In most
-                cases, this should match the tile size defined in the TileMapLayer property
-                (although this is not strictly necessary).
-                * **Use Texture Padding:** If checked, adds a 1-pixel transparent edge around
-                each tile to prevent texture bleeding when filtering is enabled.
-                It's recommended to leave this enabled unless you're running into rendering issues
-                due to texture padding.
-
-                Note that changing texture margin, separation and region size may cause tiles to
-                be lost (as some of them would be located outside the atlas image's
-                coordinates). To regenerate tiles automatically from the tilesheet, use the
-                three vertical dots menu button at the top of the TileSet editor and choose
+                To regenerate tiles automatically from the tilesheet, use the
+                 **More Details** icon, at the top of the **TileSet** editor, next to the **Select Mode** button and choose
                 **Create Tiles in Non-Transparent Texture Regions**:
                 @Image(source: "using_tilesets_recreate_tiles_automatically.png", alt: "Recreating tiles automatically after changing atlas properties")
             }
-            @Step {
-
-            }
+            The **Select Mode** button lets you change modes from individual tile selection to rectangle lasso selection. Pressing **Clear** will clear your tile selection.
+            
+            >Note: To make a tile selection you need to be in **Select mode**, you can change that in the Atlas dropdown by pressing **Setup** and choosing **Select**.
         }
     }
     @Section(title: "Using a collection of scenes") {
