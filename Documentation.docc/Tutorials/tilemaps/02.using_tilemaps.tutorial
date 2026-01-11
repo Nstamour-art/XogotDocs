@@ -3,7 +3,7 @@
         > This page assumes you have created or downloaded a TileSet already. If not,
             please read <doc:01.using_tilesets> first as you will need a TileSet
             to create a TileMap.
-        In this tutorial we will go over how to use the TileMap editor once you've created a TileSet. 
+        In this tutorial we will go over how to use the TileMap editor once you've created a `TileSet` resource.
         @Image(source: "fix-me.png")
         
         A tilemap is a grid of tiles used to create a game's layout. There are several
@@ -20,7 +20,7 @@
     }
     @Section(title: "Specifying the TileSet in the TileMapLayer") {
         @ContentAndMedia {
-            If you've followed the previous page on <doc:01.using_tilesets>, you should
+            If you've followed the previous tutorial on <doc:01.using_tilesets>, you should
             have a `TileSet` resource that is built into the `TileMapLayer` node. This is good for
             prototyping, but in a real world project, you will generally have multiple
             levels reusing the same tileset.
@@ -33,7 +33,7 @@
             The recommended way to reuse the same `TileSet` in several `TileMapLayer` nodes is to save
             the `TileSet` to an external resource. 
             @Step {
-                To do so, click the dropdown next to the TileSet
+                To do so, long-press the resource or tap the ellipsis button next to the `TileSet`
                 resource and choose **Save**:
             }
         }
@@ -41,7 +41,11 @@
     @Section(title: "Multiple TileMapLayers and settings") {
         @ContentAndMedia {
             When working with tilemaps it's generally advised that you use multiple TileMapLayer
-            nodes when appropriate. Using multiple layers can be advantageous, for example,
+            nodes when appropriate. 
+            @Image(source: "fix-me.png")
+        }
+        
+            Using multiple layers can be advantageous, for example,
             this allows you to distinguish foreground tiles from background tiles for better
             organization. You can place one tile per layer at a given location, which allows you
             to overlap several tiles together if you have more than one layer.
