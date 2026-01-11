@@ -93,7 +93,7 @@
             tilesheet that are *fully* transparent will not have tiles generated.
 
             @Step {
-                You can select a tile and choose **Delete**  in the **Ellipsis** (**...**) menu to remove any tiles you don't want.
+                You can select a tile and choose **Delete**  in the **Ellipsis** (**...**) menu to remove any tiles you don't want, or press the **Erasor** icon.
                 @Image(source: fix-me.png)
             }
             If you wish to source tiles from several tilesheet images for a single `TileSet`,
@@ -340,7 +340,7 @@
                 In this example we have added a data layer for a `boolean`, a `string` and `float`. In the following image, you can see that in the **Atlas Inspector** we are able to edit those values.
                 @Image(source: "fix-me.png")
             }
-            Back in the **Inspector**, you can reorder custom data without breaking existing metadata: the `TileSet` will update automatically after reordering custom data properties.
+            Back in the **Inspector** > **TileSet**, you can reorder custom data without breaking existing metadata: the `TileSet` will update automatically after reordering custom data properties.
             @Step {
                 In the **Inspector** if you open the **Custom Data Layers** `Array[]` you can tap **Edit** and then reorder or delete a layer.
                 
@@ -351,51 +351,51 @@
                 can also be used for custom data:
                 @Image(source: "using_tilesets_paint_custom_data.png", alt: "Assigning custom data in the TileSet editor using tile property painting")
             }
-            @Step {
-
-            }
         }
     }
     @Section(title: "Creating terrain sets (autotiling)") {
         @ContentAndMedia {
-            > This functionality was implemented in a different form as *autotiling* in Godot 3.x.
             Terrains are essentially a more powerful replacement of autotiles. Unlike
             autotiles, terrains can support transitions from one terrain to another, as
-            a tile may define several terrains at once.Unlike before, where autotiles were a specific kind of tiles, terrains are
+            a tile may define several terrains at once. Unlike before, where autotiles were a specific kind of tiles, terrains are
             only a set of properties assigned to atlas tiles. These properties are then
             used by a dedicated TileMap painting mode that selects tiles featuring
             terrain data in a smart way. This means any terrain tile can be either
             painted as terrain or as a single tile, like any other.
-
-            A "polished" tileset generally features variations that you should use on
-            corners or edges of platforms, floors, etc. While these can be placed manually,
-            this quickly becomes tedious. Handling this situation with procedurally
-            generated levels can also be difficult and require a lot of code.
-
-            Godot offers *terrains* to perform this kind of tile connection automatically.
-            This allows you to have the "correct" tile variants automatically used.
-
-            Terrains are grouped into terrain sets. Each terrain set is assigned a mode from
-            **Match Corners and Sides**, **Match Corners** and **Match sides**. They define how
-            terrains are matched to each other in a terrain set.
-
-            > The above modes correspond to the previous bitmask modes autotiles used in
-            Godot 3.x: 2×2, 3×3 or 3×3 minimal. This is also similar to what
-            the [Tiled](https://www.mapeditor.org/) editor features.
-
-            Select the TileMapLayer node, go to the inspector and create a new terrain set within the TileSet *resource*:
-
-            @Image(source: "using_tilesets_create_terrain_set.png", alt: "Creating a terrain set in the TileSet resource inspector (within the TileMapLayer node)")
+            @Image(source:"fix-me.png")
         }
+
+        A "polished" tileset generally features variations that you should use on
+        corners or edges of platforms, floors, etc. While these can be placed manually,
+        this quickly becomes tedious. Handling this situation with procedurally
+        generated levels can also be difficult and require a lot of code.
+
+        Godot offers *terrains* to perform this kind of tile connection automatically.
+        This allows you to have the "correct" tile variants automatically used.
+
+        Terrains are grouped into terrain sets. Each terrain set is assigned a mode from
+        **Match Corners and Sides**, **Match Corners** and **Match sides**. They define how
+        terrains are matched to each other in a terrain set.
+
+        > The above modes correspond to the previous bitmask modes autotiles used in
+        Godot 3.x: 2×2, 3×3 or 3×3 minimal. This is also similar to what
+        the [Tiled](https://www.mapeditor.org/) editor features.
         @Steps {
             @Step {
-                After creating a terrain set, you **must** create one or more terrains *within* the terrain set:
-                @Image(source: "using_tilesets_create_terrain.png", alt: "Creating a terrain within the terrain set")
+                Select the TileMapLayer node, go to the inspector and create a new terrain set within the TileSet *resource*:
+                
+                @Image(source: "using_tilesets_create_terrain_set.png", alt: "Creating a terrain set in the TileSet resource inspector (within the TileMapLayer node)")
             }
+            After creating a terrain set, you **must** create one or more terrains *within* the terrain set:
             @Step {
-                In the TileSet editor, switch to Select mode and click a tile. In the middle
-                column, unfold the **Terrains** section then assign a terrain set ID and a
-                terrain ID for the tile. `-1` means "no terrain set" or "no terrain", which
+                Inside the **Terrain Sets** window, tap the **Terrains** `Array[0]` and in the new window, add a **Terrain**.
+                @Image(source:"fix-me.png")
+            }
+            Press **Dismiss** to leave a sub-window at any time.
+            @Step {
+                In with the **TileSet** editor selected, switch to **Select** mode and tap a tile. In the **Atlas**, you'll see the **Terrains** section is now present. Assign a terrain set ID and a terrain ID for the tile. In the example we use `0`. 
+                
+                `-1` means "no terrain set" or "no terrain", which
                 means you must set **Terrain Set** to `0` or greater before you can set
                 **Terrain** to `0` or greater.
 
@@ -405,61 +405,51 @@
             }
             @Step {
                 After doing so, you can now configure the **Terrain Peering Bits** section which
-                becomes visible in the middle column. The peering bits determine which tile will
+                becomes visible in the **Atlas**. 
+                
+                The peering bits determine which tile will
                 be placed depending on neighboring tiles. `-1` is a special value which refers
                 to empty space.
-
-                For example, if a tile has all its bits set to `0` or greater, it will only
-                appear if *all* 8 neighboring tiles are using a tile with the same terrain ID.
-                If a tile has its bits set to `0` or greater,
-                but the top-left, top and top-right bits are set to `-1`, it will only appear
-                if there is empty space on top of it (including diagonally).
                 @Image(source: "using_tilesets_configure_terrain_peering_bits.png", alt: "Configuring terrain peering bits on a single tile in the TileSet editor's Select mode")
             }
+            For example, if a tile has all its bits set to `0` or greater, it will only
+            appear if *all* 8 neighboring tiles are using a tile with the same terrain ID.
+            If a tile has its bits set to `0` or greater,
+            but the top-left, top and top-right bits are set to `-1`, it will only appear
+            if there is empty space on top of it (including diagonally).
             @Step {
                 An example configuration for a full tilesheet may look as follows:
                 @Image(source: "using_tilesets_terrain_example_tilesheet.png", alt: "Example full tilesheet for a sidescrolling game")
             }
-            @Step {
-
-                @Image(source: "using_tilesets_terrain_example_tilesheet_configuration.png", alt: "Example full tilesheet for a sidescrolling game with terrain peering bits visible")
-            }
-            @Step {
-
-            }
+            Next, we discuss the two ways to assign properties to multiple tiles at once.
+            Depending on your use cases, one method may be faster than the other.
         }
     }
-    @Section(title: "Assigning properties to multiple tiles at once") {
-        @ContentAndMedia {
-            There are two ways to assign properties to multiple tiles at once.
-            Depending on your use cases, one method may be faster than the other:
-        }
-    }
+
     @Section(title: "Using multiple tile selection") {
         @ContentAndMedia {
-            If you wish to configure various properties on several tiles at once,
-            choose the **Select** mode at the top of the TileSet editor:
-
-            After doing this, you can select multiple tiles on the right column by holding
-            Shift then clicking on tiles. You can also perform rectangle selection by
-            holding down the left mouse button then dragging the mouse. Lastly, you can
+            To configure multiple properties on several tiles at once,
+            choose the **Select** mode at the top of the **Scope** dock. You can access this tab when the **TileSet** editor is opened.
+            @Image(source: "fix-me.png")
+        }
+        @ContentAndMedia {
+            After doing this, you can select multiple tiles in the **TileSet** editor by tapping on tiles. You can also toggle between *normal select* and *rectangle selection* by
+            tapping the **Pointer Icon**. 
+            @Image(source: "fix-me.png")
+        }
+        @ContentAndMedia {
+            Lastly, you can
             deselect tiles that were already selected (without affecting the rest of the
-            selection) by holding Shift then clicking on a selected tile.
+            selection) by tapping a selected tile to deselect it.
 
-            You can then assign properties using the inspector in the middle column of the
-            TileSet editor. Only properties that you change here will be applied to all
-            selected tiles. Like in the editor's inspector, properties that differ on
-            selected tiles will remain different until you edit them.
-
+            You can then assign properties using the inspector in the **Atlas** on the right in the **Scope** dock. In the **Atlas** tab you can edit the individual properties of all the selected tiles. 
+        @Image(source: "fix-me.png")
+        }
+        @ContentAndMedia {
             With numerical and color properties, you will also see a preview of the
             property's value on all tiles in the atlas after editing a property:
 
             @Image(source: "using_tilesets_select_and_set_tile_properties.png", alt: "Selecting multiple tiles using the Select mode, then applying properties")
-        }
-        @Steps {
-            @Step {
-
-            }
         }
     }
     @Section(title: "Using tile property painting") {
