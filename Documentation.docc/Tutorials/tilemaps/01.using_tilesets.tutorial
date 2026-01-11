@@ -54,7 +54,7 @@
             }
             This will automatically open the TileMap editor dock on the bottom. We will explore these tabs in a bit.
             @Step {
-                For now, click the value to unfold it in the
+                For now, tap the value to open it in the
                 inspector.
                 @Image(source: fix-me.png)
             }
@@ -263,7 +263,7 @@
             you will need to create a physics, navigation or occlusion layer for the TileSet
             resource first.
             @Step {
-                Select the `TileMapLayer` node, click the `TileSet` property
+                Select the `TileMapLayer` node, tap the `TileSet` property
                 value in the inspector to edit it then tap `Array[0]` next to **Physics Layers** and choose
                 **Add** in the upper-right:
                 @Image(source: "fix-me.png")
@@ -298,7 +298,7 @@
             @Step {
                 You can use the default rectangle shape to quickly create a triangle-shaped
                 collision shape by removing one of the points:
-                @Image(source: "using_tilesets_creating_triangle_collision.png", alt: "Creating a triangle collision shape by right-clicking one of the corners to remove it")
+                @Image(source: "using_tilesets_creating_triangle_collision.png")
             }
             @Step {
                 You can also use the rectangle as a base for more complex shapes by adding more points:
@@ -449,97 +449,95 @@
             With numerical and color properties, you will also see a preview of the
             property's value on all tiles in the atlas after editing a property:
 
-            @Image(source: "using_tilesets_select_and_set_tile_properties.png", alt: "Selecting multiple tiles using the Select mode, then applying properties")
+            @Image(source: "using_tilesets_select_and_set_tile_properties.png")
         }
     }
     @Section(title: "Using tile property painting") {
         @ContentAndMedia {
             If you wish to apply a single property to several tiles at once,
             you can use the *property painting* mode for this purpose.
-
-            Configure a property to be painted in the middle column, then
-            click on tiles (or hold down the left mouse button) in the right column
-            to "paint" properties onto tiles.
-
-            @Image(source: "using_tilesets_paint_tile_properties.png", alt: "Painting tile properties using the TileSet editor")
+            
+            >Tip: This can be the fastest way to edit multiple tiles at a time. 
+            
+            Tile property painting is especially useful with properties that are time-consuming to set manually, such as collision shapes.
+            @Image(source: "using_tilesets_paint_tile_properties_collision.png")
         }
         @Steps {
             @Step {
-                Tile property painting is especially useful with properties that are
-                time-consuming to set manually, such as collision shapes:
-                @Image(source: "using_tilesets_paint_tile_properties_collision.png", alt: "Painting a collision polygon, then left-clicking tiles to apply it")
+                With the **TileSet** editor open, in the **Atlas** tab, change the mode from *Select* to *Paint*.
+                @Image(source: "fix-me.png")
             }
             @Step {
-
+                Configure a property to be painted in the dropdown, then
+                tap on tiles to apply these changes to multiple tiles at once.
+    
+                @Image(source: "using_tilesets_paint_tile_properties.png", alt: "Painting tile properties using the TileSet editor")
             }
         }
     }
-    @Section(title: "Creating alternative tiles") {
+    @Section(title: "Creating Alternative tiles") {
         @ContentAndMedia {
-            Sometimes, you want to use a single tile image (found only once within the
+            Sometimes, you might want to use a single tile image (found only once within the
             atlas), but configured in different ways. For example, you may want to use the
             same tile image, but rotated, flipped, or modulated with a different color. This
-            can be done using *alternative tiles*.
-
-            > Tip: Since Godot 4.2, you don't have to create alternative tiles to rotate or
-            flip tiles anymore. You can rotate any tile while placing it in the
-            TileMap editor by using the rotation/flip buttons in the TileMap editor
-            toolbar.
-
-            To create an alternative tile, right-click a base tile in the atlas displayed by
-            the TileSet editor, then choose **Create an Alternative Tile**:
-
-            @Image(source: "using_tilesets_create_alternative_tile.png", alt: "Creating an alternative tile by right-clicking a base tile in the TileSet editor")
+            can be done using *Alternative tiles*.
+            @Image(source: "fix-me.png")
+        }
+        > Tip: Since Godot 4.2, you don't have to create alternative tiles to rotate or
+        flip tiles anymore. You can rotate any tile while placing it in the
+        TileMap editor by using the rotation/flip buttons in the TileMap editor
+        toolbar.
         }
         @Steps {
             @Step {
-                If currently in Select mode, the alternative tile will already be selected
-                for editing. If not currently in Select mode, you can still create alternative
-                tiles, but you will need to switch to Select mode and select the alternative
-                tile to edit it.
+                To create an alternative tile, make sure you are in *Select* mode, then tap on a tile to select it in the **TileSet** editor (1), then choose **Create an Alternative Tile** in the **Ellipsis** "..." menu next to the **Erasor** (2)
 
-                If you don't see the alternative tile, pan over to the right of the atlas image,
-                as alternative tiles always appear on the right of base tiles of a given atlas
-                in the TileSet editor:
-                @Image(source: "using_tilesets_configure_alternative_tile.png", alt: "Configuring an alternative tile after clicking it in the TileSet editor")
+                @Image(source: "using_tilesets_create_alternative_tile.png")
             }
+            Doing this will open a small Alternative tile window inside the **TileSet* editor.
+            
+            
             @Step {
-                After selecting an alternative tile, you can change any properties using the
-                middle column like you would on a base tile. However, the list of exposed
-                properties is different compared to base tiles:
 
-                * **Alternative ID:** The unique numerical identifier for this alternative tile.
-                Changing it will break existing TileMaps, so be careful! This ID also controls
-                the sorting in the list of alternative tiles displayed in the editor.
-                * **Rendering > Flip H:** If `true`, the tile is horizontally flipped.
-                * **Rendering > Flip V:** If `true`, the tile is vertically flipped.
-                * **Rendering > Transpose:** If `true`, the tile is rotated 90 degrees
-                *counter-clockwise* and then flipped vertically. In practice, this means that
-                to rotate a tile by 90 degrees clockwise without flipping it, you should
-                enable **Flip H** and **Transpose**. To rotate a tile by 180 degrees
-                clockwise, enable **Flip H** and **Flip V**. To rotate a tile by 270 degrees
-                clockwise, enable **Flip V** and **Transpose**.
-                * **Rendering > Texture Origin:** The origin to use for drawing the tile. This
-                can be used to visually offset the tile compared to the base tile.
-                * **Rendering > Modulate:** The color multiplier to use when rendering the tile.
-                * **Rendering > Material:** The material to use for this tile. This can be used
-                to apply a different blend mode or custom shaders to a single tile.
-                * **Z Index:** The sorting order for this tile. Higher values will make the tile
-                render in front of others on the same layer.
-                * **Y Sort Origin:** The vertical offset to use for tile sorting based on its Y
-                coordinate (in pixels). This allows using layers as if they were on different
-                height for top-down games. Adjusting this can help alleviate issues with
-                sorting certain tiles. Only effective if **Y Sort Enabled** is `true` on
-                the TileMapLayer node under **CanvasItem > Ordering**
+            Alternative tiles will appear inside a small window in the **TileSet** editor. If you close this window, you can reopen it by hitting the hexagonal **Alternative Tile** icon in the tool menu. 
+                @Image(source: "using_tilesets_configure_alternative_tile.png", alt: "Configuring an alternative tile aftertaping it in the TileSet editor")
+            }
+            After selecting an alternative tile, you can change any properties using the
+            **Atlas** properties tab like you would on a base tile. However, the list of exposed
+            properties is a bit different compared to base tiles:
 
-                You can create an additional alternative tile variant by clicking the large "+"
-                icon next to the alternative tile. This is equivalent to selecting the base tile
-                and right-clicking it to choose **Create an Alternative Tile** again.
+            - **Alternative ID:** The unique numerical identifier for this alternative tile.
+            Changing it will break existing TileMaps, so be careful! This ID also controls
+            the sorting in the list of alternative tiles displayed in the editor.
+            - **Rendering > Flip H:** If `true`, the tile is horizontally flipped.
+            - **Rendering > Flip V:** If `true`, the tile is vertically flipped.
+            - **Rendering > Transpose:** If `true`, the tile is rotated 90 degrees
+            *counter-clockwise* and then flipped vertically. In practice, this means that
+            to rotate a tile by 90 degrees clockwise without flipping it, you should
+            enable **Flip H** and **Transpose**. To rotate a tile by 180 degrees
+            clockwise, enable **Flip H** and **Flip V**. To rotate a tile by 270 degrees
+            clockwise, enable **Flip V** and **Transpose**.
+            - **Rendering > Texture Origin:** The origin to use for drawing the tile. This
+            can be used to visually offset the tile compared to the base tile.
+            - **Rendering > Modulate:** The color multiplier to use when rendering the tile.
+            - **Rendering > Material:** The material to use for this tile. This can be used
+            to apply a different blend mode or custom shaders to a single tile.
+            - **Z Index:** The sorting order for this tile. Higher values will make the tile
+            render in front of others on the same layer.
+            - **Y Sort Origin:** The vertical offset to use for tile sorting based on its Y
+            coordinate (in pixels). This allows using layers as if they were on different
+            height for top-down games. Adjusting this can help alleviate issues with
+            sorting certain tiles. Only effective if **Y Sort Enabled** is `true` on
+            the `TileMapLayer` node under **CanvasItem > Ordering**
+            @Step {
+                You can create an additional alternative tile variant by deselecting your alternative tile and then following the same process from the first step.
 
                 > When creating an alternative tile, none of the properties from the base tile
                 are inherited. You must set properties again on the alternative tile if you
                 wish those to be identical on the base tile and the alternative tile.
             }
+            
+        You've now learned all the basics of managing and editing `TileSets` in Xogot. In the next page we will go over setting up and using these in the **TileMap** editor.
         }
     }
 }
