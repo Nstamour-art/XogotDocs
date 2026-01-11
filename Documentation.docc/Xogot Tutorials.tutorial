@@ -12,12 +12,11 @@
     
     @Chapter(name: "Step by Step") {
         @Image(source: scripting_first_script_rotating_godot.gif)
-
+        
         This step-by-step tutorial series is your introduction to Xogot. You’ll learn 
         the basics of the editor, nodes, scenes, GDScript, and signals through practical 
         examples. By the end of the series, you’ll have the foundations you need to 
         confidently start creating games in Xogot.
-
         
         @TutorialReference(tutorial: "doc:1_nodes_and_scenes")
         @TutorialReference(tutorial: "doc:2_instancing")
@@ -43,10 +42,9 @@
     @Chapter(name: "TileSets and TileMaps") {
         @Image(source: using_tilesets_kenney_abstract_platformer_tile_sheet.png)
         
-        Some notes about using TileMaps and TileSets in Xogot.
-        
-        @TutorialReference(tutorial: "doc:01.using_tilesets")
-        @TutorialReference(tutorial: "doc:02.using_tilemaps")
+        Some notes about using TileMaps and TileSets.
+        @TutorialReference(tutorial: "doc:using_tilesets")
+        @TutorialReference(tutorial: "doc:using_tilemaps")
         
     }
     <-- @Chapter(name: "Your First 3D Game") {-->
