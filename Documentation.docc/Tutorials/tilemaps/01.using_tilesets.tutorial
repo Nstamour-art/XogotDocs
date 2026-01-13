@@ -31,7 +31,7 @@
             [Kenney's "Abstract Platformer" pack](https://kenney.nl/assets/abstract-platformer).
             We'll use this particular *tilesheet* from the set:
 
-            @Image(source: "using_tilesets_kenney_abstract_platformer_tile_sheet.png", alt: "Tilesheet example with 64×64 tiles")
+            @Image(source: "using_tilesets_kenney_abstract_platformer_tile_sheet.png")
             
         }
         Download the attached *.zip* file and extract it in the **Files** app; once ready return to Xogot.
@@ -48,7 +48,7 @@
             }
             @Step {
                 Select the new node and create a new TileSet resource in the **Inspector** by tapping `PickResource` and selecting `New TileSet`:
-                @Image(source: "using_tilesets_create_new_tileset.png", alt: "Creating a new TileSet resource within the TileMapLayer node")
+                @Image(source: "using_tilesets_create_new_tileset.png")
                 
                 >Tip: If the **Scope** dock is closed, press the cross-hair icon in the upper right, next to the **Play** button, to open it.
             }
@@ -67,7 +67,7 @@
             area on the tilesheet.
             @Step {
                 Set the tile size to 64×64 in the inspector to match the example tilesheet:
-                @Image(source: "using_tilesets_specify_size_then_edit.png", alt: "Setting the tile size to 64×64 to match the example tilesheet")
+                @Image(source: "using_tilesets_specify_size_then_edit.png")
             }
             >Important: If relying on automatic tiles creation (like we're about to do here), you must set the tile size **before** creating the *atlas*. The atlas will determine which tiles from the tilesheet can be added to a `TileMapLayer` node (as not every part of the image may be a valid tile).
             @Step {
@@ -77,7 +77,7 @@
             @Step {
                 With the `TileMapLayer`, open the **TileSet** panel at the bottom of the editor, then press and drag the
                 tilesheet image onto the left half of the panel. This will automatically import the tileset image.
-                @Image(source: "using_tilesets_create_tiles_automatically.png", alt: "Automatically creating tiles based on tilesheet image content")
+                @Image(source: "using_tilesets_create_tiles_automatically.png")
             }
             This will automatically create tiles according to the tile size you specified
             earlier in the TileSet resource. This greatly speeds up initial tile setup.
@@ -102,7 +102,7 @@
             tilesheets is recommended for better usability).
             @Step { 
                 You can adjust properties for the atlas by opening the **Scope** (1) and selecting **Setup** (2) in the **Atlas Inspector** tab.
-                @Image(source: "using_tilesets_properties.png", alt: "Adjusting TileSet atlas properties in the dedicated inspector (part of the TileSet panel)")
+                @Image(source: "using_tilesets_properties.png")
             }
             The following properties can be adjusted in the **Atlas Inspector**:
 
@@ -130,7 +130,7 @@
                 To regenerate tiles automatically from the tilesheet, use the
                  **More Details** icon (1), at the top of the **TileSet** editor, next to the **Select Mode** button and choose
                 **Create Tiles in Non-Transparent Texture Regions** (2):
-                @Image(source: "using_tilesets_recreate_tiles_automatically.png", alt: "Recreating tiles automatically after changing atlas properties")
+                @Image(source: "using_tilesets_recreate_tiles_automatically.png")
             }
             >tip:The **Select Mode** button lets you change modes from individual tile selection to rectangle lasso selection. Pressing **Clear** will clear your tile selection.
             
@@ -176,15 +176,15 @@
             @Step {
                 Open the TileSet editor, and create a new **Scenes Collection** in the **Tiles** column. To do so, hit the **+** and select **Scenes Collection**
                 
-                @Image(source: "using_tilesets_creating_scene_collection.png", alt: "Creating a scenes collection in the TileSet editor")
+                @Image(source: "using_tilesets_creating_scene_collection.png")
             }
             @Step {
                 Select this scenes collection then create a new scene slot by tapping **+**:
-                @Image(source: "using_tilesets_scene_collection_create_scene_tile.png", alt: "Creating a scene tile after selecting the scenes collection in the TileSet editor")
+                @Image(source: "using_tilesets_scene_collection_create_scene_tile.png")
             }
             @Step {
                 In the pop-up window, select your newly saved `cpu_particles.tscn` file and press **select**.
-                @Image(source: "using_tilesets_adding_scene_tile.png", alt: "Creating a scene slot, then loading a scene file into it in the TileSet editor")
+                @Image(source: "using_tilesets_adding_scene_tile.png")
             }
             Now that we have added a scene to our `TileSet` we should give it a descriptive name.
             @Step {
@@ -213,13 +213,13 @@
                 Use the **Settings** "Cog" menu button located at the top of the list of
                 atlases, then choose **Open Atlas Merging Tool**:
                 
-                @Image(source: "using_tilesets_open_atlas_merging_tool.png", alt: "Opening the atlas merging tool after creating multiple atlases")
+                @Image(source: "using_tilesets_open_atlas_merging_tool.png")
             }
             @Step {
                 This will open a dialog, in which you can select several atlases by tapping on them in the list on the left.
                 
                 > It can take time to load the resulting atlas, especially for large files, so it may take time to update your new atlas. Please be patient when selecting atlases to merge. Once ready the result will display in the right panel.
-                @Image(source: "using_tilesets_atlas_merging_tool_dialog.png", alt: "Using the atlas merging tool dialog")
+                @Image(source: "using_tilesets_atlas_merging_tool_dialog.png")
             }
             @Step {
                 Choose **Merge** to merge the selected atlases into a single atlas image (which
@@ -268,14 +268,10 @@
                 **Add** in the upper-right:
                 @Image(source: "fix-me.png")
             }
-            @Step {
-                If you also need navigation support, now is a good time to create a navigation layer by tapping `Array[0]` next to **Navigation Layers** and pressing **Add**:
-                @Image(source: "using_tilesets_create_navigation_layer.png", alt: "Creating a navigation layer in the TileSet resource inspector (within the TileMapLayer node)")
-            }
             If you need support for light polygon occluders, now is also a good time to create an occlusion layer.
             @Step {
                 Tap **Rendering**, and then press `Array[0]` next to **Occlusion Layers** and press **Add**:
-                @Image(source: "using_tilesets_create_occlusion_layer.png", alt: "Creating an occlusion layer in the TileSet resource inspector (within the TileMapLayer node)")
+                @Image(source: "using_tilesets_create_occlusion_layer.png")
             }
             > Important:  Future steps in this tutorial are tailored to creating *collision polygons*,
                 but the procedure for navigation and occlusion is very similar.
@@ -286,7 +282,7 @@
                 in the `TileSet` **Atlas Inspector**. Inside there is a collision drawing section. 
                 
                 > Make sure you have a tile selected in order to see this section.
-                @Image(source: "using_tilesets_selecting_collision_editor.png", alt: "Opening the collision editor while in Select mode")
+                @Image(source: "using_tilesets_selecting_collision_editor.png")
             }
             In this tile shape editor, you have access to all the 2D polygon editing tools:
             * Use the toolbar above the polygon to toggle between creating a new polygon,
@@ -376,10 +372,6 @@
         Terrains are grouped into terrain sets. Each terrain set is assigned a mode from
         **Match Corners and Sides**, **Match Corners** and **Match sides**. They define how
         terrains are matched to each other in a terrain set.
-
-        > The above modes correspond to the previous bitmask modes autotiles used in
-        Godot 3.x: 2×2, 3×3 or 3×3 minimal. This is also similar to what
-        the [Tiled](https://www.mapeditor.org/) editor features.
         @Steps {
             @Step {
                 Select the TileMapLayer node, go to the inspector and create a new terrain set within the TileSet *resource*:
@@ -425,56 +417,6 @@
             Depending on your use cases, one method may be faster than the other.
         }
     }
-
-    @Section(title: "Using multiple tile selection") {
-        @ContentAndMedia {
-            To configure multiple properties on several tiles at once,
-            choose the **Select** mode at the top of the **Scope** dock. You can access this tab when the **TileSet** editor is opened.
-            @Image(source: "fix-me.png")
-        }
-        @ContentAndMedia {
-            After doing this, you can select multiple tiles in the **TileSet** editor by tapping on tiles. You can also toggle between *normal select* and *rectangle selection* by
-            tapping the **Pointer Icon**. 
-            @Image(source: "fix-me.png")
-        }
-        @ContentAndMedia {
-            Lastly, you can
-            deselect tiles that were already selected (without affecting the rest of the
-            selection) by tapping a selected tile to deselect it.
-
-            You can then assign properties using the inspector in the **Atlas** on the right in the **Scope** dock. In the **Atlas** tab you can edit the individual properties of all the selected tiles. 
-        @Image(source: "fix-me.png")
-        }
-        @ContentAndMedia {
-            With numerical and color properties, you will also see a preview of the
-            property's value on all tiles in the atlas after editing a property:
-
-            @Image(source: "using_tilesets_select_and_set_tile_properties.png")
-        }
-    }
-    @Section(title: "Using tile property painting") {
-        @ContentAndMedia {
-            If you wish to apply a single property to several tiles at once,
-            you can use the *property painting* mode for this purpose.
-            
-            >Tip: This can be the fastest way to edit multiple tiles at a time. 
-            
-            Tile property painting is especially useful with properties that are time-consuming to set manually, such as collision shapes.
-            @Image(source: "using_tilesets_paint_tile_properties_collision.png")
-        }
-        @Steps {
-            @Step {
-                With the **TileSet** editor open, in the **Atlas** tab, change the mode from *Select* to *Paint*.
-                @Image(source: "fix-me.png")
-            }
-            @Step {
-                Configure a property to be painted in the dropdown, then
-                tap on tiles to apply these changes to multiple tiles at once.
-    
-                @Image(source: "using_tilesets_paint_tile_properties.png", alt: "Painting tile properties using the TileSet editor")
-            }
-        }
-    }
     @Section(title: "Creating Alternative tiles") {
         @ContentAndMedia {
             Sometimes, you might want to use a single tile image (found only once within the
@@ -482,12 +424,7 @@
             same tile image, but rotated, flipped, or modulated with a different color. This
             can be done using *Alternative tiles*.
             @Image(source: "fix-me.png")
-        }
-        > Tip: Since Godot 4.2, you don't have to create alternative tiles to rotate or
-        flip tiles anymore. You can rotate any tile while placing it in the
-        TileMap editor by using the rotation/flip buttons in the TileMap editor
-        toolbar.
-        }
+        } 
         @Steps {
             @Step {
                 To create an alternative tile, make sure you are in *Select* mode, then tap on a tile to select it in the **TileSet** editor (1), then choose **Create an Alternative Tile** in the **Ellipsis** "..." menu next to the **Eraser** (2)
@@ -500,7 +437,7 @@
             @Step {
 
             Alternative tiles will appear inside a small window in the **TileSet** editor. If you close this window, you can reopen it by hitting the hexagonal **Alternative Tile** icon in the tool menu. 
-                @Image(source: "using_tilesets_configure_alternative_tile.png", alt: "Configuring an alternative tile after taping it in the TileSet editor")
+            @Image(source: "using_tilesets_configure_alternative_tile.png")
             }
             After selecting an alternative tile, you can change any properties using the
             **Atlas** properties tab like you would on a base tile. However, the list of exposed
@@ -529,13 +466,12 @@
             height for top-down games. Adjusting this can help alleviate issues with
             sorting certain tiles. Only effective if **Y Sort Enabled** is `true` on
             the `TileMapLayer` node under **CanvasItem > Ordering**
-            @Step {
-                You can create an additional alternative tile variant by deselecting your alternative tile and then following the same process from the first step.
-
-                > When creating an alternative tile, none of the properties from the base tile
-                are inherited. You must set properties again on the alternative tile if you
-                wish those to be identical on the base tile and the alternative tile.
-            }
+            
+            You can create an additional alternative tile variant by deselecting your alternative tile and then following the same process from the first step.
+            
+            > When creating an alternative tile, none of the properties from the base tile
+            are inherited. You must set properties again on the alternative tile if you
+            wish those to be identical on the base tile and the alternative tile.
             
         You've now learned all the basics of managing and editing `TileSets` in Xogot. In the next page we will go over setting up and using these in the **TileMap** editor.
         }

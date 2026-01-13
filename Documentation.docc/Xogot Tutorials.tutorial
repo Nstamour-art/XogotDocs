@@ -40,7 +40,7 @@
         @TutorialReference(tutorial: "doc:07.finishing-up")
     }
     @Chapter(name: "TileSets and TileMaps") {
-        @Image(source: using_tilesets_kenney_abstract_platformer_tile_sheet.png)
+        @Image(source: tileset_placing.gif)
         
         This detailed series will get you up and running with the Xogot TileMap workflow. By the end of this series you will be able to create with Tiles and get started on your dream 2D game, on the go!
         @TutorialReference(tutorial: "doc:using_tilesets")
