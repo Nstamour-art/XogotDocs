@@ -1,4 +1,4 @@
-@Tutorial(time: 30) {
+@Tutorial(time: 45) {
     @Intro(title: "Using TileSets") {
 
         @Image(source: "using_scene_collection_header.gif")
