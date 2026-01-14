@@ -18,7 +18,7 @@
         
         To use TileMapLayer nodes, you will need to create a TileSet first. A TileSet is a
         collection of tiles that can be placed in a TileMapLayer node. After creating a
-        TileSet, you will be able to place them [`using the TileMap editor`](doc:02.using_tilemaps).
+        TileSet, you will be able to place them using the TileMap editor.
         
         To follow this guide, you will need an image containing your tiles where every
         tile has the same size (large objects can be split into several tiles). This
@@ -346,8 +346,7 @@
                 @Image(source: "using_tilesets_edit_custom_data.png")
             }
             @Step {
-                [`Tile property painting`](doc:doc_using_tilemaps_using_tile_property_painting)
-                can also be used for custom data:
+                Tile property painting can also be used for custom data:
                 @Image(source: "using_tilesets_paint_custom_data.png")
             }
         }
