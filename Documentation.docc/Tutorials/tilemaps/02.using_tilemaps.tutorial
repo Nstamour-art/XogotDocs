@@ -1,16 +1,16 @@
 @Tutorial(time: 30) {
     @Intro(title: "Using TileMaps") {
         > This page assumes you have created or downloaded a TileSet already. If not,
-            please read <doc:01.using_tilesets> first as you will need a TileSet
-            to create a TileMap.
-        In this tutorial we will go over how to use the TileMap editor once you've created a `TileSet` resource.
-        @Image(source: "fix-me.png")
+            please read <doc:01.using_tilesets> first as you will need a `TileSet`
+            to create a `TileMap`.
+        In this tutorial we will go over how to use the **TileMap** editor once you've created a `TileSet` resource.
+        @Image(source: "tilemap_header.gif")
     }
     @Section(title: "Why use a TileMapLayer node?") {
         @ContentAndMedia {
         A tilemap is a grid of tiles used to create a game's layout. There are several
         benefits to using [`TileMapLayer`](https://docs.godotengine.org/en/stable/classes/class_TileMapLayer.html#class-TileMapLayer) nodes to design your levels.
-        @Image(source: "fix-me.png")
+        @Image(source: "tilemap_overview.png")
         }
         
         First, they make it possible to draw the layout by "painting" the tiles onto a
@@ -29,8 +29,9 @@
             prototyping, but in a real world project, you will generally have multiple
             levels reusing the same tileset.
 
-            @Image(source: "using_tilemaps_save_tileset_to_resource.png", alt: "Saving the built-in TileSet resource to an external resource file")
+            @Image(source: "using_tilemaps_save_tileset_to_resource.png")
         }
+        
         @Steps {
             The recommended way to reuse the same `TileSet` in several `TileMapLayer` nodes is to save
             the `TileSet` to an external resource. 
@@ -45,11 +46,14 @@
                 of the editor:
                 
                 @Image(source: "using_tilemaps_open_tilemap_editor.png", alt: "Opening the TileMap panel at the bottom of the editor. The TileMapLayer node must be selected first.")
+            }
         }
     }
     @Section(title: "TileMap settings") {
+        @ContentAndMedia {
         After creating a TileMapLayer node, the scope will show a number of settings that can been adjusted:
-
+        @Image(source: fix-me.png)
+        }
         * **Enabled:** If `true`, the layer is visible in the editor and when running
         the project.
         * **TileSet** The tileset used by the TileMapLayer node.
@@ -78,7 +82,7 @@
 
         > Warning: 2D navigation meshes can not be "layered" or stacked on top of each other like visuals or physic shapes. Attempting to stack navigation meshes on the same navigation map will result in merge and logical errors that break the pathfinding.
     }
-    @Section(title: "Working with nodes and Reordering layers") 
+    @Section(title: "Working with nodes and Reordering layers") { 
         @ContentAndMedia {
             When working with tilemaps it's generally advised that you use multiple TileMapLayer
             nodes when appropriate. 
@@ -101,6 +105,7 @@
     @Section(title: "Selecting tiles to use for painting") {
         @ContentAndMedia {
             In this section we will go over all the tools in the TileMap editor paint mode and cover how to get ready for painting.
+            @Image(source: fix-me.png)
         }
         @Steps {
             @Step {
@@ -218,6 +223,7 @@
             While you can copy and paste tiles while in *Select* mode, you may wish to save
             premade *patterns* of tiles to place together in a go. This can be done on a
             per-TileMap basis by choosing the **Patterns** tab of the **TileMap** editor.
+            @Image(source: fix-me.png)
         }
         @Steps {
             First, go to the **Patterns** tab in the **TileMap** editor
