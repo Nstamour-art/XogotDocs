@@ -1,7 +1,7 @@
 @Tutorial(time: 30) {
     @Intro(title: "Using TileSets") {
 
-        @Image(source: "fix-me.png")
+        @Image(source: "using_scene_collection_header.gif")
     }
     @Section(title: "Introduction") {
         @ContentAndMedia {
@@ -37,18 +37,18 @@
         Download the attached *.zip* file and extract it in the **Files** app; once ready return to Xogot.
         @Steps {
             @Step {
-                Starting from the **Project Manager** press the **+** or **New Project** buttons to create a new project.
+                Starting from the **Project Manager** press the **+** or **New Game** buttons (1) to create a new project.
                 
-                Name the project whatever you like, we will use "Tiles Tutorial"
-                @Image(source: fix-me.png)
+                Name the project whatever you like, we will use "Tiles Tutorial" (2) and press **Add** (3)
+                @Image(source: "tilesheet_new_project.png")
             }
             @Step {
-                Press **Create Other Node** and in the **All** tab, search for **TileMapLayer**, then *tap* it to create it.
-                @Image(source: fix-me.png)
+                Press **Create Other Node** (1) and in the **All** tab, search for **TileMapLayer**, then *tap* it to create it (2).
+                @Image(source: "tilesheet_new_other_node.png")
             }
             @Step {
                 Select the new node and create a new TileSet resource in the **Inspector** by tapping `PickResource` and selecting `New TileSet`:
-                @Image(source: "using_tilesets_create_new_tileset.png")
+                @Image(source: "tileset_create_new_resource.png")
                 
                 >Tip: If the **Scope** dock is closed, press the cross-hair icon in the upper right, next to the **Play** button, to open it.
             }
@@ -56,7 +56,7 @@
             @Step {
                 For now, tap the `TileSet` resource value to open it in the
                 inspector.
-                @Image(source: fix-me.png)
+                @Image(source: "tileset_create_tileset_open.png")
             }
             > Tip:  The default tile shape is Square, but you can also choose Isometric,
             Half-Offset Square or Hexagon (depending on the shape of your tile images). If
@@ -71,8 +71,8 @@
             }
             >Important: If relying on automatic tiles creation (like we're about to do here), you must set the tile size **before** creating the *atlas*. The atlas will determine which tiles from the tilesheet can be added to a `TileMapLayer` node (as not every part of the image may be a valid tile).
             @Step {
-                Press the little **+** icon next to `res://`. Then tap **Import Files** and navigate to your extracted archive. We want "tilesheet_complete.png" from inside the Tilesheet folder. Select it, and then press **Open**.
-                @Image(source: fix-me.png)
+                Press the little **+** icon next to `res://` (1). Then tap **Import Files** (2) and navigate to your extracted archive. We want "tilesheet_complete.png" from inside the Tilesheet folder. Select it, and then press **Open**.
+                @Image(source: "tileset_import_file.png")
             }
             @Step {
                 With the `TileMapLayer`, open the **TileSet** panel at the bottom of the editor, then press and drag the
@@ -86,7 +86,7 @@
                 Let's get a better look at your tileset image by closing both the **Scope** (1) and **Scene Tree** panels (2).
                 
                 Then drag up on the pull handle to expand the **TileSet** panel (3).
-                @Image(source: fix-me.png)
+                @Image(source: "tileset_get_better_look.png")
             }
             
             > When using automatic tile generation based on image contents, parts of the
@@ -94,7 +94,7 @@
 
             @Step {
                 You can select a tile and choose **Delete**  in the **Ellipsis** (**...**) menu to remove any tiles you don't want, or press the **Eraser** icon.
-                @Image(source: fix-me.png)
+                @Image(source: "tileset_erasor.png")
             }
             If you wish to source tiles from several tilesheet images for a single `TileSet`,
             create additional atlases and assign textures to each of them before continuing.
@@ -138,7 +138,7 @@
             
             @Step {
                 Save your `TileMapLayer` scene by tapping the dropdown on the top of the screen and pressing **Save Scene**.
-                @Image(source: fix-me.png)
+                @Image(source: "tileset_save_scene.png")
             }
         }
     }
@@ -147,9 +147,9 @@
             You can also place actual *scenes* as tiles. This allows you to use
             any collection of nodes as a tile. For example, you could use scene tiles to
             place gameplay elements, such as shops the player may be able to interact with.
-            You could also use scene tiles to place AudioStreamPlayer2Ds (for ambient
+            You could also use scene tiles to place `AudioStreamPlayer2Ds` (for ambient
             sounds), particle effects, and more.
-            @Image(source: fix-me.png)
+            @Image(source: "using_scene_collection_header.gif")
         }
         
         > Warning: Scene tiles come with a greater performance overhead compared to atlases, as
@@ -158,20 +158,20 @@
         @Steps {
             For this example, we'll create a scene containing a `CPUParticles2D` root node.
             @Step {
-                Tap the dropdown next to your scene name and press **New Scene**.
-                @Image(source: fix-me.png)
+                Tap the dropdown next to your scene name (1) and press **New Scene** (2).
+                @Image(source: "using_scene_collection_new_scene.png")
             }
             @Step {
                 Name the scene "cpu_particles" and select **Empty**, then press **Create**.
-                @Image(source: fix-me.png)
+                @Image(source: "using_scenes_name_scene.png")
             }
             @Step {
-                Press **Create Other Node** and then in the **All** tab search for `CPUParticles2D` and tap on it to add it.
-                @Image(source: fix-me.png)
+                Press **Create Other Node** (1) and then in the **All** tab search for `CPUParticles2D` (2) and tap on it to add it (3).
+                @Image(source: "using_scene_cpu_particles.png")
             }
             @Step {
                 Save this scene to a scene file in the dropdown (1), then switch to the scene containing the TileMapLayer node (2)
-                @Image(source: fix-me.png)
+                @Image(source: "tileset_save_scene.png")
             }
             @Step {
                 Open the TileSet editor, and create a new **Scenes Collection** in the **Tiles** column. To do so, hit the **+** and select **Scenes Collection**
@@ -183,13 +183,13 @@
                 @Image(source: "using_tilesets_scene_collection_create_scene_tile.png")
             }
             @Step {
-                In the pop-up window, select your newly saved `cpu_particles.tscn` file and press **select**.
+                In the pop-up window, select your newly saved `cpu_particles.tscn` file (1) and press **select** (2).
                 @Image(source: "using_tilesets_adding_scene_tile.png")
             }
             Now that we have added a scene to our `TileSet` we should give it a descriptive name.
             @Step {
                 Tap on the scene entry and change the **Name** in the **Atlas Inspector** tab to `CPU Particles`.
-                @Image(source: fix-me.png)
+                @Image(source: "using_scene_collection_name.png")
             }
             You now have a scene tile in your `TileSet`. Once you switch to the **TileMap**
             editor, you'll be able to select it from the scenes collection and paint it like
@@ -202,7 +202,7 @@
             but it can also be cumbersome in certain situations (especially if you're using
             one image per tile). Xogot allows you to merge several atlases into a single
             atlas for easier organization.
-            @Image(source: fix-me.png)
+            @Image(source: "merging_atlas.png")
         }
         
         @Steps {
@@ -225,7 +225,10 @@
                 Choose **Merge** to merge the selected atlases into a single atlas image (which
                 translates to a single atlas within the TileSet).
                 
-                You will need to give the merged file a name in the following pop-up window.
+                You will need to give the merged file a name in the following pop-up window (1) and then press **Save** (2). 
+                
+                > Important: Include file extension ".png" in the file name.
+                @Image(source: "merging_atlas_name_save.png")
             }
             The unmerged atlases will be
             removed within the TileSet, but *the original tilesheet images will be kept on
@@ -246,13 +249,13 @@
             `TileMapLayer` node now, but it currently lacks any form of collision detection.
             This means the player and other objects could walk straight through the floor or
             walls.
-            @Image(source: "fix-me.png")
+            @Image(source: "collision_shapes_header.png")
         }
         If you use 2D navigation, you'll also need
         to define navigation polygons for tiles to generate a navigation mesh that
         agents can use for pathfinding.
 
-        Lastly, if you use lights or GPUParticles2D, you may
+        Lastly, if you use lights or `GPUParticles2D`, you may
         also want your `TileSet` to be able to cast shadows and collide with particles.
         This requires defining occluder polygons for "solid" tiles on the `TileSet`.
 
@@ -266,7 +269,7 @@
                 Select the `TileMapLayer` node, tap the `TileSet` property
                 value in the inspector to edit it then tap `Array[0]` next to **Physics Layers** and choose
                 **Add** in the upper-right:
-                @Image(source: "fix-me.png")
+                @Image(source: "tilesets_add_physics.png")
             }
             If you need support for light polygon occluders, now is also a good time to create an occlusion layer.
             @Step {
@@ -278,7 +281,7 @@
                 Their respective polygon editors behave in the same way, so these steps are
                 not repeated for brevity. For other layers, you need to access them in the **Paint** mode.
             @Step {
-                After creating a physics layer, you have access to the **Physics** section
+                After creating a `physics layer`, you have access to the **Physics** section
                 in the `TileSet` **Atlas Inspector**. Inside there is a collision drawing section. 
                 
                 > Make sure you have a tile selected in order to see this section.
@@ -298,7 +301,7 @@
             }
             @Step {
                 You can also use the rectangle as a base for more complex shapes by adding more points:
-                @Image(source: "using_tilesets_drawing_custom_collision.png", alt: "Drawing a custom collision for a complex tile shape")
+                @Image(source: "using_tilesets_drawing_custom_collision.png")
             }
             > Tip: If you have a large tileset, specifying the collision for each tile
             individually could take a lot of time. This is especially true as `TileMaps`
@@ -307,7 +310,7 @@
             quickly, use the **Paint** mode.
             @Step {
                 In the **Paint** mode, select "Physics Layer 0" in the dropdown and then proceed to create a polygon like before. Now once complete, in the `TileSet` window, you can tap on tiles to paint these shapes over your tile map.
-                @Image(source: "fix-me.png")
+                @Image(source: "using_tilesets_drawing_custom_collision_paint.png")
             }
         }
     }
@@ -324,41 +327,41 @@
             alternative tile and changing
             the custom data for the alternative tile only.
 
-            @Image(source: "using_tilesets_create_custom_data_layer.png", alt: "Creating a custom data layer in the TileSet resource inspector (within the TileMapLayer node)")
+            @Image(source: "using_tilesets_create_custom_data_layer.png")
         }
         @Steps {
             @Step {
-                To add a custom data layer to your TileSet resource, go back to the **Inspector** and tap `Array[0]` next to **Custom Data Layers**
-                @Image(source: "using_tilesets_custom_data_layers_example.png", alt: "Example of configured custom data layers with game-specific properties")
+                To add a custom data layer to your `TileSet` resource, go back to the **Inspector** and tap `Array[0]` next to **Custom Data Layers**
+                @Image(source: "using_tilesets_custom_data_layers_example.png")
             }
-            This will open a window where you can add as many custom data layers as needed. Each will let you set a **Name** and **Type**. The **Type** field can be any of the many Godot variable types.
+            This will open a window where you can add as many custom data layers as needed. Each will let you set a **Name** and **Type**. The **Type** field can be any of the many Xogot/GDScript variable types.
             @Step {
                 In this example we have added a data layer for a `boolean`, a `string` and `float`. In the following image, you can see that in the **Atlas Inspector** we are able to edit those values.
-                @Image(source: "fix-me.png")
+                @Image(source: "using_tilesets_create_custom_data_layer.png")
             }
             Back in the **Inspector** > **TileSet**, you can reorder custom data without breaking existing metadata: the `TileSet` will update automatically after reordering custom data properties.
             @Step {
                 In the **Inspector** if you open the **Custom Data Layers** `Array[]` you can tap **Edit** and then reorder or delete a layer.
                 
-                @Image(source: "using_tilesets_edit_custom_data.png", alt: "Editing custom data in the TileSet editor while in Select mode")
+                @Image(source: "using_tilesets_edit_custom_data.png")
             }
             @Step {
                 [`Tile property painting`](doc:doc_using_tilemaps_using_tile_property_painting)
                 can also be used for custom data:
-                @Image(source: "using_tilesets_paint_custom_data.png", alt: "Assigning custom data in the TileSet editor using tile property painting")
+                @Image(source: "using_tilesets_paint_custom_data.png")
             }
         }
     }
-    @Section(title: "Creating terrain sets (autotiling)") {
+    @Section(title: "Creating terrain sets (auto-tiling)") {
         @ContentAndMedia {
             Terrains are essentially a more powerful replacement of autotiles. Unlike
             autotiles, terrains can support transitions from one terrain to another, as
             a tile may define several terrains at once. Unlike before, where autotiles were a specific kind of tiles, terrains are
             only a set of properties assigned to atlas tiles. These properties are then
-            used by a dedicated TileMap painting mode that selects tiles featuring
+            used by a dedicated **TileMap** *painting mode* that selects tiles featuring
             terrain data in a smart way. This means any terrain tile can be either
             painted as terrain or as a single tile, like any other.
-            @Image(source:"fix-me.png")
+            @Image(source:"using_tilesets_terrain_example_tilesheet.png")
         }
 
         A "polished" tileset generally features variations that you should use on
@@ -376,12 +379,12 @@
             @Step {
                 Select the TileMapLayer node, go to the inspector and create a new terrain set within the TileSet *resource*:
                 
-                @Image(source: "using_tilesets_create_terrain_set.png", alt: "Creating a terrain set in the TileSet resource inspector (within the TileMapLayer node)")
+                @Image(source: "using_tilesets_create_terrain_set.png")
             }
             After creating a terrain set, you **must** create one or more terrains *within* the terrain set:
             @Step {
-                Inside the **Terrain Sets** window, tap the **Terrains** `Array[0]` and in the new window, add a **Terrain**.
-                @Image(source:"fix-me.png")
+                Inside the **Terrain Sets** window, tap the **Terrains** `Array[0]` (1) and in the new window, add a **Terrain** (2).
+                @Image(source:"using_tilesets_create_terrain_set_continued.png")
             }
             Press **Dismiss** to leave a sub-window at any time.
             @Step {
@@ -393,17 +396,17 @@
 
                 > Terrain set IDs and terrain IDs are independent from each other. They also
                 start from `0`, not `1`.
-                @Image(source: "using_tilesets_configure_terrain_on_tile.png", alt: "Configuring terrain on a single tile in the TileSet editor's Select mode")
+                @Image(source: "using_tilesets_configure_terrain_on_tile.png")
             }
-            @Step {
-                After doing so, you can now configure the **Terrain Peering Bits** section which
-                becomes visible in the **Atlas**. 
-                
-                The peering bits determine which tile will
-                be placed depending on neighboring tiles. `-1` is a special value which refers
-                to empty space.
-                @Image(source: "using_tilesets_configure_terrain_peering_bits.png", alt: "Configuring terrain peering bits on a single tile in the TileSet editor's Select mode")
-            }
+            
+            After doing so, you can now configure the **Terrain Peering Bits** section which
+            becomes visible in the **Atlas**. 
+            
+            The peering bits determine which tile will
+            be placed depending on neighboring tiles. `-1` is a special value which refers
+            to empty space.
+            
+            
             For example, if a tile has all its bits set to `0` or greater, it will only
             appear if *all* 8 neighboring tiles are using a tile with the same terrain ID.
             If a tile has its bits set to `0` or greater,
@@ -411,7 +414,7 @@
             if there is empty space on top of it (including diagonally).
             @Step {
                 An example configuration for a full tilesheet may look as follows:
-                @Image(source: "using_tilesets_terrain_example_tilesheet.png", alt: "Example full tilesheet for a sidescrolling game")
+                @Image(source: "using_tilesets_terrain_example_tilesheet.png")
             }
             Next, we discuss the two ways to assign properties to multiple tiles at once.
             Depending on your use cases, one method may be faster than the other.
@@ -423,7 +426,7 @@
             atlas), but configured in different ways. For example, you may want to use the
             same tile image, but rotated, flipped, or modulated with a different color. This
             can be done using *Alternative tiles*.
-            @Image(source: "fix-me.png")
+            @Image(source: "creating_alternative_tiles_header.png")
         } 
         @Steps {
             @Step {
