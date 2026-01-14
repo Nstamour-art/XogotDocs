@@ -43,8 +43,8 @@
         @Image(source: tileset_placing.gif)
         
         This detailed series will get you up and running with the Xogot TileMap workflow. By the end of this series you will be able to create with Tiles and get started on your dream 2D game, on the go!
-        @TutorialReference(tutorial: "doc:using_tilesets")
-        @TutorialReference(tutorial: "doc:using_tilemaps")
+        @TutorialReference(tutorial: "doc:01.using_tilesets")
+        @TutorialReference(tutorial: "doc:02.using_tilemaps")
         
     }
     <-- @Chapter(name: "Your First 3D Game") {-->
