@@ -1,4 +1,4 @@
-@Tutorial(time: 15, projectFiles: "dodge_the_creeps_2d_assets.zip") {
+@Tutorial(time: 15, projectFiles: "save_the_axolotl_2d_assets.zip") {
     @Intro(title: "Setting up the project") {
             
         @Image(source: setting_up.png,

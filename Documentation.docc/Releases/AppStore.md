@@ -4,7 +4,36 @@ Release notes for public releases of Xogot to the App Store.
 
 # Releases 
 
-## 1.4.16
+## 1.4.18 (3634)
+
+### Improvements
+
+Scene tabs: You can now navigate your scenes using tabs. This takes some vertical space, but it’s vastly more convenient than the previous menu-based switcher, which required too many interactions for such a common operation.
+
+iPhone navigation: We changed the iOS navigation to use TabViews and the new Liquid Glass search idiom, and wired the search functionality into our existing Command Bar.
+
+This simplifies several navigation pain points on iPhone. The three major tasks—Scene Editing, Code Editing, and Playing—are now accessible from the bottom of the screen, and switching between the 2D and 3D editors is done via buttons within easy reach of your fingers.
+
+We also extensively updated the Command Palette in the Search tab to improve the overall phone experience.
+
+We brought precompiled shaders back into Xogot, improving startup performance by reducing the number of shaders that need to be compiled when the editor launches.
+
+The XogotShell no longer triggers the Command Palette when tapping the 2D/3D toggle. Instead, the document icon now triggers it, restoring the previous behavior.
+
+The code editor now supports Arabic, Korean, and other international keyboards.
+Creating a new scene is now done relative to the currently selected item in the File Pad.
+
+Improvements to the Polygon Editor in the Inspector.
+
+When creating a new scene, it now defaults to being placed in the directory currently selected in the File Pad.
+
+iPhone: The keyboard accessory went on a diet. Copy and paste actions were removed as they follow standard iOS idioms. We added a new “Hide Keyboard” button, and undo/redo now share a single slot (long-press to redo).
+
+The Editor/Run configuration for “Run Action On” now supports open output, open debugger, or none. The same options are available for stopping.
+
+Over 26 bug fixes across crashes and general editor issues.
+
+## 1.4.16 (3558)
 
 * Godot feature tags are now supported.
 

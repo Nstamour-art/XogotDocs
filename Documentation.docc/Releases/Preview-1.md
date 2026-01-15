@@ -4,7 +4,144 @@ Release notes for our preview release of Xogot to TestFlight.
 
 # Releases
 
-## Build
+## Build 
+
+Beta incorporates all the improvements of 3657 that were not part of the last
+cycle.
+
+### Improvements
+
+* Inspector: now supports Theme Overrides, a feature that was not properly
+  baked.  Now we let you flip them on and off (#2063).
+
+* The FilePad now supports Control-click and command-click modifiers to manage
+  the selection if you have a keyboard (#942).
+
+* Xogot is now localized to even more languages.
+
+* We no longer reset the default page on the launch screen when Xogot goes to
+  the background ()
+
+### Fixes
+
+* Scene Pad: Show a label when we run out of space on the sidebar toolbar 
+ #2118.   This was showing as an entry with no text.
+
+* Fix CommandPalette: Calling to open scene that is already opened in another
+  tab doesn't switch tab 
+
+* UI: Fix Scene Tab asymmetric padding(#2120, Discord)
+
+* Fix black rectangle when Camera3DPreview rendered in a Window with native
+  surface set.   This was an upstream bug in Godot, but it is more pronounced on
+  iPad.
+
+* Thoroguh fix for bug #2095 where we would sometimes not show a Godot
+  component in the inspector, or sometimes it would show up as black.
+
+* Fixes a crash on the CodeEditor while performing completions (Testflight,
+  #1753).
+
+* Fixes a crash on the Tile Editor caught in the wild (#2123, Testflight).
+
+* Improves TerrainSet: We fix the way selected tile properites are computed into
+  property bag and now terrain peering bits appear as they should, second part
+  of fix is occlusion layer wasn't properly parsed and it wasn't getting
+  Polygin editor in inspector that is fixed now too along with's get/set methods
+  so ti works good now (#2127 and #2125, Discord)
+
+* When creating a shader, we now implement the same heuristics as Godot to give
+  you the best shader type based on what it is being attached to (#2124, Discor)
+
+* We no longer display an extra Resource tab when picking a Scene, it was
+  useless and users could get unnecessary errors (#2122)
+
+* TileSet: Fix scattering option missing in TileMap when random was toggled on
+  (#2129, Discord).
+
+* Fixes another crash in the wild #2128.
+
+* Fixes a crash when editing CollishionShapes caught in the wild.
+
+* Fixes a crash when the GameController was being used and you were stopping a
+  game (only in the non-Beta release, fix coming to the beta soon).
+
+* Fixes Xogot Connect version reporting.
+
+## Build 3657
+
+### Fixes
+
+* Inspector: Partial fix for hosted views in Godot being show on the inspector,
+  it also speed things up by not reloading the inspector when the embedded vide
+  becomes visible again (#2095 - partial)
+
+* Hides that purple dot in the screen (#2114, Discord)
+
+* Fix polygons delete button deleting all nodes #2115.  We have now dedicate
+  menu with various options you can do on polygons so this mode is not needed
+  any more, delete button and delete mode will always let you delete one by one
+  now and clear inside menu will just remove all nodes
+
+* Remove custom data that has any type, godot doesn't let you use it, so we also
+  remove it now (#2116).
+
+* Fixes a heavy crash in the wild that might have been introduced by the support
+  for quit() (#2092, Testflight)
+
+## Build 3645/Beta 204
+
+### Fixes
+
+* Fixes for a crash in the wild related to invalid coordinates being computed
+  (#2108, Testflight)
+
+* Fixes for a Runestone crash in the wild involving selection (#2109,
+  Testflight)
+
+* Fixes get_scene.quit() to return Xogot to the editing mode (#2092, Discord).
+
+* iPhone: Removes the inspector convenience button that we had on the left
+  sidebar because now we have a more convenient gesture, and because it was
+  taking precious space that was taking over the "Add Script" button.
+
+* Fixes playing animations in AnimationPlayer that are loaded from Library
+  (#2111, Discord).
+
+* Draw lines for polygon shape under construction that is used for collision and
+  navigation layers (#2112, Discord).
+
+* Fixes the keyboard not showing up on iPhone 15 pro max (#2113, Discord)
+
+## Build 3633/Beta 201
+
+### Improvements
+
+* It is now possible to use the Arabic and Korean keyboards among others in the
+  code editor.
+
+* Creating a new scene will be done relative to the currently selected item on
+  the file pad (#2050, Discord)
+
+* Polygon Editor in the inspector: Improved the Polygon tool's touch targets (#2104, Discord).
+
+* Polygon Editor in the inspector: This includes reset to default tile shape,
+  clear, rotate and flip options (#2107, Discord).
+
+* fixed TileSet custom data field edit, updated custom data layer names in
+  select mode to reflect layer names (#2106, Discord)
+
+* TileSet: make the delete option easier to reach, not behind an ellipsis menu
+  (#2100, Discord).
+
+### Fixes
+
+* TileEditor: the scene collection will update after changes (#2101, Discord).
+
+* TileEditor: after you merge a tile in the Atlas editor, the popup now goes
+  away (#2102, Discord).
+
+## Build 3619/Beta 197
 
 ### Improvements
 
@@ -32,7 +169,7 @@ Release notes for our preview release of Xogot to TestFlight.
 * Fixes a crash when you switch the current scene from a _ready handler, only on
   the Xogot Beta build 
 
-## Build 3606
+## Build 3606/Beta 190
 
 ### Improvements
 
