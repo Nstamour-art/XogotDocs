@@ -44,10 +44,9 @@
         
         This detailed series will get you up and running with the Xogot TileMap workflow. By the end of this series, you will be able to create with Tiles and get started on your dream 2D game, on the go!
         @TutorialReference(tutorial: "doc:01.setting_up_tileset_and_tilesheet")
-    }
-        <-- @TutorialReference(tutorial: "doc:02.using_tilemaps") -->
+        @TutorialReference(tutorial: "doc:02.editing_tilesets")
         
-    <-- @TutorialReference(tutorial: "doc:02.using_tilemaps") -->
+    }
     <-- @Chapter(name: "Your First 3D Game") {-->
     <--     @Image(source: squash-the-creeps-final.gif, -->
     <--         alt: "An animation of Squash the Creeps running")-->
