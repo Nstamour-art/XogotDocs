@@ -1,4 +1,3 @@
-<!-- Remove this line to publish to docs.xogot.com -->
 # Singletons (Autoload)
 
 ## Introduction
@@ -18,8 +17,8 @@ individually and expect them to work correctly.
 that require it, but frequently saving and loading data is cumbersome and
 may be slow.
 
-The Singleton pattern is
-a useful tool for solving the common use case where you need to store
+The [Singleton pattern](https://en.wikipedia.org/wiki/Singleton_pattern) 
+is a useful tool for solving the common use case where you need to store
 persistent information between scenes. In our case, it's possible to reuse the
 same scene or class for multiple singletons as long as they have different
 names.
@@ -38,7 +37,7 @@ Autoloading nodes and scripts can give us these characteristics.
 
 > Note:
 >
-> Godot won't make an Autoload a "true" singleton as per the singleton design
+> Xogot won't make an Autoload a "true" singleton as per the singleton design
 > pattern. It may still be instanced more than once by the user if desired.
 >
 
@@ -83,13 +82,6 @@ be accessed directly in GDScript:
 PlayerVariables.health -= 10
 ```
 
-The **Enable** column has no effect in C# code. However, if the singleton is a
-C# script, a similar effect can be achieved by including a static property
-called `Instance` and assigning it in `_Ready()`:
-
-This allows the singleton to be accessed from C# code without `GetNode()` and
-without a typecast:
-
 Note that autoload objects (scripts and/or scenes) are accessed just like any
 other node in the scene tree. In fact, if you look at the running scene tree,
 you'll see the autoloaded nodes appear:
@@ -111,7 +103,7 @@ method (see <doc:scene_tree> for details). However, if you need more
 complex behavior when changing scenes, this method provides more functionality.
 
 To begin, download the template from here:
-singleton_autoload_starter.zip
+[singleton_autoload_starter.zip](https://github.com/godotengine/godot-docs-project-starters/releases/download/latest-4.x/singleton_autoload_starter.zip)
 and open it in Godot.
 
 A window notifying you that the project was last opened in an older Godot version
@@ -124,7 +116,7 @@ scene contains a label displaying the scene name and a button with its
 
 ### Creating the script
 
-Open the **Script** window and create a new script called `global.gd`.
+Open the **Script** tab and create a new script called `global.gd`.
 Make sure it inherits from `Node`:
 
 @Image(source: "autoload_script.png")
