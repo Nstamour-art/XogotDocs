@@ -1,4 +1,3 @@
-<!-- Remove this line to publish to docs.xogot.com -->
 # Singletons (Autoload)
 
 ## Introduction
@@ -18,8 +17,8 @@ individually and expect them to work correctly.
 that require it, but frequently saving and loading data is cumbersome and
 may be slow.
 
-The Singleton pattern is
-a useful tool for solving the common use case where you need to store
+The [Singleton pattern](https://en.wikipedia.org/wiki/Singleton_pattern) 
+is a useful tool for solving the common use case where you need to store
 persistent information between scenes. In our case, it's possible to reuse the
 same scene or class for multiple singletons as long as they have different
 names.
@@ -38,7 +37,7 @@ Autoloading nodes and scripts can give us these characteristics.
 
 > Note:
 >
-> Godot won't make an Autoload a "true" singleton as per the singleton design
+> Xogot won't make an Autoload a "true" singleton as per the singleton design
 > pattern. It may still be instanced more than once by the user if desired.
 >
 
@@ -63,8 +62,9 @@ You can create an Autoload to load a scene or a script that inherits from
 
 @Image(source: "singleton.png")
 
-To autoload a scene or script, start from the menu and navigate to
-**Project > Project Settings > Globals > Autoload**.
+To autoload a scene or script, naviagte to 
+**menu icon -> settings -> drop down menu -> 'Autoload'**.
+
 
 @Image(source: "autoload_tab.png")
 
@@ -82,13 +82,6 @@ be accessed directly in GDScript:
 ```
 PlayerVariables.health -= 10
 ```
-
-The **Enable** column has no effect in C# code. However, if the singleton is a
-C# script, a similar effect can be achieved by including a static property
-called `Instance` and assigning it in `_Ready()`:
-
-This allows the singleton to be accessed from C# code without `GetNode()` and
-without a typecast:
 
 Note that autoload objects (scripts and/or scenes) are accessed just like any
 other node in the scene tree. In fact, if you look at the running scene tree,
@@ -111,27 +104,27 @@ method (see <doc:scene_tree> for details). However, if you need more
 complex behavior when changing scenes, this method provides more functionality.
 
 To begin, download the template from here:
-singleton_autoload_starter.zip
-and open it in Godot.
+[singleton_autoload_starter.zip](https://github.com/godotengine/godot-docs-project-starters/releases/download/latest-4.x/singleton_autoload_starter.zip)
+and open it in Xogot.
 
-A window notifying you that the project was last opened in an older Godot version
+A window notifying you that the project was last opened in an older Xogot version
 may appear, that's not an issue. Click Ok to open the project.
 
 The project contains two scenes: `scene_1.tscn` and `scene_2.tscn`. Each
 scene contains a label displaying the scene name and a button with its
 `pressed()` signal connected. When you run the project, it starts in
-`scene_1.tscn`. However, pressing the button does nothing.
+`scene_1.tscn`. However, tapping the button does nothing.
 
 ### Creating the script
 
-Open the **Script** window and create a new script called `global.gd`.
+Open the **Script** tab and create a new script called `global.gd`.
 Make sure it inherits from `Node`:
 
 @Image(source: "autoload_script.png")
 
 The next step is to add this script to the autoload list.
 Starting from the menu, open
-**Project > Project Settings > Globals > Autoload** and
+**Settings > Drop down menu > Autoload** and
 select the script by clicking the browse button or typing its path:
 `res://global.gd`. Press **Add** to add it to the autoload list
 and name it "Global", which is required for scripts to access it
@@ -214,7 +207,7 @@ func _on_button_pressed():
     Global.goto_scene("res://scene_1.tscn")
 ```
 
-Run the project and test that you can switch between scenes by pressing
+Run the project and test that you can switch between scenes by tapping
 the button.
 
 > Note:
