@@ -1,0 +1,248 @@
+@Tutorial(time: 25) {
+    @Intro(title: "Getting started with TileSets") {
+
+        @Image(source: "using_scene_collection_header.gif")
+    }
+    @Section(title: "Introduction") {
+        @ContentAndMedia {
+            A tilemap is a grid of tiles used to create a game's layout. There are several
+            benefits to using [`TileMapLayer`](https://docs.godotengine.org/en/stable/classes/class_TileMapLayer.html#class-TileMapLayer) nodes to design your
+            levels
+            @Image(source: "Tileset_cover.png")
+        }
+        First, they let you draw a layout by "painting" tiles onto a grid,
+        which is much faster than placing individual [`Sprite2D`](https://docs.godotengine.org/en/stable/classes/class_Sprite2D.html#class-Sprite2D) nodes one by one. Second, they allow for larger levels
+        because they are optimized for drawing large numbers of tiles.
+        Finally, they allow you to add greater functionality to your tiles with
+        collision, occlusion, and navigation shapes.
+        
+        To use TileMapLayer nodes, you will need to create a TileSet first. A TileSet is a
+        collection of tiles that can be placed in a TileMapLayer node. After creating a
+        TileSet, you will be able to place them [`using the TileMap editor`](doc:02.using_tilemaps).
+        
+        To follow this guide, you will need an image containing your tiles where every
+        tile has the same size (large objects can be split into several tiles). This
+        image is called a *tilesheet*. Tiles do not have to be square: they can be
+        rectangular, hexagonal, or isometric (pseudo-3D perspective).
+    }
+    @Section(title: "Using a tilesheet") {
+        @ContentAndMedia {
+            This demonstration will use the following tiles taken from
+            [Kenney's "Abstract Platformer" pack](https://kenney.nl/assets/abstract-platformer).
+            We'll use this particular *tilesheet* from the set:
+
+            @Image(source: "using_tilesets_kenney_abstract_platformer_tile_sheet.png")
+            
+        }
+        Download the attached *.zip* file and extract it in the **Files** app; once ready return to Xogot.
+        @Steps {
+            @Step {
+                Starting from the **Project Manager** press the **+** or **New Game** buttons (1) to create a new project.
+                
+                Name the project whatever you like, we will use "Tiles Tutorial" (2) and press **Add** (3)
+                @Image(source: "tilesheet_new_project.png")
+            }
+            @Step {
+                Press **Create Other Node** (1) and in the **All** tab, search for **TileMapLayer**, then *tap* it to create it (2).
+                @Image(source: "tilesheet_new_other_node.png")
+            }
+            @Step {
+                Select the new node and create a new TileSet resource in the **Inspector** by tapping `PickResource` and selecting `New TileSet`:
+                @Image(source: "tileset_create_new_resource.png")
+                
+                >Tip: If the **Scope** dock is closed, press the cross-hair icon in the upper right, next to the **Play** button, to open it.
+            }
+            This will automatically open the TileMap editor dock on the bottom. We will explore these tabs in a bit.
+            @Step {
+                For now, tap the `TileSet` resource value to open it in the
+                inspector.
+                @Image(source: "tileset_create_tileset_open.png")
+            }
+            > Tip:  The default tile shape is Square, but you can also choose Isometric,
+            Half-Offset Square or Hexagon (depending on the shape of your tile images). If
+            using a tile shape other than Square, you may also need to adjust the **Tile
+            Layout** and **Tile Offset Axis** properties. Lastly, enabling the
+            **Rendering > UV Clipping** toggle may be useful if you wish tiles to be clipped
+            by their tile coordinates. This ensures tiles cannot draw outside their allocated
+            area on the tilesheet.
+            @Step {
+                Set the tile size to 64×64 in the inspector to match the example tilesheet:
+                @Image(source: "using_tilesets_specify_size_then_edit.png")
+            }
+            >Important: If relying on automatic tiles creation (like we're about to do here), you must set the tile size **before** creating the *atlas*. The atlas will determine which tiles from the tilesheet can be added to a `TileMapLayer` node (as not every part of the image may be a valid tile).
+            @Step {
+                Press the little **+** icon next to `res://` (1). Then tap **Import Files** (2) and navigate to your extracted archive. We want "tilesheet_complete.png" from inside the Tilesheet folder. Select it, and then press **Open**.
+                @Image(source: "tileset_import_file.png")
+            }
+            @Step {
+                With the `TileMapLayer`, open the **TileSet** panel at the bottom of the editor, then press and drag the
+                tilesheet image onto the left half of the panel. This will automatically import the tileset image.
+                @Image(source: "using_tilesets_create_tiles_automatically.png")
+            }
+            This will automatically create tiles according to the tile size you specified
+            earlier in the TileSet resource. This greatly speeds up initial tile setup.
+            
+            @Step {
+                Let's get a better look at your tileset image by closing both the **Scope** (1) and **Scene Tree** panels (2).
+                
+                Then drag up on the pull handle to expand the **TileSet** panel (3).
+                @Image(source: "tileset_get_better_look.png")
+            }
+            
+            > When using automatic tile generation based on image contents, parts of the
+            tilesheet that are *fully* transparent will not have tiles generated.
+
+            @Step {
+                You can select a tile and choose **Delete**  in the **Ellipsis** (**...**) menu to remove any tiles you don't want, or press the **Eraser** icon.
+                @Image(source: "tileset_erasor.png")
+            }
+            If you wish to source tiles from several tilesheet images for a single `TileSet`,
+            create additional atlases and assign textures to each of them before continuing.
+            It is also possible to use one image per tile this way (although using
+            tilesheets is recommended for better usability).
+            @Step { 
+                You can adjust properties for the atlas by opening the **Scope** (1) and selecting **Setup** (2) in the **Atlas Inspector** tab.
+                @Image(source: "using_tilesets_properties.png")
+            }
+            The following properties can be adjusted in the **Atlas Inspector**:
+
+            * **ID:** The identifier (unique within this `TileSet`), used for sorting.
+            * **Name:** The human-readable name for the atlas. *Use a descriptive name
+            here for organizational purposes (such as "terrain", "decoration", etc).*
+            * **Margins:** The margins on the image's edges that should not be selectable as
+            tiles (in pixels). Increasing this can be useful if you download a tilesheet
+            image that has margins on the edges (e.g. for attribution).
+            * **Separation:** The separation between each tile on the atlas in pixels.
+            Increasing this can be useful if the tilesheet image you're using contains
+            guides (such as outlines between every tile).
+            * **Texture Region Size:** The size of each tile on the atlas in pixels. In most
+            cases, this should match the tile size defined in the TileMapLayer property
+            (although this is not strictly necessary).
+            * **Use Texture Padding:** If toggled, adds a 1-pixel transparent edge around
+            each tile to prevent texture bleeding when filtering is enabled.
+            It's recommended to leave this enabled unless you're running into rendering issues
+            due to texture padding.
+
+            > Note: changing texture margin, separation and region size may cause tiles to
+            be lost (as some of them would be located outside the atlas image's
+            coordinates), so only change if needed during `TileSet` setup.
+            @Step {
+                To regenerate tiles automatically from the tilesheet, use the
+                 **More Details** icon (1), at the top of the **TileSet** editor, next to the **Select Mode** button and choose
+                **Create Tiles in Non-Transparent Texture Regions** (2):
+                @Image(source: "using_tilesets_recreate_tiles_automatically.png")
+            }
+            >tip:The **Select Mode** button lets you change modes from individual tile selection to rectangle lasso selection. Pressing **Clear** will clear your tile selection.
+            
+            >Note: To make a tile selection you need to be in **Select**, you can change that in the **Atlas Inspector** dropdown by pressing **Setup** and choosing **Select**.
+            
+            @Step {
+                Save your `TileMapLayer` scene by tapping the dropdown on the top of the screen and pressing **Save Scene**.
+                @Image(source: "tileset_save_scene.png")
+            }
+        }
+    }
+    @Section(title: "Using a collection of scenes") {
+        @ContentAndMedia {
+            You can also place actual *scenes* as tiles. This allows you to use
+            any collection of nodes as a tile. For example, you could use scene tiles to
+            place gameplay elements, such as shops the player may be able to interact with.
+            You could also use scene tiles to place `AudioStreamPlayer2Ds` (for ambient
+            sounds), particle effects, and more.
+            @Image(source: "using_scene_collection_header.gif")
+        }
+        
+        > Warning: Scene tiles come with a greater performance overhead compared to atlases, as
+        every scene is instanced individually for every placed tile. It's recommended to only use scene tiles when necessary. To draw sprites in a
+        tile without any kind of advanced manipulation, use atlases instead.
+        @Steps {
+            For this example, we'll create a scene containing a `CPUParticles2D` root node.
+            @Step {
+                Tap the dropdown next to your scene name (1) and press **New Scene** (2).
+                @Image(source: "using_scene_collection_new_scene.png")
+            }
+            @Step {
+                Name the scene "cpu_particles" and select **Empty**, then press **Create**.
+                @Image(source: "using_scenes_name_scene.png")
+            }
+            @Step {
+                Press **Create Other Node** (1) and then in the **All** tab search for `CPUParticles2D` (2) and tap on it to add it (3).
+                @Image(source: "using_scene_cpu_particles.png")
+            }
+            @Step {
+                Save this scene to a scene file in the dropdown (1), then switch to the scene containing the TileMapLayer node (2)
+                @Image(source: "tileset_save_scene.png")
+            }
+            @Step {
+                Open the TileSet editor, and create a new **Scenes Collection** in the **Tiles** column. To do so, hit the **+** and select **Scenes Collection**
+                
+                @Image(source: "using_tilesets_creating_scene_collection.png")
+            }
+            @Step {
+                Select this scenes collection then create a new scene slot by tapping **+**:
+                @Image(source: "using_tilesets_scene_collection_create_scene_tile.png")
+            }
+            @Step {
+                In the pop-up window, select your newly saved `cpu_particles.tscn` file (1) and press **select** (2).
+                @Image(source: "using_tilesets_adding_scene_tile.png")
+            }
+            Now that we have added a scene to our `TileSet` we should give it a descriptive name.
+            @Step {
+                Tap on the scene entry and change the **Name** in the **Atlas Inspector** tab to `CPU Particles`.
+                @Image(source: "using_scene_collection_name.png")
+            }
+            You now have a scene tile in your `TileSet`. Once you switch to the **TileMap**
+            editor, you'll be able to select it from the scenes collection and paint it like
+            any other tile.
+        }
+    }
+    @Section(title: "Merging several atlases into a single atlas") {
+        @ContentAndMedia {
+            Using multiple atlases within a single `TileSet` resource can sometimes be useful,
+            but it can also be cumbersome in certain situations (especially if you're using
+            one image per tile). Xogot allows you to merge several atlases into a single
+            atlas for easier organization.
+            @Image(source: "merging_atlas.png")
+        }
+        
+        @Steps {
+            To do so, you must have more than one atlas created in the `TileSet` resource.
+            
+            For this example we will add a few new tilesets based on the Godot `icon.svg` file.
+            @Step {
+                Use the **Settings** "Cog" menu button located at the top of the list of
+                atlases, then choose **Open Atlas Merging Tool**:
+                
+                @Image(source: "using_tilesets_open_atlas_merging_tool.png")
+            }
+            @Step {
+                This will open a dialog, in which you can select several atlases by tapping on them in the list on the left.
+                
+                > It can take time to load the resulting atlas, especially for large files, so it may take time to update your new atlas. Please be patient when selecting atlases to merge. Once ready the result will display in the right panel.
+                @Image(source: "using_tilesets_atlas_merging_tool_dialog.png")
+            }
+            @Step {
+                Choose **Merge** to merge the selected atlases into a single atlas image (which
+                translates to a single atlas within the TileSet).
+                
+                You will need to give the merged file a name in the following pop-up window (1) and then press **Save** (2). 
+                
+                > Important: Include file extension ".png" in the file name.
+                @Image(source: "merging_atlas_name_save.png")
+            }
+            The unmerged atlases will be
+            removed within the TileSet, but *the original tilesheet images will be kept on
+            the filesystem*. If you don't want the unmerged atlases to be removed from the
+            TileSet resource, toggle **Keep Original Atlases** before merging.
+            
+            > Tip: `TileSet` features a system of *tile proxies*. Tile proxies are a mapping
+            table that allows notifying the TileMap using a given `TileSet` that a given
+            set of tile identifiers should be replaced by another one. Tile proxies are automatically set up when merging different atlases, but
+            they can also be set manually thanks to the **Manage Tile Proxies** dialog
+            you can access using the **Settings** "Cog" menu mentioned above. Manually creating tile proxies may be useful when you changed an atlas ID or
+            want to replace all tiles from an atlas by the ones from another atlas. 
+            
+            In the next tutorial we will cover how to edit your `TileSet` resource to add collision and other layers
+        }
+    }
+}

@@ -1,0 +1,246 @@
+@Tutorial(time: 20) {
+    @Intro(title: "Editing your TileSet resource") {
+        > This page is a continuation of <doc:01.setting_up_tileset_and_tilesheet>. To complete this tutorial you will need a `TileSet` resource created and attached to a `TileMapLayer` node.
+        @Image(source: "using_tilesets_collision_header.png")
+    }
+    @Section(title: "Adding collision, navigation and occlusion to the TileSet") {
+        @ContentAndMedia {
+            We've now successfully created a basic `TileSet`. We could start using it in the
+            `TileMapLayer` node now, but it currently lacks any form of collision detection.
+            This means the player and other objects could walk straight through the floor or
+            walls.
+            @Image(source: "collision_shapes_header.png")
+        }
+        If you use 2D navigation, you'll also need
+        to define navigation polygons for tiles to generate a navigation mesh that
+        agents can use for pathfinding.
+        
+        Lastly, if you use lights or `GPUParticles2D`, you may
+        also want your `TileSet` to be able to cast shadows and collide with particles.
+        This requires defining occluder polygons for "solid" tiles on the `TileSet`.
+        
+        In the next few steps we will cover how to add a layer for these important features.
+        
+        @Steps {
+            To be able to define collision, navigation and occlusion shapes for each tile,
+            you will need to create a physics, navigation or occlusion layer for the TileSet
+            resource first.
+            @Step {
+                Select the `TileMapLayer` node, tap the `TileSet` property
+                value in the inspector to edit it then tap `Array[0]` next to **Physics Layers** and choose
+                **Add** in the upper-right:
+                @Image(source: "tilesets_add_physics.png")
+            }
+            If you need support for light polygon occluders, now is also a good time to create an occlusion layer.
+            @Step {
+                Tap **Rendering**, and then press `Array[0]` next to **Occlusion Layers** and press **Add**:
+                @Image(source: "using_tilesets_create_occlusion_layer.png")
+            }
+            > Important:  Future steps in this tutorial are tailored to creating *collision polygons*,
+            but the procedure for navigation and occlusion is very similar.
+            Their respective polygon editors behave in the same way, so these steps are
+            not repeated for brevity. For other layers, you need to access them in the **Paint** mode.
+            @Step {
+                After creating a `physics layer`, you have access to the **Physics** section
+                in the `TileSet` **Atlas Inspector**. Inside there is a collision drawing section. 
+                
+                > Make sure you have a tile selected in order to see this section.
+                @Image(source: "using_tilesets_selecting_collision_editor.png")
+            }
+            In this tile shape editor, you have access to all the 2D polygon editing tools:
+            * Use the toolbar above the polygon to toggle between creating a new polygon,
+            editing an existing polygon and removing points on the polygon. 
+            * You can create new points by tapping and dragging a line between two points with the **Move** mode selected.
+            * Remove a point by using the Remove tool described above
+            and tapping on the point you wish to remove.
+            
+            @Step {
+                You can use the default rectangle shape to quickly create a triangle-shaped
+                collision shape by removing one of the points:
+                @Image(source: "using_tilesets_creating_triangle_collision.png")
+            }
+            @Step {
+                You can also use the rectangle as a base for more complex shapes by adding more points:
+                @Image(source: "using_tilesets_drawing_custom_collision.png")
+            }
+            > Tip: If you have a large tileset, specifying the collision for each tile
+            individually could take a lot of time. This is especially true as `TileMaps`
+            tend to have many tiles with common collision patterns (such as solid blocks
+            or 45-degree slopes). To apply a similar collision shape to several tiles
+            quickly, use the **Paint** mode.
+            @Step {
+                In the **Paint** mode, select "Physics Layer 0" in the dropdown and then proceed to create a polygon like before. Now once complete, in the `TileSet` window, you can tap on tiles to paint these shapes over your tile map.
+                @Image(source: "using_tilesets_drawing_custom_collision_paint.png")
+            }
+        }
+    }
+    @Section(title: "Assigning custom metadata to the TileSet's tiles") {
+        @ContentAndMedia {
+            You can assign custom data on a per-tile basis using *custom data layers*.
+            This can be useful to store information specific to your game, such as the damage
+            that a tile should deal when the player touches it, or whether a tile can be
+            destroyed using a weapon.
+            
+            The data is associated with the tile in the TileSet: all instances of the placed
+            tile will use the same custom data. If you need to create a variant of a tile
+            that has different custom data, this can be done by creating an
+            alternative tile and changing
+            the custom data for the alternative tile only.
+            
+            @Image(source: "using_tilesets_create_custom_data_layer.png")
+        }
+        @Steps {
+            @Step {
+                To add a custom data layer to your `TileSet` resource, go back to the **Inspector** and tap `Array[0]` next to **Custom Data Layers**
+                @Image(source: "using_tilesets_custom_data_layers_example.png")
+            }
+            This will open a window where you can add as many custom data layers as needed. Each will let you set a **Name** and **Type**. The **Type** field can be any of the many Xogot/GDScript variable types.
+            @Step {
+                In this example we have added a data layer for a `boolean`, a `string` and `float`. In the following image, you can see that in the **Atlas Inspector** we are able to edit those values.
+                @Image(source: "using_tilesets_create_custom_data_layer.png")
+            }
+            Back in the **Inspector** > **TileSet**, you can reorder custom data without breaking existing metadata: the `TileSet` will update automatically after reordering custom data properties.
+            @Step {
+                In the **Inspector** if you open the **Custom Data Layers** `Array[]` you can tap **Edit** and then reorder or delete a layer.
+                
+                @Image(source: "using_tilesets_edit_custom_data.png")
+            }
+            @Step {
+                Tile property painting can also be used for custom data:
+                @Image(source: "using_tilesets_paint_custom_data.png")
+            }
+        }
+    }
+    @Section(title: "Creating terrain sets (auto-tiling)") {
+        @ContentAndMedia {
+            @Image(source:"using_tilesets_terrain_example_tilesheet.png")
+        }
+        Terrains are essentially a more powerful replacement of autotiles. Unlike
+        autotiles, terrains can support transitions from one terrain to another, as
+        a tile may define several terrains at once. Unlike before, where autotiles were a specific kind of tiles, terrains are
+        only a set of properties assigned to atlas tiles. These properties are then
+        used by a dedicated **TileMap** *painting mode* that selects tiles featuring
+        terrain data in a smart way. This means any terrain tile can be either
+        painted as terrain or as a single tile, like any other.
+        
+        A "polished" tileset generally features variations that you should use on
+        corners or edges of platforms, floors, etc. While these can be placed manually,
+        this quickly becomes tedious. Handling this situation with procedurally
+        generated levels can also be difficult and require a lot of code.
+        
+        Godot offers *terrains* to perform this kind of tile connection automatically.
+        This allows you to have the "correct" tile variants automatically used.
+        
+        @ContentAndMedia {
+            An example of a Tileset with it's `Terrain Peering Bits` overlay visible:
+            @Image(source: "using_tilesets_terrain_example_tilesheet_configuration.png")
+        }
+        
+        Terrains are grouped into terrain sets. Each terrain set is assigned a mode from
+        **Match Corners and Sides**, **Match Corners** and **Match sides**. They define how
+        terrains are matched to each other in a terrain set.
+        @Steps {
+            @Step {
+                Select the TileMapLayer node, go to the inspector and create a new terrain set within the TileSet *resource*:
+                
+                @Image(source: "using_tilesets_create_terrain_set.png")
+            }
+            After creating a terrain set, you **must** create one or more terrains *within* the terrain set:
+            @Step {
+                Inside the **Terrain Sets** window, tap the **Terrains** `Array[0]` (1) and in the new window, add a **Terrain** (2).
+                @Image(source:"using_tilesets_create_terrain_set_continued.png")
+            }
+            Press **Dismiss** to leave a sub-window at any time.
+            @Step {
+                In with the **TileSet** editor selected, switch to **Select** mode and tap a tile. In the **Atlas**, you'll see the **Terrains** section is now present. Assign a terrain set ID and a terrain ID for the tile. In the example we use `0`. 
+                
+                `-1` means "no terrain set" or "no terrain", which
+                means you must set **Terrain Set** to `0` or greater before you can set
+                **Terrain** to `0` or greater.
+                
+                > Terrain set IDs and terrain IDs are independent from each other. They also
+                start from `0`, not `1`.
+                @Image(source: "using_tilesets_configure_terrain_on_tile.png")
+            }
+            
+            After doing so, you can now configure the **Terrain Peering Bits** section which
+            becomes visible in the **Atlas**. 
+            
+            The peering bits determine which tile will
+            be placed depending on neighboring tiles. `-1` is a special value which refers
+            to empty space.
+            
+            
+            For example, if a tile has all its bits set to `0` or greater, it will only
+            appear if *all* 8 neighboring tiles are using a tile with the same terrain ID.
+            If a tile has its bits set to `0` or greater,
+            but the top-left, top and top-right bits are set to `-1`, it will only appear
+            if there is empty space on top of it (including diagonally).
+            @Step {
+                An example configuration for a full tilesheet may look as follows:
+                @Image(source: "using_tilesets_terrain_example_tilesheet_configuration.png")
+            }
+            Next, we discuss the two ways to assign properties to multiple tiles at once.
+            Depending on your use cases, one method may be faster than the other.
+        }
+    }
+    @Section(title: "Creating Alternative tiles") {
+        @ContentAndMedia {
+            Sometimes, you might want to use a single tile image (found only once within the
+            atlas), but configured in different ways. For example, you may want to use the
+            same tile image, but rotated, flipped, or modulated with a different color. This
+            can be done using *Alternative tiles*.
+            @Image(source: "creating_alternative_tiles_header.png")
+        } 
+        @Steps {
+            @Step {
+                To create an alternative tile, make sure you are in *Select* mode, then tap on a tile to select it in the **TileSet** editor (1), then choose **Create an Alternative Tile** in the **Ellipsis** "..." menu next to the **Eraser** (2)
+                
+                @Image(source: "using_tilesets_create_alternative_tile.png")
+            }
+            Doing this will open a small Alternative tile window inside the **TileSet* editor.
+            
+            
+            @Step {
+                
+                Alternative tiles will appear inside a small window in the **TileSet** editor. If you close this window, you can reopen it by hitting the hexagonal **Alternative Tile** icon in the tool menu. 
+                @Image(source: "using_tilesets_configure_alternative_tile.png")
+            }
+            After selecting an alternative tile, you can change any properties using the
+            **Atlas** properties tab like you would on a base tile. However, the list of exposed
+            properties is a bit different compared to base tiles:
+            
+            - **Alternative ID:** The unique numerical identifier for this alternative tile.
+            Changing it will break existing TileMaps, so be careful! This ID also controls
+            the sorting in the list of alternative tiles displayed in the editor.
+            - **Rendering > Flip H:** If `true`, the tile is horizontally flipped.
+            - **Rendering > Flip V:** If `true`, the tile is vertically flipped.
+            - **Rendering > Transpose:** If `true`, the tile is rotated 90 degrees
+            *counter-clockwise* and then flipped vertically. In practice, this means that
+            to rotate a tile by 90 degrees clockwise without flipping it, you should
+            enable **Flip H** and **Transpose**. To rotate a tile by 180 degrees
+            clockwise, enable **Flip H** and **Flip V**. To rotate a tile by 270 degrees
+            clockwise, enable **Flip V** and **Transpose**.
+            - **Rendering > Texture Origin:** The origin to use for drawing the tile. This
+            can be used to visually offset the tile compared to the base tile.
+            - **Rendering > Modulate:** The color multiplier to use when rendering the tile.
+            - **Rendering > Material:** The material to use for this tile. This can be used
+            to apply a different blend mode or custom shaders to a single tile.
+            - **Z Index:** The sorting order for this tile. Higher values will make the tile
+            render in front of others on the same layer.
+            - **Y Sort Origin:** The vertical offset to use for tile sorting based on its Y
+            coordinate (in pixels). This allows using layers as if they were on different
+            height for top-down games. Adjusting this can help alleviate issues with
+            sorting certain tiles. Only effective if **Y Sort Enabled** is `true` on
+            the `TileMapLayer` node under **CanvasItem > Ordering**
+            
+            You can create an additional alternative tile variant by deselecting your alternative tile and then following the same process from the first step.
+            
+            > When creating an alternative tile, none of the properties from the base tile
+            are inherited. You must set properties again on the alternative tile if you
+            wish those to be identical on the base tile and the alternative tile.
+            
+            You've now learned all the basics of managing and editing `TileSets` in Xogot. In the next page we will go over setting up and using these in the **TileMap** editor.
+        }
+    }
+}
