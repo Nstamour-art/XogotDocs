@@ -1,10 +1,10 @@
 # Introduction to 2D
 
-Godot's 2D game development tools include a dedicated 2D rendering engine, physics system,
+Xogot's 2D game development tools include a dedicated 2D rendering engine, physics system,
 and features tailored specifically for creating 2D experiences. You can efficiently design
 levels with the TileMap system, animate characters with 2D sprite or Cutout animation,
 and leverage 2D lighting for dynamic scene illumination. The built-in 2D particle system
-allows you to create complex visual effects, and Godot also supports custom shaders to
+allows you to create complex visual effects, and Xogot also supports custom shaders to
 enhance your graphics. These features, combined with Godot's accessibility and
 flexibility, provide a solid foundation for creating engaging 2D games.
 
@@ -26,7 +26,7 @@ or use the workspace selector located at the top edge of the editor:
 
 @Image(source: "2d_editor_viewport.png")
 
-Similar to 3D, you can use the tabs below the workspace selector to change between currently
+Use the dropdown menu below the workspace selector to change between currently
 opened scenes or create a new one using the plus (+) button. The left and right docks should
 be familiar from :ref:`editor introduction <toc-editor-interface>`.
 
@@ -52,12 +52,12 @@ from left to right:
 
 @Image(source: "2d_toolbar.png")
 
-- **Select Mode** (``Q``): Allows selection of nodes in the viewport. Left clicking on a node
+- **Select Mode** (``Q``): Allows selection of nodes in the viewport. Tapping/left clicking on a node
 in the viewport selects it.
-Left clicking and dragging a rectangle selects all nodes within the rectangle's boundaries,
+Dragging your finger creates a rectangle that selects all nodes within the it's boundaries,
 once released.
 Holding ``Shift`` while selecting adds more nodes to the selection.
-Clicking on a selected node while holding ``Shift`` deselects the node.
+Tapping on a selected node while holding ``Shift`` deselects the node.
 In this mode, you can drag the selected node(s) to move, press ``Ctrl`` to switch to the
 rotation mode temporarily, or use the red circles to scale it. If multiple nodes are
 selected, only movement and rotation are possible. In this mode, rotation and scaling
@@ -80,7 +80,7 @@ there is more than one node in the clicked area.
 An added node has its rotation pivot at `x: 0`, `y: 0`, by default, with
 exceptions. For example, the default pivot for a [Sprite2D](https://docs.godotengine.org/en/stable/classes/class_sprite2d.html#class-sprite2d) is its
 center if the `centered` property is set to `true`. If you would like to change the
-rotation pivot of a node, click this button and choose a new location by left clicking.
+rotation pivot of a node, select this button and choose a new location by tapping.
 The node rotates considering this point. If you have multiple nodes selected, this icon
 will add a temporary pivot to be used commonly by all selected nodes. Pressing ``Shift``
 and clicking this button will create the pivot at the center of selected nodes. If any of
@@ -106,7 +106,7 @@ and the ruler. Customize it using the three-dot menu next to the snap tools.
 
 You can customize the grid settings so that move mode, rotate mode, scale mode, ruler,
 and rotation pivot uses snapping.
-Use the three-dot menu for this:
+Use the snap menu for this:
 
 @Image(source: "2d_snapping_options_menu.png")
 
@@ -296,7 +296,7 @@ interfaces visually:
 
 @Image(source: "2d_editor_viewport_with_viewmenu.png")
 
-Middle-clicking and dragging the mouse will pan the view.
+Dragging two fingers or middle-clicking and dragging the mouse will pan the view.
 The scrollbars on the right or bottom of the viewport also move the view.
 Alternatively, the ``G`` or ``Space`` keys can be used.
 If you enable `Editor Settings > Editors > Panning > Simple Panning`, you can activate
@@ -323,7 +323,7 @@ nodes with them:
 
 If you have at least one node in the scene, you can create guides by dragging from the horizontal
 or vertical ruler towards the viewport. A purple guide will appear, showing its position, and will
-remain there when you release the mouse. You can create both horizontal and vertical guides
+remain there when you release your finger or the mouse. You can create both horizontal and vertical guides
 simultaneously by dragging from the gray square at the rulers' intersection. Guides can be
 repositioned by dragging them back to their respective rulers, and they can be removed by
 dragging them all the way back to the ruler.
@@ -335,7 +335,7 @@ You can also enable snapping to the created guides using the `Smart Snap` menu.
 > by default. Also, make sure you have at least one node in the scene.
 >
 
-Depending on the tool chosen in the toolbar, left-clicking will have a primary action in the
+Depending on the tool chosen in the toolbar, tapping/left-clicking will have a primary action in the
 viewport.
 For example, the `Select Mode` will select the left-clicked node in the viewport.
 Sometimes, left-clicking can be combined with a modifier (e.g., ``Ctrl``, or ``Shift``) to
@@ -343,9 +343,9 @@ perform secondary actions.
 For example, keeping ``Shift`` pressed while dragging a node in the Select or Move modes will
 try to snap the node in a single axis while moving.
 
-Right clicking in the viewport provides two options to create a node or instantiate a scene
+Right clicking or long pressing in the viewport provides two options to create a node or instantiate a scene
 at the chosen position.
-If at least one node is selected, right clicking also provides the option to move the selected
+If at least one node is selected, long pressing also provides the option to move the selected
 node(s) to this position.
 
 Viewport has a **View** menu which provides several options to change the look of the viewport:
