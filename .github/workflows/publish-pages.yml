@@ -25,6 +25,17 @@ jobs:
     steps:
       - name: Checkout 🛎️
         uses: actions/checkout@v4
+      - name: Inject analytics IDs
+        env:
+          GA_ID: ${{ vars.GOOGLE_ANALYTICS_ID }}
+          GTM_ID: ${{ vars.GOOGLE_TAG_MANAGER_ID }}
+        run: |
+          if [ -z "$GA_ID" ] || [ -z "$GTM_ID" ]; then
+            echo "Missing GOOGLE_ANALYTICS_ID or GOOGLE_TAG_MANAGER_ID GitHub variable."
+            exit 1
+          fi
+          sed -i '' "s/__GA_ID__/${GA_ID}/g" Documentation.docc/header.html
+          sed -i '' "s/__GTM_ID__/${GTM_ID}/g" Documentation.docc/header.html
       - name: Build DocC
         run: |
           xcodebuild docbuild CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO -scheme Xogot \
