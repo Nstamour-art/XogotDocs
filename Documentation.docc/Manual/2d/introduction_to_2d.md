@@ -110,53 +110,18 @@ Use the snap menu for this:
 
 - **Use Scale Snap**: Toggles snapping using the configured scaling step setting.
 
-- **Snap Relative**: Toggles the usage of snapping based on the selected node's current
-transform values. For example, if the grids are set to 32x32 pixels and if the selected node
-is located at `x: 1, y: 1`, then, enabling this option will temporarily shift the grids by
-`x: 1, y: 1`.
-
 - **Use Pixel Snap**: Toggles the use of subpixels for snapping. If enabled, the position values
 will be integers, disabling will enable subpixel movement as decimal values. For the runtime
 property, consider checking `Project Settings > Rendering > 2D > Snapping` property for
 Node2D nodes, and `Project Settings > GUI > General > Snap Controls to Pixels` for
 Control nodes.
 
+- **Snap Relative**: Toggles the usage of snapping based on the selected node's current
+transform values. For example, if the grids are set to 32x32 pixels and if the selected node
+is located at `x: 1, y: 1`, then, enabling this option will temporarily shift the grids by
+`x: 1, y: 1`.
+
 - **Smart Snapping**: Provides a set of options to snap to specific positions if they are enabled:
-
-Snap to Parent: Snaps to parent's edges. For example, scaling a child control node while
-this is enabled will snap to the boundaries of the parent.
-Snap to Node Anchor: Snaps to the node's anchor. For example, if anchors of a control
-node is positioned at different positions, enabling this will snap to the sides and
-corners of the anchor.
-Snap to Node Sides: Snaps to the node's sides, such as for the rotation pivot or anchor
-positioning.
-Snap to Node Center: Snaps to the node's center, such as for the rotation pivot or
-anchor positioning.
-Snap to Other Nodes: Snaps to other nodes while moving or scaling. Useful to align nodes
-in the editor.
-Snap to Guides: Snaps to custom guides drawn using the horizontal or vertical ruler. More
-on the ruler and guides below.
-
-
-
-- Snap to Parent: Snaps to parent's edges. For example, scaling a child control node while
-this is enabled will snap to the boundaries of the parent.
-
-- Snap to Node Anchor: Snaps to the node's anchor. For example, if anchors of a control
-node is positioned at different positions, enabling this will snap to the sides and
-corners of the anchor.
-
-- Snap to Node Sides: Snaps to the node's sides, such as for the rotation pivot or anchor
-positioning.
-
-- Snap to Node Center: Snaps to the node's center, such as for the rotation pivot or
-anchor positioning.
-
-- Snap to Other Nodes: Snaps to other nodes while moving or scaling. Useful to align nodes
-in the editor.
-
-- Snap to Guides: Snaps to custom guides drawn using the horizontal or vertical ruler. More
-on the ruler and guides below.
 
 - Snap to Parent: Snaps to parent's edges. For example, scaling a child control node while
 this is enabled will snap to the boundaries of the parent.
