@@ -172,15 +172,6 @@ Clicking on this padlock also unlocks the nodes.
 of the children are selected. Using ``Ctrl + G`` ungroups them. Additionally, clicking
 the ungroup button in the scene tree performs the same action.
 
-- **Skeleton Options**: Provides options to work with Skeleton2D and Bone2D.
-
-- Show Bones: Toggles the visibility of bones for the selected node.
-
-- Make Bone2D Node(s) from Node(s): Converts selected node(s) into Bone2D.
-
-> Seealso: To learn more about Skeletons, see <doc:cutout_animation>.
->
-
 - **View** menu: Provides options to control the viewport view. Since its options
 depend heavily on the viewport, it is covered in the <doc:introduction_to_2d#The-Viewport>
 section.
@@ -222,17 +213,22 @@ interfaces visually:
 Dragging two fingers or middle-clicking and dragging the mouse will pan the view.
 The scrollbars on the right or bottom of the viewport also move the view.
 Alternatively, the ``G`` or ``Space`` keys can be used.
-If you enable `Editor Settings > Editors > Panning > Simple Panning`, you can activate
-panning directly with ``Space`` only, without requiring dragging.
 
 
 The viewport's displayed content can be adjusted conveniently with the **Commands** tool in the tool bar.
 @Image(source: "2d_viewport_commands.png")
-**Center Selection** centers the selected node(s) in the screen. Useful if you have a large scene
-with many nodes, and want to see the node selected in the scene tree.
+- **Center Selection** centers the selected node(s) in the screen. Useful if you have a large scene
+with many nodes, and want to see the node selected in the scene tree. ``F`` is the default shortcut.
+
+- **Show Bones**: Toggles the visibility of bones for the selected node.
+
+- **Make Bone2D Node(s) from Node(s)**: Converts selected node(s) into Bone2D.
+
+> See also: To learn more about Skeletons, see <doc:cutout_animation>.
+>
 To the right of the **Commands** tool is the **Zoom Level** controls. Tap the percentage to zoom from preset options.
 Alternatively, you can use pinch to zoom or middle-mouse scrolling to zoom.
-**Zoom to Fit Content** is exposed when the **Zoom Level** menu is open. This fits all nodes of the scene together within the viewport. 
+**Zoom to Fit Content** is exposed when the **Zoom Level** menu is open. This fits all nodes of the scene together within the viewport. ``Shift + F`` is the default shortcut. 
 
 The black bars at the viewport's left and top edges are the **rulers**. You can use them to
 orient yourself in the viewport.
@@ -298,12 +294,6 @@ setting `Viewport Width` and `Viewport Height`.
 - **Gizmos**: Toggles the visibility of `Position` (shown with cross icon), `Lock`
 (shown with padlock), `Groups` (shown with two squares), and `Transformation` (shown with
 green and red lines) indicators.
-
-- **Center Selection**: The same as the **Center View** button inside the viewport. Centers the selected
-node(s) in the view. ``F`` is the default shortcut.
-
-- **Frame to Selection**: Similar to `Center Selection`, but also changes the zoom factor to fit the
-contents in the screen. ``Shift + F`` is the default shortcut.
 
 - **Clear Guides**: Deletes all guides from the screen. You will need to recreate them if
 you plan to use them later.
