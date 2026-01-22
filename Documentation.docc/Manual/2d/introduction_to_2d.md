@@ -263,12 +263,14 @@ Alternatively, the ``G`` or ``Space`` keys can be used.
 If you enable `Editor Settings > Editors > Panning > Simple Panning`, you can activate
 panning directly with ``Space`` only, without requiring dragging.
 
-The viewport has buttons on the top-left.
-**Center View** centers the selected node(s) in the screen. Useful if you have a large scene
+
+The viewport's displayed content can be adjusted conveniently with the **Commands** tool in the tool bar.
+@Image(source: "2d_viewport_commands.png")
+**Center Selection** centers the selected node(s) in the screen. Useful if you have a large scene
 with many nodes, and want to see the node selected in the scene tree.
-Next to it are the zoom controls. **-** zooms out, **+** zooms in, and clicking on the number
-with percentage defaults to 100%.
-Alternatively, you can use middle-mouse scrolling to zoom in (scroll up) and out (scroll down).
+To the right of the **Commands** tool is the **Zoom Level** controls. Tap the percentage to zoom from preset options.
+Alternatively, you can use pinch to zoom or middle-mouse scrolling to zoom.
+**Zoom to Fit Content** is exposed when the **Zoom Level** menu is open. This fits all nodes of the scene together within the viewport. 
 
 The black bars at the viewport's left and top edges are the **rulers**. You can use them to
 orient yourself in the viewport.
