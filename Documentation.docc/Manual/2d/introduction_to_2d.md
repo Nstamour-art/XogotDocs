@@ -47,7 +47,7 @@ applicable.
 Some buttons in the main toolbar are the same as those in the 3D workspace. A brief explanation
 is given with the shortcut if the mouse cursor is hovered over a button for one second.
 Some buttons may have additional functionality if another keypress is performed. A triangle may be shown below each tool, 
-indicating another tool wrapped in that button. Long pressing and selecting that tool will provide it's functionality.
+indicating another tool wrapped in that button. Long pressing and selecting that tool will provide its functionality.
 A recap of main functionality of each button with its default shortcut is provided below
 from left to right. Wrapped tools are indented under their default tool:
 
@@ -146,19 +146,6 @@ on the ruler and guides below.
 
 - **Configure Snap**: Opens the window shown above, offering a set of snapping parameters.
 
-Grid Offset: Allows you to shift grids with respect to the origin. `x` and `y` can
-be adjusted separately.
-Grid Step: The distance between each grid in pixels. `x` and `y` can be adjusted separately.
-Primary Line Every: The number of grids in-between to draw infinite lines as indication of
-main lines.
-Rotation Offset: Sets the offset to shift rotational snapping.
-Rotation Step: Defines the snapping degree. E.g., 15 means the node will rotate and snap
-at multiples of 15 degrees if rotation snap is enabled and the rotate mode is used.
-Scale Step: Determines the scaling increment factor. For example, if it is 0.1, it will
-change the scaling at 0.1 steps if scaling snap is enabled and the scaling mode is used.
-
-
-
 - Grid Offset: Allows you to shift grids with respect to the origin. `x` and `y` can
 be adjusted separately.
 
@@ -186,31 +173,6 @@ of the children are selected. Using ``Ctrl + G`` ungroups them. Additionally, cl
 the ungroup button in the scene tree performs the same action.
 
 - **Skeleton Options**: Provides options to work with Skeleton2D and Bone2D.
-
-Show Bones: Toggles the visibility of bones for the selected node.
-Make Bone2D Node(s) from Node(s): Converts selected node(s) into Bone2D.
-
-
-
-- Show Bones: Toggles the visibility of bones for the selected node.
-
-- Make Bone2D Node(s) from Node(s): Converts selected node(s) into Bone2D.
-
-- Grid Offset: Allows you to shift grids with respect to the origin. `x` and `y` can
-be adjusted separately.
-
-- Grid Step: The distance between each grid in pixels. `x` and `y` can be adjusted separately.
-
-- Primary Line Every: The number of grids in-between to draw infinite lines as indication of
-main lines.
-
-- Rotation Offset: Sets the offset to shift rotational snapping.
-
-- Rotation Step: Defines the snapping degree. E.g., 15 means the node will rotate and snap
-at multiples of 15 degrees if rotation snap is enabled and the rotate mode is used.
-
-- Scale Step: Determines the scaling increment factor. For example, if it is 0.1, it will
-change the scaling at 0.1 steps if scaling snap is enabled and the scaling mode is used.
 
 - Show Bones: Toggles the visibility of bones for the selected node.
 
