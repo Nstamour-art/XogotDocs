@@ -60,39 +60,12 @@ Contiguous memory stores imply the following operation performance:
 
 - **Iterate:** Fastest. Great for loops.
 
-
-Op: All it does is increment a counter to get to the next record.
-
-
-
-
 - Op: All it does is increment a counter to get to the next record.
 
 - **Insert, Erase, Move:** Position-dependent. Generally slow.
 
-
-Op: Adding/removing/moving content involves moving the adjacent records
-over (to make room / fill space).
-Fast add/remove from the end.
-Slow add/remove from an arbitrary position.
-Slowest add/remove from the front.
-If doing many inserts/removals from the front, then...
-
-
-invert the array.
-do a loop which executes the Array changes at the end.
-re-invert the array.
-
-
-This makes only 2 copies of the array (still constant time, but slow)
-versus copying roughly 1/2 of the array, on average, N times (linear time).
-
-
-
-
-
 - Op: Adding/removing/moving content involves moving the adjacent records
-over (to make room / fill space).
+  over (to make room / fill space).
 
 - Fast add/remove from the end.
 
@@ -102,15 +75,12 @@ over (to make room / fill space).
 
 - If doing many inserts/removals from the front, then...
 
-
 invert the array.
 do a loop which executes the Array changes at the end.
 re-invert the array.
 
-
 This makes only 2 copies of the array (still constant time, but slow)
 versus copying roughly 1/2 of the array, on average, N times (linear time).
-
 
 - invert the array.
 
@@ -122,23 +92,14 @@ versus copying roughly 1/2 of the array, on average, N times (linear time).
 but cannot specify which record you want.
 
 
-Op: 1 addition operation from array start position up to desired index.
-
-
-
-
 - Op: 1 addition operation from array start position up to desired index.
 
 - **Find:** Slowest. Identifies the index/position of a value.
 
-
-Op: Must iterate through array and compare values until one finds a match.
-
+- Op: Must iterate through array and compare values until one finds a match.
 
 Performance is also dependent on whether one needs an exhaustive
 search.
-
-
 
 If kept ordered, custom search operations can bring it to logarithmic
 time (relatively fast). Laymen users won't be comfortable with this
@@ -146,16 +107,8 @@ though. Done by re-sorting the Array after every edit and writing an
 ordered-aware search algorithm.
 
 
-
-
-- Op: Must iterate through array and compare values until one finds a match.
-
-
 Performance is also dependent on whether one needs an exhaustive
 search.
-
-
-
 
 - Performance is also dependent on whether one needs an exhaustive
 search.
@@ -168,7 +121,7 @@ ordered-aware search algorithm.
 - Op: All it does is increment a counter to get to the next record.
 
 - Op: Adding/removing/moving content involves moving the adjacent records
-over (to make room / fill space).
+  over (to make room / fill space).
 
 - Fast add/remove from the end.
 
@@ -178,15 +131,12 @@ over (to make room / fill space).
 
 - If doing many inserts/removals from the front, then...
 
-
 invert the array.
 do a loop which executes the Array changes at the end.
 re-invert the array.
 
-
 This makes only 2 copies of the array (still constant time, but slow)
 versus copying roughly 1/2 of the array, on average, N times (linear time).
-
 
 - invert the array.
 
@@ -202,14 +152,9 @@ versus copying roughly 1/2 of the array, on average, N times (linear time).
 
 - Op: 1 addition operation from array start position up to desired index.
 
-- Op: Must iterate through array and compare values until one finds a match.
-
 
 Performance is also dependent on whether one needs an exhaustive
 search.
-
-
-
 
 - Performance is also dependent on whether one needs an exhaustive
 search.
@@ -237,14 +182,10 @@ the expense of memory and some minor operational efficiency.
 
 1. Hashing every key an arbitrary number of times.
 
-
 Hash operations are constant-time, so even if an algorithm must do more
 than one, as long as the number of hash calculations doesn't become
 too dependent on the density of the table, things will stay fast.
 Which leads to...
-
-
-
 
 1. Hash operations are constant-time, so even if an algorithm must do more
 than one, as long as the number of hash calculations doesn't become
@@ -253,14 +194,10 @@ Which leads to...
 
 1. Maintaining an ever-growing size for the table.
 
-
 HashMaps maintain gaps of unused memory interspersed in the table
 on purpose to reduce hash collisions and maintain the speed of
 accesses. This is why it constantly increases in size exponentially by
 powers of 2.
-
-
-
 
 1. HashMaps maintain gaps of unused memory interspersed in the table
 on purpose to reduce hash collisions and maintain the speed of
@@ -281,119 +218,28 @@ As one might be able to tell, Dictionaries specialize in tasks that Arrays
 do not. An overview of their operational details is as follows:
 
 - **Iterate:** Fast.
-
-
-Op: Iterate over the map's internal vector of hashes. Return each key.
-Afterwards, users then use the key to jump to and return the desired
-value.
-
-
-
-
-- Op: Iterate over the map's internal vector of hashes. Return each key.
-Afterwards, users then use the key to jump to and return the desired
-value.
+  - Op: Iterate over the map's internal vector of hashes. Return each key.
+    Afterwards, users then use the key to jump to and return the desired
+    value.
 
 - **Insert, Erase, Move:** Fastest.
-
-
-Op: Hash the given key. Do 1 addition operation to look up the
-appropriate value (array start + offset). Move is two of these
-(one insert, one erase). The map must do some maintenance to preserve
-its capabilities:
-
-
-update ordered List of records.
-determine if table density mandates a need to expand table capacity.
-
-
-
-The Dictionary remembers in what
-order users inserted its keys. This enables it to execute reliable iterations.
-
-
-
-
-- Op: Hash the given key. Do 1 addition operation to look up the
-appropriate value (array start + offset). Move is two of these
-(one insert, one erase). The map must do some maintenance to preserve
-its capabilities:
-
-
-update ordered List of records.
-determine if table density mandates a need to expand table capacity.
-
-
-
-
-- update ordered List of records.
-
-- determine if table density mandates a need to expand table capacity.
-
-- The Dictionary remembers in what
-order users inserted its keys. This enables it to execute reliable iterations.
+  - Op: Hash the given key. Do 1 addition operation to look up the
+    appropriate value (array start + offset). Move is two of these
+    (one insert, one erase). The map must do some maintenance to preserve
+    its capabilities:
+    - update ordered list of records.
+    - determine if table density mandates a need to expand table capacity.
+  - The Dictionary remembers in what
+    order users inserted its keys. This enables it to execute reliable iterations.
 
 - **Get, Set:** Fastest. Same as a lookup by key.
-
-
-Op: Same as insert/erase/move.
-
-
-
-
-- Op: Same as insert/erase/move.
+  - Op: Same as insert/erase/move.
 
 - **Find:** Slowest. Identifies the key of a value.
-
-
-Op: Must iterate through records and compare the value until a match is
-found.
-Note that Godot does not provide this feature out-of-the-box (because
-they aren't meant for this task).
-
-
-
-
-- Op: Must iterate through records and compare the value until a match is
-found.
-
-- Note that Godot does not provide this feature out-of-the-box (because
-they aren't meant for this task).
-
-- Op: Iterate over the map's internal vector of hashes. Return each key.
-Afterwards, users then use the key to jump to and return the desired
-value.
-
-- Op: Hash the given key. Do 1 addition operation to look up the
-appropriate value (array start + offset). Move is two of these
-(one insert, one erase). The map must do some maintenance to preserve
-its capabilities:
-
-
-update ordered List of records.
-determine if table density mandates a need to expand table capacity.
-
-
-
-
-- update ordered List of records.
-
-- determine if table density mandates a need to expand table capacity.
-
-- The Dictionary remembers in what
-order users inserted its keys. This enables it to execute reliable iterations.
-
-- update ordered List of records.
-
-- determine if table density mandates a need to expand table capacity.
-
-- Op: Same as insert/erase/move.
-
-- Op: Must iterate through records and compare the value until a match is
-found.
-
-- Note that Godot does not provide this feature out-of-the-box (because
-they aren't meant for this task).
+  - Op: Must iterate through records and compare the value until a match is
+    found.
+  - Note that Godot does not provide this feature out-of-the-box (because
+    they aren't meant for this task).
 
 Godot implements Objects as stupid, but dynamic containers of data content.
 Objects query data sources when posed questions. For example, to answer

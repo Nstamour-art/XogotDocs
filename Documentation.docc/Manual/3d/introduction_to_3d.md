@@ -9,9 +9,7 @@ are present in both 2D and 3D versions. In fact, it is worth checking
 the 3D platformer tutorial, or the 3D kinematic character tutorials,
 which are almost identical to their 2D counterparts.
 
-@Image(source: "godot-tps-demo.png", alt: "An example 3D game demo created using Godot") {Godot Third Person Shooter (TPS) Demo, available on the
-Github repository or the
-<doc:project_manager#Downloading-Demos>.}
+@Image(source: "godot-tps-demo.png", alt: "An example 3D game demo created using Godot") {Godot Third Person Shooter (TPS) Demo, available on the Github repository or the <doc:project_manager#Downloading-Demos>.}
 
 In 3D, math is a little more complex than in 2D. For an introduction to the
 relevant math written for game developers, not mathemeticians or engineers,
@@ -98,16 +96,6 @@ for more details.
 
 - **Transform menu**: It has three options:
 
-
-Snap Object to Floor: Snaps an object to a solid floor.
-Transform Dialog: Opens a dialog to adjust transform parameters (translate, rotate, scale,
-and transform) manually.
-Snap Settings: Allows you to change transform, rotate snap (in degrees), and scale snap
-(in percent) settings.
-
-
-
-
 - Snap Object to Floor: Snaps an object to a solid floor.
 
 - Transform Dialog: Opens a dialog to adjust transform parameters (translate, rotate, scale,
@@ -117,14 +105,6 @@ and transform) manually.
 (in percent) settings.
 
 - **View menu**: Controls the view options and enables additional viewports:
-
-- Snap Object to Floor: Snaps an object to a solid floor.
-
-- Transform Dialog: Opens a dialog to adjust transform parameters (translate, rotate, scale,
-and transform) manually.
-
-- Snap Settings: Allows you to change transform, rotate snap (in degrees), and scale snap
-(in percent) settings.
 
 @Image(source: "tuto_3d6.png")
 
