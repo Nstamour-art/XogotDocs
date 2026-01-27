@@ -1,15 +1,16 @@
-<!-- Remove this line to publish to docs.xogot.com -->
 # Introduction to 2D
 
-Godot's 2D game development tools include a dedicated 2D rendering engine, physics system,
+Xogot's 2D game development tools include a dedicated 2D rendering engine, physics system,
 and features tailored specifically for creating 2D experiences. You can efficiently design
 levels with the TileMap system, animate characters with 2D sprite or Cutout animation,
 and leverage 2D lighting for dynamic scene illumination. The built-in 2D particle system
-allows you to create complex visual effects, and Godot also supports custom shaders to
+allows you to create complex visual effects, and Xogot also supports custom shaders to
 enhance your graphics. These features, combined with Godot's accessibility and
 flexibility, provide a solid foundation for creating engaging 2D games.
 
-@Image(source: "2d_platformer_demo.png") {2D Platformer Demo available on the Asset Library.}
+@Image(source: "2d_platformer_demo.png") {
+[2D Platformer Demo available on the Asset Library.](https://godotengine.org/asset-library/asset/2727)
+}
 
 This page will show you the 2D workspace and how you can get to know it.
 
@@ -25,7 +26,7 @@ or use the workspace selector located at the top edge of the editor:
 
 @Image(source: "2d_editor_viewport.png")
 
-Similar to 3D, you can use the tabs below the workspace selector to change between currently
+Use the dropdown menu to the left of the workspace selector to change between currently
 opened scenes or create a new one using the plus (+) button. The left and right docks should
 be familiar from :ref:`editor introduction <toc-editor-interface>`.
 
@@ -45,55 +46,51 @@ applicable.
 
 Some buttons in the main toolbar are the same as those in the 3D workspace. A brief explanation
 is given with the shortcut if the mouse cursor is hovered over a button for one second.
-Some buttons may have additional functionality if another keypress is performed.
+Some buttons may have additional functionality if another keypress is performed. A triangle may be shown below each tool, 
+indicating another tool wrapped in that button. Long pressing and selecting that tool will provide its functionality.
 A recap of main functionality of each button with its default shortcut is provided below
-from left to right:
+from left to right. Wrapped tools are indented under their default tool:
 
 @Image(source: "2d_toolbar.png")
 
-- **Select Mode** (``Q``): Allows selection of nodes in the viewport. Left clicking on a node
+- **Select Mode** (``Q``): Allows selection of nodes in the viewport. Tapping/left clicking on a node
 in the viewport selects it.
-Left clicking and dragging a rectangle selects all nodes within the rectangle's boundaries,
+Dragging your finger creates a rectangle that selects all nodes within the it's boundaries,
 once released.
 Holding ``Shift`` while selecting adds more nodes to the selection.
-Clicking on a selected node while holding ``Shift`` deselects the node.
+Tapping on a selected node while holding ``Shift`` deselects the node.
 In this mode, you can drag the selected node(s) to move, press ``Ctrl`` to switch to the
 rotation mode temporarily, or use the red circles to scale it. If multiple nodes are
 selected, only movement and rotation are possible. In this mode, rotation and scaling
 will not use the snapping options if snapping is enabled.
+    - **Ruler Mode**: After enabling, click on the viewport to display the current global
+    x and y coordinates. Dragging from a position to another one measures the distance in pixels.
+    If you drag diagonally, it will draw a triangle and show the separate distances in terms
+    of x, y, and total distance to the target, including the angles to the axes in degrees.
+    The ``R`` key activates the ruler. If snapping is enabled, it also displays the
+    measurements in terms of grid count:
+
+    - **Show list of selectable nodes at position clicked**: As the description suggests,
+    this provides a list of selectable nodes at the clicked position as a context menu, if
+    there is more than one node in the clicked area.
 
 - **Move Mode** (``W``): Enables move (or translate) mode for the selected nodes. See
 <doc:introduction_to_2d#The-Viewport> for more details.
 
 - **Rotate Mode** (``E``): Enables rotation mode for the selected nodes. See
 <doc:introduction_to_2d#The-Viewport> for more details.
+    - **Rotation pivot**: Sets the rotation pivot to rotate node(s) around.
+    An added node has its rotation pivot at `x: 0`, `y: 0`, by default, with
+    exceptions. For example, the default pivot for a [Sprite2D](https://docs.godotengine.org/en/stable/classes/class_sprite2d.html#class-sprite2d) is its
+    center if the `centered` property is set to `true`. If you would like to change the
+    rotation pivot of a node, select this button and choose a new location by tapping.
+    The node rotates considering this point. If you have multiple nodes selected, this icon
+    will add a temporary pivot to be used commonly by all selected nodes. Pressing ``Shift``
+    and clicking this button will create the pivot at the center of selected nodes. If any of
+    the snap options are enabled, the pivot will also snap to them when dragged.
 
 - **Scale Mode** (``S``): Enables scaling and displays scaling gizmos in both
 axes for the selected node(s). See <doc:introduction_to_2d#The-Viewport> for more details.
-
-- **Show list of selectable nodes at position clicked**: As the description suggests,
-this provides a list of selectable nodes at the clicked position as a context menu, if
-there is more than one node in the clicked area.
-
-- **Rotation pivot**: Sets the rotation pivot to rotate node(s) around.
-An added node has its rotation pivot at `x: 0`, `y: 0`, by default, with
-exceptions. For example, the default pivot for a [Sprite2D](https://docs.godotengine.org/en/stable/classes/class_sprite2d.html#class-sprite2d) is its
-center if the `centered` property is set to `true`. If you would like to change the
-rotation pivot of a node, click this button and choose a new location by left clicking.
-The node rotates considering this point. If you have multiple nodes selected, this icon
-will add a temporary pivot to be used commonly by all selected nodes. Pressing ``Shift``
-and clicking this button will create the pivot at the center of selected nodes. If any of
-the snap options are enabled, the pivot will also snap to them when dragged.
-
-- **Pan Mode** (``G``): Allows you to navigate in the viewport without accidentally selecting any nodes.
-In other modes, you can also hold ``Space`` and drag with the left mouse button to do the same.
-
-- **Ruler Mode**: After enabling, click on the viewport to display the current global
-x and y coordinates. Dragging from a position to another one measures the distance in pixels.
-If you drag diagonally, it will draw a triangle and show the separate distances in terms
-of x, y, and total distance to the target, including the angles to the axes in degrees.
-The ``R`` key activates the ruler. If snapping is enabled, it also displays the
-measurements in terms of grid count:
 
 @Image(source: "2d_ruler_with_snap.png") {Using ruler with snapping enabled.}
 
@@ -105,7 +102,7 @@ and the ruler. Customize it using the three-dot menu next to the snap tools.
 
 You can customize the grid settings so that move mode, rotate mode, scale mode, ruler,
 and rotation pivot uses snapping.
-Use the three-dot menu for this:
+Use the snap menu for this:
 
 @Image(source: "2d_snapping_options_menu.png")
 
@@ -113,53 +110,18 @@ Use the three-dot menu for this:
 
 - **Use Scale Snap**: Toggles snapping using the configured scaling step setting.
 
-- **Snap Relative**: Toggles the usage of snapping based on the selected node's current
-transform values. For example, if the grids are set to 32x32 pixels and if the selected node
-is located at `x: 1, y: 1`, then, enabling this option will temporarily shift the grids by
-`x: 1, y: 1`.
-
 - **Use Pixel Snap**: Toggles the use of subpixels for snapping. If enabled, the position values
 will be integers, disabling will enable subpixel movement as decimal values. For the runtime
 property, consider checking `Project Settings > Rendering > 2D > Snapping` property for
 Node2D nodes, and `Project Settings > GUI > General > Snap Controls to Pixels` for
 Control nodes.
 
+- **Snap Relative**: Toggles the usage of snapping based on the selected node's current
+transform values. For example, if the grids are set to 32x32 pixels and if the selected node
+is located at `x: 1, y: 1`, then, enabling this option will temporarily shift the grids by
+`x: 1, y: 1`.
+
 - **Smart Snapping**: Provides a set of options to snap to specific positions if they are enabled:
-
-Snap to Parent: Snaps to parent's edges. For example, scaling a child control node while
-this is enabled will snap to the boundaries of the parent.
-Snap to Node Anchor: Snaps to the node's anchor. For example, if anchors of a control
-node is positioned at different positions, enabling this will snap to the sides and
-corners of the anchor.
-Snap to Node Sides: Snaps to the node's sides, such as for the rotation pivot or anchor
-positioning.
-Snap to Node Center: Snaps to the node's center, such as for the rotation pivot or
-anchor positioning.
-Snap to Other Nodes: Snaps to other nodes while moving or scaling. Useful to align nodes
-in the editor.
-Snap to Guides: Snaps to custom guides drawn using the horizontal or vertical ruler. More
-on the ruler and guides below.
-
-
-
-- Snap to Parent: Snaps to parent's edges. For example, scaling a child control node while
-this is enabled will snap to the boundaries of the parent.
-
-- Snap to Node Anchor: Snaps to the node's anchor. For example, if anchors of a control
-node is positioned at different positions, enabling this will snap to the sides and
-corners of the anchor.
-
-- Snap to Node Sides: Snaps to the node's sides, such as for the rotation pivot or anchor
-positioning.
-
-- Snap to Node Center: Snaps to the node's center, such as for the rotation pivot or
-anchor positioning.
-
-- Snap to Other Nodes: Snaps to other nodes while moving or scaling. Useful to align nodes
-in the editor.
-
-- Snap to Guides: Snaps to custom guides drawn using the horizontal or vertical ruler. More
-on the ruler and guides below.
 
 - Snap to Parent: Snaps to parent's edges. For example, scaling a child control node while
 this is enabled will snap to the boundaries of the parent.
@@ -183,19 +145,6 @@ on the ruler and guides below.
 @Image(source: "2d_snapping_options.png")
 
 - **Configure Snap**: Opens the window shown above, offering a set of snapping parameters.
-
-Grid Offset: Allows you to shift grids with respect to the origin. `x` and `y` can
-be adjusted separately.
-Grid Step: The distance between each grid in pixels. `x` and `y` can be adjusted separately.
-Primary Line Every: The number of grids in-between to draw infinite lines as indication of
-main lines.
-Rotation Offset: Sets the offset to shift rotational snapping.
-Rotation Step: Defines the snapping degree. E.g., 15 means the node will rotate and snap
-at multiples of 15 degrees if rotation snap is enabled and the rotate mode is used.
-Scale Step: Determines the scaling increment factor. For example, if it is 0.1, it will
-change the scaling at 0.1 steps if scaling snap is enabled and the scaling mode is used.
-
-
 
 - Grid Offset: Allows you to shift grids with respect to the origin. `x` and `y` can
 be adjusted separately.
@@ -222,40 +171,6 @@ Clicking on this padlock also unlocks the nodes.
 - **Group selected nodes** (``Ctrl + G``). This allows selection of the root node if any
 of the children are selected. Using ``Ctrl + G`` ungroups them. Additionally, clicking
 the ungroup button in the scene tree performs the same action.
-
-- **Skeleton Options**: Provides options to work with Skeleton2D and Bone2D.
-
-Show Bones: Toggles the visibility of bones for the selected node.
-Make Bone2D Node(s) from Node(s): Converts selected node(s) into Bone2D.
-
-
-
-- Show Bones: Toggles the visibility of bones for the selected node.
-
-- Make Bone2D Node(s) from Node(s): Converts selected node(s) into Bone2D.
-
-- Grid Offset: Allows you to shift grids with respect to the origin. `x` and `y` can
-be adjusted separately.
-
-- Grid Step: The distance between each grid in pixels. `x` and `y` can be adjusted separately.
-
-- Primary Line Every: The number of grids in-between to draw infinite lines as indication of
-main lines.
-
-- Rotation Offset: Sets the offset to shift rotational snapping.
-
-- Rotation Step: Defines the snapping degree. E.g., 15 means the node will rotate and snap
-at multiples of 15 degrees if rotation snap is enabled and the rotate mode is used.
-
-- Scale Step: Determines the scaling increment factor. For example, if it is 0.1, it will
-change the scaling at 0.1 steps if scaling snap is enabled and the scaling mode is used.
-
-- Show Bones: Toggles the visibility of bones for the selected node.
-
-- Make Bone2D Node(s) from Node(s): Converts selected node(s) into Bone2D.
-
-> Seealso: To learn more about Skeletons, see <doc:cutout_animation>.
->
 
 - **View** menu: Provides options to control the viewport view. Since its options
 depend heavily on the viewport, it is covered in the <doc:introduction_to_2d#The-Viewport>
@@ -295,18 +210,25 @@ interfaces visually:
 
 @Image(source: "2d_editor_viewport_with_viewmenu.png")
 
-Middle-clicking and dragging the mouse will pan the view.
+Dragging two fingers or middle-clicking and dragging the mouse will pan the view.
 The scrollbars on the right or bottom of the viewport also move the view.
 Alternatively, the ``G`` or ``Space`` keys can be used.
-If you enable `Editor Settings > Editors > Panning > Simple Panning`, you can activate
-panning directly with ``Space`` only, without requiring dragging.
 
-The viewport has buttons on the top-left.
-**Center View** centers the selected node(s) in the screen. Useful if you have a large scene
-with many nodes, and want to see the node selected in the scene tree.
-Next to it are the zoom controls. **-** zooms out, **+** zooms in, and clicking on the number
-with percentage defaults to 100%.
-Alternatively, you can use middle-mouse scrolling to zoom in (scroll up) and out (scroll down).
+
+The viewport's displayed content can be adjusted conveniently with the **Commands** tool in the tool bar.
+@Image(source: "2d_viewport_commands.png")
+- **Center Selection** centers the selected node(s) in the screen. Useful if you have a large scene
+with many nodes, and want to see the node selected in the scene tree. ``F`` is the default shortcut.
+
+- **Show Bones**: Toggles the visibility of bones for the selected node.
+
+- **Make Bone2D Node(s) from Node(s)**: Converts selected node(s) into Bone2D.
+
+> See also: To learn more about Skeletons, see <doc:cutout_animation>.
+>
+To the right of the **Commands** tool is the **Zoom Level** controls. Tap the percentage to zoom from preset options.
+Alternatively, you can use pinch to zoom or middle-mouse scrolling to zoom.
+**Zoom to Fit Content** is exposed when the **Zoom Level** menu is open. This fits all nodes of the scene together within the viewport. ``Shift + F`` is the default shortcut. 
 
 The black bars at the viewport's left and top edges are the **rulers**. You can use them to
 orient yourself in the viewport.
@@ -322,7 +244,7 @@ nodes with them:
 
 If you have at least one node in the scene, you can create guides by dragging from the horizontal
 or vertical ruler towards the viewport. A purple guide will appear, showing its position, and will
-remain there when you release the mouse. You can create both horizontal and vertical guides
+remain there when you release your finger or the mouse. You can create both horizontal and vertical guides
 simultaneously by dragging from the gray square at the rulers' intersection. Guides can be
 repositioned by dragging them back to their respective rulers, and they can be removed by
 dragging them all the way back to the ruler.
@@ -334,7 +256,7 @@ You can also enable snapping to the created guides using the `Smart Snap` menu.
 > by default. Also, make sure you have at least one node in the scene.
 >
 
-Depending on the tool chosen in the toolbar, left-clicking will have a primary action in the
+Depending on the tool chosen in the toolbar, tapping/left-clicking will have a primary action in the
 viewport.
 For example, the `Select Mode` will select the left-clicked node in the viewport.
 Sometimes, left-clicking can be combined with a modifier (e.g., ``Ctrl``, or ``Shift``) to
@@ -342,9 +264,9 @@ perform secondary actions.
 For example, keeping ``Shift`` pressed while dragging a node in the Select or Move modes will
 try to snap the node in a single axis while moving.
 
-Right clicking in the viewport provides two options to create a node or instantiate a scene
+Right clicking or long pressing in the viewport provides two options to create a node or instantiate a scene
 at the chosen position.
-If at least one node is selected, right clicking also provides the option to move the selected
+If at least one node is selected, long pressing also provides the option to move the selected
 node(s) to this position.
 
 Viewport has a **View** menu which provides several options to change the look of the viewport:
@@ -373,12 +295,6 @@ setting `Viewport Width` and `Viewport Height`.
 (shown with padlock), `Groups` (shown with two squares), and `Transformation` (shown with
 green and red lines) indicators.
 
-- **Center Selection**: The same as the **Center View** button inside the viewport. Centers the selected
-node(s) in the view. ``F`` is the default shortcut.
-
-- **Frame to Selection**: Similar to `Center Selection`, but also changes the zoom factor to fit the
-contents in the screen. ``Shift + F`` is the default shortcut.
-
 - **Clear Guides**: Deletes all guides from the screen. You will need to recreate them if
 you plan to use them later.
 
@@ -397,6 +313,6 @@ for everything GUI. For 3D, Godot uses the [Node3D](https://docs.godotengine.org
 
 ## 3D in 2D
 
-It is possible to display 3D scenes in 2D screen, You can see this in the demo 3D in 2D Viewport.
+It is possible to display 3D scenes in 2D screen, [You can see this in the demo 3D in 2D Viewport.](https://godotengine.org/asset-library/asset/2804)
 
 @Image(source: "3d_in_2d_demo_editor.png")
