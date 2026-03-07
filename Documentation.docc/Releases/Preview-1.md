@@ -2,9 +2,63 @@
 
 Release notes for our preview release of Xogot to TestFlight.
 
-# Releases
+## Release
 
-## Build 
+### Improvements
+
+* Native Theme Editor is now available - we would love your early testing!
+
+* Switch the subscription page from StoreKit to RevenueCat, and would love your
+  feedback!
+
+* More work on reducing battery usage when idling (Godot PR 117113, onion
+  animation only uses time if enabled, audio is paused when not in use).
+
+* Supports running games on iPad in full screen, without launching a separate
+  window (#2323)
+
+* We now track Godot's editor unfolding rules more closely (#2322)
+
+### Fixes
+
+* Fix AnimationTree: Add node popover sometimes misplaced (#2304, Discord),
+
+
+## Releases 3879
+
+### Improvements
+
+* AnimationPlayer: now supports Onion Skinning (#1015)
+
+* Improves some confirmation dialog UI, they were too tight (#2292)
+
+* Added support for @icon(#path) annotations (#2305, Discord).
+
+* Additional optimizations to reduce the battery consumption while idling.
+
+## Build 3855/Beta 448
+
+### Improvements
+
+* Added support for the AnimationPlayerEditor dummy playback, to integrate with
+  AnimationTree and hooked up various signals so we get the same interactive
+  features of Godot (#1026, #1567)
+
+* Been hard at work to improve the performance of Xogot and make it feel
+  snappier, lots of fixes from profiling and tuning.
+
+* Identified various idle tasks in Godot that were burning battery and CPU when
+  idling, those have been removed.   You can follow our contributions here:
+  https://github.com/godotengine/godot/issues/116845
+   
+### Fixes
+
+* Fixes a crash in the wild with the Skeleton3D editor when dragging other nodes
+  into it, this is a Godot bug,
+  reported upstream: godotengine/godot#116670
+
+
+## Build #3835
 
 This is a bug fix release, no user visible changes - but importantly, it
 contains internal refactors in preparation for a Mac release.
