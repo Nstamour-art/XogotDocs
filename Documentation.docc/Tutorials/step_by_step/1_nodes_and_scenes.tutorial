@@ -66,9 +66,9 @@
         @ContentAndMedia {
             In an empty scene, the Scene dock on the left shows several options to add a
             root node quickly: 
-            * 2D Scene adds a [`Node2D`](https://docs.godotengine.org/en/stable/classes/class_Node2D.html#class-Node2D) node
-            * 3D Scene adds a [`Node3D`](https://docs.godotengine.org/en/stable/classes/class_Node3D.html#class-Node3D) node,
-            * User Interface adds a [`Control`](https://docs.godotengine.org/en/stable/classes/class_Control.html#class-Control) node
+            * 2D Scene adds a [`Node2D`](https://docs.godotengine.org/en/stable/classes/class_node2d.html#class-node2d) node
+            * 3D Scene adds a [`Node3D`](https://docs.godotengine.org/en/stable/classes/class_node3d.html#class-node3d) node,
+            * User Interface adds a [`Control`](https://docs.godotengine.org/en/stable/classes/class_control.html#class-control) node
             
             These presets are here for convenience; they are not mandatory.
             Other Node lets you select any node to be the root node.
@@ -77,7 +77,7 @@
             button at the top-left of the Scene dock.
             }
         @Steps {
-            We're going to add a single [`Label`](https://docs.godotengine.org/en/stable/classes/class_Label.html#class-Label) node to our scene. Its function is to draw
+            We're going to add a single [`Label`](https://docs.godotengine.org/en/stable/classes/class_label.html#class-label) node to our scene. Its function is to draw
             text on the screen.
             @Step {
                 Press the **Add Child Node** button or **Other Node** to create a
